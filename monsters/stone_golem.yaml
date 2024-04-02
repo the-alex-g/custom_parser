@@ -1,0 +1,13 @@
+name: stone golem
+size: m
+type: construct
+hardness: 3
+bonuses:
+ str: 3
+ dex: -2
+ lor: -4
+ wis: -4
+ cha: -4
+speed: 5
+attack:
+- 2d6 bludgeoning (slam)

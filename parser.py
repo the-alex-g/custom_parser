@@ -73,8 +73,8 @@ PREAMBLE = """\\documentclass[letterpaper, 12pt, twocolumn]{book}
 CONCLUSION = "\\end{document}"
 
 
-def calculate_health(size, con):
-    return str((6 + con) * SIZE_NUMBERS[size])
+def calculate_health(size, con, hardness):
+    return str((6 + con + hardness) * SIZE_NUMBERS[size])
 
 
 def bold(string):
@@ -83,13 +83,6 @@ def bold(string):
 
 def sectionheader(string):
     return "\\sectionheader{" + string + "}"
-
-
-def get_bonuses(scores):
-    bonuses = {}
-    for stat in scores:
-        bonuses[stat] = SCORE_TO_BONUS[scores[stat]]
-    return bonuses
 
 
 def create_title_line(monster):
@@ -102,29 +95,13 @@ def create_title_line(monster):
     return bold(name) + "---" + size + " " + monster_type + ", " + alignment
 
 
-def format_score(stat, score, size):
-    string = stat.upper()
-    special = 0
-    if stat == "str":
-        special = STR_SIZE_MOD[size]
-    string += " " + str(score)
-    if special != 0:
-        string += pp.format_bonus(special)
-    string += " (" + pp.format_bonus(SCORE_TO_BONUS[score] + special) + ")"
-    return string
-
-
-def create_stat_block(bonuses, size):
+def create_stat_block(bonuses, size, hardness):
     string = ""
     linelength = 0
-    if STR_SIZE_MOD[size] != 0:
-        string += sectionheader("Str")
-        str_bonus = STR_SIZE_MOD[size]
-        if "str" in bonuses:
-            str_bonus += bonuses["str"]
-            string += pp.format_bonus(bonuses["str"]) + " "
-        string += "(" + pp.format_bonus(str_bonus) + ")"
-        del bonuses["str"]
+    if STR_SIZE_MOD[size] != 0 and not "str" in bonuses:
+        bonuses["str"] = 0
+    if hardness != 0 and not "con" in bonuses:
+        bonuses["con"] = 0
     for ability in ABILITIES:
         if ability in bonuses:
             if len(string) > 100 + linelength:
@@ -132,7 +109,18 @@ def create_stat_block(bonuses, size):
                 linelength = len(string)
             elif string != "":
                 string += LINEDIVIDE
-            string += sectionheader(ability.title()) + pp.format_bonus(bonuses[ability])
+            string += sectionheader(ability.title())
+            special_bonus = 0
+            if ability == "str" and STR_SIZE_MOD[size] != 0:
+                special_bonus = STR_SIZE_MOD[size]
+            elif ability == "con" and hardness != 0:
+                special_bonus = hardness
+            if bonuses[ability] != 0:
+                string += pp.format_bonus(bonuses[ability])
+                if special_bonus != 0:
+                    string += " (" + pp.format_bonus(bonuses[ability] + special_bonus) + ")"
+            elif special_bonus != 0:
+                string += pp.format_bonus(special_bonus)
     return string
             
 
@@ -177,10 +165,14 @@ def create_special_block(specials):
 def create_monster(monster):
     bonuses = monster["bonuses"]
     size = monster["size"]
+    hardness = pp.get_key_if_exists(monster, "hardness", 0)
     string = create_title_line(monster) + NEWLINE
-    string += create_stat_block(bonuses, size) + NEWLINE
-    string += sectionheader("Health") + calculate_health(size, pp.get_key_if_exists(bonuses, "con", 0)) + LINEDIVIDE
-    string += sectionheader("Arm") + str(pp.get_key_if_exists(monster, "armor", 0)) + LINEDIVIDE
+    string += create_stat_block(bonuses, size, hardness) + NEWLINE
+    string += sectionheader("Health") + calculate_health(
+        size,
+        pp.get_key_if_exists(bonuses, "con", 0),
+        hardness) + LINEDIVIDE
+    string += sectionheader("Arm") + str(pp.get_key_if_exists(monster, "armor", 0) + hardness) + LINEDIVIDE
     string += sectionheader("Evd") + create_evd(pp.get_key_if_exists(bonuses, "dex", 0), pp.get_key_if_exists(bonuses, "evd", 0), size) + LINEDIVIDE
     string += sectionheader("Spd") + str(monster["speed"]) + NEWLINE
 
