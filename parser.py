@@ -1,5 +1,6 @@
 import yaml
 import parser_utility as pp
+import os
 
 SCORE_TO_BONUS = {
     1:-4,
@@ -56,15 +57,18 @@ STR_SIZE_MOD = {
     "s":-1,
     "t":-2
 }
+ABILITIES = ["str", "dex", "con", "lor", "ins", "cha"]
 ATTACK_LIST_OPERATORS = ["AND", "OR", "and", "or"]
 NEWLINE = "\\\\"
+LINEDIVIDE = "\\linedivide"
+LINEBREAK = "\\bigskip"
 PREAMBLE = """\\documentclass[letterpaper, 12pt, twocolumn]{book}
 \\usepackage{ragged2e}
 \\usepackage[left=0.5in, right=0.5in, top=1in, bottom=1in]{geometry}
 \\usepackage{graphicx}
 \\def\\halfline{\\makebox[\\columnwidth]{\\rule{3.7in}{0.4pt}}\\\\}
-\\def\protlinesep{, }
-\\def\sectionheader#1{\\textsc{#1: }}
+\\def\\linedivide{, }
+\\def\\sectionheader#1{\\textbf{#1: }}
 \\begin{document}\\RaggedRight"""
 CONCLUSION = "\\end{document}"
 
@@ -75,6 +79,10 @@ def calculate_health(size, con):
 
 def bold(string):
     return "\\textbf{" + string + "}"
+
+
+def sectionheader(string):
+    return "\\sectionheader{" + string + "}"
 
 
 def get_bonuses(scores):
@@ -106,15 +114,27 @@ def format_score(stat, score, size):
     return string
 
 
-def create_stat_block(scores, size):
-    string = "\\begin{footnotesize}\\begin{tabular}{@{}lll}"
-    for stat in scores:
-        string += format_score(stat, scores[stat], size)
-        if stat == "con":
-            string += NEWLINE
-        elif stat != "cha":
-            string += "&"
-    return string + "\\end{tabular}\\end{footnotesize}"
+def create_stat_block(bonuses, size):
+    string = ""
+    linelength = 0
+    if STR_SIZE_MOD[size] != 0:
+        string += sectionheader("Str")
+        str_bonus = STR_SIZE_MOD[size]
+        if "str" in bonuses:
+            str_bonus += bonuses["str"]
+            string += pp.format_bonus(bonuses["str"]) + " "
+        string += "(" + pp.format_bonus(str_bonus) + ")"
+        del bonuses["str"]
+    for ability in ABILITIES:
+        if ability in bonuses:
+            if len(string) > 100 + linelength:
+                string += NEWLINE
+                linelength = len(string)
+            elif string != "":
+                string += LINEDIVIDE
+            string += sectionheader(ability.title()) + pp.format_bonus(bonuses[ability])
+    return string
+            
 
 
 def create_attack_list(attacks):
@@ -130,12 +150,13 @@ def create_attack_list(attacks):
     return string
 
 
-def create_evd(dex_bonus, size):
+def create_evd(dex_bonus, evd_bonus, size):
     string = ""
-    if EVD_SIZE_MOD[size] != 0:
-        string += pp.format_bonus(EVD_SIZE_MOD[size]) + " ("
-    string += str(10 + dex_bonus + EVD_SIZE_MOD[size])
-    if EVD_SIZE_MOD[size] != 0:
+    evd_bonus += EVD_SIZE_MOD[size]
+    if evd_bonus != 0:
+        string += pp.format_bonus(evd_bonus) + " ("
+    string += str(10 + dex_bonus + evd_bonus)
+    if evd_bonus != 0:
         string += ")"
     return string
 
@@ -154,42 +175,67 @@ def create_special_block(specials):
 
 
 def create_monster(monster):
-    scores = monster["scores"]
-    bonuses = get_bonuses(scores)
+    bonuses = monster["bonuses"]
     size = monster["size"]
     string = create_title_line(monster) + NEWLINE
-    string += create_stat_block(scores, size) + NEWLINE
-    string += "\\sectionheader{Health}" + calculate_health(size, bonuses["con"]) + "\\protlinesep"
-    string += "\\sectionheader{Arm}" + str(pp.get_key_if_exists(monster, "armor", 0)) + "\\protlinesep"
-    string += "\\sectionheader{Evd}" + create_evd(bonuses["dex"], size) + "\\protlinesep"
-    string += "\\sectionheader{Spd}" + str(monster["speed"]) + NEWLINE
+    string += create_stat_block(bonuses, size) + NEWLINE
+    string += sectionheader("Health") + calculate_health(size, pp.get_key_if_exists(bonuses, "con", 0)) + LINEDIVIDE
+    string += sectionheader("Arm") + str(pp.get_key_if_exists(monster, "armor", 0)) + LINEDIVIDE
+    string += sectionheader("Evd") + create_evd(pp.get_key_if_exists(bonuses, "dex", 0), pp.get_key_if_exists(bonuses, "evd", 0), size) + LINEDIVIDE
+    string += sectionheader("Spd") + str(monster["speed"]) + NEWLINE
 
     if "immune" in monster:
-        string += "\\sectionheader{Immune}" + get_dmg_attributes(monster["immune"]) + NEWLINE
+        string += sectionheader("Immune") + get_dmg_attributes(monster["immune"]) + NEWLINE
 
     if "resist" in monster:
-        string += "\\sectionheader{Resist}" + get_dmg_attributes(monster["resist"]) + NEWLINE
+        string += sectionheader("Resist") + get_dmg_attributes(monster["resist"]) + NEWLINE
 
     if "vulnerable" in monster:
-        string += "\\sectionheader{Vulnerable}" + get_dmg_attributes(monster["vulnerable"]) + NEWLINE
+        string += sectionheader("Vulnerable") + get_dmg_attributes(monster["vulnerable"]) + NEWLINE
 
     if "attack" in monster:
-        string += "\\sectionheader{Attack}" + create_attack_list(monster["attack"]) + NEWLINE
+        string += sectionheader("Attack") + create_attack_list(monster["attack"]) + NEWLINE
 
     if "special" in monster:
-        string += "\\sectionheader{Special}" + create_special_block(monster["special"]) + NEWLINE
-    return string
+        string += sectionheader("Special") + create_special_block(monster["special"]) + NEWLINE
+    return string + LINEBREAK
 
 
-def create_doc(filecontents):
+def create_doc():
     latexfile = open("monsters.tex", "w")
-    #latexfile.write(PREAMBLE)
-    latexfile.write(create_monster(filecontents))
-    #latexfile.write(CONCLUSION)
+    latexfile.write(PREAMBLE)
+    
+    monster_name_dict= {}
+    for monster in get_yaml_from_directory("monsters"):
+        monster_name_dict[monster["name"]] = monster
+    for monster_name in sorted(monster_name_dict):
+        latexfile.write(create_monster(monster_name_dict[monster_name]))
+    
+    latexfile.write(CONCLUSION)
 
 
-with open("test.yaml") as stream:
-    try:
-        create_doc(yaml.safe_load(stream))
-    except yaml.YAMLError as err:
-        print(err)
+def open_yaml(filepath):
+    print("loading", filepath)
+    with open(filepath) as stream:
+        try:
+            return yaml.safe_load(stream)
+        except yaml.YAMLError as err:
+            print(err)
+
+
+def get_yaml_from_directory(dirname):
+    yaml_list = []
+    if os.path.isdir(dirname):
+        for item in os.listdir(dirname):
+            path = os.path.join(dirname, item)
+            if os.path.isfile(path):
+                yaml_list.append(open_yaml(path))
+            elif os.path.isdir(path):
+                for yaml_dict in get_yaml_from_directory(path):
+                    yaml_list.append(yaml_dict)
+    else:
+        print("ERROR:", dirname, "is not a directory!")
+    return yaml_list
+
+
+create_doc()

@@ -1,0 +1,17 @@
+name: wraith
+size: m
+type: undead
+alignment: ne
+bonuses:
+ dex: 1
+ con: 2
+ lor: 1
+ ins: 1
+speed: 5
+attack:
+- OR
+- 1d6 unholy (drain)
+- 1d8 slashing (longsword)
+special:
+- The wraith adds its Con bonus to its damage for drain attacks instead of its str.
+- The wraith heals one every time it deals unholy damage.

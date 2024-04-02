@@ -1,0 +1,16 @@
+name: troll
+size: l
+type: giant
+alignment: ne
+bonuses:
+ str: 1
+ con: 1
+ lor: -2
+ ins: -1
+ cha: -1
+speed: 5
+attack:
+- OR
+- 1d8 bludgeoning (club)
+- 1d6 bludgeoning (fist)
+- 1d6 bludgeoning (boulder, range 10/20)
