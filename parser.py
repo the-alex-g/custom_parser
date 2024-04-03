@@ -92,7 +92,7 @@ def create_title_line(monster):
     alignment = ALIGNMENT_SPELLOUTS[pp.get_key_if_exists(monster, "alignment", "u")]
     if "tags" in monster:
         monster_type += " (" + pp.comma_separate(monster["tags"]) + ")"
-    return bold(name) + "---" + size + " " + monster_type + ", " + alignment
+    return bold(name) + "---\\key{" + size + " " + monster_type + ", " + alignment + "}"
 
 
 def create_stat_block(bonuses, size, hardness):
@@ -115,12 +115,9 @@ def create_stat_block(bonuses, size, hardness):
                 special_bonus = STR_SIZE_MOD[size]
             elif ability == "con" and hardness != 0:
                 special_bonus = hardness
-            if bonuses[ability] != 0:
-                string += pp.format_bonus(bonuses[ability])
-                if special_bonus != 0:
-                    string += " (" + pp.format_bonus(bonuses[ability] + special_bonus) + ")"
-            elif special_bonus != 0:
-                string += pp.format_bonus(special_bonus)
+            string += pp.format_bonus(bonuses[ability])
+            if special_bonus != 0:
+                string += " (" + pp.format_bonus(bonuses[ability] + special_bonus) + ")"
     return string
             
 
@@ -162,6 +159,10 @@ def create_special_block(specials):
     return string
 
 
+def create_key_list(keys):
+    return "\\key{" + pp.comma_separate(keys, linelength=100, offset=5) + "}"
+
+
 def create_monster(monster):
     bonuses = monster["bonuses"]
     size = monster["size"]
@@ -188,6 +189,9 @@ def create_monster(monster):
     if "attack" in monster:
         string += sectionheader("Attack") + create_attack_list(monster["attack"]) + NEWLINE
 
+    if "keys" in monster:
+        string += sectionheader("Keys") + create_key_list(monster["keys"]) + NEWLINE
+
     if "special" in monster:
         string += sectionheader("Special") + create_special_block(monster["special"]) + NEWLINE
     return string + LINEBREAK
@@ -195,7 +199,7 @@ def create_monster(monster):
 
 def create_doc():
     latexfile = open("monsters.tex", "w")
-    latexfile.write(PREAMBLE)
+    latexfile.write(get_latex_file_contents("tex/preamble.tex"))
     
     monster_name_dict= {}
     for monster in get_yaml_from_directory("monsters"):
@@ -203,7 +207,8 @@ def create_doc():
     for monster_name in sorted(monster_name_dict):
         latexfile.write(create_monster(monster_name_dict[monster_name]))
     
-    latexfile.write(CONCLUSION)
+    latexfile.write(get_latex_file_contents("tex/conclusion.tex"))
+    latexfile.close()
 
 
 def open_yaml(filepath):
@@ -228,6 +233,10 @@ def get_yaml_from_directory(dirname):
     else:
         print("ERROR:", dirname, "is not a directory!")
     return yaml_list
+
+
+def get_latex_file_contents(filename):
+    return pp.separate(open(filename).readlines())
 
 
 create_doc()

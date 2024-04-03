@@ -8,6 +8,9 @@ bonuses:
  lor: 1
  ins: 1
 speed: 5
+keys:
+- incorporeal
+- sunlight weakness
 attack:
 - OR
 - 1d6 unholy (drain)

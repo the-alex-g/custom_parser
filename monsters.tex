@@ -1,8 +1,10 @@
 \documentclass[letterpaper, 12pt, twocolumn]{book}
-\usepackage{ragged2e}
-\usepackage[left=0.5in, right=0.5in, top=1in, bottom=1in]{geometry}
-\usepackage{graphicx}
-\def\halfline{\makebox[\columnwidth]{\rule{3.7in}{0.4pt}}\\}
-\def\linedivide{, }
-\def\sectionheader#1{\textbf{#1: }}
-\begin{document}\RaggedRight\textbf{STONE GOLEM}---medium construct, unaligned\\\sectionheader{Str}+3\linedivide\sectionheader{Dex}-2\linedivide\sectionheader{Con}+3\linedivide\sectionheader{Lor}-4\\\sectionheader{Cha}-4\\\sectionheader{Health}18\linedivide\sectionheader{Arm}3\linedivide\sectionheader{Evd}8\linedivide\sectionheader{Spd}5\\\sectionheader{Attack}2d6 bludgeoning (slam)\\\bigskip\textbf{TROLL}---large giant, neutral evil\\\sectionheader{Str}+1 (+2)\linedivide\sectionheader{Con}+1\linedivide\sectionheader{Lor}-2\linedivide\sectionheader{Ins}-1\\\sectionheader{Cha}-1\\\sectionheader{Health}28\linedivide\sectionheader{Arm}0\linedivide\sectionheader{Evd}-1 (9)\linedivide\sectionheader{Spd}5\\\sectionheader{Attack}1d8 bludgeoning (club) OR 1d6 bludgeoning (fist) OR 1d6 bludgeoning (boulder, range 10/20)\\\bigskip\textbf{WRAITH}---medium undead, neutral evil\\\sectionheader{Dex}+1\linedivide\sectionheader{Con}+2\linedivide\sectionheader{Lor}+1\linedivide\sectionheader{Ins}+1\\\sectionheader{Health}16\linedivide\sectionheader{Arm}0\linedivide\sectionheader{Evd}11\linedivide\sectionheader{Spd}5\\\sectionheader{Attack}1d6 unholy (drain) OR 1d8 slashing (longsword)\\\sectionheader{Special}The wraith adds its Con bonus to damage for drain attacks instead of its Str.\\The wraith heals one every time it deals unholy damage.\\\bigskip\end{document}
+ \usepackage{ragged2e}
+ \usepackage[left=0.5in, right=0.5in, top=1in, bottom=1in]{geometry}
+ \usepackage{graphicx}
+ \def\halfline{\makebox[\columnwidth]{\rule{3.7in}{0.4pt}}\\}
+ \def\linedivide{, }
+ \def\sectionheader#1{\textbf{#1: }}
+ \def\key#1{\textsc{#1}}
+ \begin{document}
+ \RaggedRight\textbf{STONE GOLEM}---\key{medium construct, unaligned}\\\sectionheader{Str}+3\linedivide\sectionheader{Dex}-2\linedivide\sectionheader{Con}+0 (+3)\linedivide\sectionheader{Lor}-4\\\sectionheader{Cha}-4\\\sectionheader{Health}18\linedivide\sectionheader{Arm}3\linedivide\sectionheader{Evd}8\linedivide\sectionheader{Spd}5\\\sectionheader{Attack}2x 1d6 bludgeoning (slam)\\\bigskip\textbf{TROLL}---\key{large giant, neutral evil}\\\sectionheader{Str}+3 (+4)\linedivide\sectionheader{Con}+1\linedivide\sectionheader{Lor}-2\linedivide\sectionheader{Ins}-1\\\sectionheader{Cha}-1\\\sectionheader{Health}28\linedivide\sectionheader{Arm}0\linedivide\sectionheader{Evd}-1 (9)\linedivide\sectionheader{Spd}5\\\sectionheader{Attack}1d8 bludgeoning (club) OR 1d6 bludgeoning (fist) OR 1d6 bludgeoning (boulder, range 10/20)\\\bigskip\textbf{WRAITH}---\key{medium undead, neutral evil}\\\sectionheader{Dex}+1\linedivide\sectionheader{Con}+2\linedivide\sectionheader{Lor}+1\linedivide\sectionheader{Ins}+1\\\sectionheader{Health}16\linedivide\sectionheader{Arm}0\linedivide\sectionheader{Evd}11\linedivide\sectionheader{Spd}5\\\sectionheader{Attack}1d6 unholy (drain) OR 1d8 slashing (longsword)\\\sectionheader{Keys}\key{incorporeal, sunlight weakness}\\\sectionheader{Special}The wraith adds its Con bonus to damage for drain attacks instead of its Str.\\The wraith heals one every time it deals unholy damage.\\\bigskip\end{document}

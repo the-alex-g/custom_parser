@@ -3,7 +3,7 @@ size: l
 type: giant
 alignment: ne
 bonuses:
- str: 1
+ str: 3
  con: 1
  lor: -2
  ins: -1

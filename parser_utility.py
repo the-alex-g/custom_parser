@@ -1,18 +1,21 @@
 from math import floor
 
 # Return array as string with each item separated by a given sequence
-def separate(array, spacer=" "):
+def separate(array, spacer=" ", linelength=-1, offset=0):
     string = ""
     for item in array:
-        if string != "":
+        if linelength > 0 and len(string) > linelength - offset:
+            string += "\\\\"
+            linelength += len(string)
+        elif string != "":
             string += spacer
         string += str(item)
     return string
 
 
 # Returns array as string with each item separated by a comma
-def comma_separate(array):
-    return separate(array, spacer=", ")
+def comma_separate(array, linelength=-1, offset=0):
+    return separate(array, spacer=", ", linelength=linelength, offset=offset)
 
 
 # Returns a number as a string with proper sign indication
