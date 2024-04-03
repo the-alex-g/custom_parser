@@ -62,15 +62,7 @@ ATTACK_LIST_OPERATORS = ["AND", "OR", "and", "or"]
 NEWLINE = "\\\\"
 LINEDIVIDE = "\\linedivide"
 LINEBREAK = "\\bigskip"
-PREAMBLE = """\\documentclass[letterpaper, 12pt, twocolumn]{book}
-\\usepackage{ragged2e}
-\\usepackage[left=0.5in, right=0.5in, top=1in, bottom=1in]{geometry}
-\\usepackage{graphicx}
-\\def\\halfline{\\makebox[\\columnwidth]{\\rule{3.7in}{0.4pt}}\\\\}
-\\def\\linedivide{, }
-\\def\\sectionheader#1{\\textbf{#1: }}
-\\begin{document}\\RaggedRight"""
-CONCLUSION = "\\end{document}"
+PAGEBREAK = "\n\\clearpage\n"
 
 
 def calculate_health(size, con, hardness):
@@ -79,6 +71,10 @@ def calculate_health(size, con, hardness):
 
 def bold(string):
     return "\\textbf{" + string + "}"
+
+
+def key(string):
+    return "\\key{" + string + "}"
 
 
 def sectionheader(string):
@@ -92,7 +88,7 @@ def create_title_line(monster):
     alignment = ALIGNMENT_SPELLOUTS[pp.get_key_if_exists(monster, "alignment", "u")]
     if "tags" in monster:
         monster_type += " (" + pp.comma_separate(monster["tags"]) + ")"
-    return bold(name) + "---\\key{" + size + " " + monster_type + ", " + alignment + "}"
+    return bold(name) + "---" + key(size + " " + monster_type + ", " + alignment)
 
 
 def create_stat_block(bonuses, size, hardness):
@@ -160,7 +156,7 @@ def create_special_block(specials):
 
 
 def create_key_list(keys):
-    return "\\key{" + pp.comma_separate(keys, linelength=100, offset=5) + "}"
+    return key(pp.comma_separate(keys, linelength=100, offset=5))
 
 
 def create_monster(monster):
@@ -197,9 +193,19 @@ def create_monster(monster):
     return string + LINEBREAK
 
 
+def create_keyword_table():
+    string = ""
+    keyword_dict = open_yaml("keywords.yaml")
+    for keyword in sorted(keyword_dict):
+        string += key(keyword.replace("-", " ")) + ": " + keyword_dict[keyword] + NEWLINE
+    return string + PAGEBREAK
+
+
 def create_doc():
     latexfile = open("monsters.tex", "w")
     latexfile.write(get_latex_file_contents("tex/preamble.tex"))
+
+    latexfile.write(create_keyword_table())
     
     monster_name_dict= {}
     for monster in get_yaml_from_directory("monsters"):
