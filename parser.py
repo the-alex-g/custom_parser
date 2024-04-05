@@ -26,7 +26,8 @@ SIZE_NUMBERS = {
     "l":4,
     "m":2,
     "s":1,
-    "t":0.5
+    "t":0.5,
+    "a":2
 }
 SIZE_SPELLOUTS = {
     "v":"vast",
@@ -40,6 +41,7 @@ ALIGNMENT_SPELLOUTS = {
     "ce":"chaotic evil",
     "ne":"neutral evil",
     "u":"unaligned",
+    "":"",
 }
 EVD_SIZE_MOD = {
     "v":-4,
@@ -47,7 +49,8 @@ EVD_SIZE_MOD = {
     "l":-1,
     "m":0,
     "s":1,
-    "t":2
+    "t":2,
+    "a":0
 }
 STR_SIZE_MOD = {
     "v":4,
@@ -55,12 +58,12 @@ STR_SIZE_MOD = {
     "l":1,
     "m":0,
     "s":-1,
-    "t":-2
+    "t":-2,
+    "a":0
 }
 ABILITIES = ["str", "dex", "con", "lor", "ins", "cha"]
 ATTACK_LIST_OPERATORS = ["AND", "OR", "and", "or"]
 NEWLINE = "\\\\"
-LINEDIVIDE = "\\linedivide"
 LINEBREAK = "\\bigskip"
 PAGEBREAK = "\n\\clearpage\n"
 
@@ -73,6 +76,10 @@ def bold(string):
     return "\\textbf{" + string + "}"
 
 
+def italics(string):
+    return "\\textit{" + string + "}"
+
+
 def key(string):
     return "\\key{" + string + "}"
 
@@ -83,12 +90,17 @@ def sectionheader(string):
 
 def create_title_line(monster):
     name = pp.headername(monster).upper()
-    size = SIZE_SPELLOUTS[monster["size"]]
     monster_type = monster["type"]
-    alignment = ALIGNMENT_SPELLOUTS[pp.get_key_if_exists(monster, "alignment", "u")]
+    alignment = ALIGNMENT_SPELLOUTS[pp.get_key_if_exists(monster, "alignment", "")]
     if "tags" in monster:
         monster_type += " (" + pp.comma_separate(monster["tags"]) + ")"
-    return bold(name) + "---" + key(size + " " + monster_type + ", " + alignment)
+    string = bold(name) + "---\\key{"
+    if monster["size"] != "a":
+        string += SIZE_SPELLOUTS[monster["size"]] + " "
+    string += monster_type
+    if alignment != "":
+        string += ", " + key(alignment)
+    return string + "}"
 
 
 def create_stat_block(bonuses, size, hardness):
@@ -104,7 +116,7 @@ def create_stat_block(bonuses, size, hardness):
                 string += NEWLINE
                 linelength = len(string)
             elif string != "":
-                string += LINEDIVIDE
+                string += ", "
             string += sectionheader(ability.title())
             special_bonus = 0
             if ability == "str" and STR_SIZE_MOD[size] != 0:
@@ -164,13 +176,15 @@ def create_monster(monster):
     size = monster["size"]
     hardness = pp.get_key_if_exists(monster, "hardness", 0)
     string = create_title_line(monster) + NEWLINE
+    if "flavor" in monster:
+        string += italics(monster["flavor"]) + NEWLINE
     string += create_stat_block(bonuses, size, hardness) + NEWLINE
     string += sectionheader("Health") + calculate_health(
         size,
         pp.get_key_if_exists(bonuses, "con", 0),
-        hardness) + LINEDIVIDE
-    string += sectionheader("Arm") + str(pp.get_key_if_exists(monster, "armor", 0) + hardness) + LINEDIVIDE
-    string += sectionheader("Evd") + create_evd(pp.get_key_if_exists(bonuses, "dex", 0), pp.get_key_if_exists(bonuses, "evd", 0), size) + LINEDIVIDE
+        hardness) + ", "
+    string += sectionheader("Arm") + str(pp.get_key_if_exists(monster, "armor", 0) + hardness) + ", "
+    string += sectionheader("Evd") + create_evd(pp.get_key_if_exists(bonuses, "dex", 0), pp.get_key_if_exists(bonuses, "evd", 0), size) + ", "
     string += sectionheader("Spd") + str(monster["speed"]) + NEWLINE
 
     if "immune" in monster:

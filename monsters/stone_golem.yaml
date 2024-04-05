@@ -1,5 +1,6 @@
 name: stone golem
-size: m
+flavor: Slabs of crudely carved stone are held together by the same magic that animates them.
+size: a
 type: construct
 hardness: 3
 bonuses:
