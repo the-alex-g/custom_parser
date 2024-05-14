@@ -1,6 +1,6 @@
-name: troll
+name: Troll
 flavor: The rough features of this brutish monster look as though they were chiseled from stone.
-size: l
+size: 2
 type: giant
 alignment: ne
 bonuses:
@@ -11,7 +11,7 @@ bonuses:
  cha: -1
 speed: 5
 attack:
-- OR
+- 1/rnd
 - 1d8 bludgeoning (club)
 - 1d6 bludgeoning (fist)
 - 1d6 bludgeoning (boulder, range 10/20)

@@ -1,21 +1,28 @@
-name: wraith
+name: Wraith
 flavor: A dark figure rises from the tomb, clutching an ancient longsword in one gauntleted hand.
-size: m
+size: 1
 type: undead
 alignment: ne
 bonuses:
  dex: 1
- con: 2
  lor: 1
  ins: 1
+ det: 2
+ cha: 1
 speed: 5
-keys:
-- incorporeal
-- sunlight weakness
+traits:
+- Incorporeal
+- Vulnerable to Sunlight
 attack:
-- OR
+- 1/rnd
 - 1d6 unholy (drain)
 - 1d8 slashing (longsword)
 special:
-- The wraith adds its Con bonus to damage for drain attacks instead of its Str.
-- The wraith heals one every time it deals unholy damage.
+- name: Draining Touch
+  text: >
+   The wraith adds its Det bonus to damage for drain attacks instead of its Str. Whenever the wraith deals damage with a drain attack,
+   it heals one and the target must pass a Det 12 check or suffer 1 Con damage.
+- name: Aura of Fear
+  text: >
+   Any living creature that starts its turn within 5 fathoms of the wraith must succeed on a Det 12 check or be frightened of the wraith
+   until the start of its next turn. A creature that succeeds is immune to this effect for 24 hours.

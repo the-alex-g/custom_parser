@@ -1,0 +1,18 @@
+undead:
+ immune:
+ - unholy
+ vulnerable:
+ - holy
+ special:
+ - name: Undead Nature
+   text: >
+    The [name] automatically succeeds on all Con checks. If the [possessive [name]] Con bonus is ever needed, use its Det bonus instead.
+construct:
+ immune:
+ - holy
+ - unholy
+ - psychic
+ special:
+ - name: Constructed Nature
+   text: >
+    The [name] automatically succeeds on all Con checks. If the [possessive [name]] Con bonus is ever needed, use its Det bonus instead.

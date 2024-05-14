@@ -1,262 +1,154 @@
 import yaml
-import parser_utility as pp
 import os
+import python.parser_utility as pp
+import python.brand as brand
 
-SCORE_TO_BONUS = {
-    1:-4,
-    2:-3,
-    3:-2,
-    4:-2,
-    5:-1,
-    6:-1,
-    7:0,
-    8:0,
-    9:0,
-    10:0,
-    11:1,
-    12:1,
-    13:2,
-    14:2,
-    15:3,
-    16:4
-}
-SIZE_NUMBERS = {
-    "v":16,
-    "h":8,
-    "l":4,
-    "m":2,
-    "s":1,
-    "t":0.5,
-    "a":2
-}
-SIZE_SPELLOUTS = {
-    "v":"vast",
-    "h":"huge",
-    "l":"large",
-    "m":"medium",
-    "s":"small",
-    "t":"tiny"
-}
-ALIGNMENT_SPELLOUTS = {
-    "ce":"chaotic evil",
-    "ne":"neutral evil",
-    "u":"unaligned",
-    "":"",
-}
-EVD_SIZE_MOD = {
-    "v":-4,
-    "h":-2,
-    "l":-1,
-    "m":0,
-    "s":1,
-    "t":2,
-    "a":0
-}
-STR_SIZE_MOD = {
-    "v":4,
-    "h":2,
-    "l":1,
-    "m":0,
-    "s":-1,
-    "t":-2,
-    "a":0
-}
-ABILITIES = ["str", "dex", "con", "lor", "ins", "cha"]
-ATTACK_LIST_OPERATORS = ["AND", "OR", "and", "or"]
+ABILITIES = ["str", "con", "dex", "spd", "lor", "ins", "cha", "det"]
 NEWLINE = "\\\\"
 LINEBREAK = "\\bigskip"
 PAGEBREAK = "\n\\clearpage\n"
+DEFAULT_MONSTER_TRAITS = pp.open_yaml("config_yaml/monster_type_traits.yaml")
 
 
-def calculate_health(size, con, hardness):
-    return str((6 + con + hardness) * SIZE_NUMBERS[size])
+def get_size_as_number(size):
+    if type(size) == str:
+        part_a = ""
+        part_b = ""
+        in_first_part = True
+        for char in size:
+            if char == "/":
+                in_first_part = False
+            elif in_first_part:
+                part_a += char
+            else:
+                part_b += char
+        return int(part_a) / int(part_b)
+    else:
+        return size
 
 
-def bold(string):
-    return "\\textbf{" + string + "}"
 
-
-def italics(string):
-    return "\\textit{" + string + "}"
-
-
-def key(string):
-    return "\\key{" + string + "}"
-
-
-def sectionheader(string):
-    return "\\sectionheader{" + string + "}"
-
-
-def create_title_line(monster):
-    name = pp.headername(monster).upper()
-    monster_type = monster["type"]
-    alignment = ALIGNMENT_SPELLOUTS[pp.get_key_if_exists(monster, "alignment", "")]
-    if "tags" in monster:
-        monster_type += " (" + pp.comma_separate(monster["tags"]) + ")"
-    string = bold(name) + "---\\key{"
-    if monster["size"] != "a":
-        string += SIZE_SPELLOUTS[monster["size"]] + " "
-    string += monster_type
-    if alignment != "":
-        string += ", " + key(alignment)
-    return string + "}"
-
-
-def create_stat_block(bonuses, size, hardness):
+def get_ability_list(bonuses):
+    bonuses = bonuses.copy()
     string = ""
-    linelength = 0
-    if STR_SIZE_MOD[size] != 0 and not "str" in bonuses:
-        bonuses["str"] = 0
-    if hardness != 0 and not "con" in bonuses:
-        bonuses["con"] = 0
+    for ability in bonuses.copy():
+        if bonuses[ability] == 0:
+            del bonuses[ability]
+    i = 0
     for ability in ABILITIES:
         if ability in bonuses:
-            if len(string) > 100 + linelength:
-                string += NEWLINE
-                linelength = len(string)
-            elif string != "":
+            if string != "" and i != 4:
                 string += ", "
-            string += sectionheader(ability.title())
-            special_bonus = 0
-            if ability == "str" and STR_SIZE_MOD[size] != 0:
-                special_bonus = STR_SIZE_MOD[size]
-            elif ability == "con" and hardness != 0:
-                special_bonus = hardness
-            string += pp.format_bonus(bonuses[ability])
-            if special_bonus != 0:
-                string += " (" + pp.format_bonus(bonuses[ability] + special_bonus) + ")"
-    return string
-            
-
-
-def create_attack_list(attacks):
-    string = ""
-    operator = ""
-    for attack in attacks:
-        if string != "":
-            string += " " + operator + " "
-        if attack in ATTACK_LIST_OPERATORS:
-            operator = attack
-        else:
-            string += attack
+            string += "\\textbf{" + ability.title() + "} " + brand.format_bonus(bonuses[ability])
+            i += 1
+            if i == 4 and len(bonuses) > 4:
+                string += NEWLINE
     return string
 
 
-def create_evd(dex_bonus, evd_bonus, size):
-    string = ""
-    evd_bonus += EVD_SIZE_MOD[size]
-    if evd_bonus != 0:
-        string += pp.format_bonus(evd_bonus) + " ("
-    string += str(10 + dex_bonus + evd_bonus)
-    if evd_bonus != 0:
-        string += ")"
-    return string
+def get_size_bonus(size, scale):
+    bonus = 0
+    match size:
+        case 0:
+            bonus = -4
+        case "1/4":
+            bonus = -2
+        case "1/2":
+            bonus = -1
+        case 1:
+            bonus = 0
+        case _:
+            bonus = pow(2, size - 2)
+    return bonus * scale
 
 
-def get_dmg_attributes(dmg_attributes):
-    return pp.comma_separate(sorted(dmg_attributes))
-
-
-def create_special_block(specials):
-    string = ""
-    for special in specials:
-        if string != "":
-            string += NEWLINE
-        string += special
-    return string
-
-
-def create_key_list(keys):
-    return key(pp.comma_separate(keys, linelength=100, offset=5))
+def calculate_evade(bonuses, size, dodge):
+    evd_base = 0
+    evd_bonus = 0
+    if dodge:
+        evd_base = pp.get_key_if_exists(bonuses, "dex", 0)
+        evd_bonus = pp.get_key_if_exists(bonuses, "spd", 0)
+    else:
+        evd_base += pp.get_key_if_exists(bonuses, "spd", 0)
+        evd_bonus = pp.get_key_if_exists(bonuses, "dex", 0)
+    evade = 10 + evd_base + get_size_bonus(size, -1)
+    if evd_bonus > 1:
+        evade += 1
+    elif evd_bonus < -1:
+        evade -= 1
+    return evade
 
 
 def create_monster(monster):
-    bonuses = monster["bonuses"]
+    if monster["type"] in DEFAULT_MONSTER_TRAITS:
+        monster = pp.combine_dictionaries(monster, DEFAULT_MONSTER_TRAITS[monster["type"]], {})
+
+    name = monster["name"]
+    headername = pp.headername(monster)
     size = monster["size"]
-    hardness = pp.get_key_if_exists(monster, "hardness", 0)
-    string = create_title_line(monster) + NEWLINE
-    if "flavor" in monster:
-        string += italics(monster["flavor"]) + NEWLINE
-    string += create_stat_block(bonuses, size, hardness) + NEWLINE
-    string += sectionheader("Health") + calculate_health(
-        size,
-        pp.get_key_if_exists(bonuses, "con", 0),
-        hardness) + ", "
-    string += sectionheader("Arm") + str(pp.get_key_if_exists(monster, "armor", 0) + hardness) + ", "
-    string += sectionheader("Evd") + create_evd(pp.get_key_if_exists(bonuses, "dex", 0), pp.get_key_if_exists(bonuses, "evd", 0), size) + ", "
-    string += sectionheader("Spd") + str(monster["speed"]) + NEWLINE
+    size_number = get_size_as_number(size)
+    alignment = pp.get_key_if_exists(monster, "alignment", "").upper()
+    bonus_dict = pp.get_key_if_exists(monster, "bonuses", {})
+    health_bonus = 0
+
+    params = {"name":name.lower()}
+
+    if monster["type"] == "construct":
+        hardness = pp.get_key_if_exists(monster, "hardness", 0)
+        pp.increment_key(bonus_dict, "det", hardness)
+        pp.increment_key(monster, "armor", hardness)
+        health_bonus = bonus_dict["det"]
+    elif monster["type"] == "undead":
+        health_bonus = pp.get_key_if_exists(bonus_dict, "det", 0)
+    else:
+        health_bonus = pp.get_key_if_exists(bonus_dict, "con", 0)
+    pp.increment_key(bonus_dict, "str", get_size_bonus(size, 1))
+    
+    
+    string = "\\section*{" + headername + "}\\textit{" + pp.get_key_if_exists(monster, "flavor", "") + "}" + NEWLINE + "\\medskip"
+    string += "\\textsc{" + alignment
+    if string[-1] != "{":
+        string += " "
+
+    string += "size " + str(size) + " " + monster["type"] + "}" + NEWLINE
+    string += get_ability_list(bonus_dict) + NEWLINE
+    string += "\\textbf{Health} " + str(max(1, (8 + health_bonus) * size_number))
+    string += ", \\textbf{Arm} " + str(pp.get_key_if_exists(monster, "armor", 0))
+    string += ", \\textbf{Evd} " + str(calculate_evade(bonus_dict, size, "dodge" in monster))
+    string += ", \\textbf{Mv} " + str(5 + pp.get_key_if_exists(bonus_dict, "spd", 0)) + NEWLINE
 
     if "immune" in monster:
-        string += sectionheader("Immune") + get_dmg_attributes(monster["immune"]) + NEWLINE
+        string += "\\textbf{Immune} " + pp.comma_separate(monster["immune"]) + NEWLINE
 
     if "resist" in monster:
-        string += sectionheader("Resist") + get_dmg_attributes(monster["resist"]) + NEWLINE
+        string += "\\textbf{Resist} " + pp.comma_separate(monster["resist"]) + NEWLINE
 
     if "vulnerable" in monster:
-        string += sectionheader("Vulnerable") + get_dmg_attributes(monster["vulnerable"]) + NEWLINE
-
+        string += "\\textbf{Vulnerable} " + pp.comma_separate(monster["vulnerable"]) + NEWLINE
+    
     if "attack" in monster:
-        string += sectionheader("Attack") + create_attack_list(monster["attack"]) + NEWLINE
+        string += "\\textbf{Attack }" + monster["attack"][0] + ": " + pp.comma_separate(monster["attack"][1:]) + NEWLINE
 
-    if "keys" in monster:
-        string += sectionheader("Keys") + create_key_list(monster["keys"]) + NEWLINE
-
+    if "traits" in monster:
+        string += "\\textbf{Traits } " + pp.comma_separate(monster["traits"]) + NEWLINE
+    
     if "special" in monster:
-        string += sectionheader("Special") + create_special_block(monster["special"]) + NEWLINE
-    return string + LINEBREAK
+        ability_name_dict = pp.get_dict_by_name(monster["special"])
+        for ability_name in sorted(ability_name_dict):
+            ability = ability_name_dict[ability_name]
+            string += LINEBREAK + "\\textbf{" + ability["name"] + "}. " + brand.eval_string(ability["text"], params) + NEWLINE
 
-
-def create_keyword_table():
-    string = ""
-    keyword_dict = open_yaml("keywords.yaml")
-    for keyword in sorted(keyword_dict):
-        string += key(keyword.replace("-", " ")) + ": " + keyword_dict[keyword] + NEWLINE
-    return string + PAGEBREAK
+    return string
 
 
 def create_doc():
-    latexfile = open("monsters.tex", "w")
-    latexfile.write(get_latex_file_contents("tex/preamble.tex"))
-
-    latexfile.write(create_keyword_table())
-    
-    monster_name_dict= {}
-    for monster in get_yaml_from_directory("monsters"):
-        monster_name_dict[monster["name"]] = monster
+    monster_name_dict = pp.get_dict_by_name(pp.get_yaml_from_directory("monsters"))
+    latex_file = open("monsters.tex", "w")
+    latex_file.write(pp.get_file_contents("tex/preamble.tex"))
     for monster_name in sorted(monster_name_dict):
-        latexfile.write(create_monster(monster_name_dict[monster_name]))
-    
-    latexfile.write(get_latex_file_contents("tex/conclusion.tex"))
-    latexfile.close()
-
-
-def open_yaml(filepath):
-    print("loading", filepath)
-    with open(filepath) as stream:
-        try:
-            return yaml.safe_load(stream)
-        except yaml.YAMLError as err:
-            print(err)
-
-
-def get_yaml_from_directory(dirname):
-    yaml_list = []
-    if os.path.isdir(dirname):
-        for item in os.listdir(dirname):
-            path = os.path.join(dirname, item)
-            if os.path.isfile(path):
-                yaml_list.append(open_yaml(path))
-            elif os.path.isdir(path):
-                for yaml_dict in get_yaml_from_directory(path):
-                    yaml_list.append(yaml_dict)
-    else:
-        print("ERROR:", dirname, "is not a directory!")
-    return yaml_list
-
-
-def get_latex_file_contents(filename):
-    return pp.separate(open(filename).readlines())
+        latex_file.write(create_monster(monster_name_dict[monster_name]))
+    latex_file.write(pp.get_file_contents("tex/conclusion.tex"))
+    latex_file.close()
 
 
 create_doc()

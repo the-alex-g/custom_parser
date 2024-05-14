@@ -1,14 +1,16 @@
-name: stone golem
+name: Stone Golem
+headername: Golem, Stone
 flavor: Slabs of crudely carved stone are held together by the same magic that animates them.
-size: a
+size: 1
 type: construct
-hardness: 3
+hardness: 4
 bonuses:
  str: 3
  dex: -2
  lor: -4
- wis: -4
+ ins: -4
  cha: -4
 speed: 5
 attack:
-- 2x 1d6 bludgeoning (slam)
+- 2/rnd
+- 1d6 bludgeoning (slam)
