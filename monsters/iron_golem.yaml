@@ -1,0 +1,22 @@
+name: Iron Golem
+headername: Golem, Iron
+flavor: A monolithic golem, like a giant suit of armor covered in glowing runes, stomped toward us.
+size: 1
+type: construct
+hardness: 6
+bonuses:
+ str: 4
+ dex: -1
+ lor: -4
+ ins: -4
+ cha: -4
+ det: 1
+resist:
+- cold
+- fire
+attack:
+- 2/rnd
+- 1d6 bludgeoning (slam)
+- 1d8 slashing (sword)
+traits:
+- Spell Resist 3

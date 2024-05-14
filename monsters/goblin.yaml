@@ -1,0 +1,16 @@
+name: Goblin
+type: humanoid
+flavor: These wiry, spiteful, and cowardly creatures prefer to live in caves, coming out at night to raid any nearby settlements.
+size: 1/2
+alignment: ne
+bonuses:
+ dex: 1
+ spd: 1
+ det: -1
+ cha: -1
+ lor: -2
+attack:
+- 1/rnd
+- 1d4 piercing (dagger)
+traits:
+- Vulnerable to Sunlight

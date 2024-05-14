@@ -129,7 +129,7 @@ def get_yaml_from_directory(dirname):
 def get_dict_by_name(list):
     name_dict = {}
     for item in list:
-        name_dict[item["name"]] = item
+        name_dict[headername(item)] = item
     return name_dict
 
 

@@ -1,0 +1,25 @@
+name: Wood Golem
+headername: Golem, Wood
+size: 1
+type: construct
+hardness: 2
+bonuses:
+ str: 2
+ dex: -2
+ lor: -4
+ ins: -4
+ cha: -4
+vulnerable:
+- fire
+- magic slashing
+attack:
+- 2/rnd
+- 1d6 bludgeoning (slam)
+special:
+- name: Flammable
+  text: >
+   If the wood golem takes 4 or more fire damage from a single attack, it bursts into flames. While burning, it takes 2 fire damage
+   at the start of each of its turns and its slam attacks deal +1 fire damage. Any creature that touches the golem or starts its turn
+   within 1 fathom of the golem while it is burning takes one fire damage.
+traits:
+- Spell Resist 1

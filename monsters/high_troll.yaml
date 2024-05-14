@@ -1,0 +1,22 @@
+name: High Troll
+headername: Troll, High
+flavor: This troll stands tall, covered in thick, scaly skin.
+size: 2
+type: giant
+alignment: ne
+bonuses:
+ str: 4
+ con: 3
+ lor: -1
+ ins: -1
+ cha: -1
+armor: 1
+attack:
+- 1/rnd
+- 1d8 bludgeoning (club)
+- 1d6 bludgeoning (fist)
+- 1d6 bludgeoning (boulder, range 15/25)
+special:
+- name: Charge
+  text: >
+   If the troll moves at least 4 fathoms toward a target and then hits it with a melee attack, the attack deals +1d4 damage.

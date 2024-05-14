@@ -1,0 +1,23 @@
+name: Goblin Warrior
+type: humanoid
+flavor: Thick layers of hide and bone form a carapace-like armor for these goblins.
+size: 1/2
+alignment: ne
+bonuses:
+ dex: 1
+ spd: 1
+ det: -1
+ cha: -1
+ lor: -2
+attack:
+- 1/rnd
+- 1d6 slashing (shortsword)
+- 1d6 piercing (bow, range 15/50)
+armor: 2
+traits:
+- Vulnerable to Sunlight
+special:
+- name: Protective Armor
+  text: >
+   The goblin's thick armor protects it from much of the sunlight. At the start of each of its turns while in sunlight, the goblin may
+   make a Con 12 check. On a success, it does not get disadvantage from its sunlight vulnerability until the start of its next turn.

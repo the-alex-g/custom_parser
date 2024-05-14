@@ -1,4 +1,5 @@
-name: Troll
+name: Low Troll
+headername: Troll, Low
 flavor: The rough features of this brutish monster look as though they were chiseled from stone.
 size: 2
 type: giant
@@ -9,7 +10,6 @@ bonuses:
  lor: -2
  ins: -1
  cha: -1
-speed: 5
 attack:
 - 1/rnd
 - 1d8 bludgeoning (club)

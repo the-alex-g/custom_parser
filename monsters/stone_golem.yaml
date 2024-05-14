@@ -10,7 +10,8 @@ bonuses:
  lor: -4
  ins: -4
  cha: -4
-speed: 5
 attack:
 - 2/rnd
 - 1d6 bludgeoning (slam)
+traits:
+- Spell Resist 2

@@ -8,6 +8,7 @@ NEWLINE = "\\\\"
 LINEBREAK = "\\bigskip"
 PAGEBREAK = "\n\\clearpage\n"
 DEFAULT_MONSTER_TRAITS = pp.open_yaml("config_yaml/monster_type_traits.yaml")
+BASE_HEALTH = 12
 
 
 def get_size_as_number(size):
@@ -84,6 +85,9 @@ def create_monster(monster):
         monster = pp.combine_dictionaries(monster, DEFAULT_MONSTER_TRAITS[monster["type"]], {})
 
     name = monster["name"]
+
+    print("compiling", name)
+
     headername = pp.headername(monster)
     size = monster["size"]
     size_number = get_size_as_number(size)
@@ -112,7 +116,7 @@ def create_monster(monster):
 
     string += "size " + str(size) + " " + monster["type"] + "}" + NEWLINE
     string += get_ability_list(bonus_dict) + NEWLINE
-    string += "\\textbf{Health} " + str(max(1, (8 + health_bonus) * size_number))
+    string += "\\textbf{Health} " + str(pp.floor(max(1, (BASE_HEALTH + health_bonus) * size_number)))
     string += ", \\textbf{Arm} " + str(pp.get_key_if_exists(monster, "armor", 0))
     string += ", \\textbf{Evd} " + str(calculate_evade(bonus_dict, size, "dodge" in monster))
     string += ", \\textbf{Mv} " + str(5 + pp.get_key_if_exists(bonus_dict, "spd", 0)) + NEWLINE

@@ -1,0 +1,19 @@
+name: Green Troll
+headername: Troll, Green
+flavor: This relatively small troll has warty, greenish skin. Its long, apish arms hold tremendous strength.
+size: 1
+type: giant
+alignment: ne
+bonuses:
+ str: 4
+ con: 2
+ lor: -2
+ ins: 1
+ cha: -1
+speed: 5
+attack:
+- 2/rnd
+- 2x 1d6 bludgeoning (rend)
+- 1d6 bludgeoning (boulder, range 10/20)
+traits:
+- Spell Resist 1

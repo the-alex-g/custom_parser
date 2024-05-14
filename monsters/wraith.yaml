@@ -9,7 +9,6 @@ bonuses:
  ins: 1
  det: 2
  cha: 1
-speed: 5
 traits:
 - Incorporeal
 - Vulnerable to Sunlight
