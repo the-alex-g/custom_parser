@@ -1,6 +1,8 @@
 name: Green Troll
 headername: Troll, Green
-flavor: This relatively small troll has warty, greenish skin. Its long, apish arms hold tremendous strength.
+flavor: >
+ This relatively small troll still stands at least a head taller than most men. It has warty, green skin and long, apish arms
+ that hold tremendous strength.
 size: 1
 type: giant
 alignment: ne

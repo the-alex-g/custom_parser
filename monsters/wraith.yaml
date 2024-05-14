@@ -28,3 +28,5 @@ special:
 languages:
 - ANCIENT
 - COMMON
+movement_modes:
+- hover

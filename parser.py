@@ -119,7 +119,11 @@ def create_monster(monster):
     string += "\\textbf{Health} " + str(pp.floor(max(1, (BASE_HEALTH + health_bonus) * size_number)))
     string += ", \\textbf{Arm} " + str(pp.get_key_if_exists(monster, "armor", 0))
     string += ", \\textbf{Evd} " + str(calculate_evade(bonus_dict, size, "dodge" in monster))
-    string += ", \\textbf{Mv} " + str(5 + pp.get_key_if_exists(bonus_dict, "spd", 0)) + NEWLINE
+    string += ", \\textbf{Mv} " + str(5 + pp.get_key_if_exists(bonus_dict, "spd", 0))
+
+    if "movement_modes" in monster:
+        string += ", " + pp.comma_separate(monster["movement_modes"])
+    string += NEWLINE
 
     if "immune" in monster:
         string += "\\textbf{Immune} " + pp.comma_separate(monster["immune"]) + NEWLINE

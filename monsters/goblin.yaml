@@ -17,3 +17,5 @@ traits:
 languages:
 - GOBLIN
 - common
+movement_modes:
+- climb
