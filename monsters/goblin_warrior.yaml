@@ -21,3 +21,6 @@ special:
   text: >
    The goblin's thick armor protects it from much of the sunlight. At the start of each of its turns while in sunlight, the goblin may
    make a Con 12 check. On a success, it does not get disadvantage from its sunlight vulnerability until the start of its next turn.
+languages:
+- GOBLIN
+- common

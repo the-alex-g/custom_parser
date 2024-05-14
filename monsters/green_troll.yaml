@@ -17,3 +17,6 @@ attack:
 - 1d6 bludgeoning (boulder, range 10/20)
 traits:
 - Spell Resist 1
+languages:
+- JOTUN
+- common

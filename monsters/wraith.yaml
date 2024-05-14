@@ -25,3 +25,6 @@ special:
   text: >
    Any living creature that starts its turn within 5 fathoms of the wraith must succeed on a Det 12 check or be frightened of the wraith
    until the start of its next turn. A creature that succeeds is immune to this effect for 24 hours.
+languages:
+- ANCIENT
+- COMMON

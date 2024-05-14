@@ -134,7 +134,10 @@ def create_monster(monster):
         string += "\\textbf{Attack }" + monster["attack"][0] + ": " + pp.comma_separate(monster["attack"][1:]) + NEWLINE
 
     if "traits" in monster:
-        string += "\\textbf{Traits } " + pp.comma_separate(monster["traits"]) + NEWLINE
+        string += "\\textbf{Traits} " + pp.comma_separate(sorted(monster["traits"])) + NEWLINE
+    
+    if "languages" in monster:
+        string += "\\textbf{Languages} " + pp.comma_separate(sorted(monster["languages"])) + NEWLINE
     
     if "special" in monster:
         ability_name_dict = pp.get_dict_by_name(monster["special"])

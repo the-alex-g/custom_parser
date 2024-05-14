@@ -20,3 +20,6 @@ special:
 - name: Charge
   text: >
    If the troll moves at least 4 fathoms toward a target and then hits it with a melee attack, the attack deals +1d4 damage.
+languages:
+- JOTUN
+- common
