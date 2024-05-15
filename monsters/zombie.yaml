@@ -1,0 +1,16 @@
+name: Zombie
+size: 1
+type: undead
+flavor: The rotting corpse suddenly lurched, heaved itself upright, and attacked.
+alignment: ne
+bonuses:
+ str: 2
+ dex: -2
+ spd: -1
+ lor: -4
+ ins: -4
+ cha: -4
+ det: 2
+attack:
+- 1/rnd
+- 1d4 bludgeoning (slam)

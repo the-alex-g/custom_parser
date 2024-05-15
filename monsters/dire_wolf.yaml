@@ -1,0 +1,15 @@
+name: Dire Wolf
+headername: Wolf, Dire
+size: 1
+type: animal
+bonuses:
+ str: 2
+ con: 2
+ spd: 1
+ lor: -4
+ ins: 1
+ cha: -4
+ det: 1
+attack:
+- 1/rnd
+- 1d8 slashing (bite)

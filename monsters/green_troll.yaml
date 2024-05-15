@@ -12,7 +12,6 @@ bonuses:
  lor: -2
  ins: 1
  cha: -1
-speed: 5
 attack:
 - 2/rnd
 - 2x 1d6 bludgeoning (rend)

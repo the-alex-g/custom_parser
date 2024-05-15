@@ -1,0 +1,15 @@
+name: Skeleton Warrior
+size: 1
+type: undead
+flavor: The reanimated skeletons of former soldiers often retain some of their skill at arms.
+alignment: ne
+bonuses:
+ str: 1
+ lor: -4
+ ins: -4
+ cha: -4
+ det: 1
+attack:
+- 1/rnd
+- 1d6 - 1 slashing (ancient shortsword)
+armor: 1
