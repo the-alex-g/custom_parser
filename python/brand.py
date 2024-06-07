@@ -1,10 +1,12 @@
-# BRAND CORE v.1.0
+# BRAND CORE v.1.1.0
 from math import floor
 import os
 FUNCTIONS_REQUIRING_EXTRA_PARAMETERS = {}
-AUTOMATIC_VARIABLES = ["str", "con", "dex", "spd", "lor", "ins", "cha", "det"]
+AUTOMATIC_VARIABLES = []
 NEWLINE = "\\\\"
 LINEBREAK = "\\bigskip"
+include_functions = {}
+unquoted_include_functions = {}
 
 
 # returns in the form of "result (dice + bonus)"
@@ -21,6 +23,20 @@ def roll(num, size, *bonuses):
             string += " - "
         string += str(abs(total_bonus))
     return string + ")"
+
+
+def index_plural(num, *name):
+    name = _separate(name)
+    string = str(num) + " " + name
+    if num != 1:
+        if name[-2:] in ["sh", "ch", "x"]:
+            return string + "es"
+        elif name[-1] in ["s", "z"]:
+            if name[-2] == name[-1]:
+                return string + "es"
+            return string + name[-1] + "es"
+        return string + "s"
+    return string
 
 
 # adds all the inputs and returns them as a string
@@ -157,14 +173,14 @@ def format_bonus(bonus):
 # returns string of number with proper ordinary suffix
 def format_index(index):
     index = str(index)
-    if index[-1] == 1:
-        return "1st"
-    elif index[-1] == 2:
-        return "2nd"
-    elif index[-1] == 3:
-        return "3rd"
-    else:
-        return str(index) + "th"
+    if not (len(index) == 2 and index[0] == "1"):
+        if index[-1] == "1":
+          return index + "st"
+        elif index[-1] == "2":
+          return index + "nd"
+        elif index[-1] == "3":
+            return index + "rd"
+    return index + "th"
 
 
 # returns string with proper possessive suffix
@@ -176,8 +192,28 @@ def possessive(*name):
         return name + "'s"
 
 
+def include(include_type, filename):
+    global include_functions, unquoted_include_functions
+    if include_type in include_functions:
+        return "\\begin{quote}" + include_functions[include_type](filename) + "\\end{quote}"
+    elif include_type in unquoted_include_functions:
+        return NEWLINE + LINEBREAK + unquoted_include_functions[include_type](filename)
+    return ""
+
+
+def percent():
+    return "\\%"
+
+
+def newline():
+    return NEWLINE
+
+
 # builds and executes function from bracketed command string
 def _format_and_execute(field, params):
+    if field in params:
+        return eval_string(str(params[field]), params)
+
     formatted_field = ""
     in_function_body = False
     in_string_block = False
@@ -194,12 +230,16 @@ def _format_and_execute(field, params):
                 if formatted_field[-1] != "(":
                     formatted_field += ", "
                 if arg_text in AUTOMATIC_VARIABLES:
-                    arg_text = str(params[arg_text])
-                elif not arg_text.isdigit() and not arg_text == "True" and not arg_text == "False":
-                    arg_text = "\"" + arg_text + "\""
+                    arg_text = eval_string(str(params[arg_text]), params)
+                elif arg_text in ["t", "T", "true", "True"]:
+                    arg_text = "True"
+                elif arg_text in ["f", "F", "false", "False"]:
+                    arg_text = "False"
+                elif not arg_text.isdigit():
+                    arg_text = '"' + arg_text + '"'
                 formatted_field += arg_text
                 arg_text = ""
-            elif formatted_field != field:
+            else:
                 formatted_field += "("
                 in_function_body = True
         else:
@@ -212,12 +252,12 @@ def _format_and_execute(field, params):
         for param_name in FUNCTIONS_REQUIRING_EXTRA_PARAMETERS[function_name]:
             if formatted_field[-1] != "(":
                 formatted_field += ", "
-            formatted_field += str(params[param_name])
+            formatted_field += eval_string(str(params[param_name]), params)
     return eval(formatted_field + ")")
 
 
 # processes a string to extract and execute all bracketed command sequences
-def _resolve_functions(string, params):
+def eval_string(string, params):
     updated_string = ""
     field = ""
     field_started = False
@@ -238,7 +278,7 @@ def _resolve_functions(string, params):
             else:
                 field_started = False
                 if nested:
-                    field = _resolve_functions(field, params)
+                    field = eval_string(field, params)
                 updated_string += _format_and_execute(field, params)
                 field = ""
                 nested = False
@@ -247,12 +287,3 @@ def _resolve_functions(string, params):
         else:
             updated_string += char
     return updated_string
-
-
-# processes all bracketed commands in the given string
-def eval_string(string, params):
-    for key in params:
-        string = string.replace("[" + key + "]", str(params[key]))
-    return _resolve_functions(string, params)
-
-##################################################################################

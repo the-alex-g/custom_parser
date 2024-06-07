@@ -1,7 +1,7 @@
 import yaml
 import os
 import python.parser_utility as pp
-import python.brand as brand
+import python.custom_brand as brand
 
 ABILITIES = ["str", "con", "dex", "spd", "lor", "ins", "cha", "det"]
 NEWLINE = "\\\\"
