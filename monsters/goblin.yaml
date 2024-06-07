@@ -11,7 +11,7 @@ bonuses:
  lor: -2
 attack:
 - 1/rnd
-- 1d4 piercing (dagger)
+- "[attack 4] piercing (dagger)"
 traits:
 - Vulnerable to Sunlight
 languages:

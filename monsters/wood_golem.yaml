@@ -14,7 +14,7 @@ vulnerable:
 - magic slashing
 attack:
 - 2/rnd
-- 1d6 bludgeoning (slam)
+- "[attack 6] bludgeoning (slam)"
 special:
 - name: Flammable
   text: >

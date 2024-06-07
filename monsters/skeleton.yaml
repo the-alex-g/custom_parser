@@ -9,4 +9,4 @@ bonuses:
  cha: -4
 attack:
 - 1/rnd
-- 1 slashing (scratch)
+- "[attack 4] slashing (scratch)"

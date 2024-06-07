@@ -1,7 +1,7 @@
 # BRAND CORE v.1.1.0
 from math import floor
 import os
-FUNCTIONS_REQUIRING_EXTRA_PARAMETERS = {}
+FUNCTIONS_REQUIRING_EXTRA_PARAMETERS = {"attack":["str"]}
 AUTOMATIC_VARIABLES = []
 NEWLINE = "\\\\"
 LINEBREAK = "\\bigskip"
@@ -287,3 +287,10 @@ def eval_string(string, params):
         else:
             updated_string += char
     return updated_string
+
+
+def attack(diesize, *bonuses):
+    threshold = diesize
+    if bonuses[0] > 1:
+        threshold -= bonuses[0] - 1
+    return "d" + str(diesize) + "/" + str(min(diesize, max(threshold, 5)))

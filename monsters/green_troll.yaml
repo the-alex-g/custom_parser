@@ -14,8 +14,8 @@ bonuses:
  cha: -1
 attack:
 - 2/rnd
-- 2x 1d6 bludgeoning (rend)
-- 1d6 bludgeoning (boulder, range 10/20)
+- 2x [attack 6] bludgeoning (rend)
+- "[attack 6] bludgeoning (boulder, range 10/20)"
 traits:
 - Spell Resist 1
 languages:

@@ -13,4 +13,4 @@ bonuses:
  det: 1
 attack:
 - 1/rnd
-- 1d6 slashing (bite)
+- "[attack 6] slashing (bite)"

@@ -13,13 +13,13 @@ bonuses:
 armor: 1
 attack:
 - 1/rnd
-- 1d8 bludgeoning (club)
-- 1d6 bludgeoning (fist)
-- 1d6 bludgeoning (boulder, range 15/25)
+- "[attack 8] bludgeoning (club)"
+- "[attack 6] bludgeoning (fist)"
+- "[attack 6] bludgeoning (boulder, range 15/25)"
 special:
 - name: Charge
   text: >
-   If the troll moves at least 4 fathoms toward a target and then hits it with a melee attack, the attack deals +1d4 damage.
+   If the troll moves at least 4 fathoms toward a target and then hits it with a melee attack, the attack deals one additional damage.
 languages:
 - JOTUN
 - common

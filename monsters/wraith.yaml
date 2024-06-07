@@ -9,18 +9,19 @@ bonuses:
  ins: 1
  det: 2
  cha: 1
+immune:
+- non-magic
 traits:
 - Incorporeal
 - Vulnerable to Sunlight
 attack:
 - 1/rnd
-- 1d6 unholy (drain)
-- 1d8 slashing (longsword)
+- "[attack 6 [det]] unholy (drain)"
+- "[attack 8] slashing (longsword)"
 special:
 - name: Draining Touch
   text: >
-   The wraith adds its Det bonus to damage for drain attacks instead of its Str. Whenever the wraith deals damage with a drain attack,
-   it heals one and the target must pass a Det 12 check or suffer 1 Con damage.
+   Whenever the wraith deals damage with a drain attack, it heals one and the target must pass a Det 12 check or suffer 1 Con damage.
 - name: Aura of Fear
   text: >
    Any living creature that starts its turn within 5 fathoms of the wraith must succeed on a Det 12 check or be frightened of the wraith

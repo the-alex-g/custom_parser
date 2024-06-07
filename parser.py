@@ -1,14 +1,15 @@
 import yaml
 import os
 import python.parser_utility as pp
-import python.custom_brand as brand
+import python.brand as brand
 
 ABILITIES = ["str", "con", "dex", "spd", "lor", "ins", "cha", "det"]
+ARMOR_PERCENTS = [0.83, 0.75, 0.67, 0.50, 0.33, 0.25, 0.17]
 NEWLINE = "\\\\"
 LINEBREAK = "\\bigskip"
 PAGEBREAK = "\n\\clearpage\n"
 DEFAULT_MONSTER_TRAITS = pp.open_yaml("config_yaml/monster_type_traits.yaml")
-BASE_HEALTH = 12
+BASE_HEALTH = 4
 
 
 def get_size_as_number(size):
@@ -72,12 +73,16 @@ def calculate_evade(bonuses, size, dodge):
     else:
         evd_base += pp.get_key_if_exists(bonuses, "spd", 0)
         evd_bonus = pp.get_key_if_exists(bonuses, "dex", 0)
-    evade = 10 + evd_base + get_size_bonus(size, -1)
+    evade = evd_base + get_size_bonus(size, -1)
     if evd_bonus > 1:
         evade += 1
     elif evd_bonus < -1:
         evade -= 1
     return evade
+
+
+def calculate_health(size, bonus, armor):
+    return int((BASE_HEALTH + bonus) * size / ARMOR_PERCENTS[armor])
 
 
 def create_monster(monster):
@@ -95,8 +100,6 @@ def create_monster(monster):
     bonus_dict = pp.get_key_if_exists(monster, "bonuses", {})
     health_bonus = 0
 
-    params = {"name":name.lower()}
-
     if monster["type"] == "construct":
         hardness = pp.get_key_if_exists(monster, "hardness", 0)
         pp.increment_key(bonus_dict, "det", hardness)
@@ -107,6 +110,10 @@ def create_monster(monster):
     else:
         health_bonus = pp.get_key_if_exists(bonus_dict, "con", 0)
     pp.increment_key(bonus_dict, "str", get_size_bonus(size, 1))
+
+    params = {"name":name.lower()}
+    for ability in ABILITIES:
+        params[ability] = pp.get_key_if_exists(bonus_dict, ability, 0)
     
     
     string = "\\section*{" + headername + "}\\textit{" + pp.get_key_if_exists(monster, "flavor", "") + "}" + NEWLINE + "\\medskip"
@@ -114,10 +121,12 @@ def create_monster(monster):
     if string[-1] != "{":
         string += " "
 
+    armor = pp.get_key_if_exists(monster, "armor", 1)
+
     string += "size " + str(size) + " " + monster["type"] + "}" + NEWLINE
     string += get_ability_list(bonus_dict) + NEWLINE
-    string += "\\textbf{Health} " + str(pp.floor(max(1, (BASE_HEALTH + health_bonus) * size_number)))
-    string += ", \\textbf{Arm} " + str(pp.get_key_if_exists(monster, "armor", 0))
+    string += "\\textbf{Health} " + str(calculate_health(size_number, health_bonus, armor))
+    string += ", \\textbf{Arm} " + str(armor)
     string += ", \\textbf{Evd} " + str(calculate_evade(bonus_dict, size, "dodge" in monster))
     string += ", \\textbf{Mv} " + str(5 + pp.get_key_if_exists(bonus_dict, "spd", 0))
 
@@ -147,9 +156,9 @@ def create_monster(monster):
         ability_name_dict = pp.get_dict_by_name(monster["special"])
         for ability_name in sorted(ability_name_dict):
             ability = ability_name_dict[ability_name]
-            string += LINEBREAK + "\\textbf{" + ability["name"] + "}. " + brand.eval_string(ability["text"], params) + NEWLINE
+            string += LINEBREAK + "\\textbf{" + ability["name"] + "}. " + ability["text"] + NEWLINE
 
-    return string
+    return brand.eval_string(string, params)
 
 
 def create_doc():

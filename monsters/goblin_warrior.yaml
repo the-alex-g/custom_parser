@@ -11,8 +11,8 @@ bonuses:
  lor: -2
 attack:
 - 1/rnd
-- 1d6 slashing (shortsword)
-- 1d6 piercing (bow, range 15/50)
+- "[attack 6] slashing (shortsword)"
+- "[attack 6] piercing (bow, range 15/50)"
 armor: 2
 traits:
 - Vulnerable to Sunlight

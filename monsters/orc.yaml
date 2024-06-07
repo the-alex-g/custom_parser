@@ -12,8 +12,8 @@ bonuses:
  cha: -1
 attack:
 - 1/rnd
-- 1d8 slashing (longsword)
-- 1d6 piercing (bow, range 15/50)
+- "[attack 8] slashing (longsword)"
+- "[attack 6] piercing (bow, range 15/50)"
 languages:
 - GOBLIN
 - common

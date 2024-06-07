@@ -16,7 +16,7 @@ resist:
 - fire
 attack:
 - 2/rnd
-- 1d6 bludgeoning (slam)
-- 1d8 slashing (sword)
+- "[attack 6] bludgeoning (slam)"
+- "[attack 8] slashing (sword)"
 traits:
 - Spell Resist 3

@@ -12,9 +12,9 @@ bonuses:
  cha: -1
 attack:
 - 1/rnd
-- 1d8 bludgeoning (club)
-- 1d6 bludgeoning (fist)
-- 1d6 bludgeoning (boulder, range 10/20)
+- "[attack 8] bludgeoning (club)"
+- "[attack 6] bludgeoning (fist)"
+- "[attack 6] bludgeoning (boulder, range 10/20)"
 languages:
 - jotun
 - common

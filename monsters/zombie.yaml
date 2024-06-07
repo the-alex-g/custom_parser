@@ -13,4 +13,4 @@ bonuses:
  det: 2
 attack:
 - 1/rnd
-- 1d4 bludgeoning (slam)
+- "[attack 4] bludgeoning (slam)"

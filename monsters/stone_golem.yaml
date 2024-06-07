@@ -12,6 +12,6 @@ bonuses:
  cha: -4
 attack:
 - 2/rnd
-- 1d6 bludgeoning (slam)
+- "[attack 6] bludgeoning (slam)"
 traits:
 - Spell Resist 2
