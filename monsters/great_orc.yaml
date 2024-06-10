@@ -1,0 +1,19 @@
+name: Great Orc
+headername: Orc, Great
+flavor: This orc stands head and shoulders above its fellows.
+type: humanoid
+armor: 3
+size: 1
+alignment: ce
+bonuses:
+ str: 2
+ con: 2
+ det: 1
+ lor: -2
+attack:
+- 1/rnd
+- "[attack 10] slashing (waraxe)"
+- "[attack 6] piercing (bow, range 15/50)"
+languages:
+- GOBLIN
+- common

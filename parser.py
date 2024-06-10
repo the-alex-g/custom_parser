@@ -157,6 +157,12 @@ def create_monster(monster):
         for ability_name in sorted(ability_name_dict):
             ability = ability_name_dict[ability_name]
             string += LINEBREAK + "\\textbf{" + ability["name"] + "}. " + ability["text"] + NEWLINE
+    
+    if "variants" in monster:
+        string += LINEBREAK + "\\halfline"
+        variant_name_dict = pp.get_dict_by_name(monster["variants"])
+        for variant_name in sorted(variant_name_dict):
+            string += "\\textbf{" + variant_name + "}." + variant_name_dict[variant_name]["text"] + NEWLINE + LINEBREAK
 
     return brand.eval_string(string, params)
 
