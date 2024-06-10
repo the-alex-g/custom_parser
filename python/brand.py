@@ -288,9 +288,30 @@ def eval_string(string, params):
             updated_string += char
     return updated_string
 
+#-------------------------------------------------------------------
 
 def attack(diesize, *bonuses):
     threshold = diesize
     if bonuses[0] > 1:
         threshold -= bonuses[0] - 1
     return "d" + str(diesize) + "/" + str(min(diesize, max(threshold, 5)))
+
+
+def check(stat, *difficulty):
+    total_difficulty = 0
+    for i in difficulty:
+        if type(i) == str:
+            total_difficulty += _get_difficulty(i)
+        elif type(i) == int:
+            total_difficulty += i
+    return stat.title() + " " + str(total_difficulty) + " check"
+
+
+def _get_difficulty(difficulty):
+    if difficulty == "easy":
+        return 10
+    elif difficulty == "med":
+        return 14
+    elif difficulty == "hard":
+        return 18
+    return 0

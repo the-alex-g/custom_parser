@@ -1,0 +1,33 @@
+name: Dragon
+type: dragon
+size: 4
+armor: 6
+bonuses:
+ str: 4
+ con: 4
+ lor: 3
+ ins: 4
+ cha: 4
+ det: 4
+ spd: 1
+ dex: -1
+immune:
+- fire
+attack:
+- 2/rnd
+- "[attack 12] fire piercing (bite)"
+- 2x [attack 10] slashing (claws)
+- "[attack 8] bludgeoning (tail)"
+special:
+- name: Fire Breath
+  text: >
+   As an action, all creatures in a 8-fathom cone emanating from the dragon take 4 fire wounds, halved by a [check evd hard].
+movement_modes:
+- fly 150
+variants:
+- name: Frost Dragon
+  text: >
+   This dragon deals cold damage instead of fire damage with its attacks and abilities, and is immune to cold instead of being immune
+   to fire.
+languages:
+- DRACONIC

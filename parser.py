@@ -128,7 +128,7 @@ def create_monster(monster):
     string += "\\textbf{Health} " + str(calculate_health(size_number, health_bonus, armor))
     string += ", \\textbf{Arm} " + str(armor)
     string += ", \\textbf{Evd} " + str(calculate_evade(bonus_dict, size, "dodge" in monster))
-    string += ", \\textbf{Mv} " + str(5 + pp.get_key_if_exists(bonus_dict, "spd", 0))
+    string += ", \\textbf{Mv} " + str(6 + pp.get_key_if_exists(bonus_dict, "spd", 0) * 2)
 
     if "movement_modes" in monster:
         string += ", " + pp.comma_separate(monster["movement_modes"])
@@ -159,10 +159,10 @@ def create_monster(monster):
             string += LINEBREAK + "\\textbf{" + ability["name"] + "}. " + ability["text"] + NEWLINE
     
     if "variants" in monster:
-        string += LINEBREAK + "\\halfline"
+        string += LINEBREAK + "\\textbf{Variants}" + NEWLINE + "\\halfline"
         variant_name_dict = pp.get_dict_by_name(monster["variants"])
         for variant_name in sorted(variant_name_dict):
-            string += "\\textbf{" + variant_name + "}." + variant_name_dict[variant_name]["text"] + NEWLINE + LINEBREAK
+            string += "\\textbf{" + variant_name + "}. " + variant_name_dict[variant_name]["text"] + NEWLINE + LINEBREAK
 
     return brand.eval_string(string, params)
 
