@@ -167,14 +167,23 @@ def create_monster(monster):
     return brand.eval_string(string, params)
 
 
-def create_doc():
+def create_monster_block():
+    string = ""
     monster_name_dict = pp.get_dict_by_name(pp.get_yaml_from_directory("monsters"))
-    latex_file = open("monsters.tex", "w")
-    latex_file.write(pp.get_file_contents("tex/preamble.tex"))
     for monster_name in sorted(monster_name_dict):
-        latex_file.write(create_monster(monster_name_dict[monster_name]))
-    latex_file.write(pp.get_file_contents("tex/conclusion.tex"))
+        string += create_monster(monster_name_dict[monster_name])
+    return string
+
+
+def create_doc():
+    latex_file = open("monsters.tex", "w")
+    for line in open("tex/framework.tex").readlines():
+        if line == "%[monsters]\n":
+            latex_file.write(create_monster_block())
+        else:
+            latex_file.write(line)
     latex_file.close()
+
 
 
 create_doc()
