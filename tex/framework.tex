@@ -2,10 +2,47 @@
 \usepackage{ragged2e}
 \usepackage[left=0.5in, right=0.5in, top=1in, bottom=1in]{geometry}
 \usepackage{graphicx}
+\usepackage{tabularx}
 \def\halfline{\makebox[\columnwidth]{\rule{3.7in}{0.4pt}}\\}
+\def\unnumberedsection#1{\section*{#1}\addcontentsline{toc}{section}{#1}}
+\def\unnumberedsubsection#1{\subsection*{#1}\addcontentsline{toc}{subsection}{#1}}
+\def\unnumberedsubsubsection#1{\subsubsection*{#1}\addcontentsline{toc}{subsubsection}{#1}}
+\def\example#1{\textit{Example:} #1}
 \begin{document}
 \RaggedRight
 
+\unnumberedsection{Rules}
+
+\unnumberedsubsection{Attacking}
+
+When you make an attack, you must first choose an equipped weapon to attack with and a target within range of that weapon.
+Roll that weapon's attack die. If the result is a 1, or less than or equal to the target's Evasion minus your Dexterity, the attack misses.
+Otherwise, the attack hits, inflicting one wound on the target. Furthermore, if the result is more than 4 and also greater than the size
+of the die minus your Strength, or if the result is the maximum possible value, you may make another attack against the same target.
+
+\example{Fredrick wants to attack a goblin using his longsword. Fredrick has +2 Strength and +0 Dexterity, and the goblin has
+an Evasion of 2. The following table shows the possible results for Fredrick:
+\begin{tabularx}{\columnwidth}{|c|X|}
+    \hline
+    d8 & Result \\
+    \hline
+    1-2 & Miss, because the roll is less than or equal to the target's Evasion. \\
+    \hline
+    3-6 & Hit for one wound. \\
+    \hline
+    7-8 & Hit for one wound and roll again, because the value is greater than the size of the die minus Fredrick's strength (6). \\
+    \hline
+\end{tabularx}
+}
+
+\unnumberedsubsubsection{Defending}
+
+If a monster is attacking a player character, resolve as above. After the attack has been rolled and the number of incoming wounds is
+known, the player rolls their Armor die once for each wound. For each result equal to or greater than the armor's threshold, one wound
+is negated.
+
+\example{The goblin attacks Fredrick back, hitting for 1 wound. Fredrick has type 4 armor (d6/4), so rolls a d6 once. If he rolls a 
+4 or better, the wound is negated.}
 
 %[monsters]
 
