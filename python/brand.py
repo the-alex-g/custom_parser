@@ -3,6 +3,11 @@ from math import floor
 import os
 FUNCTIONS_REQUIRING_EXTRA_PARAMETERS = {"attack":["str"]}
 AUTOMATIC_VARIABLES = []
+RANGES = {
+    "shortbow":"12/50",
+    "thrown":"5/10",
+    "boulder":"10/20"
+}
 NEWLINE = "\\\\"
 LINEBREAK = "\\bigskip"
 include_functions = {}
@@ -201,8 +206,8 @@ def include(include_type, filename):
     return ""
 
 
-def percent():
-    return "\\%"
+def percent(*value):
+    return sum(*value) + "\\%"
 
 
 def newline():
@@ -315,3 +320,7 @@ def _get_difficulty(difficulty):
     elif difficulty == "hard":
         return 18
     return 0
+
+
+def range(weapon_type):
+    return "range " + RANGES[weapon_type]

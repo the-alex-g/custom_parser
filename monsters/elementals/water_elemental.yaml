@@ -1,0 +1,21 @@
+name: Water Elemental
+headername: Elemental, Water
+size: 1
+type: spirit
+tags:
+- water
+bonuses:
+ str: 2
+ con: 2
+ dex: 2
+ spd: 2
+ det: 1
+attack:
+- 1/rnd
+- "[attack 6] cold bludgeoning (slam)"
+traits:
+- amorphous
+movement_modes:
+- swim
+immune:
+- non-magic

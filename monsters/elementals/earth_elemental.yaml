@@ -1,0 +1,19 @@
+name: Earth Elemental
+headername: Elemental, Earth
+size: 1
+type: spirit
+tags:
+- earth
+bonuses:
+ str: 3
+ con: 3
+ dex: -2
+ spd: -1
+ lor: -2
+ det: 3
+armor: 5
+attack:
+- 1/rnd
+- "[attack 8] bludgeoning (slam)"
+traits:
+- stonewalk

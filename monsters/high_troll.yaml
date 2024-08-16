@@ -15,7 +15,7 @@ attack:
 - 1/rnd
 - "[attack 8] bludgeoning (club)"
 - "[attack 6] bludgeoning (fist)"
-- "[attack 6] bludgeoning (boulder, range 15/25)"
+- "[attack 6] bludgeoning (boulder, [range boulder])"
 special:
 - name: Charge
   text: >

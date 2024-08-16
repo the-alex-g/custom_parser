@@ -1,0 +1,28 @@
+name: Fire Elemental
+headername: Elemental, Fire
+size: 1
+type: spirit
+tags:
+- fire
+bonuses:
+ con: -1
+ dex: 2
+ spd: 3
+ lor: -1
+ det: 1
+attack:
+- 2/rnd
+- "[attack 6] fire (slam)"
+special:
+- name: Burning
+  text: >
+   Whenever a creature touches the fire elemental, that creature takes 1d3 light fire wounds. The elemental takes 1 wound for every 8
+   gallons of water it comes into contact with.
+traits:
+- amorphous
+immune:
+- non-magic
+- fire
+vulnerable:
+- cold
+- damage from water-type sources

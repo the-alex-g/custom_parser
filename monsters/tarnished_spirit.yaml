@@ -1,0 +1,27 @@
+name: Tarnished Spirit
+size: 1
+type: spirit
+tags:
+- dark
+alignment: LG
+bonuses:
+ str: 2
+ con: 1
+ det: 2
+armor: scale
+attack:
+- 1/rnd
+- "[attack 8] unholy fire slashing (darkblade)"
+languages:
+- common
+immune:
+- fire
+- unholy
+- cold
+vulnerable:
+- holy
+special:
+- name: Corruption
+  text: >
+   If a tarnished spirit is slain by holy damage, there is a [percent 5] chance that it reanimates as a [monster solar spirit] with
+   1 health remaining.
