@@ -14,6 +14,8 @@ PAGEBREAK = "\n\\clearpage\n"
 DEFAULT_MONSTER_TRAITS = pp.open_yaml("config_yaml/monster_type_traits.yaml")
 BASE_HEALTH = 4
 
+monster_count = 0
+
 
 def get_size_as_number(size):
     if type(size) == str:
@@ -92,6 +94,8 @@ def calculate_health(size, bonus, armor):
 
 
 def create_monster(monster):
+    global monster_count
+
     if monster["type"] in DEFAULT_MONSTER_TRAITS:
         monster = pp.combine_dictionaries(monster, DEFAULT_MONSTER_TRAITS[monster["type"]], {})
 
@@ -174,6 +178,8 @@ def create_monster(monster):
         for variant_name in sorted(variant_name_dict):
             string += "\\textbf{" + variant_name + "}. " + variant_name_dict[variant_name]["text"] + NEWLINE + LINEBREAK
 
+    monster_count += 1
+
     return brand.eval_string(string, params)
 
 
@@ -186,6 +192,8 @@ def create_monster_block():
 
 
 def create_doc():
+    global monster_count
+
     latex_file = open("monsters.tex", "w")
     for line in open("tex/framework.tex").readlines():
         if line == "%[monsters]\n":
@@ -194,6 +202,7 @@ def create_doc():
             latex_file.write(line)
     latex_file.close()
 
+    print(monster_count, "monsters total")
 
 
 create_doc()
