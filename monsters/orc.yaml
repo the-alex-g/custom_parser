@@ -10,6 +10,7 @@ bonuses:
  con: 1
  lor: -2
  cha: -1
+armor: leather
 attack:
 - 1/rnd
 - "[attack 8] slashing (longsword)"

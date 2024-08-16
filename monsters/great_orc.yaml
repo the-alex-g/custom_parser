@@ -2,7 +2,7 @@ name: Great Orc
 headername: Orc, Great
 flavor: This orc stands head and shoulders above its fellows.
 type: humanoid
-armor: 3
+armor: chain
 size: 1
 alignment: ce
 bonuses:

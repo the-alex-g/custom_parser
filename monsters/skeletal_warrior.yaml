@@ -12,4 +12,6 @@ bonuses:
 attack:
 - 1/rnd
 - "[attack 6] slashing (ancient shortsword)"
-armor: 1
+armor: 2
+vulnerable:
+- bludgeoning

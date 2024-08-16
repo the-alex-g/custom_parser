@@ -13,7 +13,7 @@ attack:
 - 1/rnd
 - "[attack 6] slashing (shortsword)"
 - "[attack 6] piercing (bow, range 15/50)"
-armor: 2
+armor: hide
 traits:
 - Vulnerable to Sunlight
 special:

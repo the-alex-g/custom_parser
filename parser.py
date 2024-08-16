@@ -2,9 +2,12 @@ import yaml
 import os
 import python.parser_utility as pp
 import python.brand as brand
+from math import floor, ceil
 
 ABILITIES = ["str", "con", "dex", "spd", "lor", "ins", "cha", "det"]
 ARMOR_PERCENTS = [0.83, 0.75, 0.67, 0.50, 0.33, 0.25, 0.17]
+HARDNESSES = {"leather":1, "wood":2, "stone":3, "bronze":4, "iron":5, "gemstone":6}
+ARMOR_NAMES = {"none":0, "leather":1, "hide":2, "brigandine":3, "chain":4, "scale":5, "plate":6}
 NEWLINE = "\\\\"
 LINEBREAK = "\\bigskip"
 PAGEBREAK = "\n\\clearpage\n"
@@ -82,7 +85,10 @@ def calculate_evade(bonuses, size, dodge):
 
 
 def calculate_health(size, bonus, armor):
-    return int((BASE_HEALTH + bonus) * size / ARMOR_PERCENTS[armor])
+    health = (BASE_HEALTH + bonus) * size / (2 * ARMOR_PERCENTS[armor])
+    if health < 3 and armor > 0:
+        return ceil(health)
+    return floor(health)
 
 
 def create_monster(monster):
@@ -102,6 +108,8 @@ def create_monster(monster):
 
     if monster["type"] == "construct":
         hardness = pp.get_key_if_exists(monster, "hardness", 0)
+        if type(hardness) == str:
+            hardness = HARDNESSES[hardness]
         pp.increment_key(bonus_dict, "det", hardness)
         pp.increment_key(monster, "armor", hardness)
         health_bonus = bonus_dict["det"]
@@ -121,7 +129,9 @@ def create_monster(monster):
     if string[-1] != "{":
         string += " "
 
-    armor = pp.get_key_if_exists(monster, "armor", 1)
+    armor = pp.get_key_if_exists(monster, "armor", 0)
+    if type(armor) == str:
+        armor = ARMOR_NAMES[armor]
 
     string += "size " + str(size) + " " + monster["type"] + "}" + NEWLINE
     string += get_ability_list(bonus_dict) + NEWLINE

@@ -2,7 +2,7 @@ name: Wood Golem
 headername: Golem, Wood
 size: 1
 type: construct
-hardness: 2
+hardness: wood
 bonuses:
  str: 2
  dex: -2

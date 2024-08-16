@@ -10,3 +10,5 @@ bonuses:
 attack:
 - 1/rnd
 - "[attack 4] slashing (scratch)"
+vulnerable:
+- bludgeoning

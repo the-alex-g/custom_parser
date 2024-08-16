@@ -3,7 +3,7 @@ headername: Golem, Iron
 flavor: A monolithic golem, like a giant suit of armor covered in glowing runes, stomped toward us.
 size: 1
 type: construct
-hardness: 6
+hardness: iron
 bonuses:
  str: 4
  dex: -1

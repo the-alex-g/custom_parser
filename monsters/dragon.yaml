@@ -1,7 +1,7 @@
 name: Dragon
 type: dragon
 size: 4
-armor: 6
+armor: scale
 bonuses:
  str: 4
  con: 4
