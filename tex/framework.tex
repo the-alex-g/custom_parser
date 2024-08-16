@@ -93,9 +93,22 @@ the animals you already control are set free.}
 \spell{Summon Animal}{4}{minutes}{\summon{animal}{6}{runs away}}
 
 
+\unnumberedsubsection{Arcane}
+\spell{Bind Arcane Spirit}{4}{minutes}{\bind{arcane spirit}{vanishes}}
+
+\spell{Mageblade}{2}{rounds}{A sword of arcane energy appears beside you. At the start of each of your turns, you can either make a
+d6 magic slashing spell attack against one creature within 2 fathoms, or you can gain +1 Evasion against melee attacks until the start
+of your next turn.}
+
+\spell{Magic Missile}{2}{instant}{You fire a number of darts equal to your spell modifier + 2. Each dart hits a creature within 10
+fathoms, dealing 1 light magic wound.}
+
+\spell{Shield}{1}{rounds}{You or a nearby creature gets +2 Evasion.}
+
+
 \unnumberedsubsection{Blood}
 \spell{Bleed}{1}{instant}{You take 1 to 3 light wounds, and target a living creature within 6 fathoms. That creature must succeed on a
-Det check against your spell modifier or take the same amount of light magic slashing damage.}
+Det check against your spell modifier or take the same amount plus 1 of light magic slashing damage.}
 
 \spell{Blood Circle}{2}{rounds}{A 2-fathom diameter circle of crimson glyphs appears, centered on you. It moves to remain centered on you.
 Any living creature that moves across the circle boundary takes 1d3 light magic slashing damage.}
@@ -163,6 +176,17 @@ piercing spell attack, and then is pushed to the nearest empty space.}
 \spell{Stonewalk}{2}{rounds}{You or a nearby creature can walk freely through unworked stone, leaving no trace of your passage.}
 
 
+\unnumberedsubsection{Enchantment}
+\spell{Animate Construct}{4}{permanent}{After crafting a body for a construct, you must cast this spell to animate it. The construct obeys
+your commands unquestioningly.}
+
+\spell{Enchant}{2}{minutes}{One weapon or armor that you touch gets a +1 bonus to its die rolls.}
+
+\spell{Mending}{1}{instant}{One nearby object or construct is repaired or heals 1.}
+
+\spell{Permanency}{4}{instant}{One nearby ongoing spell effect becomes permanent.}
+
+
 \unnumberedsubsection{Ice}
 \spell{Bind Ice Spirit}{4}{minutes}{\bind{ice spirit}{melts}}
 
@@ -204,11 +228,23 @@ take 1 light fire wound).}
 halved with a successful Evasion check against your spell modifier.}
 
 
+\unnumberedsubsection{Growth}
+\spell{Barkskin}{2}{minutes}{You or a nearby creature's Armor increases to 2 if it is less than 2.}
+
+\spell{Control Plants}{2}{rounds}{All plants within three fathoms of you obey your directions. You can make them grow or bend in any
+direction, but you cannot make them uproot themselves.}
+
+\spell{Create Plant Creature}{4}{hours}{\create{plant}{deanimates}}
+
+\spell{Thorn Barrage}{1}{instant}{All creatures in a 3-fathom cone, emanating from you, take 1d3 light piercing damage (roll seperately for each creature).
+Creatures with shields, or those wearing armor type 2 or better, are immune to this effect.}
+
+
 \unnumberedsubsection{Life}
-\spell{Heal}{1}{instant}{You or one nearby creature heals 1 damage and all their light damage. Casting this spell on an undead deals 1
+\spell{Heal}{1}{instant}{You or one nearby living creature heals 1 damage and all their light damage. Casting this spell on an undead deals 1
 magic damage.}
 
-\spell{Restore}{4}{instant}{You or one nearby creature is either cured from one disease, one poison, or a total of 4 points of ability
+\spell{Restore}{4}{instant}{You or one nearby living creature is either cured from one disease, one poison, or a total of 4 points of ability
 drain. Casting this spell on an undead deals 1d3 + 1 magic damage.}
 
 \spell{Turn Undead}{4}{instant}{All undead within 4 fathoms must make a Det check against your spell modifier. An undead that fails is
@@ -230,14 +266,18 @@ hit point and twice as much mana. These benefits can be gained only once per wee
 \spell{Summon Lunar Spirit}{4}{hours}{\create{moon spirit}{fades away}}
 
 
-\unnumberedsubsection{Plant}
-\spell{Control Plants}{2}{rounds}{All plants within three fathoms of you obey your directions. You can make them grow or bend in any
-direction, but you cannot make them uproot themselves.}
+\unnumberedsubsection{Nullity}
+\spell{Dispel Magic}{1+}{instant}{This spell targets a nearby ongoing spell effect. Add that spell's casting cost to this spell's
+casting cost. The targeted spell is cancelled.}
 
-\spell{Create Plant Creature}{4}{hours}{\create{plant}{deanimates}}
+\spell{Null Field}{4}{minutes}{Pick a point within 6 fathoms. In a 3-fathom-radius sphere, centered on this point, magic ceases to work.
+Creatures within the sphere cannot cast spells and are immune to magic damage. They cannot be targeted by spells that are not ranged
+attacks. Ongoing magical and spell effects are surpressed while within the sphere. This spell cannot be dispelled or cancelled.}
 
-\spell{Thorn Barrage}{1}{instant}{All creatures in a 3-fathom cone, emanating from you, take 1d3 light piercing damage (roll seperately for each creature).
-Creatures with shields, or those wearing armor type 2 or better, are immune to this effect.}
+\spell{Spell Eater}{2+}{instant}{You may cast this spell as a reaction when another creature casts a spell that affects you. Add the
+casting cost of the other spell to the casting cost of this spell. The other spell is cancelled. For a number of rounds equal to your
+casting modifier, you gain the ability to cast the captured spell without paying its cost. Once you cast it in this way, you cannot do
+so again.}
 
 
 \unnumberedsubsection{Sun}
@@ -252,10 +292,6 @@ dim light for an additional 4 fathoms.}
 wound.}
 
 \spell{Summon Solar Spirit}{4}{hours}{\create{sun spirit}{vanishes in a flash of light}}
-
-
-\unnumberedsubsection{War}
-\spell{Shield}{2}{rounds}{You or one nearby creature gets a +2 Evasion bonus.}
 
 
 \unnumberedsubsection{Water}

@@ -24,4 +24,4 @@ special:
 - name: Corruption
   text: >
    If a tarnished spirit is slain by holy damage, there is a [percent 5] chance that it reanimates as a [monster solar spirit] with
-   1 health remaining.
+   1d3 health remaining.

@@ -25,6 +25,6 @@ special:
 - name: Corruption
   text: >
    If a solar spirit is slain by unholy damage, there is a [percent 5] chance that it reanimates as a [monster tarnished spirit] with
-   1 health remaining.
+   1d3 + 1 health remaining.
 movement_modes:
 - fly 140
