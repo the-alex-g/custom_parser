@@ -5,7 +5,6 @@ type: spirit
 tags:
 - fire
 bonuses:
- con: -1
  dex: 2
  spd: 3
  lor: -1

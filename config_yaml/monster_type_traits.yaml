@@ -1,6 +1,7 @@
 undead:
  immune:
  - unholy
+ - necrotic
  vulnerable:
  - holy
  special:
@@ -12,6 +13,7 @@ construct:
  - holy
  - unholy
  - psychic
+ - necrotic
  special:
  - name: Constructed Nature
    text: >

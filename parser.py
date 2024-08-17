@@ -4,6 +4,8 @@ import python.parser_utility as pp
 import python.brand as brand
 from math import floor, ceil
 
+SOURCE_FOLDER = "mephits"
+
 ABILITIES = ["str", "con", "dex", "spd", "lor", "ins", "cha", "det"]
 ARMOR_PERCENTS = [0.83, 0.75, 0.67, 0.50, 0.33, 0.25, 0.17]
 HARDNESSES = {"leather":1, "wood":2, "stone":3, "bronze":4, "iron":5, "gemstone":6}
@@ -89,8 +91,8 @@ def calculate_evade(bonuses, size, dodge):
 def calculate_health(size, bonus, armor):
     health = (BASE_HEALTH + bonus) * size / (2 * ARMOR_PERCENTS[armor])
     if health < 3 and armor > 0:
-        return ceil(health)
-    return floor(health)
+        return max(0, ceil(health))
+    return max(0, floor(health))
 
 
 def create_monster(monster):
@@ -110,12 +112,16 @@ def create_monster(monster):
     bonus_dict = pp.get_key_if_exists(monster, "bonuses", {})
     health_bonus = 0
 
+    armor = pp.get_key_if_exists(monster, "armor", 0)
+    if type(armor) == str:
+        armor = ARMOR_NAMES[armor]
+
     if monster["type"] == "construct":
         hardness = pp.get_key_if_exists(monster, "hardness", 0)
         if type(hardness) == str:
             hardness = HARDNESSES[hardness]
         pp.increment_key(bonus_dict, "det", hardness)
-        pp.increment_key(monster, "armor", hardness)
+        armor += hardness
         health_bonus = bonus_dict["det"]
     elif monster["type"] == "undead":
         health_bonus = pp.get_key_if_exists(bonus_dict, "det", 0)
@@ -128,17 +134,15 @@ def create_monster(monster):
         params[ability] = pp.get_key_if_exists(bonus_dict, ability, 0)
     
     
-    string = "\\section*{" + headername + "}\\textit{" + pp.get_key_if_exists(monster, "flavor", "") + "}" + NEWLINE + "\\medskip"
+    string = "\\section*{" + headername + "}\\textit{" + pp.get_key_if_exists(monster, "flavor", "", if_exists=NEWLINE) + "}\\medskip"
     string += "\\textsc{" + alignment
     if string[-1] != "{":
         string += " "
 
-    armor = pp.get_key_if_exists(monster, "armor", 0)
-    if type(armor) == str:
-        armor = ARMOR_NAMES[armor]
-
-    string += "size " + str(size) + " " + monster["type"] + "}" + NEWLINE
-    string += get_ability_list(bonus_dict) + NEWLINE
+    string += "size " + str(size) + " " + monster["type"] + "}"
+    if "tags" in monster:
+        string += " (" + pp.comma_separate(sorted(monster["tags"])) + ")"
+    string += NEWLINE + get_ability_list(bonus_dict) + NEWLINE
     string += "\\textbf{Health} " + str(calculate_health(size_number, health_bonus, armor))
     string += ", \\textbf{Arm} " + str(armor)
     string += ", \\textbf{Evd} " + str(calculate_evade(bonus_dict, size, "dodge" in monster))
@@ -168,14 +172,17 @@ def create_monster(monster):
     
     if "special" in monster:
         ability_name_dict = pp.get_dict_by_name(monster["special"])
-        for ability_name in sorted(ability_name_dict):
+        for ability_name in ability_name_dict:
             ability = ability_name_dict[ability_name]
-            string += LINEBREAK + "\\textbf{" + ability["name"] + "}. " + ability["text"] + NEWLINE
+            if type(ability) == dict:
+                string += LINEBREAK + "\\textbf{" + ability_name + "}. " + ability["text"] + NEWLINE
+            else:
+                string += LINEBREAK + "\\textbf{" + ability_name + "}. " + ability + NEWLINE
     
     if "variants" in monster:
         string += LINEBREAK + "\\textbf{Variants}" + NEWLINE + "\\halfline"
         variant_name_dict = pp.get_dict_by_name(monster["variants"])
-        for variant_name in sorted(variant_name_dict):
+        for variant_name in variant_name_dict:
             string += "\\textbf{" + variant_name + "}. " + variant_name_dict[variant_name]["text"] + NEWLINE + LINEBREAK
 
     monster_count += 1
@@ -185,8 +192,8 @@ def create_monster(monster):
 
 def create_monster_block():
     string = ""
-    monster_name_dict = pp.get_dict_by_name(pp.get_yaml_from_directory("monsters"))
-    for monster_name in sorted(monster_name_dict):
+    monster_name_dict = pp.get_dict_by_name(pp.get_yaml_from_directory(SOURCE_FOLDER))
+    for monster_name in monster_name_dict:
         string += create_monster(monster_name_dict[monster_name])
     return string
 

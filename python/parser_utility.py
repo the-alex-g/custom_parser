@@ -20,9 +20,12 @@ def shortname(dictionary):
 
 
 # returns the given key from the dictionary if it exists, or returns the default if the key does not exist
-def get_key_if_exists(dictionary, key, default):
+def get_key_if_exists(dictionary, key, default, if_exists=""):
     if key in dictionary:
-        return dictionary[key]
+        value = dictionary[key]
+        if type(value) == str:
+            return value + if_exists
+        return value
     else:
         return default
 
@@ -126,11 +129,22 @@ def get_yaml_from_directory(dirname):
     return yaml_list
 
 
-def get_dict_by_name(list):
-    name_dict = {}
-    for item in list:
-        name_dict[headername(item)] = item
-    return name_dict
+def get_dict_by_name(data):
+    if type(data) == list:
+        name_dict = {}
+        for item in data:
+            name_dict[headername(item)] = item
+        return sort_dictionary(name_dict)
+    elif type(data) == dict:
+        return sort_dictionary(data)
+
+
+def sort_dictionary(dictionary):
+    sorted_dictionary = {}
+    for key in sorted(dictionary):
+        sorted_dictionary[key] = dictionary[key]
+    return sorted_dictionary
+    
 
 
 def increment_key(dictionary, key, value):

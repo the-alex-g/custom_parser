@@ -1,4 +1,4 @@
-name: Wyv Poisonspitter
+name: Wyv
 size: 1/4
 type: animal
 flavor: These snake-like creatures swim through the air, held aloft by an internal bladder of bouyant gases.
@@ -12,7 +12,7 @@ attack:
 - 1/rnd
 - "1 light wound and wyv venom (bite)"
 movement_modes:
-- fly 60
+- fly 30
 special:
 - name: Wyv Venom
   text: The affected creature must succeed on a Det 10 check or suffer 1 point of Con drain.
