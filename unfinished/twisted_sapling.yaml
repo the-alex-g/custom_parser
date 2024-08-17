@@ -1,6 +1,8 @@
 name: Twisted Sapling
 size: 
-type: 
+type: plant
+tags:
+- corrupted
 flavor: 
 alignment: 
 bonuses:

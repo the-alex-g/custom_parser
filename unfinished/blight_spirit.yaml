@@ -1,6 +1,8 @@
 name: Blight Spirit
 size: 
-type: 
+type: spirit
+tags:
+- corrupted
 flavor: 
 alignment: 
 bonuses:

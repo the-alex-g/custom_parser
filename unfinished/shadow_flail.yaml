@@ -1,6 +1,8 @@
 name: Shadow Flail
 size: 
-type: 
+type: spirit
+tags:
+- dark
 flavor: 
 alignment: 
 bonuses:

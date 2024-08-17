@@ -1,6 +1,8 @@
 name: Shadow Hulk
 size: 
-type: 
+type: spirit
+tags:
+- dark
 flavor: 
 alignment: 
 bonuses:
