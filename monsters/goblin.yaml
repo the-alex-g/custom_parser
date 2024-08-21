@@ -22,3 +22,5 @@ movement_modes:
 variants:
 - name: Plains Goblin
   text: These goblins live above ground, losing their Vulnerable to Sunlight trait and their ability to climb.
+senses:
+- dimsight

@@ -31,3 +31,5 @@ languages:
 - COMMON
 movement_modes:
 - hover
+senses:
+- sense living

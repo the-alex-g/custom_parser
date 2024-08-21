@@ -26,3 +26,5 @@ languages:
 - common
 movement_modes:
 - climb
+senses:
+- dimsight

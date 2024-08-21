@@ -23,7 +23,7 @@ special:
   text: >
    As an action, all creatures in a 8-fathom cone emanating from the dragon take 4 fire wounds, halved by a [check evd hard].
 movement_modes:
-- fly 150
+- fly 75
 variants:
 - name: Frost Dragon
   text: >
@@ -31,3 +31,5 @@ variants:
    to fire.
 languages:
 - DRACONIC
+senses:
+- darksight

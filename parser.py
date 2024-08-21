@@ -4,7 +4,7 @@ import python.parser_utility as pp
 import python.brand as brand
 from math import floor, ceil
 
-SOURCE_FOLDER = "mephits"
+SOURCE_FOLDER = "monsters"
 
 ABILITIES = ["str", "con", "dex", "spd", "lor", "ins", "cha", "det"]
 ARMOR_PERCENTS = [0.83, 0.75, 0.67, 0.50, 0.33, 0.25, 0.17]
@@ -95,6 +95,10 @@ def calculate_health(size, bonus, armor):
     return max(0, floor(health))
 
 
+def get_monster_array_field(name, monster):
+    return "\\textbf{" + name + "} " + pp.comma_separate(sorted(monster[name.lower()])) + NEWLINE
+
+
 def create_monster(monster):
     global monster_count
 
@@ -153,22 +157,25 @@ def create_monster(monster):
     string += NEWLINE
 
     if "immune" in monster:
-        string += "\\textbf{Immune} " + pp.comma_separate(monster["immune"]) + NEWLINE
+        string += get_monster_array_field("Immune", monster)
 
     if "resist" in monster:
-        string += "\\textbf{Resist} " + pp.comma_separate(monster["resist"]) + NEWLINE
+        string += get_monster_array_field("Resist", monster)
 
     if "vulnerable" in monster:
-        string += "\\textbf{Vulnerable} " + pp.comma_separate(monster["vulnerable"]) + NEWLINE
+        string += get_monster_array_field("Vulnerable", monster)
     
     if "attack" in monster:
         string += "\\textbf{Attack }" + monster["attack"][0] + ": " + pp.comma_separate(monster["attack"][1:]) + NEWLINE
 
     if "traits" in monster:
-        string += "\\textbf{Traits} " + pp.comma_separate(sorted(monster["traits"])) + NEWLINE
+        string += get_monster_array_field("Traits", monster)
     
     if "languages" in monster:
-        string += "\\textbf{Languages} " + pp.comma_separate(sorted(monster["languages"])) + NEWLINE
+        string += get_monster_array_field("Languages", monster)
+    
+    if "senses" in monster:
+        string += get_monster_array_field("Senses", monster)
     
     if "special" in monster:
         ability_name_dict = pp.get_dict_by_name(monster["special"])

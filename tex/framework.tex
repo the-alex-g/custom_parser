@@ -29,6 +29,8 @@ When the spell ends or the summoned creature is killed, the creature #2.}
 \begin{document}
 \RaggedRight
 
+\tableofcontents
+
 \unnumberedsection{Rules}
 
 \unnumberedsubsection{Attacking}
@@ -63,8 +65,46 @@ is negated.
 4 or better, the wound is negated.}
 
 
+\unnumberedsubsection{Light and Sensing}
+
+\begin{tabularx}{\columnwidth}{|c|X|}
+    \hline
+    Bright Light & No penalties \\
+    \hline
+    Dim Light & +2 Evasion \\
+    \hline
+    Darkness & Creatures in darkness cannot be seen \\
+    \hline
+    Utter Darkness & Creatures in utter darkness cannot be seen \\
+    \hline
+    \hline
+    Blindsight & Can sense surroundings, regardless of ability to see \\
+    % for creatures that cannot see with eyes, but can still detect their surroundings
+    \hline
+    Darksight & Can see normally, regardless of light level \\
+    % magical in nature
+    \hline
+    Dimsight & Can see as if the light level were one higher \\
+    % natural keen night vision
+    \hline
+    Sense Living & Can sense living creatures, regardless of ability to see \\
+    % for telepaths and powerful undead
+    \hline
+    Tremorsense & Can sense moving things, regardless of ability to see \\
+    % for things like plants without another way to sense and burrowing monsters
+    \hline
+    Truesight & Can see perfectly regardless of light level, can see invisible creatures and objects, and can immediately identify visual illusions \\
+    % extremely magical in nature
+    \hline
+\end{tabularx}
+
+
 \unnumberedsubsection{Spellcasting}
 
+When you cast a spell, unless its duration is instantaneous or permanent, roll 1d4 and add your spellcasting modifier. The result is how
+many units of time the spell lasts.
+\example{Althier, a wizard, casts \textit{Shield}, with a duration of rounds. He rolls 1d4 and adds his Lor bonus, getting a total of
+3. Therefore, his shield spell lasts for three rounds.}
 
 \unnumberedsubsubsection{Clerics}
 
@@ -209,8 +249,7 @@ constructs within 5 fathoms.
 \newline
 Alternatively, this spell can be cast as an instant to learn the effect of one nearby ongoing magical or spell effect.}
 
-\spell{Truesight}{2}{minutes}{You or a nearby creature can see perfectly regardless of light level, can see invisible creatures and objects,
-and can immediately identify visual illusions.}
+\spell{Truesight}{2}{minutes}{You or a nearby creature gains truesight.}
 
 
 \unnumberedsubsection{Earth}

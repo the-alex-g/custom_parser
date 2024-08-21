@@ -324,3 +324,12 @@ def _get_difficulty(difficulty):
 
 def range(weapon_type):
     return "range " + RANGES[weapon_type]
+
+
+def illuminates(bright, *dim):
+    string = "sheds light (" + str(bright)
+    if len(dim) > 0:
+        if dim[0] == 0:
+            return string + ")"
+        return string + "/" + str(dim[0]) + ")"
+    return string + "/" + str(bright * 2) + ")"

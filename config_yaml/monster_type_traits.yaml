@@ -4,6 +4,8 @@ undead:
  - necrotic
  vulnerable:
  - holy
+ senses:
+ - darksight
  special:
  - name: Undead Nature
    text: >
@@ -14,7 +16,15 @@ construct:
  - unholy
  - psychic
  - necrotic
+ senses:
+ - darksight
  special:
  - name: Constructed Nature
    text: >
     The [name] automatically succeeds on all Con checks. If the [possessive [name]] Con bonus is ever needed, use its Det bonus instead.
+spirit:
+ senses:
+ - darksight
+ooze:
+ senses:
+ - blindsight

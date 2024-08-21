@@ -22,9 +22,10 @@ immune:
 vulnerable:
 - unholy
 special:
-- name: Corruption
-  text: >
-   If a solar spirit is slain by unholy damage, there is a [percent 5] chance that it reanimates as a [monster tarnished spirit] with
-   1d3 + 1 health remaining.
+ Corruption: >
+  If a solar spirit is slain by unholy damage, there is a [percent 5] chance that it reanimates as a [monster tarnished spirit] with
+  1d3 + 1 health remaining.
+ Radiance: >
+  A solar spirit [illuminates 2].
 movement_modes:
-- fly 140
+- fly 70

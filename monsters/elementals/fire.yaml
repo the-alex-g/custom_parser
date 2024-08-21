@@ -16,7 +16,7 @@ special:
 - name: Burning
   text: >
    Whenever a creature touches the fire elemental, that creature takes 1d3 light fire wounds. The elemental takes 1 wound for every 8
-   gallons of water it comes into contact with.
+   gallons of water it comes into contact with, and it [illuminates 3].
 traits:
 - amorphous
 immune:
