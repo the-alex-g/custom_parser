@@ -26,6 +26,9 @@ commands that are not obviously suicidal. If the creature is still alive when th
 %created creature
 \def\create#1#2{Summon any #1 that you know the summoning ritual for. The #1 appears nearby and obeys your commands unquestioningly.
 When the spell ends or the summoned creature is killed, the creature #2.}
+\def\spelldrain#1{In order to cast this spell, you must suffer #1 of spell drain.
+
+}
 
 % comprehensive armor listing (from low to high):
 % d12/11, d10/9, d8/7, |d6/5|, d10/8, |d4/3|, d10/7, |d6/4|, d8/5, d10/6, d12/7, |d6/3|, d12/5
@@ -111,6 +114,10 @@ many units of time the spell lasts.
 \example{Althier, a wizard, casts \textit{Shield}, with a duration of rounds. He rolls 1d4 and adds his Lor bonus, getting a total of
 3. Therefore, his shield spell lasts for three rounds.}
 
+If the spell directly targets a creature with spell resistance, the cost of the spell is increased by that creature's spell resistance.
+If not directly targeted by a spell, but still affected by one (like being in the radius of a \textit{Fireball}), that creature adds its
+spell resistance to any checks required by the spell.
+
 \unnumberedsubsubsection{Clerics}
 
 A cleric's spellcasting ability is either Insight (usually for good deities), Determination (usually for evil deities), or Charisma.
@@ -143,7 +150,7 @@ A shaman's spellcasting ability is Determination.
 When you cast a spell, you must make a Det 14 check. If you fail, you take unblockable light wounds equal to the level of the spell.
 Regardless of success or failure, the spell is cast.
 
-\textit{Spell Drain:}
+\textit{Spell Drain:} Suffer one unblockable light wound for each point of spell drain.
 
 
 \unnumberedsubsubsection{Wizards}
@@ -225,9 +232,7 @@ before your turn.}
 \spell{Darkness}{1}{minutes}{Pick a point within 10 fathoms. A 5-fathom-diameter sphere, centered on that point, is filled with utterdark.
 Light cannot penetrate this darkness.}
 
-\spell{Devouring Void}{4}{rounds}{Pick a point within 6 fathoms. Any creature that starts its turn near that point must succeed on a Det
-check against your spell modifier or take unholy damage equal to your spell modifier. If a creature is reduced to zero health this way,
-roll 1d20 and add the creature's size (rounded down). On a 3 or less, the creature is pulled into the void and gone forever.}
+\spell{Devouring Void}{4}{rounds}{\spelldrain{2 points} Pick a point within 6 fathoms. Any creature that starts its turn near that point must succeed on a Det check against your spell modifier or take unholy damage equal to your spell modifier. If a creature is reduced to zero health this way, roll 1d20 and add the creature's size (rounded down). On a 3 or less, the creature is pulled into the void and gone forever.}
 
 
 \unnumberedsubsection{Death}
@@ -239,7 +244,7 @@ undead when you cast this spell, the undead you already control are set free.}
 \spell{Create Undead}{4}{hours}{\create{undead}{deanimates. Depending on the type of undead, it may crumble into bones or just vanish into thin air}}
 
 \spell{Life Drain}{2}{instant}{One living creature within 6 fathoms must succeed on a Det check against your spell modifier or take 1 unholy
-damage. If the target took any damage, you regain one health.}
+damage. If the target took any damage, you heal one wound.}
 
 \spell{Sap Vitality}{1}{instant}{One living creature within 6 fathoms must succeed on a Det check against your spell modifier or take 1d3 light
 unholy damage, 1 Det drain, and 1 Con drain.}
@@ -279,13 +284,13 @@ your commands unquestioningly.}
 
 \spell{Mending}{1}{instant}{One nearby object or construct is repaired or heals 1.}
 
-\spell{Permanency}{4}{instant}{One nearby ongoing spell effect becomes permanent.}
+\spell{Permanency}{4}{instant}{\spelldrain{the maximum possible amount} One nearby ongoing spell effect becomes permanent.}
 
 
 \unnumberedsubsection{Fire}
 \spell{Bind Fire Spirit}{4}{minutes}{\bind{fire spirit}{vanishes}}
 
-\spell{Burning Rain}{4}{rounds}{Pick a point you can see. In a cube about 60 fathoms on a side, centered on that point, burning embers rain
+\spell{Burning Rain}{4}{rounds}{\spelldrain{2 points} Pick a point you can see. In a cube about 60 fathoms on a side, centered on that point, burning embers rain
 down. Any creature that starts its turn exposed to the burning rain suffers fire damage equal to its size (creatures smaller than 1
 take 1 light fire wound).}
 
@@ -341,7 +346,7 @@ on top of yourself and move it as you move, so that it functions as a disguise.}
 \spell{Heal}{1}{instant}{You or one nearby living creature heals 1 damage and all their light damage. Casting this spell on an undead deals 1
 magic damage.}
 
-\spell{Restore}{4}{instant}{You or one nearby living creature is either cured from one disease, one poison, or a total of 4 points of ability
+\spell{Restore}{4}{instant}{\spelldrain{2 points} You or one nearby living creature is either cured from one disease, one poison, or a total of 4 points of ability
 drain. Casting this spell on an undead deals 1d3 + 1 magic damage.}
 
 \spell{Turn Undead}{4}{instant}{All undead within 4 fathoms must make a Det check against your spell modifier. An undead that fails is
@@ -357,8 +362,7 @@ checks.}
 half the damage it would have done, rounded up.}
 
 \spell{Haven}{4}{8 hours}{A dome 5 fathoms in diameter appears, centered on you. The dome, and any creatures in it, are invisible
-from the outside. From the inside, the dome displays a brilliant night sky. Creatures that sleep under the dome regain one additional
-hit point and twice as much mana. These benefits can be gained only once per week.}
+from the outside. From the inside, the dome displays a brilliant night sky. Creatures that sleep under the dome heal one additional wound. This benefit can be gained only once per week.}
 
 \spell{Summon Lunar Spirit}{4}{hours}{\create{moon spirit}{fades away}}
 
@@ -367,7 +371,7 @@ hit point and twice as much mana. These benefits can be gained only once per wee
 \spell{Dispel Magic}{1+}{instant}{This spell targets a nearby ongoing spell effect. Add that spell's casting cost to this spell's
 casting cost. The targeted spell is cancelled.}
 
-\spell{Null Field}{4}{minutes}{Pick a point within 6 fathoms. In a 3-fathom-radius sphere, centered on this point, magic ceases to work.
+\spell{Null Field}{4}{minutes}{\spelldrain{2 points} Pick a point within 6 fathoms. In a 3-fathom-radius sphere, centered on this point, magic ceases to work.
 Creatures within the sphere cannot cast spells and are immune to magic damage. They cannot be targeted by spells that are not ranged
 attacks. Ongoing magical and spell effects are surpressed while within the sphere. This spell cannot be dispelled or cancelled.}
 
