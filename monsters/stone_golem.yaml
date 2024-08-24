@@ -13,5 +13,4 @@ bonuses:
 attack:
 - 2/rnd
 - "[attack 6] bludgeoning (slam)"
-traits:
-- Spell Resist 2
+spell resist: 2

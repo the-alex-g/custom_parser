@@ -16,10 +16,8 @@ attack:
 - 2/rnd
 - "[attack 6] bludgeoning (slam)"
 special:
-- name: Flammable
-  text: >
+ Flammable: >
    If the wood golem takes 4 or more fire damage from a single attack, it bursts into flames. While burning, it takes 2 fire damage
    at the start of each of its turns and its slam attacks deal +1 fire damage. Any creature that touches the golem or starts its turn
    within 1 fathom of the golem while it is burning takes one fire damage.
-traits:
-- Spell Resist 1
+spell resist: 1

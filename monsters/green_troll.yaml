@@ -16,8 +16,7 @@ attack:
 - 2/rnd
 - 2x [attack 6] bludgeoning (rend)
 - "[attack 6] bludgeoning (boulder, [range boulder])"
-traits:
-- Spell Resist 1
 languages:
 - JOTUN
 - common
+spell resist: 1

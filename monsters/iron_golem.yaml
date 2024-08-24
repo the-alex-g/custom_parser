@@ -18,5 +18,4 @@ attack:
 - 2/rnd
 - "[attack 6] bludgeoning (slam)"
 - "[attack 8] slashing (sword)"
-traits:
-- Spell Resist 3
+spell resist: 3

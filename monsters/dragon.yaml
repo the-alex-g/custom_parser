@@ -19,9 +19,8 @@ attack:
 - 2x [attack 10] slashing (claws)
 - "[attack 8] bludgeoning (tail)"
 special:
-- name: Fire Breath
-  text: >
-   As an action, all creatures in a 8-fathom cone emanating from the dragon take 4 fire wounds, halved by a [check evd hard].
+ Fire Breath: >
+  As an action, all creatures in a 8-fathom cone emanating from the dragon take 4 fire wounds, halved by a [check evd hard].
 movement_modes:
 - fly 75
 variants:

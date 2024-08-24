@@ -13,7 +13,7 @@ attack:
 - 1/rnd
 - "[attack 4] piercing (dagger)"
 traits:
-- Vulnerable to Sunlight
+- Light Aversion
 languages:
 - GOBLIN
 - common
@@ -21,6 +21,6 @@ movement_modes:
 - climb
 variants:
 - name: Plains Goblin
-  text: These goblins live above ground, losing their Vulnerable to Sunlight trait and their ability to climb.
+  text: These goblins live above ground, losing their light aversion trait and their ability to climb.
 senses:
 - dimsight

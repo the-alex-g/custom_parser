@@ -13,12 +13,11 @@ attack:
 - 2/rnd
 - "[attack 4] bludgeoning (slam)"
 special:
-- name: Push
-  text: >
+ Push: >
    Any creature hit by the air elemental's slam attack must succeed on a Str check against the elemental's Str or be pushed up to 1
    fathom in any direction.
 traits:
-- amorphous
+- Amorphous
 immune:
 - non-magic
 movement_modes:

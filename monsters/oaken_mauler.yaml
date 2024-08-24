@@ -14,10 +14,8 @@ attack:
 - 1/rnd
 - "[attack 8] bludgeoning (smash)"
 special:
-- name: Bloodthirst
-  text: Once per turn, if the oaken mauler hits with an attack, roll a d6. On a 3 or better, the mauler may make a second attack.
-- name: Summoning
-  text: >
+ Bloodthirst: Once per turn, if the oaken mauler hits with an attack, roll a d6. On a 3 or better, the mauler may make a second attack.
+ Summoning: >
    While you have an oaken mauler under your control, you must make a Det check against the mauler every time you take damage or cast
    a spell. If you fail, the mauler breaks free from your control and acts independently.
 flavor: A glowing green maw acts as this hulk's eyes and mouth.

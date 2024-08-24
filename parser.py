@@ -14,6 +14,7 @@ NEWLINE = "\\\\"
 LINEBREAK = "\\bigskip"
 PAGEBREAK = "\n\\clearpage\n"
 DEFAULT_MONSTER_TRAITS = pp.open_yaml("config_yaml/monster_type_traits.yaml")
+SPECIAL_MONSTER_TRAITS = pp.open_yaml("config_yaml/monster_special_traits.yaml")
 BASE_HEALTH = 4
 
 monster_count = 0
@@ -109,6 +110,12 @@ def create_monster(monster):
 
     print("compiling", name)
 
+    for trait in pp.get_key_if_exists(monster, "traits", []):
+        if "special" in monster:
+            monster["special"][trait] = SPECIAL_MONSTER_TRAITS[trait]
+        else:
+            monster["special"] = {trait:SPECIAL_MONSTER_TRAITS[trait]}
+
     headername = pp.headername(monster)
     size = monster["size"]
     size_number = get_size_as_number(size)
@@ -145,7 +152,7 @@ def create_monster(monster):
 
     string += "size " + str(size) + " " + monster["type"] + "}"
     if "tags" in monster:
-        string += " (" + pp.comma_separate(sorted(monster["tags"])) + ")"
+        string += f" ({pp.comma_separate(sorted(monster["tags"]))})"
     string += NEWLINE + get_ability_list(bonus_dict) + NEWLINE
     string += "\\textbf{Health} " + str(calculate_health(size_number, health_bonus, armor))
     string += ", \\textbf{Arm} " + str(armor)
@@ -153,7 +160,7 @@ def create_monster(monster):
     string += ", \\textbf{Mv} " + str(6 + pp.get_key_if_exists(bonus_dict, "spd", 0) * 2)
 
     if "movement_modes" in monster:
-        string += ", " + pp.comma_separate(monster["movement_modes"])
+        string += f", {pp.comma_separate(monster["movement_modes"])}"
     string += NEWLINE
 
     if "immune" in monster:
@@ -164,13 +171,13 @@ def create_monster(monster):
 
     if "vulnerable" in monster:
         string += get_monster_array_field("Vulnerable", monster)
+
+    if "spell resist" in monster:
+        string += "\\textbf{Spell Resist} " + str(monster["spell resist"]) + NEWLINE
     
     if "attack" in monster:
         string += "\\textbf{Attack }" + monster["attack"][0] + ": " + pp.comma_separate(monster["attack"][1:]) + NEWLINE
 
-    if "traits" in monster:
-        string += get_monster_array_field("Traits", monster)
-    
     if "languages" in monster:
         string += get_monster_array_field("Languages", monster)
     
