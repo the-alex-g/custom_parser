@@ -169,6 +169,8 @@ def _separate(array, spacer=" "):
 
 # Returns a number as a string with proper sign indication
 def format_bonus(bonus):
+    if type(bonus) == str:
+        bonus = int(bonus)
     if bonus >= 0:
         return "+" + str(bonus)
     else:

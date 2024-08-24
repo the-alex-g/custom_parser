@@ -49,7 +49,7 @@ def get_ability_list(bonuses):
         if ability in bonuses:
             if string != "" and i != 4:
                 string += ", "
-            string += "\\textbf{" + ability.title() + "} " + brand.format_bonus(bonuses[ability])
+            string += f"[bold {ability.title()}] [format_bonus {bonuses[ability]}]"
             i += 1
             if i == 4 and len(bonuses) > 4:
                 string += NEWLINE
@@ -97,7 +97,7 @@ def calculate_health(size, bonus, armor):
 
 
 def get_monster_array_field(name, monster):
-    return "\\textbf{" + name + "} " + pp.comma_separate(sorted(monster[name.lower()])) + NEWLINE
+    return f"[bold {name}] {pp.comma_separate(sorted(monster[name.lower()]))}[newline]"
 
 
 def create_monster(monster):
@@ -144,7 +144,6 @@ def create_monster(monster):
     for ability in ABILITIES:
         params[ability] = pp.get_key_if_exists(bonus_dict, ability, 0)
     
-    
     string = "\\section*{" + headername + "}\\textit{" + pp.get_key_if_exists(monster, "flavor", "", if_exists=NEWLINE) + "}\\medskip"
     string += "\\textsc{" + alignment
     if string[-1] != "{":
@@ -154,10 +153,10 @@ def create_monster(monster):
     if "tags" in monster:
         string += f" ({pp.comma_separate(sorted(monster["tags"]))})"
     string += NEWLINE + get_ability_list(bonus_dict) + NEWLINE
-    string += "\\textbf{Health} " + str(calculate_health(size_number, health_bonus, armor))
-    string += ", \\textbf{Arm} " + str(armor)
-    string += ", \\textbf{Evd} " + str(calculate_evade(bonus_dict, size, "dodge" in monster))
-    string += ", \\textbf{Mv} " + str(6 + pp.get_key_if_exists(bonus_dict, "spd", 0) * 2)
+    string += f"[bold Health] {calculate_health(size_number, health_bonus, armor)}"
+    string += f", [bold Arm] {armor}"
+    string += f", [bold Evd] {calculate_evade(bonus_dict, size, "dodge" in monster)}"
+    string += f", [bold Mv] {6 + pp.get_key_if_exists(bonus_dict, "spd", 0) * 2}"
 
     if "movement_modes" in monster:
         string += f", {pp.comma_separate(monster["movement_modes"])}"
@@ -173,10 +172,10 @@ def create_monster(monster):
         string += get_monster_array_field("Vulnerable", monster)
 
     if "spell resist" in monster:
-        string += "\\textbf{Spell Resist} " + str(monster["spell resist"]) + NEWLINE
+        string += f"[bold Spell Resist] {monster["spell resist"]}[newline]"
     
     if "attack" in monster:
-        string += "\\textbf{Attack }" + monster["attack"][0] + ": " + pp.comma_separate(monster["attack"][1:]) + NEWLINE
+        string += f"[bold Attack] {monster["attack"][0]}: {pp.comma_separate(monster["attack"][1:])}[newline]"
 
     if "languages" in monster:
         string += get_monster_array_field("Languages", monster)
@@ -188,16 +187,13 @@ def create_monster(monster):
         ability_name_dict = pp.get_dict_by_name(monster["special"])
         for ability_name in ability_name_dict:
             ability = ability_name_dict[ability_name]
-            if type(ability) == dict:
-                string += LINEBREAK + "\\textbf{" + ability_name + "}. " + ability["text"] + NEWLINE
-            else:
-                string += LINEBREAK + "\\textbf{" + ability_name + "}. " + ability + NEWLINE
+            string += LINEBREAK + f"[bold {ability_name}]. {ability}[newline]"
     
     if "variants" in monster:
-        string += LINEBREAK + "\\textbf{Variants}" + NEWLINE + "\\halfline"
+        string += LINEBREAK + f"[bold Variants][newline]\\halfline"
         variant_name_dict = pp.get_dict_by_name(monster["variants"])
         for variant_name in variant_name_dict:
-            string += "\\textbf{" + variant_name + "}. " + variant_name_dict[variant_name]["text"] + NEWLINE + LINEBREAK
+            string += f"[bold {variant_name}]. {variant_name_dict[variant_name]["text"]}[newline]" + LINEBREAK
 
     monster_count += 1
 
