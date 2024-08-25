@@ -216,6 +216,10 @@ def newline():
     return NEWLINE
 
 
+def skip(size):
+    return f"\\{size}skip"
+
+
 # builds and executes function from bracketed command string
 def _format_and_execute(field, params):
     if field in params:

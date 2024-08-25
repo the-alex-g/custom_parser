@@ -200,6 +200,23 @@ def create_monster(monster):
     return brand.eval_string(string, params)
 
 
+def create_theme(theme):
+    return brand.eval_string(
+        f"""[bold {theme["name"]}].[newline]
+        This song affects all {theme["targets"]} within six fathoms that can hear you. {theme["effect"]}[newline]
+        [italics Climax:] {theme["climax"]}[newline][skip big]""",
+        {}
+    )
+
+
+def create_theme_block():
+    string = ""
+    theme_name_dict = pp.get_dict_by_name(pp.get_yaml_from_directory("bard_songs"))
+    for theme_name in theme_name_dict:
+        string += create_theme(theme_name_dict[theme_name])
+    return string
+
+
 def create_monster_block():
     string = ""
     monster_name_dict = pp.get_dict_by_name(pp.get_yaml_from_directory(SOURCE_FOLDER))
@@ -215,6 +232,8 @@ def create_doc():
     for line in open("tex/framework.tex").readlines():
         if line == "%[monsters]\n":
             latex_file.write(create_monster_block())
+        elif line == "%[themes]\n":
+            latex_file.write(create_theme_block())
         else:
             latex_file.write(line)
     latex_file.close()
