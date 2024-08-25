@@ -1,0 +1,19 @@
+name: Circle of the Arcanum
+headername: Circle of Arcanum
+spells:
+ Bind Arcane Spirit:
+  cost: 4
+  duration: minutes
+  text: \bind{arcane spirit}{vanishes}
+ Mageblade:
+  cost: 2
+  duration: rounds
+  text: A sword of arcane energy appears beside you. At the start of each of your turns, you can either make a d6 magic slashing spell attack against one creature within 2 fathoms, or you can gain +1 Evasion against melee attacks until the start of your next turn.
+ Magic Missile:
+  cost: 2
+  duration: instant
+  text: You fire a number of darts equal to your spell modifier + 2. Each dart hits a creature within 10 fathoms, dealing 1 light magic wound.
+ Shield:
+  cost: 1
+  duration: rounds
+  text: You or a nearby creature gets +2 Evasion.

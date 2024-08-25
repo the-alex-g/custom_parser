@@ -1,0 +1,18 @@
+name: Circle of Darkness
+spells:
+ Bind Dark Spirit:
+  cost: 4
+  duration: minutes
+  text: \bind{dark spirit}{melts into a pool of inky darkness, then dissipates}
+ Black Tentacles:
+  cost: 2
+  duration: rounds
+  text: "Pick a point on a surface within 10 fathoms. Inky tentacles erupt from that point. Treat them as a creature (Health 3, Arm 0, Evd 0, Atk 1/rnd: d6 unholy bludgeoning spell attack (reach), immune unholy, vulnerable holy). They attack immediately before your turn."
+ Darkness:
+  cost: 1
+  duration: minutes
+  text: Pick a point within 10 fathoms. A 5-fathom-diameter sphere, centered on that point, is filled with utterdark. Light cannot penetrate this darkness.
+ Devouring Void:
+  cost: 4
+  duration: rounds
+  text: \spelldrain{2 points} Pick a point within 6 fathoms. Any creature that starts its turn near that point must succeed on a Det check against your spell modifier or take unholy damage equal to your spell modifier. If a creature is reduced to zero health this way, roll 1d20 and add the creature's size (rounded down). On a 3 or less, the creature is pulled into the void and gone forever.

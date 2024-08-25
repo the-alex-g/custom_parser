@@ -1,0 +1,20 @@
+name: Circle of Water
+spells:
+ Bind Water Spirit:
+  cost: 4
+  duration: minutes
+  text: \\bind{water spirit}{dissolves into a pool of water}
+ Upwell:
+  cost: 1
+  duration: minutes
+  text: Fresh water seeps from the ground at a nearby point, at a rate of 2 gallons every minute.
+ Water Breathing:
+  cost: 1
+  duration: hours
+  text: You or a nearby creature can breathe freely underwater.
+ Surge:
+  cost: 2
+  duration: instant
+  text: >
+   A wave forms around you and flows outward, covering an arc up to 270 degrees wide and extending outward for six fathoms. Any creature
+   in the wave must succeed on a Str check against your spellcasting modifier or take 1 bludgeoning damage and be knocked off their feet.

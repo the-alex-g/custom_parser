@@ -212,7 +212,9 @@ def percent(*value):
     return sum(*value) + "\\%"
 
 
-def newline():
+def newline(*skip_size):
+    if len(skip_size) == 1:
+        return NEWLINE + skip(*skip_size)
     return NEWLINE
 
 

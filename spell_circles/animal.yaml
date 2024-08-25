@@ -1,0 +1,18 @@
+name: Circle of Beasts
+spells:
+ Beast Shape:
+  cost: 4
+  duration: minutes
+  text: You assume the form of any size 2 or smaller animal. You take on that creature's Str, Dex, Con, and Spd scores, as well as its evasion, health, armor, and any other special abilities (such as the ability to swim, fly, or breathe underwater). If you are reduced to zero hit points while in animal form, you return to your regular form with the amount of health you had when you transformed, minus one.
+ Command Animal:
+  cost: 1
+  duration: minutes
+  text: This spell affects an animal within 5 fathoms. The target must succeed on a Det check against your spell modifier or come under your control as if you had cast \textit{Summon Animal}. If the animal is already being commanded by another creature, add that creature's Det bonus to the animal's. If you are already controlling any animals when you cast this spell, the animals you already control are set free.
+ Familiar:
+  cost: 2
+  duration: days
+  text: "????"
+ Summon Animal:
+  cost: 4
+  duration: minutes
+  text: \summon{animal}{6}{runs away}

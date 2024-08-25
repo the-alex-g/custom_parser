@@ -1,0 +1,22 @@
+name: Circle of the Sun
+headername: Circle of Sun
+spells:
+ Cleansing Radiance:
+  cost: 4
+  duration: instant
+  text: >
+   This spell either affects all creatures in a 5-fathom-diameter sphere, centered on you, or in a 5-fathom-long
+   cone, emanating from you. Affected creatures take 1d3 light holy fire damage and are blinded for a number of rounds equal to your spell
+   modifier. Non-undead can make a Con check against your spell modifier, taking half damage and being blinded for half the time on a success.
+ Light:
+  cost: 1
+  duration: hours
+  text: An orb of light appears just above your head. It follows you around and [illuminates 2].
+ Solar Flare:
+  cost: 2
+  duration: instant
+  text: \rangespellattack{6}{fire}{20} If the target is standing in natural sunlight, the attack deals an additional wound.
+ Summon Solar Spirit:
+  cost: 4
+  duration: hours
+  text: \create{sun spirit}{vanishes in a flash of light}

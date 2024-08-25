@@ -1,0 +1,18 @@
+name: Circle of Earth
+spells:
+ Bind Earth Spirit:
+  cost: 4
+  duration: minutes
+  text: \bind{earth spirit}{crumbles into a pile of rubble}
+ Earthquake:
+  cost: 4
+  duration: instant
+  text: All creatures within 5 fathoms of you must succeed on a Dex check against your spell modifier or fall down. For each creature that failed its saving throw, roll 1d6. On a 6, a crevasse opens under that creature and it falls 1d3 fathoms into the gap. Any structures in the area take 1d6 + your spell modifier bludgeoning damage.
+ Stone Spikes:
+  cost: 2
+  duration: instant
+  text: Pick a number of points on the ground equal to your spell modifier. The points must be within six fathoms of you. Stone spikes, each one fathom tall, erupt from each of these points. Anything standing over a spike is subject to a d6 bludgeoning piercing spell attack, and then is pushed to the nearest empty space.
+ Stonewalk:
+  cost: 2
+  duration: rounds
+  text: You or a nearby creature gains the ability to walk freely through unworked stone, leaving no trace of your passage.

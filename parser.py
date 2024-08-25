@@ -204,24 +204,30 @@ def create_theme(theme):
     return brand.eval_string(
         f"""[bold {theme["name"]}].[newline]
         This song affects all {theme["targets"]} within six fathoms that can hear you. {theme["effect"]}[newline]
-        [italics Climax:] {theme["climax"]}[newline][skip big]""",
+        [italics Climax:] {theme["climax"]}[newline big]""",
         {}
     )
 
 
-def create_theme_block():
-    string = ""
-    theme_name_dict = pp.get_dict_by_name(pp.get_yaml_from_directory("bard_songs"))
-    for theme_name in theme_name_dict:
-        string += create_theme(theme_name_dict[theme_name])
+def create_circle(circle):
+    string = "\\unnumberedsubsection{" + circle["name"] + "}"
+    spells = pp.sort_dictionary(circle["spells"])
+    for spell_name in spells:
+        spell = spells[spell_name]
+        string += brand.eval_string(
+            f"""[bold {spell_name} ({spell["cost"]})][newline]
+            [italics Duration: {spell["duration"]}][newline]
+            {spell["text"]}[newline big]""",
+            {}
+        )
     return string
 
 
-def create_monster_block():
+def create_block(source, item_creation_function):
     string = ""
-    monster_name_dict = pp.get_dict_by_name(pp.get_yaml_from_directory(SOURCE_FOLDER))
-    for monster_name in monster_name_dict:
-        string += create_monster(monster_name_dict[monster_name])
+    name_dict = pp.get_dict_by_name(pp.get_yaml_from_directory(source))
+    for name in name_dict:
+        string += item_creation_function(name_dict[name])
     return string
 
 
@@ -231,9 +237,11 @@ def create_doc():
     latex_file = open("monsters.tex", "w")
     for line in open("tex/framework.tex").readlines():
         if line == "%[monsters]\n":
-            latex_file.write(create_monster_block())
+            latex_file.write(create_block(SOURCE_FOLDER, create_monster))
         elif line == "%[themes]\n":
-            latex_file.write(create_theme_block())
+            latex_file.write(create_block("bard_songs", create_theme))
+        elif line == "%[spells]\n":
+            latex_file.write(create_block("spell_circles", create_circle))
         else:
             latex_file.write(line)
     latex_file.close()

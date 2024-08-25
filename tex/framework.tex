@@ -16,21 +16,21 @@
 #4\bigskip}
 \def\rangespellattack#1#2#3{Make a d#1 #2 spell attack (range #3).}
 %bound extradimensional entity that is trying to escape
-\def\bind#1#2{Summon any #1 that you know the summoning ritual for. The #1 appears nearby and obeys your commands unquestioningly.
-Whenever you take damage or cast another spell, you must make a Det check againt the summoned creature. On a failure, the creature
-breaks free from your control and acts independently until the spell ends. When the spell ends or the summoned creature is killed, the
-creature #2.}
+\def\bind#1#2{Summon any #1 that you know the summoning ritual for. If the creature has one or fewer health, you may summon three of them.
+The #1 appears nearby and obeys your commands unquestioningly. Whenever you take damage or cast another spell, you must make a Det check
+againt the summoned creature. On a failure, the creature breaks free from your control and acts independently until the spell ends. When
+the spell ends or the summoned creature is killed, the creature #2.}
 %summoned living creature
 \def\summon#1#2#3{Summon any #1 that you have seen before, and that has fewer than #2 health. The #1 appears nearby and obeys simple
 commands that are not obviously suicidal. If the creature is still alive when the spell ends, it #3.}
 %created creature
-\def\create#1#2{Summon any #1 that you know the summoning ritual for. The #1 appears nearby and obeys your commands unquestioningly.
-When the spell ends or the summoned creature is killed, the creature #2.}
+\def\create#1#2{Summon any #1 that you know the summoning ritual for. If the creature has one or fewer health, you may summon three of them.
+The #1 appears nearby and obeys your commands unquestioningly. When the spell ends or the summoned creature is killed, the creature #2.}
 \def\spelldrain#1{In order to cast this spell, you must suffer #1 of spell drain.
 
 }
 
-% comprehensive armor listing (from low to high):
+% comprehensive armor listing (from low to high, || indicates base armor values):
 % d12/11, d10/9, d8/7, |d6/5|, d10/8, |d4/3|, d10/7, |d6/4|, d8/5, d10/6, d12/7, |d6/3|, d12/5
 % d10/4, d8/3, |d6/2|, d10/3, |d4/1|, d10/2, |d6/1|, d8/1, d10/1, d12/1
 
@@ -126,7 +126,8 @@ When you cast a spell, you must make a check with your spellcasting ability. The
 the level of the spell. If you fail, you lose one favor point and the spell fails. Each day, you gain one favor point if you have
 fewer than 8, and you lose one favor point if you have more than 10. You may never have fewer than 0 or more than 16 favor points.
 
-For every hour you spend in prayer to your deity, you gain one favor point.
+For every hour you spend in prayer to your deity, you gain one favor point. You cannot regain more than three favor points in this
+way per day.
 
 \textit{Spell Drain:} For each point of spell drain, you lose one favor point.
 
@@ -135,8 +136,9 @@ For every hour you spend in prayer to your deity, you gain one favor point.
 
 A druid's spellcasting ability is Insight.
 
-Druids can cast six level 1 spells, three level 2 spells, and one level 4 spell per day. While in an area filled with natural life,
-an additional two level 1 spells and one level 2 spell can be cast.
+Druids can cast six level 1 spells, three level 2 spells, and one level 4 spell. While in an area filled with natural life,
+an additional two level 1 spells and one level 2 spell can be cast. At dawn each day, you regain all your extra spells for
+casting in natural surroundings, as well as either two level 1 spells, one level 2 spell, or one level 4 spell.
 
 \textit{Spell Drain:} For each point of spell drain, you count as having cast one spell of the lowest level that you can still cast.
 \example{Dryxi has cast five level 1 spells, and then suffers an effect inflicting two points of spell drain. Dryxi loses his remaining
@@ -161,248 +163,14 @@ Wizards have a pool of 16 mana points. When you cast a spell, you must spend a n
 have enough mana points to pay for the spell, you cannot cast it.
 
 As an action, you may make a Lor 14 check. If you succeed, you regain 1d3 mana points. If you fail, you take 1d3 unblockable light wounds.
+Each day that you get a full night's rest, you regain mana points equal to your spellcasting modifier (minimum of 1).
 
 \textit{Spell Drain:} Your maximum number of mana points is reduced by the amount of drain. Each day that you get a full night's rest, your
 maximum number of mana points is increased by one, to a maximum of the value before drain was applied.
 
 \unnumberedsection{Spells}
 
-
-\unnumberedsubsection{Air}
-\spell{Bind Air Spirit}{4}{minutes}{\bind{air spirit}{dissipates}}
-
-\spell{Flight}{2}{minutes}{You gain the ability to fly at twice your walking speed.}
-
-\spell{Gale}{1}{minutes}{A strong wind picks up, blowing in a direction of your choice. Targets have +2 evasion against ranged attacks while
-this wind is blowing.}
-
-\spell{Lighting Bolt}{4}{instant}{One target of your choice within 60 fathoms takes 1d4 lightning damage. If the target is made of metal or
-wearing metal armor, it takes an additional damage. If the target is outside and there are stormclouds overhead, it takes another damage.}
-
-
-\unnumberedsubsection{Animal}
-\spell{Beast Shape}{4}{minutes}{You assume the form of any size 2 or smaller animal. You take on that creature's Str, Dex, Con, and Spd
-scores, as well as its evasion, health, armor, and any other special abilities (such as the ability to swim, fly, or breathe underwater).
-If you are reduced to zero hit points while in animal form, you return to your regular form with the amount of health you had when you
-transformed, minus one.}
-
-\spell{Command Animal}{1}{minutes}{This spell affects an animal within 5 fathoms. The target must succeed on a Det check against your spell
-modifier or come under your control as if you had cast \textit{Summon Animal}. If the animal is already being commanded by another
-creature, add that creature's Det bonus to the animal's. If you are already controlling any animals when you cast this spell,
-the animals you already control are set free.}
-
-\spell{Familiar}{2}{days}{}
-
-\spell{Summon Animal}{4}{minutes}{\summon{animal}{6}{runs away}}
-
-
-\unnumberedsubsection{Arcane}
-\spell{Bind Arcane Spirit}{4}{minutes}{\bind{arcane spirit}{vanishes}}
-
-\spell{Mageblade}{2}{rounds}{A sword of arcane energy appears beside you. At the start of each of your turns, you can either make a
-d6 magic slashing spell attack against one creature within 2 fathoms, or you can gain +1 Evasion against melee attacks until the start
-of your next turn.}
-
-\spell{Magic Missile}{2}{instant}{You fire a number of darts equal to your spell modifier + 2. Each dart hits a creature within 10
-fathoms, dealing 1 light magic wound.}
-
-\spell{Shield}{1}{rounds}{You or a nearby creature gets +2 Evasion.}
-
-
-\unnumberedsubsection{Blood}
-\spell{Bleed}{1}{instant}{You take 1 to 3 light wounds, and target a living creature within 6 fathoms. That creature must succeed on a
-Det check against your spell modifier or take the same amount plus 1 of light magic slashing damage.}
-
-\spell{Blood Circle}{2}{rounds}{A 2-fathom diameter circle of crimson glyphs appears, centered on you. It moves to remain centered on you.
-Any living creature that moves across the circle boundary takes 1d3 light magic slashing damage.}
-
-\spell{Rage}{2}{rounds}{You or one nearby living creature gets +2 Str, -2 Evd, -1 Lor, -1 Cha, and -1 Ins. Additionally, the target's maximum and current health increase by 2. When this spell ends, the target loses the two health.
-\newline
-\example{A shaman casts \textit{Rage} on a goblin with 1 health, increasing its health to 3. The goblin takes 1 wound, and then the spell
-ends. The two health the goblin was given are lost, bringing it to 0 health.}}
-
-
-\unnumberedsubsection{Darkness}
-\spell{Bind Dark Spirit}{4}{minutes}{\bind{dark spirit}{melts into a pool of inky darkness, then dissipates}}
-
-\spell{Black Tentacles}{2}{rounds}{Pick a point on a surface within 10 fathoms. Inky tentacles erupt from that point. Treat them as a creature
-(Health 3, Arm 0, Evd 0, Atk 1/rnd: d6 unholy bludgeoning spell attack (reach), immune unholy, vulnerable holy). They attack immediately
-before your turn.}
-
-\spell{Darkness}{1}{minutes}{Pick a point within 10 fathoms. A 5-fathom-diameter sphere, centered on that point, is filled with utterdark.
-Light cannot penetrate this darkness.}
-
-\spell{Devouring Void}{4}{rounds}{\spelldrain{2 points} Pick a point within 6 fathoms. Any creature that starts its turn near that point must succeed on a Det check against your spell modifier or take unholy damage equal to your spell modifier. If a creature is reduced to zero health this way, roll 1d20 and add the creature's size (rounded down). On a 3 or less, the creature is pulled into the void and gone forever.}
-
-
-\unnumberedsubsection{Death}
-\spell{Command Undead}{2}{permanent}{This spell affects a number of undead within 5 fathoms equal to twice your spell modifier. Each affected
-undead must succeed on a Det check against your spell modifier or come under your control as if you had cast \textit{Create Undead}. If
-the undead are already being commanded by another creature, add that creature's Det bonus to the undead's. If you are already controlling
-undead when you cast this spell, the undead you already control are set free.}
-
-\spell{Create Undead}{4}{hours}{\create{undead}{deanimates. Depending on the type of undead, it may crumble into bones or just vanish into thin air}}
-
-\spell{Life Drain}{2}{instant}{One living creature within 6 fathoms must succeed on a Det check against your spell modifier or take 1 unholy
-damage. If the target took any damage, you heal one wound.}
-
-\spell{Sap Vitality}{1}{instant}{One living creature within 6 fathoms must succeed on a Det check against your spell modifier or take 1d3 light
-unholy damage, 1 Det drain, and 1 Con drain.}
-
-
-\unnumberedsubsection{Divination}
-\spell{Comprehend Languages}{1}{minutes}{You or a nearby creature can understand all spoken and written languages, although you cannot speak
-or write them yourself. This effect does not apply to magical or encoded text or speech.}
-
-\spell{Detect}{1}{minutes}{You can sense the presence of all ongoing magical or spell effects (including magic items), spirits, undead, and
-constructs within 5 fathoms.
-\newline
-Alternatively, this spell can be cast as an instant to learn the effect of one nearby ongoing magical or spell effect.}
-
-\spell{Truesight}{2}{minutes}{You or a nearby creature gains truesight.}
-
-
-\unnumberedsubsection{Earth}
-\spell{Bind Earth Spirit}{4}{minutes}{\bind{earth spirit}{crumbles into a pile of rubble}}
-
-\spell{Earthquake}{4}{instant}{All creatures within 5 fathoms of you must succeed on a Dex check against your spell modifier or fall down.
-For each creature that failed its saving throw, roll 1d6. On a 6, a crevasse opens under that creature and it falls 1d3 fathoms into
-the gap. Any structures in the area take 1d6 + your spell modifier bludgeoning damage.}
-
-\spell{Stone Spikes}{2}{instant}{Pick a number of points on the ground equal to your spell modifier. The points must be within six fathoms
-of you. Stone spikes, each one fathom tall, erupt from each of these points. Anything standing over a spike is subject to a d6 bludgeoning
-piercing spell attack, and then is pushed to the nearest empty space.}
-
-\spell{Stonewalk}{2}{rounds}{You or a nearby creature can walk freely through unworked stone, leaving no trace of your passage.}
-
-
-\unnumberedsubsection{Enchantment}
-\spell{Animate Construct}{4}{permanent}{After crafting a body for a construct, you must cast this spell to animate it. The construct obeys
-your commands unquestioningly.}
-
-\spell{Enchant}{2}{minutes}{One weapon or armor that you touch gets a +1 bonus to its die rolls.}
-
-\spell{Mending}{1}{instant}{One nearby object or construct is repaired or heals 1.}
-
-\spell{Permanency}{4}{instant}{\spelldrain{the maximum possible amount} One nearby ongoing spell effect becomes permanent.}
-
-
-\unnumberedsubsection{Fire}
-\spell{Bind Fire Spirit}{4}{minutes}{\bind{fire spirit}{vanishes}}
-
-\spell{Burning Rain}{4}{rounds}{\spelldrain{2 points} Pick a point you can see. In a cube about 60 fathoms on a side, centered on that point, burning embers rain
-down. Any creature that starts its turn exposed to the burning rain suffers fire damage equal to its size (creatures smaller than 1
-take 1 light fire wound).}
-
-\spell{Ember}{1}{instant}{\rangespellattack{4}{fire}{5/10}}
-
-\spell{Fireball}{2}{instant}{Pick a point within 10 fathoms. All creatures near that point take 1d3 fire damage,
-halved with a successful Evasion check against your spell modifier.}
-
-
-\unnumberedsubsection{Growth}
-\spell{Barkskin}{2}{minutes}{You or a nearby creature's Armor increases to 2 if it is less than 2.}
-
-\spell{Control Plants}{2}{rounds}{All plants within three fathoms of you obey your directions. You can make them grow or bend in any
-direction, but you cannot make them uproot themselves. If you cast this spell on a plant creature within range, you may make a Det
-check against the plant's Det. If the plant is already being controlled by another creature, add that creature's Det to the plant's.
-If you succeed, the plant comes under your control.}
-
-\spell{Create Plant Creature}{4}{hours}{\create{plant}{deanimates}}
-
-\spell{Thorn Barrage}{1}{instant}{All creatures in a 3-fathom cone, emanating from you, take 1d3 light piercing damage (roll seperately for each creature).
-Creatures with shields, or those wearing armor type 2 or better, are immune to this effect.}
-
-
-\unnumberedsubsection{Ice}
-\spell{Bind Ice Spirit}{4}{minutes}{\bind{ice spirit}{melts}}
-
-\spell{Freeze}{4}{instant}{This spell either affects a 5-fathom-diameter sphere, centered on you, or a 5-fathom-long cone, emanating from you.
-All creatures in the affected area take 1 cold damage, and all surfaces in the area are covered in frost. Any standing water forms a
-foot-thick layer of ice on top.}
-
-\spell{Frost Armor}{2}{rounds}{You gain resistance to fire and have +1 to all of your armor rolls.}
-
-\spell{Ice Spine}{1}{instant}{\rangespellattack{4}{cold}{10/20}}
-
-
-\unnumberedsubsection{Illusion}
-\spell{Invisibility}{4}{minutes}{You or a nearby creature are invisible.}
-
-\spell{Teleport}{4}{instant}{You teleport to either a place you can see, a place you are intimately familiar with, or a place with a
-teleportation circle that you know of.}
-
-\spell{Illusion}{2}{hours}{You create an illusion at a point within 20 fathoms. The illusion must be able to fit in a 3-fathom cube. The
-illusion can affect up to three senses. For each sense after the first that the illusion affects, the duration of the spell is reduced
-(2 senses: minutes, 3 senses: rounds). If you can see the illusion, you can move it and change its content, but not which senses are
-affected. If left unattended, the illusion continues what it was doing.
-\newline
-\example{You could set an illusion of a man walking in a circle that would continue even after you are gone, but if you wanted to change
-it so that the man was doing jumping jacks, you would have to be able to see the illusion. It is possible to set an illusion directly
-on top of yourself and move it as you move, so that it functions as a disguise.}}
-
-
-\unnumberedsubsection{Life}
-\spell{Heal}{1}{instant}{You or one nearby living creature heals 1 damage and all their light damage. Casting this spell on an undead deals 1
-magic damage.}
-
-\spell{Restore}{4}{instant}{\spelldrain{2 points} You or one nearby living creature is either cured from one disease, one poison, or a total of 4 points of ability
-drain. Casting this spell on an undead deals 1d3 + 1 magic damage.}
-
-\spell{Turn Undead}{4}{instant}{All undead within 4 fathoms must make a Det check against your spell modifier. An undead that fails is
-destroyed if it has less health than your spell modifier, or forced to flee otherwise. An undead that is forced to flee must spend its
-next turn moving until it is at least 4 fathoms away from you and do nothing else.}
-
-
-\unnumberedsubsection{Moon}
-\spell{Mantle}{1}{minutes}{You or a nearby creature are shrouded in magical half-light and get +1 Evasion and advantage on stealth-related
-checks.}
-
-\spell{Moonbeam}{1}{instant}{\rangespellattack{4}{cold holy}{10} Instead of dealing damage, you may have this attack heal an amount equal to
-half the damage it would have done, rounded up.}
-
-\spell{Haven}{4}{8 hours}{A dome 5 fathoms in diameter appears, centered on you. The dome, and any creatures in it, are invisible
-from the outside. From the inside, the dome displays a brilliant night sky. Creatures that sleep under the dome heal one additional wound. This benefit can be gained only once per week.}
-
-\spell{Summon Lunar Spirit}{4}{hours}{\create{moon spirit}{fades away}}
-
-
-\unnumberedsubsection{Nullity}
-\spell{Dispel Magic}{1+}{instant}{This spell targets a nearby ongoing spell effect. Add that spell's casting cost to this spell's
-casting cost. The targeted spell is cancelled.}
-
-\spell{Null Field}{4}{minutes}{\spelldrain{2 points} Pick a point within 6 fathoms. In a 3-fathom-radius sphere, centered on this point, magic ceases to work.
-Creatures within the sphere cannot cast spells and are immune to magic damage. They cannot be targeted by spells that are not ranged
-attacks. Ongoing magical and spell effects are surpressed while within the sphere. This spell cannot be dispelled or cancelled.}
-
-\spell{Spell Eater}{2+}{instant}{You may cast this spell as a reaction when another creature casts a spell that affects you. Add the
-casting cost of the other spell to the casting cost of this spell. The other spell is cancelled. For a number of rounds equal to your
-casting modifier, you gain the ability to cast the captured spell without paying its cost. Once you cast it in this way, you cannot do
-so again.}
-
-
-\unnumberedsubsection{Sun}
-\spell{Cleansing Radiance}{4}{instant}{This spell either affects all creatures in a 5-fathom-diameter sphere, centered on you, or in a 5-fathom-long
-cone, emanating from you. Affected creatures take 1d3 light holy fire damage and are blinded for a number of rounds equal to your spell
-modifier. Non-undead can make a Con check against your spell modifier, taking half damage and being blinded for half the time on a success.}
-
-\spell{Light}{1}{hours}{An orb of light appears just above your head. It follows you around and sheds bright light in a 2-fathom radius, and
-dim light for an additional 4 fathoms.}
-
-\spell{Solar Flare}{2}{instant}{\rangespellattack{6}{fire}{20} If the target is standing in natural sunlight, the attack deals an additional
-wound.}
-
-\spell{Summon Solar Spirit}{4}{hours}{\create{sun spirit}{vanishes in a flash of light}}
-
-
-\unnumberedsubsection{Water}
-\spell{Bind Water Spirit}{4}{minutes}{\bind{water spirit}{dissolves into a pool of water}}
-
-\spell{Upwell}{1}{minutes}{Fresh water seeps from the ground at a nearby point, at a rate of 2 gallons every minute.}
-
-\spell{Water Bolt}{1}{instant}{\rangespellattack{4}{bludgeoning}{5/15} This attack deals an additional damage against fire creatures.}
-
-\spell{Water Breathing}{1}{hours}{You or a nearby creature can breathe freely underwater.}
+%[spells]
 
 \unnumberedsection{Bards}
 Bards have a number of saga points equal to their Charisma bonus plus the number of languages they know. As an action, you may start
@@ -411,6 +179,8 @@ the effects of the song end. As an action, you may end one song currently in eff
 climax effect.
 
 %[themes]
+
+\unnumberedsection{Monsters}
 
 %[monsters]
 

@@ -1,0 +1,14 @@
+name: Circle of Life
+spells:
+ Heal:
+  cost: 1
+  duration: instant
+  text: You or one nearby living creature heals 1 damage and all their light damage. Casting this spell on an undead deals 1 magic damage.
+ Restore:
+  cost: 4
+  duration: instant
+  text: You or one nearby living creature is either cured from one disease, one poison, or a total of 4 points of ability drain. Casting this spell on an undead deals 1d3 + 1 magic damage.
+ Turn Undead:
+  cost: 4
+  duration: instant
+  text: All undead within 4 fathoms must make a Det check against your spell modifier. An undead that fails is destroyed if it has less health than your spell modifier, or forced to flee otherwise. An undead that is forced to flee must spend its next turn moving until it is at least 4 fathoms away from you and do nothing else.
