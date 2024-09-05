@@ -37,7 +37,6 @@ def get_size_as_number(size):
         return size
 
 
-
 def get_ability_list(bonuses):
     bonuses = bonuses.copy()
     string = ""
@@ -56,8 +55,7 @@ def get_ability_list(bonuses):
     return string
 
 
-def get_size_bonus(size, scale):
-    bonus = 0
+def get_size_bonus(size):
     match size:
         case 0:
             bonus = -4
@@ -69,7 +67,7 @@ def get_size_bonus(size, scale):
             bonus = 0
         case _:
             bonus = pow(2, size - 2)
-    return bonus * scale
+    return bonus
 
 
 def calculate_evade(bonuses, size, dodge):
@@ -81,7 +79,7 @@ def calculate_evade(bonuses, size, dodge):
     else:
         evd_base += pp.get_key_if_exists(bonuses, "spd", 0)
         evd_bonus = pp.get_key_if_exists(bonuses, "dex", 0)
-    evade = evd_base + get_size_bonus(size, -1)
+    evade = evd_base - get_size_bonus(size)
     if evd_bonus > 1:
         evade += 1
     elif evd_bonus < -1:
@@ -138,7 +136,7 @@ def create_monster(monster):
         health_bonus = pp.get_key_if_exists(bonus_dict, "det", 0)
     else:
         health_bonus = pp.get_key_if_exists(bonus_dict, "con", 0)
-    pp.increment_key(bonus_dict, "str", get_size_bonus(size, 1))
+    pp.increment_key(bonus_dict, "str", get_size_bonus(size))
 
     params = {"name":name.lower()}
     for ability in ABILITIES:
