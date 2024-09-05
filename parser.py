@@ -7,7 +7,7 @@ from math import floor, ceil
 SOURCE_FOLDER = "monsters"
 
 ABILITIES = ["str", "con", "dex", "spd", "lor", "ins", "cha", "det"]
-ARMOR_PERCENTS = [0.83, 0.75, 0.67, 0.50, 0.33, 0.25, 0.17]
+ARMOR_HEALTH_MODS = [6/5, 4/3, 3/2, 2, 3, 4, 6]
 HARDNESSES = {"leather":1, "wood":2, "stone":3, "bronze":4, "iron":5, "gemstone":6}
 ARMOR_NAMES = {"none":0, "leather":1, "hide":2, "brigandine":3, "chain":4, "scale":5, "plate":6}
 NEWLINE = "\\\\"
@@ -88,7 +88,7 @@ def calculate_evade(bonuses, size, dodge):
 
 
 def calculate_health(size, bonus, armor):
-    health = (BASE_HEALTH + bonus) * size / (2 * ARMOR_PERCENTS[armor])
+    health = (BASE_HEALTH + bonus) * size * ARMOR_HEALTH_MODS[armor] / 2
     if health < 3 and armor > 0:
         return max(0, ceil(health))
     return max(0, floor(health))
