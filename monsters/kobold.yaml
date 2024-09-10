@@ -1,0 +1,20 @@
+name: Kobold
+size: 1/2
+type: humanoid
+alignment: "N"
+bonuses:
+ dex: 1
+ spd: 1
+ cha: -1
+ det: -1
+armor: hide
+attack:
+- 1
+- "[weapon dagger]"
+- "[weapon bow]"
+- "[attack 4] slashing (bite)"
+languages:
+- common
+- DRACONIC
+senses:
+- dimsight

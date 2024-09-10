@@ -1,0 +1,14 @@
+name: Awakened Sapling
+size: 1
+type: plant
+flavor: A slender tree with distinct arms and legs.
+bonuses:
+ str: 1
+ lor: -4
+ cha: -1
+armor: hide
+attack:
+- 1
+- "[attack 4] slashing (claws)"
+vulnerable:
+- fire

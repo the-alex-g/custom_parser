@@ -1,0 +1,24 @@
+name: Crawling Vine
+size: 1/2
+type: plant
+bonuses:
+ str: 1
+ spd: -4
+ lor: -4
+ ins: -1
+ cha: -4
+ det: 1
+attack:
+- 1/rnd
+- "0 damage (grasp)"
+senses:
+- tremorsense
+immune:
+- piercing
+- bludgeoning
+vulnerable:
+- fire
+special:
+ Grasping Tendrils: >
+  A creature hit by the vine's grasp attack is grappled by the vine. At the start of each of the vine's turns, all creatures it is
+  grappling take 1 light necrotic damage. The vine can grapple up to three creatures at a time.

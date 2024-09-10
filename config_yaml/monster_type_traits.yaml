@@ -11,10 +11,11 @@ undead:
    The [name] automatically succeeds on all Con checks. If the [possessive [name]] Con bonus is ever needed, use its Det bonus instead.
 construct:
  immune:
- - holy
- - unholy
  - psychic
  - necrotic
+ resist:
+ - holy
+ - unholy
  senses:
  - darksight
  special:
@@ -26,3 +27,6 @@ spirit:
 ooze:
  senses:
  - blindsight
+plant:
+ immune:
+ - psychic

@@ -1,12 +1,34 @@
 # BRAND CORE v.1.1.0
 from math import floor
 import os
-FUNCTIONS_REQUIRING_EXTRA_PARAMETERS = {"attack":["str"]}
+FUNCTIONS_REQUIRING_EXTRA_PARAMETERS = {"attack":["str"], "weapon":["str"]}
 AUTOMATIC_VARIABLES = []
 RANGES = {
-    "shortbow":"12/50",
+    "bow":"12/50",
     "thrown":"5/10",
     "boulder":"10/20"
+}
+WEAPONS = {
+    "bow":{
+        "die":6,
+        "dtype":"piercing"
+    },
+    "dagger":{
+        "die":4,
+        "dtype":"piercing"
+    },
+    "longsword":{
+        "die":8,
+        "dtype":"slashing"
+    },
+    "shortsword":{
+        "die":6,
+        "dtype":"slashing"
+    },
+    "waraxe":{
+        "die":10,
+        "dtype":"slashing"
+    }
 }
 NEWLINE = "\\\\"
 LINEBREAK = "\\bigskip"
@@ -310,28 +332,48 @@ def attack(diesize, *bonuses):
     return f"d{diesize}/{min(diesize, max(threshold, 5))}"
 
 
-def check(stat, *difficulty):
+def weapon(weapon_name, *bonuses):
+    data = WEAPONS[weapon_name]
+    string = f"{attack(data["die"], *bonuses)} {data["dtype"]} ({weapon_name}"
+    if weapon_name in RANGES:
+        string += f", {range(weapon_name)}"
+    return f"{string})"
+
+
+def check(stat, *bonuses):
     total_difficulty = 0
-    for i in difficulty:
-        if type(i) == str:
-            total_difficulty += _get_difficulty(i)
-        elif type(i) == int:
-            total_difficulty += i
+    for i in bonuses:
+        total_difficulty += _get_difficulty(i)
     return stat.title() + " " + str(total_difficulty) + " check"
 
 
 def _get_difficulty(difficulty):
-    if difficulty == "easy":
-        return 10
-    elif difficulty == "med":
-        return 14
-    elif difficulty == "hard":
-        return 18
-    return 0
+    if type(difficulty) == str:
+        if difficulty == "easy":
+            return 10
+        elif difficulty == "med":
+            return 14
+        elif difficulty == "hard":
+            return 18
+    else:
+        return difficulty
+
+
+def difficulty(diff):
+    return str(_get_difficulty(diff))
 
 
 def range(weapon_type):
     return "range " + RANGES[weapon_type]
+
+
+def recharge(value, *config):
+    string = f"recharge {value}"
+    if "c" in config:
+        string = string.capitalize()
+    if "p" in config:
+        string = f"({string})"
+    return string
 
 
 def illuminates(bright, *dim):

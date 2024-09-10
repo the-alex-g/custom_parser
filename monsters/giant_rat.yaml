@@ -1,0 +1,14 @@
+name: Giant Rat
+size: 1/4
+type: animal
+bonuses:
+ con: 1
+ dex: 2
+ spd: 2
+ lor: -4
+ cha: -4
+attack:
+- 1/rnd
+- "[attack 4] piercing (bite)"
+senses:
+- dimsight

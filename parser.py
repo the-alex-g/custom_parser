@@ -111,8 +111,8 @@ def add_to_appendix(appendix, item_name, categorizer):
         appendicies[appendix] = {categorizer:[item_name]}
 
 
-def get_level(health, evasion, attacks, strength):
-    number = round(health * (evasion / 10) * calculate_dpr(attacks, strength))
+def get_level(health, evasion, attacks, bonuses):
+    number = round(health * (evasion / 10) * calculate_dpr(attacks, bonuses))
     if number <= 3:
         return "I"
     elif number <= 10:
@@ -130,21 +130,28 @@ def get_level(health, evasion, attacks, strength):
     return "VIII"
 
 
-def calculate_dpr(attacks, strength):
+def calculate_dpr(attacks, bonuses):
     attack_count = attacks[0]
     attacks_skipped = 0
     if type(attack_count) == str:
         attack_count = int(attack_count[0])
     damage = 0
     for attack in attacks[1:]:
-        die = attack[attack.find("[") + 8:attack.find("]")]
+        multiplier = 1
+
+        # if the attack is a 2x, 3x, etc.
+        if attack[0].isdigit():
+            multiplier = int(attack[0])
+            attack = attack[3:]
+        
+        attack = brand.eval_string(attack, bonuses)
+        die = attack[attack.find("d") + 1:attack.find("/")]
         if die.isdigit():
             die = int(die)
+            threshold = die - int(attack[attack.find("/") + 1:attack.find(" ")]) + 1
+            damage += (1 + threshold / die + 3 * pow(threshold / die, 2)) * multiplier
         else:
             attacks_skipped += 1
-            continue
-        threshold = die - min(die, max(die - strength, 5)) + 1
-        damage += 1 + threshold / die + 3 * pow(threshold / die, 2)
     return damage * attack_count / max(1, len(attacks[1:]) - attacks_skipped)
 
 
@@ -205,7 +212,7 @@ def create_monster(monster):
     string += f"[bold Health] {health}"
     string += f", [bold Arm] {armor}"
     string += f", [bold Evd] {evasion}"
-    string += f", [bold Mv] {6 + pp.get_key_if_exists(bonus_dict, "spd", 0) * 2}"
+    string += f", [bold Mv] {max(1, 6 + pp.get_key_if_exists(bonus_dict, "spd", 0) * 2)}"
 
     if "movement_modes" in monster:
         string += f", {pp.comma_separate(monster["movement_modes"])}"
@@ -246,7 +253,7 @@ def create_monster(monster):
 
     monster_count += 1
 
-    level = get_level(health, evasion, monster["attack"], pp.get_key_if_exists(bonus_dict, "str", 0))
+    level = get_level(health, evasion, monster["attack"], bonus_dict)
 
     add_to_appendix("Monsters by Rating", headername, level)
     add_to_appendix("Monsters by Type", headername, monster["type"].title())

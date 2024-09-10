@@ -1,0 +1,20 @@
+name: Giant Spider
+size: 2
+type: animal
+bonuses:
+ str: 1
+ dex: 2
+ spd: 1
+ lor: -4
+ cha: -4
+ det: 2
+armor: hide
+attack:
+- 1/rnd
+- "[attack 6] piercing (bite)"
+- 0 damage (web, [range thrown], [recharge 5-6])
+senses:
+- tremorsense
+special:
+ Web: >
+  A creature hit by the spider's web attack is restrained (escape [difficulty med]).

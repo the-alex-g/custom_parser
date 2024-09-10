@@ -11,7 +11,7 @@ bonuses:
  lor: -2
 attack:
 - 1/rnd
-- "[attack 4] piercing (dagger)"
+- "[weapon dagger]"
 traits:
 - Light Aversion
 languages:

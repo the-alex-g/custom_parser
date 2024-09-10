@@ -12,8 +12,8 @@ bonuses:
  lor: -2
 attack:
 - 1/rnd
-- "[attack 10] slashing (waraxe)"
-- "[attack 6] piercing (bow, range 15/50)"
+- "[weapon waraxe]"
+- "[weapon bow]"
 languages:
 - GOBLIN
 - common

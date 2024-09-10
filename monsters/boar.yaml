@@ -1,0 +1,18 @@
+name: Boar
+size: 1
+type: animal
+bonuses:
+ str: 3
+ con: 4
+ spd: 1
+ lor: -4
+ cha: -4
+ det: 4
+armor: 1
+attack:
+- 1/rnd
+- "[attack 6] slashing (tusks)"
+special:
+ Charge: >
+  If the boar moves at least 6 fathoms towards its target, and then hits with a tusk attack, the attack is instead [attack 8], and the
+  target must succeed on a Str check against the boar or be knocked prone.

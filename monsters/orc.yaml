@@ -13,8 +13,8 @@ bonuses:
 armor: leather
 attack:
 - 1/rnd
-- "[attack 8] slashing (longsword)"
-- "[attack 6] piercing (bow, range 15/50)"
+- "[weapon longsword]"
+- "[weapon bow]"
 languages:
 - GOBLIN
 - common

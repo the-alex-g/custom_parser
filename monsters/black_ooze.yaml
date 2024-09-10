@@ -1,0 +1,24 @@
+name: Black Ooze
+size: 1
+type: ooze
+bonuses:
+ str: 1
+ dex: 4
+ spd: -2
+ lor: -4
+ ins: -4
+ cha: -4
+attack:
+- 2
+- "[attack 4] acid bludgeoning (pseudopod)"
+immune:
+- piercing
+- acid
+resist:
+- bludgeoning
+traits:
+- Amorphous
+special:
+ Fission: >
+  If the ooze takes 2 or more slashing wounds from a single attack and has at least 2 health left, it splits into two oozes that are
+  half its size. The ooze's health is divided evenly between the two new oozes.

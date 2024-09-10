@@ -16,8 +16,8 @@ traits:
 - Light Aversion
 attack:
 - 1/rnd
-- "[attack 6 [det]] unholy (drain)"
-- "[attack 8] slashing (longsword)"
+- "[attack 6 [det]] unholy necrotic (drain)"
+- "[weapon longsword]"
 special:
  Draining Touch: >
    Whenever the wraith deals damage with a drain attack, it heals one and the target must pass a Det 12 check or suffer 1 Con damage.
