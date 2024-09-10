@@ -18,6 +18,7 @@ SPECIAL_MONSTER_TRAITS = pp.open_yaml("config_yaml/monster_special_traits.yaml")
 BASE_HEALTH = 4
 
 monster_count = 0
+appendicies = {}
 
 
 def get_size_as_number(size):
@@ -96,6 +97,18 @@ def calculate_health(size, bonus, armor):
 
 def get_monster_array_field(name, monster):
     return f"[bold {name}] {pp.comma_separate(sorted(monster[name.lower()]))}[newline]"
+
+
+def add_to_appendix(appendix, item_name, categorizer):
+    global appendicies
+
+    if appendix in appendicies:
+        if categorizer in appendicies[appendix]:
+            appendicies[appendix][categorizer].append(item_name)
+        else:
+            appendicies[appendix][categorizer] = [item_name]
+    else:
+        appendicies[appendix] = {categorizer:[item_name]}
 
 
 def get_level(health, evasion, attacks, strength):
@@ -180,6 +193,7 @@ def create_monster(monster):
     evasion = calculate_evade(bonus_dict, size, "dodge" in monster)
     
     string = "\\section*{" + headername + "}\\textit{" + pp.get_key_if_exists(monster, "flavor", "", if_exists=NEWLINE) + "}\\medskip"
+    string += "\\label{" + headername + "}"
     string += "\\textsc{" + alignment
     if string[-1] != "{":
         string += " "
@@ -234,6 +248,9 @@ def create_monster(monster):
 
     level = get_level(health, evasion, monster["attack"], pp.get_key_if_exists(bonus_dict, "str", 0))
 
+    add_to_appendix("Monsters by Rating", headername, level)
+    add_to_appendix("Monsters by Type", headername, monster["type"].title())
+
     print("compiled", name, f"({level})")
 
     return brand.eval_string(string, params)
@@ -270,6 +287,21 @@ def create_block(source, item_creation_function):
     return string
 
 
+def create_appendices():
+    global appendicies
+    string = PAGEBREAK + "\\unnumberedsection{Appendicies}"
+
+    for appendix in sorted(appendicies):
+        string += "\\unnumberedsubsection{" + appendix + "}"
+        for categorizer in sorted(appendicies[appendix]):
+            string += "\\subsubsection*{" + categorizer + "}"
+            for item in sorted(appendicies[appendix][categorizer]):
+                string += item + "\\hfill\\pageref{" + item + "}" + NEWLINE
+        string += "\\newpage"
+    
+    return string
+
+
 def create_doc():
     global monster_count
 
@@ -281,6 +313,8 @@ def create_doc():
             latex_file.write(create_block("bard_songs", create_theme))
         elif line == "%[spells]\n":
             latex_file.write(create_block("spell_circles", create_circle))
+        elif line == "%[appendicies]\n":
+            latex_file.write(create_appendices())
         else:
             latex_file.write(line)
     latex_file.close()

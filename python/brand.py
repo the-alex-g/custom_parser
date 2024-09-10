@@ -307,7 +307,7 @@ def attack(diesize, *bonuses):
     threshold = diesize
     if bonuses[0] > 1:
         threshold -= bonuses[0] - 1
-    return "d" + str(diesize) + "/" + str(min(diesize, max(threshold, 5)))
+    return f"d{diesize}/{min(diesize, max(threshold, 5))}"
 
 
 def check(stat, *difficulty):
