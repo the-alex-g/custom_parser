@@ -84,7 +84,7 @@ def calculate_evade(bonuses, size, dodge):
         evade += 1
     elif evd_bonus < -1:
         evade -= 1
-    return evade
+    return 10 + evade
 
 
 def calculate_health(size, bonus, armor):
@@ -98,6 +98,43 @@ def get_monster_array_field(name, monster):
     return f"[bold {name}] {pp.comma_separate(sorted(monster[name.lower()]))}[newline]"
 
 
+def get_level(health, evasion, attacks, strength):
+    number = round(health * (evasion / 10) * calculate_dpr(attacks, strength))
+    if number <= 3:
+        return "I"
+    elif number <= 10:
+        return "II"
+    elif number <= 15:
+        return "III"
+    elif number <= 25:
+        return "IV"
+    elif number <= 50:
+        return "V"
+    elif number <= 100:
+        return "VI"
+    elif number <= 150:
+        return "VII"
+    return "VIII"
+
+
+def calculate_dpr(attacks, strength):
+    attack_count = attacks[0]
+    attacks_skipped = 0
+    if type(attack_count) == str:
+        attack_count = int(attack_count[0])
+    damage = 0
+    for attack in attacks[1:]:
+        die = attack[attack.find("[") + 8:attack.find("]")]
+        if die.isdigit():
+            die = int(die)
+        else:
+            attacks_skipped += 1
+            continue
+        threshold = die - min(die, max(die - strength, 5)) + 1
+        damage += 1 + threshold / die + 3 * pow(threshold / die, 2)
+    return damage * attack_count / max(1, len(attacks[1:]) - attacks_skipped)
+
+
 def create_monster(monster):
     global monster_count
 
@@ -105,8 +142,6 @@ def create_monster(monster):
         monster = pp.combine_dictionaries(monster, DEFAULT_MONSTER_TRAITS[monster["type"]], {})
 
     name = monster["name"]
-
-    print("compiling", name)
 
     for trait in pp.get_key_if_exists(monster, "traits", []):
         if "special" in monster:
@@ -141,6 +176,8 @@ def create_monster(monster):
     params = {"name":name.lower()}
     for ability in ABILITIES:
         params[ability] = pp.get_key_if_exists(bonus_dict, ability, 0)
+    health = calculate_health(size_number, health_bonus, armor)
+    evasion = calculate_evade(bonus_dict, size, "dodge" in monster)
     
     string = "\\section*{" + headername + "}\\textit{" + pp.get_key_if_exists(monster, "flavor", "", if_exists=NEWLINE) + "}\\medskip"
     string += "\\textsc{" + alignment
@@ -151,9 +188,9 @@ def create_monster(monster):
     if "tags" in monster:
         string += f" ({pp.comma_separate(sorted(monster["tags"]))})"
     string += NEWLINE + get_ability_list(bonus_dict) + NEWLINE
-    string += f"[bold Health] {calculate_health(size_number, health_bonus, armor)}"
+    string += f"[bold Health] {health}"
     string += f", [bold Arm] {armor}"
-    string += f", [bold Evd] {calculate_evade(bonus_dict, size, "dodge" in monster)}"
+    string += f", [bold Evd] {evasion}"
     string += f", [bold Mv] {6 + pp.get_key_if_exists(bonus_dict, "spd", 0) * 2}"
 
     if "movement_modes" in monster:
@@ -194,6 +231,10 @@ def create_monster(monster):
             string += f"[bold {variant_name}]. {variant_name_dict[variant_name]["text"]}[newline]" + LINEBREAK
 
     monster_count += 1
+
+    level = get_level(health, evasion, monster["attack"], pp.get_key_if_exists(bonus_dict, "str", 0))
+
+    print("compiled", name, f"({level})")
 
     return brand.eval_string(string, params)
 
