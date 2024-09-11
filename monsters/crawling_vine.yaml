@@ -22,3 +22,6 @@ special:
  Grasping Tendrils: >
   A creature hit by the vine's grasp attack is grappled by the vine. At the start of each of the vine's turns, all creatures it is
   grappling take 1 light necrotic damage. The vine can grapple up to three creatures at a time.
+extra_damage:
+ per:
+ - 0.66

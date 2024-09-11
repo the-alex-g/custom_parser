@@ -1,0 +1,28 @@
+name: Shadow Spirit
+size: 1/2
+type: spirit
+tags:
+- dark
+alignment: NE
+bonuses:
+ str: 1
+ con: 1
+ dex: 2
+ spd: 2
+ lor: -2
+ ins: -1
+ cha: -2
+ det: 1
+attack:
+- 1/rnd
+- "[attack 4] unholy slashing (claws)"
+traits:
+- Light Vulnerability
+languages:
+- umbral
+vulnerable:
+- holy
+immune:
+- unholy
+resist:
+- non-magic

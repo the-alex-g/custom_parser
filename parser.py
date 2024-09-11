@@ -111,8 +111,31 @@ def add_to_appendix(appendix, item_name, categorizer):
         appendicies[appendix] = {categorizer:[item_name]}
 
 
-def get_level(health, evasion, attacks, bonuses):
-    number = round(health * (evasion / 10) * calculate_dpr(attacks, bonuses))
+def modify_health(health, monster):
+    damage_types = ["bludgeoning", "piercing", "slashing"]
+    mods = {
+        "resist":1/3,
+        "immune":1,
+        "vulnerable":-1/3
+    }
+    multiplier = 1
+    for mod in mods:
+        if mod in monster:
+            if "non-magic" in monster[mod]:
+                multiplier += mods[mod] * 3
+            else:
+                for damage in damage_types:
+                    if damage in monster[mod]:
+                        multiplier += mods[mod]
+    return health * max(1/3, multiplier)
+
+
+def get_level(health, evasion, monster, bonuses):
+    number = round(
+        modify_health(health, monster) *
+        (evasion / 10) *
+        calculate_dpr(monster, bonuses)
+    )
     if number <= 3:
         return "I"
     elif number <= 10:
@@ -130,7 +153,8 @@ def get_level(health, evasion, attacks, bonuses):
     return "VIII"
 
 
-def calculate_dpr(attacks, bonuses):
+def calculate_dpr(monster, bonuses):
+    attacks = monster["attack"]
     attack_count = attacks[0]
     attacks_skipped = 0
     if type(attack_count) == str:
@@ -152,7 +176,17 @@ def calculate_dpr(attacks, bonuses):
             damage += (1 + threshold / die + 3 * pow(threshold / die, 2)) * multiplier
         else:
             attacks_skipped += 1
-    return damage * attack_count / max(1, len(attacks[1:]) - attacks_skipped)
+    damage *= attack_count / max(1, len(attacks[1:]) - attacks_skipped)
+
+    extra_damage = pp.get_key_if_exists(monster, "extra_damage", {})
+    actions = 0
+    for i in pp.get_key_if_exists(extra_damage, "per", []): # 'persistent'
+        damage += i
+    for i in pp.get_key_if_exists(extra_damage, "act", []): # 'action'
+        damage += i
+        actions += 1
+    damage /= 1 + actions
+    return damage
 
 
 def create_monster(monster):
@@ -253,7 +287,7 @@ def create_monster(monster):
 
     monster_count += 1
 
-    level = get_level(health, evasion, monster["attack"], bonus_dict)
+    level = get_level(health, evasion, monster, bonus_dict)
 
     add_to_appendix("Monsters by Rating", headername, level)
     add_to_appendix("Monsters by Type", headername, monster["type"].title())

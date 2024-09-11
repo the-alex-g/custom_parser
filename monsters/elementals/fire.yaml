@@ -24,3 +24,6 @@ immune:
 vulnerable:
 - cold
 - damage from water-type sources
+extra_damage:
+ per:
+ - 0.66

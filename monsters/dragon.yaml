@@ -32,3 +32,6 @@ languages:
 - DRACONIC
 senses:
 - darksight
+extra_damage:
+ act:
+ - 6
