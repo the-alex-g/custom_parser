@@ -73,20 +73,16 @@ def get_size_bonus(size):
 
 
 def calculate_evade(bonuses, size, dodge):
-    evd_base = 0
-    evd_bonus = 0
+    dex = pp.get_key_if_exists(bonuses, "dex", 0)
+    spd = pp.get_key_if_exists(bonuses, "spd", 0)
+    evade = 10 + spd - get_size_bonus(size)
     if dodge:
-        evd_base = pp.get_key_if_exists(bonuses, "dex", 0)
-        evd_bonus = pp.get_key_if_exists(bonuses, "spd", 0)
-    else:
-        evd_base += pp.get_key_if_exists(bonuses, "spd", 0)
-        evd_bonus = pp.get_key_if_exists(bonuses, "dex", 0)
-    evade = evd_base - get_size_bonus(size)
-    if evd_bonus > 1:
+        evade += dex
+    elif dex > 1:
         evade += 1
-    elif evd_bonus < -1:
+    elif dex < -1:
         evade -= 1
-    return 10 + evade
+    return evade
 
 
 def calculate_health(size, bonus, armor):
