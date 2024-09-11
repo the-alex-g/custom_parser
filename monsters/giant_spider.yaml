@@ -11,10 +11,11 @@ bonuses:
 armor: hide
 attack:
 - 1/rnd
-- "[attack 6] piercing (bite)"
-- 0 damage (web, [range thrown], [recharge 5-6])
+- "[attack 6] piercing and spider venom (bite)"
+- 0 wounds and restrained (escape [difficulty med]) (web, [range thrown], [recharge 5-6])
 senses:
 - tremorsense
 special:
- Web: >
-  A creature hit by the spider's web attack is restrained (escape [difficulty med]).
+ Spider Venom (poison): >
+  Once per round for ten rounds, the affected creature must succeed on a [check con med] or suffer 1 necrotic wound. A creature reduced
+  to zero health by this damage is paralyzed, but remains alive.

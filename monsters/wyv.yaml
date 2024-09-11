@@ -14,7 +14,7 @@ attack:
 movement_modes:
 - fly 30
 special:
- Wyv Venom: The affected creature must succeed on a Det 10 check or suffer 1 point of Con drain.
+ Wyv Venom (poison): Immediately when poisoned, the affected creature must succeed on a Con 10 check or suffer 1 point of Con drain.
 variants:
 - name: Wyv Poisonspitter
   text: "A wyv poisonspitter gains the following attack option: wyv venom (spit venom, [range thrown])"

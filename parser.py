@@ -19,6 +19,7 @@ BASE_HEALTH = 4
 
 monster_count = 0
 appendicies = {}
+spells_by_circle = {}
 
 
 def get_size_as_number(size):
@@ -189,6 +190,26 @@ def calculate_dpr(monster, bonuses):
     return damage
 
 
+def get_monster_spells(spellcasting):
+    circles = {}
+    spells = spellcasting["spells"]
+    for spell in spells:
+        if " - " in spell:
+            circle = spells_by_circle[spell[0:spell.find(" - ")]]
+            spell = spell.replace(" -", "")
+        else:
+            circle = spells_by_circle[spell]
+        if circle in circles:
+            circles[circle].append(spell)
+        else:
+            circles[circle] = [spell]
+    
+    string = f"[bold Spells ({spellcasting["type"].title()})][newline]"
+    for circle in sorted(circles):
+        string += f"[bold {circle}] [italics {pp.comma_separate(sorted(circles[circle]))}][newline]"
+    return string
+
+
 def create_monster(monster):
     global monster_count
 
@@ -279,6 +300,9 @@ def create_monster(monster):
             ability = ability_name_dict[ability_name]
             string += LINEBREAK + f"[bold {ability_name}]. {ability}[newline]"
     
+    if "spellcasting" in monster:
+        string += LINEBREAK + get_monster_spells(monster["spellcasting"])
+    
     if "variants" in monster:
         string += LINEBREAK + f"[bold Variants][newline]\\halfline"
         variant_name_dict = pp.get_dict_by_name(monster["variants"])
@@ -307,9 +331,13 @@ def create_theme(theme):
 
 
 def create_circle(circle):
+    global spells_by_circle
+
     string = "\\unnumberedsubsection{" + circle["name"] + "}"
     spells = pp.sort_dictionary(circle["spells"])
     for spell_name in spells:
+        spells_by_circle[spell_name] = circle["name"]
+
         spell = spells[spell_name]
         string += brand.eval_string(
             f"""[bold {spell_name} ({spell["cost"]})][newline]
