@@ -19,7 +19,7 @@ BASE_HEALTH = 4
 
 monster_count = 0
 appendicies = {}
-spells_by_circle = {}
+spell_data = {}
 
 
 def get_size_as_number(size):
@@ -191,10 +191,12 @@ def get_monster_spells(spellcasting):
     spells = spellcasting["spells"]
     for spell in spells:
         if " - " in spell:
-            circle = spells_by_circle[spell[0:spell.find(" - ")]]
-            spell = spell.replace(" -", "")
+            spell_name = spell[0:spell.find(" - ")]
+            circle = spell_data[spell_name]["circle"]
+            spell = spell.replace("-", f"({spell_data[spell_name]["cost"]})")
         else:
-            circle = spells_by_circle[spell]
+            circle = spell_data[spell]["circle"]
+            spell += f" ({spell_data[spell]["cost"]})"
         if circle in circles:
             circles[circle].append(spell)
         else:
@@ -327,14 +329,15 @@ def create_theme(theme):
 
 
 def create_circle(circle):
-    global spells_by_circle
+    global spell_data
 
     string = "\\unnumberedsubsection{" + circle["name"] + "}"
     spells = pp.sort_dictionary(circle["spells"])
     for spell_name in spells:
-        spells_by_circle[spell_name] = circle["name"]
-
         spell = spells[spell_name]
+
+        spell_data[spell_name] = {"circle":circle["name"], "cost":spell["cost"]}
+
         string += brand.eval_string(
             f"""[bold {spell_name} ({spell["cost"]})][newline]
             [italics Duration: {spell["duration"]}][newline]
@@ -370,6 +373,9 @@ def create_appendices():
 def create_doc():
     global monster_count
 
+    # makes sure that spell data is loaded before monsters are
+    spell_circles = create_block("spell_circles", create_circle)
+
     latex_file = open("monsters.tex", "w")
     for line in open("tex/framework.tex").readlines():
         if line == "%[monsters]\n":
@@ -377,7 +383,7 @@ def create_doc():
         elif line == "%[themes]\n":
             latex_file.write(create_block("bard_songs", create_theme))
         elif line == "%[spells]\n":
-            latex_file.write(create_block("spell_circles", create_circle))
+            latex_file.write(spell_circles)
         elif line == "%[appendicies]\n":
             latex_file.write(create_appendices())
         else:
