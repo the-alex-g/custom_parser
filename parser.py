@@ -373,24 +373,19 @@ def create_appendices():
 def create_doc():
     global monster_count
 
-    # makes sure that spell data is loaded before monsters are
-    spell_circles = create_block("spell_circles", create_circle)
-
-    latex_file = open("monsters.tex", "w")
-    for line in open("tex/framework.tex").readlines():
-        if line == "%[monsters]\n":
-            latex_file.write(create_block(SOURCE_FOLDER, create_monster))
-        elif line == "%[themes]\n":
-            latex_file.write(create_block("bard_songs", create_theme))
-        elif line == "%[spells]\n":
-            latex_file.write(spell_circles)
-        elif line == "%[appendicies]\n":
-            latex_file.write(create_appendices())
-        else:
-            latex_file.write(line)
+    latex_file = open("document/document.tex", "w")
+    for line in open("document/preamble.tex").readlines():
+        latex_file.write(line)
+    latex_file.write(brand.eval_string(open("document/brand_document.txt").read(), {}))
+    latex_file.write("\\end{document}")
     latex_file.close()
 
     print(monster_count, "monsters total")
 
+
+brand.include_functions["spells"] = lambda filename: create_block(filename, create_circle)
+brand.include_functions["themes"] = lambda filename: create_block(filename, create_theme)
+brand.include_functions["monsters"] = lambda filename: create_block(filename, create_monster)
+brand.include_functions["appendicies"] = lambda f: create_appendices()
 
 create_doc()

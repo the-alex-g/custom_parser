@@ -1,0 +1,128 @@
+[section 0 Rules]
+
+[section 1 Stuff]
+
+Your Evasion is equal to your Speed bonus, plus one if your Dex bonus is +2 or higher, or -1 if your Dex bonus is -2 or lower, minus your
+Size bonus.
+Your Health is equal to 4 plus your Con bonus.
+
+[section 1 Attacking]
+
+When you make an attack, you must first choose an equipped weapon to attack with and a target within range of that weapon.
+Roll that weapon's attack die. If the result is a 1, or less than or equal to the target's Evasion minus your Dexterity, the attack misses.
+Otherwise, the attack hits, inflicting one wound on the target. Furthermore, if the result is more than 4 and also greater than the size
+of the die minus your Strength, or if the result is the maximum possible value, you may make another attack against the same target.
+[example Fredrick wants to attack a goblin using his longsword. Fredrick has +2 Strength and +0 Dexterity, and the goblin has
+an Evasion of 12. Fredrick rolls a d20 and adds his Dex for a total of 13, which hits the goblin. He rolls a d8 and gets a 7, then rolls
+again and gets a 5, for a total of two wounds. The goblin only had 1 health, and it falls under his mighty blow.]
+
+[section 1 Defending]
+
+If a monster is attacking a player character, resolve as above. After the attack has been rolled and the number of incoming wounds is
+known, the player rolls their Armor die once for each wound. For each result equal to or greater than the armor's threshold, one wound
+is negated.
+
+[example One of the goblin's friends attacks Fredrick back, hitting for 1 wound. Fredrick has type 4 armor (d6/4), so rolls a d6 once. If he rolls a 
+4 or better, the wound is negated.]
+
+
+[section 1 Light and Sensing]
+
+[table cX
+    Bright Light & No penalties &
+    Dim Light & +2 Evasion &
+    Darkness & Creatures in darkness cannot be seen &
+    Utter Darkness & Creatures in utter darkness cannot be seen &
+    \hline
+    Blindsight & Can sense surroundings, regardless of ability to see &
+    # for creatures that cannot see with eyes, but can still detect their surroundings #
+    Darksight & Can see normally, regardless of light level &
+    # magical in nature #
+    Dimsight & Can see as if the light level were one higher &
+    # natural keen night vision #
+    Sense Living & Can sense living creatures, regardless of ability to see &
+    # for telepaths and powerful undead #
+    Tremorsense & Can sense moving things, regardless of ability to see &
+    # for things like plants without another way to sense and burrowing monsters #
+    Truesight & Can see perfectly regardless of light level, can see invisible creatures and objects, and can immediately identify visual illusions
+    # extremely magical in nature #]
+
+
+[section 1 Spellcasting]
+
+When you cast a spell, unless its duration is instantaneous or permanent, roll 1d4 and add your spellcasting modifier. The result is how
+many units of time the spell lasts.
+[example Althier, a wizard, casts [spell Shield], with a duration of rounds. He rolls 1d4 and adds his Lor bonus, getting a total of
+3. Therefore, his shield spell lasts for three rounds.]
+
+If the spell directly targets a creature with spell resistance, the cost of the spell is increased by that creature's spell resistance.
+If not directly targeted by a spell, but still affected by one (like being in the radius of a [spell Fireball]), that creature adds its
+spell resistance to any checks required by the spell.
+
+[section 2 Clerics]
+
+A cleric's spellcasting ability is either Insight (usually for good deities), Determination (usually for evil deities), or Charisma.
+
+When you cast a spell, you must make a check with your spellcasting ability. The difficulty is equal to 20 - your favor points + twice
+the level of the spell. If you fail, you lose one favor point and the spell fails. Each day, you gain one favor point if you have
+fewer than 8, and you lose one favor point if you have more than 10. You may never have fewer than 0 or more than 16 favor points.
+
+For every hour you spend in prayer to your deity, you gain one favor point. You cannot regain more than three favor points in this
+way per day.
+
+[italics Spell Drain:] For each point of spell drain, you lose one favor point.
+
+
+[section 2 Druids]
+
+A druid's spellcasting ability is Insight.
+
+Druids can cast six level 1 spells, three level 2 spells, and one level 4 spell. While in an area filled with natural life,
+an additional two level 1 spells and one level 2 spell can be cast. At dawn each day, you regain all your extra spells for
+casting in natural surroundings, as well as either two level 1 spells, one level 2 spell, or one level 4 spell.
+
+[italics Spell Drain:] For each point of spell drain, you count as having cast one spell of the lowest level that you can still cast.
+[example Dryxi has cast five level 1 spells, and then suffers an effect inflicting two points of spell drain. Dryxi loses his remaining
+level 1 spell and one of his remaining level 2 spells.]
+
+
+[section 2 Shamans]
+
+A shaman's spellcasting ability is Determination.
+
+When you cast a spell, you must make a Det 14 check. If you fail, you take unblockable light wounds equal to the level of the spell.
+Regardless of success or failure, the spell is cast.
+
+[italics Spell Drain:] Suffer one unblockable light wound for each point of spell drain.
+
+
+[section 2 Wizards]
+
+A wizard's spellcasting ability is Lore.
+
+Wizards have a pool of 16 mana points. When you cast a spell, you must spend a number of mana points equal to the spell level. If you don't
+have enough mana points to pay for the spell, you cannot cast it.
+
+As an action, you may make a Lor 14 check. If you succeed, you regain 1d3 mana points. If you fail, you take 1d3 unblockable light wounds.
+Each day that you get a full night's rest, you regain mana points equal to your spellcasting modifier (minimum of 1).
+
+[italics Spell Drain:] Your maximum number of mana points is reduced by the amount of drain. Each day that you get a full night's rest, your
+maximum number of mana points is increased by one, to a maximum of the value before drain was applied.
+
+[section 0 Spells]
+
+[include spells f spell_circles]
+
+[section 0 Bards]
+Bards have a number of saga points equal to their Charisma bonus plus the number of languages they know. As an action, you may start
+any song you know. Whenever you take damage, or take an action other than continuing the song, you must succeed on a Cha 12 check or
+the effects of the song end. As an action, you may end one song currently in effect and spend a saga point to activate that song's
+climax effect.
+
+[include themes f bard_songs]
+
+[section 0 Monsters]
+
+[include monsters f monsters]
+
+[include appendicies f]

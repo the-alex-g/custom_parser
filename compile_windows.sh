@@ -1,2 +1,2 @@
 python parser.py
-cat monsters.tex | clipc
+cat document/document.tex | clipc

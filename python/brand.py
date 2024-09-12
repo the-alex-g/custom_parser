@@ -33,7 +33,6 @@ WEAPONS = {
 NEWLINE = "\\\\"
 LINEBREAK = "\\bigskip"
 include_functions = {}
-unquoted_include_functions = {}
 
 
 # returns in the form of "result (dice + bonus)"
@@ -146,7 +145,7 @@ def table(cols, *entries):
             if line_count < len(cols):
                 tablestring += "&"
             else:
-                tablestring += NEWLINE + "[2pt]\\hline "
+                tablestring += "\\\\[2pt]\\hline "
                 line_count = 0
         else:
              tablestring += str(item) + " "
@@ -221,13 +220,17 @@ def possessive(*name):
         return name + "'s"
 
 
-def include(include_type, filename):
-    global include_functions, unquoted_include_functions
-    if include_type in include_functions:
-        return "\\begin{quote}" + include_functions[include_type](filename) + "\\end{quote}"
-    elif include_type in unquoted_include_functions:
-        return NEWLINE + LINEBREAK + unquoted_include_functions[include_type](filename)
-    return ""
+def include(include_type, quote, *filename):
+    global include_functions
+
+    filename = filename[0] if len(filename) > 0 else ""
+
+    content = include_functions[include_type](filename)
+    if quote:
+        string = "\\begin{quote}" + content + "\\end{quote}"
+    else:
+        string = NEWLINE + LINEBREAK + content
+    return string
 
 
 def percent(*value):
@@ -235,8 +238,8 @@ def percent(*value):
 
 
 def newline(*skip_size):
-    if len(skip_size) == 1:
-        return NEWLINE + skip(*skip_size)
+    if len(skip_size) > 0:
+        return NEWLINE + skip(skip_size[0])
     return NEWLINE
 
 
@@ -260,7 +263,7 @@ def _format_and_execute(field, params):
             in_string_block = True
         elif char == ">":
             in_string_block = False
-        elif char == " " and not in_string_block:
+        elif (char == " " or char == "\n") and not in_string_block:
             if in_function_body:
                 if formatted_field[-1] != "(":
                     formatted_field += ", "
@@ -298,29 +301,33 @@ def eval_string(string, params):
     field_started = False
     indentation_level = 0
     nested = False
+    in_comment = False
     for char in string:
-        if char == "[":
-            if field_started:
-                indentation_level += 1
-                nested = True
-                field += "["
+        if char == "#":
+            in_comment = not in_comment
+        elif not in_comment:
+            if char == "[":
+                if field_started:
+                    indentation_level += 1
+                    nested = True
+                    field += "["
+                else:
+                    field_started = True
+            elif char == "]":
+                if indentation_level > 0:
+                    indentation_level -= 1
+                    field += "]"
+                else:
+                    field_started = False
+                    if nested:
+                        field = eval_string(field, params)
+                    updated_string += _format_and_execute(field, params)
+                    field = ""
+                    nested = False
+            elif field_started:
+                field += char
             else:
-                field_started = True
-        elif char == "]":
-            if indentation_level > 0:
-                indentation_level -= 1
-                field += "]"
-            else:
-                field_started = False
-                if nested:
-                    field = eval_string(field, params)
-                updated_string += _format_and_execute(field, params)
-                field = ""
-                nested = False
-        elif field_started:
-            field += char
-        else:
-            updated_string += char
+                updated_string += char
     return updated_string
 
 #-------------------------------------------------------------------
@@ -383,3 +390,11 @@ def illuminates(bright, *dim):
             return string + ")"
         return string + "/" + str(dim[0]) + ")"
     return string + "/" + str(bright * 2) + ")"
+
+
+def section(subs, *content):
+    return f"\\unnumbered{"sub" * subs}section" + "{" + _separate(content) + "}"
+
+
+def example(*content):
+    return NEWLINE + "\\textit{Example:} " + _separate(content)

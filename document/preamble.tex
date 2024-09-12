@@ -1,0 +1,50 @@
+\documentclass[letterpaper, 12pt, twocolumn]{book}
+\usepackage{ragged2e}
+\usepackage[left=0.5in, right=0.5in, top=1in, bottom=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\def\halfline{\makebox[\columnwidth]{\rule{3.7in}{0.4pt}}\\}
+\def\unnumberedsection#1{\section*{#1}\addcontentsline{toc}{section}{#1}}
+\def\unnumberedsubsection#1{\subsection*{#1}\addcontentsline{toc}{subsection}{#1}}
+\def\unnumberedsubsubsection#1{\subsubsection*{#1}\addcontentsline{toc}{subsubsection}{#1}}
+\def\example#1{\textit{Example:} #1}
+
+\def\spell#1#2#3#4{\textbf{#1 (#2)}
+
+\textit{Duration: #3}
+
+#4\bigskip}
+\def\rangespellattack#1#2#3{Make a d#1 #2 spell attack (range #3).}
+%bound extradimensional entity that is trying to escape
+\def\bind#1#2{Summon any #1 that you know the summoning ritual for. If the creature has one or fewer health, you may summon three of them.
+The #1 appears nearby and obeys your commands unquestioningly. Whenever you take damage or cast another spell, you must make a Det check
+againt the summoned creature. On a failure, the creature breaks free from your control and acts independently until the spell ends. When
+the spell ends or the summoned creature is killed, the creature #2.}
+%summoned living creature
+\def\summon#1#2#3{Summon any #1 that you have seen before, and that has fewer than #2 health. The #1 appears nearby and obeys simple
+commands that are not obviously suicidal. If the creature is still alive when the spell ends, it #3.}
+%created creature
+\def\create#1#2{Summon any #1 that you know the summoning ritual for. If the creature has one or fewer health, you may summon three of them.
+The #1 appears nearby and obeys your commands unquestioningly. When the spell ends or the summoned creature is killed, the creature #2.}
+\def\spelldrain#1{In order to cast this spell, you must suffer #1 of spell drain.
+
+}
+
+% comprehensive armor listing (from low to high, || indicates base armor values):
+% d12/11, d10/9, d8/7, |d6/5|, d10/8, |d4/3|, d10/7, |d6/4|, d8/5, d10/6, d12/7, |d6/3|, d12/5
+% d10/4, d8/3, |d6/2|, d10/3, |d4/1|, d10/2, |d6/1|, d8/1, d10/1, d12/1
+
+% armor    dice  health mod
+% type 0 = d6/5 = x6/5
+% type 1 = d4/3 = x4/3
+% type 2 = d6/4 = x3/2
+% type 3 = d6/3 = x2
+% type 4 = d6/2 = x3
+% type 5 = d4/1 = x4
+% type 6 = d6/1 = x6
+
+\begin{document}
+\RaggedRight
+
+\tableofcontents
+\markboth{}{}

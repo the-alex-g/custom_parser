@@ -1,2 +1,2 @@
 python3 parser.py
-cat monsters.tex | xclip -selection clipboard
+cat document/document.tex | xclip -selection clipboard
