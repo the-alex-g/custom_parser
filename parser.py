@@ -328,23 +328,22 @@ def create_theme(theme):
     )
 
 
-def create_circle(circle):
+def create_circle(circle, title=True):
     global spell_data
 
-    string = "\\unnumberedsubsection{" + circle["name"] + "}"
+    if title:
+        string = f"[section 1 {circle["name"]}]"
+    else:
+        string = f"[bold {circle["name"]}][newline big]"
     spells = pp.sort_dictionary(circle["spells"])
     for spell_name in spells:
         spell = spells[spell_name]
 
         spell_data[spell_name] = {"circle":circle["name"], "cost":spell["cost"]}
 
-        string += brand.eval_string(
-            f"""[bold {spell_name} ({spell["cost"]})][newline]
-            [italics Duration: {spell["duration"]}][newline]
-            {spell["text"]}[newline big]""",
-            {}
-        )
-    return string
+        string += f"""[bold {spell_name} ({spell["cost"]})][newline][italics Duration: {spell["duration"]}]
+[newline]{spell["text"]}[newline big]"""
+    return brand.eval_string(string, {})
 
 
 def create_block(source, item_creation_function):
@@ -387,6 +386,6 @@ brand.include_functions["spells"] = lambda filename: create_block(filename, crea
 brand.include_functions["themes"] = lambda filename: create_block(filename, create_theme)
 brand.include_functions["monsters"] = lambda filename: create_block(filename, create_monster)
 brand.include_functions["appendicies"] = lambda f: create_appendices()
-brand.include_functions["circle"] = lambda filename: create_circle(pp.open_yaml(filename))
+brand.include_functions["circle"] = lambda filename: create_circle(pp.open_yaml(filename), title=False)
 
 create_doc()

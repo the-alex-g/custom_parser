@@ -133,7 +133,7 @@ def table(cols, *entries):
         entries = entries[0]
     tablestring = NEWLINE + "\\bigskip\\begin{tabular"
     if "X" in cols:
-        tablestring += "x}{0.8\\columnwidth"
+        tablestring += "x}{0.9\\columnwidth"
     tablestring += "}{|"
     for char in cols:
         tablestring += char + "|"

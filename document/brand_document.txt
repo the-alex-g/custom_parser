@@ -21,13 +21,11 @@ again and gets a 5, for a total of two wounds. The goblin only had 1 health, and
 If a monster is attacking a player character, resolve as above. After the attack has been rolled and the number of incoming wounds is
 known, the player rolls their Armor die once for each wound. For each result equal to or greater than the armor's threshold, one wound
 is negated.
-
 [example One of the goblin's friends attacks Fredrick back, hitting for 1 wound. Fredrick has type 4 armor (d6/4), so rolls a d6 once. If he rolls a 
 4 or better, the wound is negated.]
 
 
 [section 1 Light and Sensing]
-
 [table cX
     Bright Light & No penalties &
     Dim Light & +2 Evasion &
@@ -89,7 +87,6 @@ Only clerics have access to the spells from the Circle of Prayers. If your deity
 prayers deal unholy damage instead of holy damage. If your deity is of a neutral alignment, you can choose which damage type is dealt.
 When the spells the circle of prayers refer to creatures being aligned or opposed to your deity, it refers to the relationship between
 the two alignments as shown on the table below:
-
 [table cXX
 Deity & Aligned & Opposed &
 LG & CG, NG, LN & CE, NE, LE &
@@ -98,9 +95,9 @@ CG & NG, LG, CN & CE, NE, LE &
 LN & LG, LE, N & CG, CN, CE &
 N & LN, CN, NG, NE & CG, LG, CE, LE &
 CN & N, CG, CE & LG, LN, LE &
-CE & NE, LE, CN & CG, NG, LG &
+LE & CE, NE, LN & CG, NG, LG &
 NE & CE, LE, N & CG, NG, LG &
-LE & CE, NE, LN & CG, NG, LG]
+CE & NE, LE, CN & CG, NG, LG]
 
 [include circle f include/cleric_circle.yaml]
 
