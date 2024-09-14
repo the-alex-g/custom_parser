@@ -59,7 +59,20 @@ If the spell directly targets a creature with spell resistance, the cost of the 
 If not directly targeted by a spell, but still affected by one (like being in the radius of a [spell Fireball]), that creature adds its
 spell resistance to any checks required by the spell.
 
+[section 1 Classes]
+
+[section 2 Bards]
+
+Bards are proficient with weapons up to d6 and armor up to type 3.
+
+Bards have a number of saga points equal to their Charisma bonus plus the number of languages they know. As an action, you may start
+any song you know. Whenever you take damage, or take an action other than continuing the song, you must succeed on a Cha 12 check or
+the effects of the song end. As an action, you may end one song currently in effect and spend a saga point to activate that song's
+climax effect.
+
 [section 2 Clerics]
+
+Clerics are proficient with weapons up to d8 and armor up to type 4.
 
 A cleric's spellcasting ability is either Insight (usually for good deities), Determination (usually for evil deities), or Charisma.
 
@@ -72,8 +85,29 @@ way per day.
 
 [italics Spell Drain:] For each point of spell drain, you lose one favor point.
 
+Only clerics have access to the spells from the Circle of Prayers. If your deity is of an evil alignment, spells from the circle of
+prayers deal unholy damage instead of holy damage. If your deity is of a neutral alignment, you can choose which damage type is dealt.
+When the spells the circle of prayers refer to creatures being aligned or opposed to your deity, it refers to the relationship between
+the two alignments as shown on the table below:
+
+[table cXX
+Deity & Aligned & Opposed &
+LG & CG, NG, LN & CE, NE, LE &
+NG & CG, LG, N & CE, NE, LE &
+CG & NG, LG, CN & CE, NE, LE &
+LN & LG, LE, N & CG, CN, CE &
+N & LN, CN, NG, NE & CG, LG, CE, LE &
+CN & N, CG, CE & LG, LN, LE &
+CE & NE, LE, CN & CG, NG, LG &
+NE & CE, LE, N & CG, NG, LG &
+LE & CE, NE, LN & CG, NG, LG]
+
+[include circle f include/cleric_circle.yaml]
+
 
 [section 2 Druids]
+
+Druids are proficient with weapons up to d6 and armor up to type 2.
 
 A druid's spellcasting ability is Insight.
 
@@ -85,8 +119,22 @@ casting in natural surroundings, as well as either two level 1 spells, one level
 [example Dryxi has cast five level 1 spells, and then suffers an effect inflicting two points of spell drain. Dryxi loses his remaining
 level 1 spell and one of his remaining level 2 spells.]
 
+[section 2 Fighters]
+
+Fighters are proficient with weapons up to d10 and armor up to type 6.
+
+[section 2 Rogues]
+
+Rogues are proficient with weapons up to d8 and armor up to type 4.
+
+A rogue's base Evd score is equal to 10 plus their Spd plus their Dex.
+
+Whenever you make a surprise attack or attack a creature that is being flanked, you have a +2 to hit and roll an additional d4/4
+for damage.
 
 [section 2 Shamans]
+
+Shamans are proficient with weapons up to d8 and armor up to type 2.
 
 A shaman's spellcasting ability is Determination.
 
@@ -98,26 +146,28 @@ Regardless of success or failure, the spell is cast.
 
 [section 2 Wizards]
 
+Wizards are proficient with weapons up to d6 and armor up to type 2.
+
 A wizard's spellcasting ability is Lore.
 
 Wizards have a pool of 16 mana points. When you cast a spell, you must spend a number of mana points equal to the spell level. If you don't
 have enough mana points to pay for the spell, you cannot cast it.
 
-As an action, you may make a Lor 14 check. If you succeed, you regain 1d3 mana points. If you fail, you take 1d3 unblockable light wounds.
+As an action, you may make a [check Lor med]. If you succeed, you regain 1d3 mana points. If you fail, you take 1d3 unblockable light wounds.
 Each day that you get a full night's rest, you regain mana points equal to your spellcasting modifier (minimum of 1).
 
-[italics Spell Drain:] Your maximum number of mana points is reduced by the amount of drain. Each day that you get a full night's rest, your
-maximum number of mana points is increased by one, to a maximum of the value before drain was applied.
+[italics Spell Drain:] Your maximum number of mana points is reduced by the amount of drain. Each day that you get a full night's rest,
+your maximum number of mana points is increased by one, to a maximum of the value before drain was applied.
+
+Only wizards have access to the spells from the Circle of the Arcanum.
+
+[include circle f include/arcane_circle.yaml]
 
 [section 0 Spells]
 
 [include spells f spell_circles]
 
-[section 0 Bards]
-Bards have a number of saga points equal to their Charisma bonus plus the number of languages they know. As an action, you may start
-any song you know. Whenever you take damage, or take an action other than continuing the song, you must succeed on a Cha 12 check or
-the effects of the song end. As an action, you may end one song currently in effect and spend a saga point to activate that song's
-climax effect.
+[section 0 Bards] 
 
 [include themes f bard_songs]
 

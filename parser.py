@@ -387,5 +387,6 @@ brand.include_functions["spells"] = lambda filename: create_block(filename, crea
 brand.include_functions["themes"] = lambda filename: create_block(filename, create_theme)
 brand.include_functions["monsters"] = lambda filename: create_block(filename, create_monster)
 brand.include_functions["appendicies"] = lambda f: create_appendices()
+brand.include_functions["circle"] = lambda filename: create_circle(pp.open_yaml(filename))
 
 create_doc()

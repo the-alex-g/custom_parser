@@ -1,0 +1,20 @@
+name: Circle of Prayers
+spells:
+ Bless:
+  cost: 1
+  duration: instantaneous
+  text: >
+   One creature within 4 fathoms that is aligned with your deity gains a boon that allows it to gain advantage
+   on any roll.
+ Smite:
+  cost: 2
+  duration: instantaneous
+  text: >
+   \rangespellattack{6}{holy}{10} If the target is the same alignment as your deity, this spell has no effect. If the target is opposed
+   to your deity, the attack deals one additional damage.
+ Holy Aura:
+  cost: 4
+  duration: rounds
+  text: >
+   This spell affects all creatures within 4 fathoms. Creatures aligned with your deity have +1 Evd and heal 1 light wound at the start
+   of each of your turns. Creatures opposed to your deity suffer 1d3 light holy wounds at the start of each of your turns.
