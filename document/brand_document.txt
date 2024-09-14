@@ -5,13 +5,16 @@
 Your Evasion is equal to your Speed bonus, plus one if your Dex bonus is +2 or higher, or -1 if your Dex bonus is -2 or lower, minus your
 Size bonus.
 Your Health is equal to 4 plus your Con bonus.
+Your weapon threshold is the size of the weapon die - Str + 1 (minimum of 5 (or the size of the die), maximum is the die size)
+While wielding two melee weapons, you have +1 Evd against melee attacks and +1 to accuracy rolls.
 
 [section 1 Attacking]
 
 When you make an attack, you must first choose an equipped weapon to attack with and a target within range of that weapon.
-Roll that weapon's attack die. If the result is a 1, or less than or equal to the target's Evasion minus your Dexterity, the attack misses.
-Otherwise, the attack hits, inflicting one wound on the target. Furthermore, if the result is more than 4 and also greater than the size
-of the die minus your Strength, or if the result is the maximum possible value, you may make another attack against the same target.
+Roll a d20 and add your Dex bonus (accuracy roll). If the total is equal to or greater than your target's Evd score, the attack hits. Roll your weapon
+die. If you roll equal to or over your weapon threshold, roll the weapon die again. You deal wounds equal to the number of dice rolled.
+
+If you rolled a natural 20, or equal to or greater than 21 (critical threshold), on your accuracy roll, add a d8/5 die to your damage roll.
 [example Fredrick wants to attack a goblin using his longsword. Fredrick has +2 Strength and +0 Dexterity, and the goblin has
 an Evasion of 12. Fredrick rolls a d20 and adds his Dex for a total of 13, which hits the goblin. He rolls a d8 and gets a 7, then rolls
 again and gets a 5, for a total of two wounds. The goblin only had 1 health, and it falls under his mighty blow.]
@@ -45,7 +48,6 @@ is negated.
     Truesight & Can see perfectly regardless of light level, can see invisible creatures and objects, and can immediately identify visual illusions
     # extremely magical in nature #]
 
-
 [section 1 Spellcasting]
 
 When you cast a spell, unless its duration is instantaneous or permanent, roll 1d4 and add your spellcasting modifier. The result is how
@@ -63,14 +65,41 @@ spell resistance to any checks required by the spell.
 
 Bards are proficient with weapons up to d6 and armor up to type 3.
 
+You start knowing four of the eight basic bardic themes.
+
 Bards have a number of saga points equal to their Charisma bonus plus the number of languages they know. As an action, you may start
 any song you know. Whenever you take damage, or take an action other than continuing the song, you must succeed on a Cha 12 check or
 the effects of the song end. As an action, you may end one song currently in effect and spend a saga point to activate that song's
 climax effect.
 
+[italics Learning Songs:] Bard songs can be transferred in any written or spoken form. To learn a new song, you must be able to understand
+the language it was recorded in, and you must devote at least three days to practicing and memorizing the song.
+
+[section 2 Berserkers]
+
+Berkserkers are proficient with weapons up to d10 and armor up to type 3.
+
+Your maximum health increases by one.
+
+When you attack with a d10 melee weapon, count your strength as 1 higher and reduce your critical threshold by one.
+
+When you attack with any melee weapon, you deal additional light wounds based on the amount of damage you have taken.
+[table cX
+Damage Taken & Damage Increase &
+1 & 1 &
+2-4 & d3 &
+5-6 & d4 &# Only possible with Con +1 minimum #
+7-8 & 2d3]# Only possible with Con +3 minimum #
+
 [section 2 Clerics]
 
 Clerics are proficient with weapons up to d8 and armor up to type 4.
+
+When you become a cleric, pick a patron deity. Your deity's alignment affects several spells you cast, and determines which spell circles
+you have access to. A typical cleric has access to seven spell circles: the circle of prayers, a deity-specific circle, and five other
+circles determined by the deity.
+
+You start with six spell stones. At least three must contain spells from either the circle of prayers or your deity-specific circle.
 
 A cleric's spellcasting ability is either Insight (usually for good deities), Determination (usually for evil deities), or Charisma.
 
@@ -82,6 +111,12 @@ For every hour you spend in prayer to your deity, you gain one favor point. You 
 way per day.
 
 [italics Spell Drain:] For each point of spell drain, you lose one favor point.
+
+[italics Casting Spells:] You must be able to speak in order to cast a spell.
+
+[italics Learning Spells:] You can learn a spell from any spellstone, as long as the spell is in one of your allowed circles. You must
+devote at least one day to prayer in order to gain the ability to cast the spell. Doing so [italics permanently] removes all magic from
+the spellstone.
 
 Only clerics have access to the spells from the Circle of Prayers. If your deity is of an evil alignment, spells from the circle of
 prayers deal unholy damage instead of holy damage. If your deity is of a neutral alignment, you can choose which damage type is dealt.
@@ -101,12 +136,14 @@ CE & NE, LE, CN & CG, NG, LG]
 
 [include circle f include/cleric_circle.yaml]
 
-
 [section 2 Druids]
 
 Druids are proficient with weapons up to d6 and armor up to type 2.
 
 A druid's spellcasting ability is Insight.
+
+You can only cast spells from the following circles: air, beasts, earth, fire, growth, ice, life, moon, sun, and water.
+You start with six spell stones, which cannot contain spells from more than four circles.
 
 Druids can cast six level 1 spells, three level 2 spells, and one level 4 spell. While in an area filled with natural life,
 an additional two level 1 spells and one level 2 spell can be cast. At dawn each day, you regain all your extra spells for
@@ -116,9 +153,24 @@ casting in natural surroundings, as well as either two level 1 spells, one level
 [example Dryxi has cast five level 1 spells, and then suffers an effect inflicting two points of spell drain. Dryxi loses his remaining
 level 1 spell and one of his remaining level 2 spells.]
 
+[italics Casting Spells:] You must be able to speak and have a spellstone of the spell in your possession in order to cast a spell.
+
+[italics Learning Spells:] When you aquire a spellstone, you must devote at least one day, spent in a natural setting, to attune to the
+spirits of the spellstone.
+
 [section 2 Fighters]
 
 Fighters are proficient with weapons up to d10 and armor up to type 6.
+
+When you become a fighter, choose up to two hand's worth of weapons or shields to be your signature armament. While wielding your
+signature armament, you get bonuses based on the type of equipment you're wielding.
+[table XX
+Equipment & Bonus &
+Two-handed melee weapon & critical threshold is reduced by one &
+One-handed melee weapon & +1 Evd against melee attacks &
+Second melee weapon & +1 to accuracy rolls &
+Ranged weapon & Short range is doubled (cannot be more than long range) &
+Shield & +1 Evd]
 
 [section 2 Rogues]
 
@@ -131,7 +183,9 @@ for damage.
 
 [section 2 Shamans]
 
-Shamans are proficient with weapons up to d8 and armor up to type 2.
+Shamans are proficient with weapons up to d8 and armor up to type 3.
+
+You start with six spell stones, which cannot contain spells from more than four circles.
 
 A shaman's spellcasting ability is Determination.
 
@@ -140,10 +194,16 @@ Regardless of success or failure, the spell is cast.
 
 [italics Spell Drain:] Suffer one unblockable light wound for each point of spell drain.
 
+[italics Casting Spells:] You must be holding the appropriate spellstone in order to cast a spell. If you cannot speak, you have
+disadvantage on the casting roll.
+
+[italics Learning Spells:] There is no special process that you must follow in order to learn a spell.
 
 [section 2 Wizards]
 
 Wizards are proficient with weapons up to d6 and armor up to type 2.
+
+You start with six spell stones, which cannot contain spells from more than four circles.
 
 A wizard's spellcasting ability is Lore.
 
@@ -156,6 +216,10 @@ Each day that you get a full night's rest, you regain mana points equal to your 
 [italics Spell Drain:] Your maximum number of mana points is reduced by the amount of drain. Each day that you get a full night's rest,
 your maximum number of mana points is increased by one, to a maximum of the value before drain was applied.
 
+[italics Casting Spells:] You must be able to speak and be holding the appropriate spellstone in order to cast a spell.
+
+[italics Learning Spells:] When you aquire a new spellstone, you must devote at least a day to studying it before you can cast that spell.
+
 Only wizards have access to the spells from the Circle of the Arcanum.
 
 [include circle f include/arcane_circle.yaml]
@@ -164,7 +228,7 @@ Only wizards have access to the spells from the Circle of the Arcanum.
 
 [include spells f spell_circles]
 
-[section 0 Bards] 
+[section 0 Bard Songs]
 
 [include themes f bard_songs]
 
