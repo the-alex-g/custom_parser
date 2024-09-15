@@ -1,8 +1,16 @@
-# BRAND CORE v.1.1.0
+# BRAND CORE v.1.3.0
+# additional module: wander v.1.0.0
+
 from math import floor
 import os
+
 FUNCTIONS_REQUIRING_EXTRA_PARAMETERS = {"attack":["str"], "weapon":["str"]}
 AUTOMATIC_VARIABLES = []
+NEWLINE = "\\\\"
+LINEBREAK = "\\bigskip"
+TABLEWIDTH = 0.9
+include_functions = {}
+unquoted_include_functions = {}
 RANGES = {
     "bow":"12/50",
     "thrown":"5/10",
@@ -30,46 +38,34 @@ WEAPONS = {
         "dtype":"slashing"
     }
 }
-NEWLINE = "\\\\"
-LINEBREAK = "\\bigskip"
-include_functions = {}
 
 
-# returns in the form of "result (dice + bonus)"
-def roll(num, size, *bonuses):
-    total_bonus = 0
-    for bonus in bonuses:
-        total_bonus += bonus
-    total = floor(num * (size / 2 + 0.5)) + total_bonus
-    string = str(total) + " (" + str(num) + "d" + str(size)
-    if total_bonus != 0:
-        if total_bonus > 0:
-            string += " + "
-        else:
-            string += " - "
-        string += str(abs(total_bonus))
-    return string + ")"
+def plural(*name):
+    string = _separate(name)
+    if string[-2:] in ["sh", "ch", "x"]:
+        return string + "es"
+    elif string[-1] in ["s", "z"]:
+        if string[-2] == string[-1]:
+            return string + "es"
+        return string + string[-1] + "es"
+    return string + "s"
 
 
 def index_plural(num, *name):
-    name = _separate(name)
-    string = str(num) + " " + name
     if num != 1:
-        if name[-2:] in ["sh", "ch", "x"]:
-            return string + "es"
-        elif name[-1] in ["s", "z"]:
-            if name[-2] == name[-1]:
-                return string + "es"
-            return string + name[-1] + "es"
-        return string + "s"
-    return string
+        return f"{num} {plural(*name)}"
+    return f"{num} {_separate(name)}"
 
 
 # adds all the inputs and returns them as a string
 def sum(*numbers):
     total = 0
     for number in numbers:
-        total += number
+        if type(number) == str:
+            if _isdigit(number):
+                total += int(number)
+        elif type(number) == int:
+            total += number
     return str(total)
 
 
@@ -81,7 +77,7 @@ def articulate(capitalized, *name):
         string += "n"
     if capitalized:
         string = string.title()
-    return string + " " + name
+    return f"{string} {name}"
 
 
 # returns spellname in italics
@@ -92,6 +88,17 @@ def spell(*spellname):
 # returns monster name in bold
 def monster(*monstername):
     return "\\textbf{" + _separate(monstername) + "}"
+
+
+def text(faces, *stuff):
+    content = _separate(stuff)
+    if "b" in faces:
+        content = "\\textbf{" + content + "}"
+    if "i" in faces:
+        content = "\\textit{" + content + "}"
+    if "sc" in faces:
+        content = "\\textsc{" + content + "}"
+    return content
 
 
 # bolds input
@@ -111,7 +118,7 @@ def bolditalics(*stuff):
 
 # collects all parameters as a brand-recognized string group
 def bind(*stuff):
-    return "<" + _separate(stuff) + ">"
+    return f"<{_separate(stuff)}>"
 
 
 # returns a table mapping the roll of a die to ampersand-separated entries
@@ -124,16 +131,14 @@ def dicetable(diesize, title, *entries):
             die_index += 1
             final_entries.append(die_index)
             final_entries.append("&")
-    return table("cX", final_entries)
+    return table("cX", *final_entries)
 
 
 # creates a table based on given columns and ampersand-separated entries
 def table(cols, *entries):
-    if type(entries[0]) == list:
-        entries = entries[0]
     tablestring = NEWLINE + "\\bigskip\\begin{tabular"
     if "X" in cols:
-        tablestring += "x}{0.9\\columnwidth"
+        tablestring += "x}{" + f"{TABLEWIDTH}\\columnwidth"
     tablestring += "}{|"
     for char in cols:
         tablestring += char + "|"
@@ -145,7 +150,7 @@ def table(cols, *entries):
             if line_count < len(cols):
                 tablestring += "&"
             else:
-                tablestring += "\\\\[2pt]\\hline "
+                tablestring += NEWLINE + "[2pt]\\hline "
                 line_count = 0
         else:
              tablestring += str(item) + " "
@@ -174,8 +179,8 @@ def _get_list_body(items):
             list_body += "\\item " + entry
             entry = ""
         else:
-            entry += str(item) + " "
-    return list_body + "\\item " + entry
+            entry += f"{item} "
+    return f"{list_body}\\item {entry}"
 
 
 # Return array as string with each item separated by a given sequence
@@ -190,10 +195,8 @@ def _separate(array, spacer=" "):
 
 # Returns a number as a string with proper sign indication
 def format_bonus(bonus):
-    if type(bonus) == str:
-        bonus = int(bonus)
     if bonus >= 0:
-        return "+" + str(bonus)
+        return f"+{bonus}"
     else:
         return str(bonus)
 
@@ -220,21 +223,29 @@ def possessive(*name):
         return name + "'s"
 
 
-def include(include_type, quote, *filename):
-    global include_functions
+def include(include_type, filename, *options):
+    global include_functions, unquoted_include_functions
 
-    filename = filename[0] if len(filename) > 0 else ""
+    quote = False
 
-    content = include_functions[include_type](filename)
-    if quote:
-        string = "\\begin{quote}" + content + "\\end{quote}"
+    if include_type in include_functions:
+        content = include_functions[include_type](filename)
+        quote = True
+    elif include_type in unquoted_include_functions:
+        content = unquoted_include_functions[include_type](filename)
+    
+    if "q" in options or quote:
+        content = "\\begin{quote}" + content + "\\end{quote}"
     else:
-        string = NEWLINE + LINEBREAK + content
-    return string
+        content = NEWLINE + LINEBREAK + content
+    
+    return content
 
 
-def percent(*value):
-    return sum(*value) + "\\%"
+def percent(*values):
+    if len(values) > 0:
+        return f"{sum(*values)}\\%"
+    return "\\%"
 
 
 def newline(*skip_size):
@@ -247,6 +258,14 @@ def skip(size):
     return f"\\{size}skip"
 
 
+def _isdigit(string):
+    if string != "":
+        if string[0] == "-":
+            return string[1:].isdigit()
+        return string.isdigit()
+    return False
+
+
 # builds and executes function from bracketed command string
 def _format_and_execute(field, params):
     if field in params:
@@ -257,13 +276,19 @@ def _format_and_execute(field, params):
     in_string_block = False
     arg_text = ""
     function_name = ""
+    escaping = False
     # the extra space at the end of field causes the last argument to be processed
     for char in field + " ":
-        if char == "<":
+        if escaping:
+            arg_text += char
+            escaping = False
+        elif char == "\\":
+            escaping = True
+        elif char == "<":
             in_string_block = True
         elif char == ">":
             in_string_block = False
-        elif (char == " " or char == "\n") and not in_string_block:
+        elif char in [" ", "\n"]  and not in_string_block:
             if in_function_body:
                 if formatted_field[-1] != "(":
                     formatted_field += ", "
@@ -273,8 +298,8 @@ def _format_and_execute(field, params):
                     arg_text = "True"
                 elif arg_text in ["f", "F", "false", "False"]:
                     arg_text = "False"
-                elif not arg_text.isdigit():
-                    arg_text = '"' + arg_text + '"'
+                elif not _isdigit(arg_text):
+                    arg_text = f'"{arg_text}"'
                 formatted_field += arg_text
                 arg_text = ""
             else:
@@ -330,7 +355,6 @@ def eval_string(string, params):
                 updated_string += char
     return updated_string
 
-#-------------------------------------------------------------------
 
 def attack(diesize, *bonuses):
     threshold = diesize

@@ -134,7 +134,7 @@ LE & CE, NE, LN & CG, NG, LG &
 NE & CE, LE, N & CG, NG, LG &
 CE & NE, LE, CN & CG, NG, LG]
 
-[include circle f include/cleric_circle.yaml]
+[include circle include/cleric_circle.yaml]
 
 [section 2 Druids]
 
@@ -222,18 +222,18 @@ your maximum number of mana points is increased by one, to a maximum of the valu
 
 Only wizards have access to the spells from the Circle of the Arcanum.
 
-[include circle f include/arcane_circle.yaml]
+[include circle include/arcane_circle.yaml]
 
 [section 0 Spells]
 
-[include spells f spell_circles]
+[include spells spell_circles]
 
 [section 0 Bard Songs]
 
-[include themes f bard_songs]
+[include themes bard_songs]
 
 [section 0 Monsters]
 
-[include monsters f monsters]
+[include monsters monsters]
 
 [include appendicies f]
