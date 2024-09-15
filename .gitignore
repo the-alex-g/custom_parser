@@ -1,2 +1,3 @@
 document.tex
 __pycache__
+*.cl~
