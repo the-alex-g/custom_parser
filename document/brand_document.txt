@@ -8,6 +8,25 @@ Your Health is equal to 4 plus your Con bonus.
 Your weapon threshold is the size of the weapon die - Str + 1 (minimum of 5 (or the size of the die), maximum is the die size)
 While wielding two melee weapons, you have +1 Evd against melee attacks and +1 to accuracy rolls.
 
+[section 1 Character Creation]
+
+Roll 2d3. Repeat eight times. Assign each result to one of your attributes. The maximum value for that
+attribute is the starting value plus 2.
+[table cX
+Result & Bonus &
+2 & -2 &
+3 & -1 &
+4 & +0 &
+5 & +1 &
+6 & +2]
+
+Choose a race and class.
+
+[section 2 Alternate Options]
+[bulletlist
+Roll 3d3 and remove the lowest value instead of just rolling 2d3. &
+Assign results in the order they're rolled, instead of choosing. Then, you may swap two values.]
+
 [section 1 Attacking]
 
 When you make an attack, you must first choose an equipped weapon to attack with and a target within range of that weapon.
@@ -26,7 +45,6 @@ known, the player rolls their Armor die once for each wound. For each result equ
 is negated.
 [example One of the goblin's friends attacks Fredrick back, hitting for 1 wound. Fredrick has type 4 armor (d6/4), so rolls a d6 once. If he rolls a 
 4 or better, the wound is negated.]
-
 
 [section 1 Light and Sensing]
 [table cX
@@ -81,7 +99,7 @@ Berkserkers are proficient with weapons up to d10 and armor up to type 3.
 
 Your maximum health increases by one.
 
-When you attack with a d10 melee weapon, count your strength as 1 higher and reduce your critical threshold by one.
+When you attack with a d10 melee weapon, count your strength as 2 higher and reduce your critical threshold by one.
 
 When you attack with any melee weapon, you deal additional light wounds based on the amount of damage you have taken.
 [table cX
@@ -93,7 +111,7 @@ Damage Taken & Damage Increase &
 
 [section 2 Clerics]
 
-Clerics are proficient with weapons up to d8 and armor up to type 4.
+Clerics are proficient with weapons up to d8, armor up to type 4, and shields.
 
 When you become a cleric, pick a patron deity. Your deity's alignment affects several spells you cast, and determines which spell circles
 you have access to. A typical cleric has access to seven spell circles: the circle of prayers, a deity-specific circle, and five other
@@ -133,7 +151,6 @@ CN & N, CG, CE & LG, LN, LE &
 LE & CE, NE, LN & CG, NG, LG &
 NE & CE, LE, N & CG, NG, LG &
 CE & NE, LE, CN & CG, NG, LG]
-
 [include circle include/cleric_circle.yaml]
 
 [section 2 Druids]
@@ -160,7 +177,7 @@ spirits of the spellstone.
 
 [section 2 Fighters]
 
-Fighters are proficient with weapons up to d10 and armor up to type 6.
+Fighters are proficient with weapons up to d10, armor up to type 6, and shields.
 
 When you become a fighter, choose up to two hand's worth of weapons or shields to be your signature armament. While wielding your
 signature armament, you get bonuses based on the type of equipment you're wielding.
@@ -221,19 +238,14 @@ your maximum number of mana points is increased by one, to a maximum of the valu
 [text ib Learning Spells:] When you aquire a new spellstone, you must devote at least a day to studying it before you can cast that spell.
 
 Only wizards have access to the spells from the Circle of the Arcanum.
-
 [include circle include/arcane_circle.yaml]
 
 [section 0 Spells]
-
 [include spells spell_circles]
 
 [section 0 Bard Songs]
-
 [include themes bard_songs]
 
 [section 0 Monsters]
-
 [include monsters monsters]
-
 [include appendicies f]
