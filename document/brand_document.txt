@@ -34,7 +34,7 @@ is negated.
     Dim Light & +2 Evasion &
     Darkness & Creatures in darkness cannot be seen &
     Utter Darkness & Creatures in utter darkness cannot be seen &
-    \hline
+    \\hline
     Blindsight & Can sense surroundings, regardless of ability to see &
     # for creatures that cannot see with eyes, but can still detect their surroundings #
     Darksight & Can see normally, regardless of light level &
