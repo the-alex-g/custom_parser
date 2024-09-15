@@ -20,5 +20,5 @@ traits:
 - Amorphous
 immune:
 - non-magic
-movement_modes:
-- hover
+movement:
+- h

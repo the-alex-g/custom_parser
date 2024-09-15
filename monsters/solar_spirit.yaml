@@ -27,5 +27,5 @@ special:
   1d3 + 1 health remaining.
  Radiance: >
   A solar spirit [illuminates 2].
-movement_modes:
-- fly 70
+movement:
+- f

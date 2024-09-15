@@ -23,5 +23,5 @@ resist:
 - non-magic
 vulnerable:
 - holy
-movement_modes:
- hover: 10
+movement:
+ - h=10

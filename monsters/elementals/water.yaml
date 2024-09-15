@@ -15,7 +15,7 @@ attack:
 - "[attack 6] cold bludgeoning (slam)"
 traits:
 - Amorphous
-movement_modes:
-- swim
+movement:
+- s
 immune:
 - non-magic

@@ -27,7 +27,7 @@ special:
 languages:
 - ANCIENT
 - COMMON
-movement_modes:
-- hover
+movement:
+- h
 senses:
 - sense living

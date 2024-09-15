@@ -202,6 +202,21 @@ def get_monster_spells(spellcasting):
     return string
 
 
+def get_movement(spd, modes, size):
+    base = max(1, 6 + spd * 2)
+    string = str(base)
+    for mode in sorted(modes):
+        if "=" in mode:
+            string += f", {mode[0]} {mode[mode.find("=") + 1:]}"
+        elif mode == "f":
+            string += f", f {5 * ceil(1.2 * (base + size))}" # equals 6 * (base + size), rounded up to a multiple of 5
+        elif mode in "bt":
+            string += f", {mode} {ceil(0.5 * base)}"
+        else:
+            string += f", {mode} {base}"
+    return string
+
+
 def create_monster(monster):
     global monster_count
 
@@ -222,6 +237,7 @@ def create_monster(monster):
     alignment = pp.get_key_if_exists(monster, "alignment", "").upper()
     bonus_dict = pp.get_key_if_exists(monster, "bonuses", {})
     health_bonus = 0
+    movement = get_movement(pp.get_key_if_exists(bonus_dict, "spd", 0), pp.get_key_if_exists(monster, "movement", []), size_number)
 
     armor = pp.get_key_if_exists(monster, "armor", 0)
     if type(armor) == str:
@@ -248,21 +264,13 @@ def create_monster(monster):
     
     string = "\\section*{" + headername + "}\\textit{" + pp.get_key_if_exists(monster, "flavor", "", if_exists=NEWLINE) + "}\\medskip"
     string += "\\label{" + headername + "}"
-    string += "\\textsc{" + alignment
-    if string[-1] != "{":
-        string += " "
+    string += f"[text sc {alignment} size {size} {monster["type"]}]"
 
-    string += "size " + str(size) + " " + monster["type"] + "}"
     if "tags" in monster:
         string += f" ({pp.comma_separate(sorted(monster["tags"]))})"
+    
     string += NEWLINE + get_ability_list(bonus_dict) + NEWLINE
-    string += f"[bold Health] {health}"
-    string += f", [bold Arm] {armor}"
-    string += f", [bold Evd] {evasion}"
-    string += f", [bold Mv] {max(1, 6 + pp.get_key_if_exists(bonus_dict, "spd", 0) * 2)}"
-
-    if "movement_modes" in monster:
-        string += f", {pp.comma_separate(monster["movement_modes"])}"
+    string += f"[bold Health] {health}, [bold Arm] {armor}, [bold Evd] {evasion}, [bold Mv] {movement}"
     string += NEWLINE
 
     for field in ("immune", "resist", "vulnerable"):
@@ -310,7 +318,7 @@ def create_monster(monster):
 
 def create_theme(theme):
     return brand.eval_string(
-        f"""[bold {theme["name"]}].[newline]
+        f"""[bold {theme["name"]}][newline]
         This song affects all {theme["targets"]} within six fathoms that can hear you. {theme["effect"]}[newline]
         [italics Climax:] {theme["climax"]}[newline big]""",
         {}

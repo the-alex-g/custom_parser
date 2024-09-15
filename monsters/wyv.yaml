@@ -11,8 +11,8 @@ bonuses:
 attack:
 - 1/rnd
 - "1 light wound and wyv venom (bite)"
-movement_modes:
-- fly 30
+movement:
+- f=30
 special:
  Wyv Venom (poison): Immediately when poisoned, the affected creature must succeed on a Con 10 check or suffer 1 point of Con drain.
 variants:

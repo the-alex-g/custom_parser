@@ -23,7 +23,7 @@ special:
 languages:
 - GOBLIN
 - common
-movement_modes:
-- climb
+movement:
+- c
 senses:
 - dimsight
