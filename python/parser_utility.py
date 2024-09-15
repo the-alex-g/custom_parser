@@ -154,5 +154,12 @@ def increment_key(dictionary, key, value):
         dictionary[key] = value
 
 
+def append_to_key(dictionary, key, value):
+    if key in dictionary:
+        dictionary[key].append(value)
+    else:
+        dictionary[key] = [value]
+
+
 def get_file_contents(filename):
     return separate(open(filename).readlines(), spacer="")

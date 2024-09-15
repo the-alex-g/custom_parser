@@ -42,9 +42,9 @@ WEAPONS = {
 
 def plural(*name):
     string = _separate(name)
-    if string[-2:] in ["sh", "ch", "x"]:
+    if string[-2:] in ("sh", "ch", "x"):
         return string + "es"
-    elif string[-1] in ["s", "z"]:
+    elif string[-1] in ("s", "z"):
         if string[-2] == string[-1]:
             return string + "es"
         return string + string[-1] + "es"
@@ -73,7 +73,7 @@ def sum(*numbers):
 def articulate(capitalized, *name):
     name = _separate(name)
     string = "a"
-    if name[0].lower() in ["a", "e", "i", "o", "u"]:
+    if name[0].lower() in ("a", "e", "i", "o", "u"):
         string += "n"
     if capitalized:
         string = string.title()
@@ -223,6 +223,10 @@ def possessive(*name):
         return name + "'s"
 
 
+def add_include_function(name, function):
+    unquoted_include_functions[name] = function
+
+
 def include(include_type, filename, *options):
     global include_functions, unquoted_include_functions
 
@@ -288,15 +292,15 @@ def _format_and_execute(field, params):
             in_string_block = True
         elif char == ">":
             in_string_block = False
-        elif char in [" ", "\n"]  and not in_string_block:
+        elif char in (" ", "\n")  and not in_string_block:
             if in_function_body:
                 if formatted_field[-1] != "(":
                     formatted_field += ", "
                 if arg_text in AUTOMATIC_VARIABLES:
                     arg_text = eval_string(str(params[arg_text]), params)
-                elif arg_text in ["t", "T", "true", "True"]:
+                elif arg_text in ("t", "T", "true", "True"):
                     arg_text = "True"
-                elif arg_text in ["f", "F", "false", "False"]:
+                elif arg_text in ("f", "F", "false", "False"):
                     arg_text = "False"
                 elif not _isdigit(arg_text):
                     arg_text = f'"{arg_text}"'

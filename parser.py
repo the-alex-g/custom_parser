@@ -100,10 +100,7 @@ def add_to_appendix(appendix, item_name, categorizer):
     global appendicies
 
     if appendix in appendicies:
-        if categorizer in appendicies[appendix]:
-            appendicies[appendix][categorizer].append(item_name)
-        else:
-            appendicies[appendix][categorizer] = [item_name]
+        pp.append_to_key(appendicies[appendix], categorizer, item_name)
     else:
         appendicies[appendix] = {categorizer:[item_name]}
 
@@ -197,10 +194,7 @@ def get_monster_spells(spellcasting):
         else:
             circle = spell_data[spell]["circle"]
             spell += f" ({spell_data[spell]["cost"]})"
-        if circle in circles:
-            circles[circle].append(spell)
-        else:
-            circles[circle] = [spell]
+        pp.append_to_key(circles, circle, spell)
     
     string = f"[bold Spells ({spellcasting["type"].title()})][newline]"
     for circle in sorted(circles):
@@ -271,14 +265,9 @@ def create_monster(monster):
         string += f", {pp.comma_separate(monster["movement_modes"])}"
     string += NEWLINE
 
-    if "immune" in monster:
-        string += get_monster_array_field("Immune", monster)
-
-    if "resist" in monster:
-        string += get_monster_array_field("Resist", monster)
-
-    if "vulnerable" in monster:
-        string += get_monster_array_field("Vulnerable", monster)
+    for field in ("immune", "resist", "vulnerable"):
+        if field in monster:
+            string += get_monster_array_field(field.title(), monster)
 
     if "spell resist" in monster:
         string += f"[bold Spell Resist] {monster["spell resist"]}[newline]"
@@ -382,10 +371,10 @@ def create_doc():
     print(monster_count, "monsters total")
 
 
-brand.include_functions["spells"] = lambda filename: create_block(filename, create_circle)
-brand.include_functions["themes"] = lambda filename: create_block(filename, create_theme)
-brand.include_functions["monsters"] = lambda filename: create_block(filename, create_monster)
-brand.include_functions["appendicies"] = lambda f: create_appendices()
-brand.include_functions["circle"] = lambda filename: create_circle(pp.open_yaml(filename), title=False)
+brand.add_include_function("spells", lambda filename: create_block(filename, create_circle))
+brand.add_include_function("themes", lambda filename: create_block(filename, create_theme))
+brand.add_include_function("monsters", lambda filename: create_block(filename, create_monster))
+brand.add_include_function("appendicies", lambda f: create_appendices())
+brand.add_include_function("circle", lambda filename: create_circle(pp.open_yaml(filename), title=False))
 
 create_doc()
