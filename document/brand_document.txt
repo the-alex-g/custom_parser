@@ -4,9 +4,25 @@
 
 Your Evasion is equal to your Speed bonus, plus one if your Dex bonus is +2 or higher, or -1 if your Dex bonus is -2 or lower, minus your
 Size bonus.
+
 Your Health is equal to 4 plus your Con bonus.
+
 Your weapon threshold is the size of the weapon die - Str + 1 (minimum of 5 (or the size of the die), maximum is the die size)
+
 While wielding two melee weapons, you have +1 Evd against melee attacks and +1 to accuracy rolls.
+
+If you can make a reasonable argument for knowing how to do something based on your class, occupation, or race, you can get advantage
+on the roll.
+
+Resistance to poison and/or disease grants advantage to checks against poison and/or disease.
+
+Resistance to damage reduces the amount of damage taken by one.
+
+Vulnerability to damage increases the amount of damage taken by one.
+
+Immunity to damage reduces the amount of damage taken to 0.
+
+When dealing damage that has multiple types, use whichever one does the most damage.
 
 [section 1 Resting and Recovery]
 
@@ -29,10 +45,16 @@ Result & Bonus &
 [newline big]
 Choose a race and class.
 
+Pick an occupation; this is what your character did for a living before becoming an adventurer (sailor, blacksmith, farmer, shepherd, etc.).
+
+Your character can speak the Common tongue and the language of your race. If your Lor bonus is +2 or higher, you know an additional language, or two languages if your Lor is +4 or higher.
+If your Cha bonus is +3 or higher, you know another language.
+
 [section 2 Alternate Options]
 [bulletlist
 Roll 3d3 and remove the lowest value instead of just rolling 2d3. &
-Assign results in the order they're rolled, instead of choosing. Then, you may swap two values.]
+Assign results in the order they're rolled, instead of choosing. Then, you may swap two values. &
+Distribute +3 among your stats. Then, you can reduce stats by 1 to increase a different stat by 1. Only one stat can be at +3, and none can be less than -2.]
 
 [section 1 Attacking]
 
@@ -93,13 +115,22 @@ suffer 2 light wounds. # not quite sure about the 'make a check or take damage' 
 in one hand. Once a spellstone has been used in this way,
 it cannot be used to cast spells again for 24 hours. You cannot cast more than three spells per day in this manner.
 
+[section 1 Races]
+[table ccX
+Race & Size & Bonuses &
+Dwarf & 1/2 & Dimsight, +1 to Con and Det, -1 to Cha, magic resist 2, resist poison and disease &
+Elf & 1 & Dimsight, +1 to Lor, Ins, Dex, and Cha, resist poison and disease &
+Gnome & 1/2 & Dimsight, +1 to Dex and Ins, -1 to Con, magic resist 1 &
+Halfling & 1/2 & A number of times per day equal to your Cha bonus (min 1), you can re-roll any die &
+Human & 1 & +1 to two different attributes, learn any racial language]
+
 [section 1 Classes]
 
 [section 2 Bards]
 
 Bards are proficient with weapons up to d6 and armor up to type 3.
 
-You start knowing four of the eight basic bardic themes.
+You start knowing four of the eight basic bardic themes and one additional language of your choice.
 
 [extra_attacks 2 4]
 

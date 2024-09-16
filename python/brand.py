@@ -38,6 +38,53 @@ WEAPONS = {
         "dtype":"slashing"
     }
 }
+MAJOR_DEITIES = {
+    "LG":{
+        "aspect":"the sun",
+        "title":"Luminant",
+        "name":"S'dathon"
+    },
+    "NG":{
+        "aspect":"the moon",
+        "title":"Warden",
+        "name":"Auleria"
+    },
+    "CG":{
+        "aspect":"travelers",
+        "title":"Guide",
+        "name":"Hvyga"
+    },
+    "LN":{
+        "aspect":"shadow",
+        "title":"Whisper in the Dark",
+        "name":"Thonatoth"
+    },
+    "N":{
+        "aspect":"knowledge",
+        "title":"Librarian",
+        "name":"Iolaith"
+    },
+    "CN":{
+        "aspect":"nature",
+        "title":"Wild King",
+        "name":"Vethagor"
+    },
+    "LE":{
+        "aspect":"deception",
+        "title":"Weaver of Lies",
+        "name":"Serath"
+    },
+    "NE":{
+        "aspect":"decay",
+        "title":"Endless Rot",
+        "name":"Gaqur"
+    },
+    "CE":{
+        "aspect":"destruction",
+        "title":"Devourer",
+        "name":"Sha'Immoleth"
+    }
+}
 
 
 def plural(*name):
@@ -435,3 +482,7 @@ def extra_attacks(first_level, second_level):
     make a melee attack. If your Spd bonus is {format_bonus(second_level)} or greater,
     you may make a second melee attack after the first time that you make a melee
     attack on your turn."""
+
+
+def deity(field, alignment):
+    return MAJOR_DEITIES[alignment][field]
