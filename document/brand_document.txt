@@ -84,6 +84,15 @@ If the spell directly targets a creature with spell resistance, the cost of the 
 If not directly targeted by a spell, but still affected by one (like being in the radius of a [spell Fireball]), that creature adds its
 spell resistance to any checks required by the spell.
 
+[section 2 Non-Spellcasters Casting Spells]
+
+Bards, berserkers, rogues, and fighters can cast level 1 spells from spellstones. When you do, you must succeed on a Det 14 check or
+suffer 2 light wounds. # not quite sure about the 'make a check or take damage' bit #
+
+[text ib Casting Spells:] In order to cast a spell, a non-spellcaster must be able to speak and be holding the appropriate spellstone
+in one hand. Once a spellstone has been used in this way,
+it cannot be used to cast spells again for 24 hours. You cannot cast more than three spells per day in this manner.
+
 [section 1 Classes]
 
 [section 2 Bards]
