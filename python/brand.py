@@ -426,3 +426,12 @@ def section(subs, *content):
 
 def example(*content):
     return NEWLINE + "\\textit{Example:} " + _separate(content)
+
+
+def extra_attacks(first_level, second_level):
+    return f"""You get extra attacks based on your Spd bonus. If your Spd bonus
+    is {format_bonus(first_level)} or greater, on every round that you don't make
+    an attack, gain a boon that allows you to make a second melee attack when you
+    make a melee attack. If your Spd bonus is {format_bonus(second_level)} or greater,
+    you may make a second melee attack after the first time that you make a melee
+    attack on your turn."""
