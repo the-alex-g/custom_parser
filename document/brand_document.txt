@@ -40,7 +40,7 @@ When you make an attack, you must first choose an equipped weapon to attack with
 Roll a d20 and add your Dex bonus (accuracy roll). If the total is equal to or greater than your target's Evd score, the attack hits. Roll your weapon
 die. If you roll equal to or over your weapon threshold, roll the weapon die again. You deal wounds equal to the number of dice rolled.
 
-If you rolled a natural 20, or equal to or greater than 21 (critical threshold), on your accuracy roll, add a d8/5 die to your damage roll.
+If you rolled a natural 20, or equal to or greater than your critical threshold (default 21), on your accuracy roll, add a d8/5 die to your damage roll.
 [example Fredrick wants to attack a goblin using his longsword. Fredrick has +2 Strength and +0 Dexterity, and the goblin has
 an Evasion of 12. Fredrick rolls a d20 and adds his Dex for a total of 13, which hits the goblin. He rolls a d8 and gets a 7, then rolls
 again and gets a 5, for a total of two wounds. The goblin only had 1 health, and it falls under his mighty blow.]
@@ -167,25 +167,32 @@ CE & NE, LE, CN & CG, NG, LG]
 
 [section 2 Druids]
 
-Druids are proficient with weapons up to d6 and armor up to type 2.
+Druids are proficient with weapons up to d6 and armor up to type 2. While you are wielding a metal weapon or wearing metal armor, you cannot cast spells.
 
 A druid's spellcasting ability is Insight.
 
 You can only cast spells from the following circles: air, beasts, earth, fire, growth, ice, life, moon, sun, and water.
 You start with six spell stones, which cannot contain spells from more than four circles.
 
-Druids can cast six level 1 spells, three level 2 spells, and one level 4 spell. While in an area filled with natural life,
-an additional two level 1 spells and one level 2 spell can be cast. At dawn each day, you regain all your extra spells for
-casting in natural surroundings, as well as either two level 1 spells, one level 2 spell, or one level 4 spell.
+Druids have six level 1 spell slots, three level 2 spell slots, and one level 4 spell slot. In order to cast a spell,
+you must spend a spell slot of the same level. If you have no spell slots of the appropriate level, you may not cast
+the spell. While outdoors, you have an additional two level 1 spell slots and one level 2 spell slot. These spell slots
+must be spent before your other ones.
 
-[text ib Spell Drain:] For each point of spell drain, you count as having cast one spell of the lowest level that you can still cast.
-[example Dryxi has cast five level 1 spells, and then suffers an effect inflicting two points of spell drain. Dryxi loses his remaining
+At dawn each day, you regain all your spell slots for being outdoors. You also regain either two level 1 spell slots, one
+level 2 spell slot, or one level 4 spell slot.
+
+[text ib Spell Drain:] For each point of spell drain, you must spend one spell slot of the lowest level available to you.
+[example Dryxi has cast five level 1 spells, and then suffers two points of spell drain. Dryxi loses his remaining
 level 1 spell and one of his remaining level 2 spells.]
 
 [text ib Casting Spells:] You must be able to speak and have a spellstone of the spell in your possession in order to cast a spell.
 
 [text ib Learning Spells:] When you aquire a spellstone, you must devote at least one day, spent in a natural setting, to attune to the
 spirits of the spellstone.
+
+Only druids have access to the Druidic Circle.
+[include circle include/druid_circle.yaml]
 
 [section 2 Fighters]
 

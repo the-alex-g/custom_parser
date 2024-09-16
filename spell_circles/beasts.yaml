@@ -1,17 +1,31 @@
 name: Circle of Beasts
 spells:
- Beast Shape:
-  cost: 4
+ Beast Ward:
+  cost: 2
   duration: minutes
-  text: You assume the form of any size 2 or smaller animal. You take on that creature's Str, Dex, Con, and Spd scores, as well as its evasion, health, armor, and any other special abilities (such as the ability to swim, fly, or breathe underwater). If you are reduced to zero hit points while in animal form, you return to your regular form with the amount of health you had when you transformed, minus one.
+  text: >
+   This spell targets either you or a point within 30 fathoms. Animals cannot come within 2 fathoms of the target.
  Command Animal:
   cost: 1
   duration: minutes
   text: This spell affects an animal within 5 fathoms. The target must succeed on a Det check against your spell modifier or come under your control as if you had cast \textit{Summon Animal}. If the animal is already being commanded by another creature, add that creature's Det bonus to the animal's. If you are already controlling any animals when you cast this spell, the animals you already control are set free.
  Familiar:
   cost: 2
-  duration: days
-  text: "????"
+  duration: permanent
+  text: >
+   You summon a spirit to serve as your familiar. It takes the form of a small animal of your choice (0 health, Evd 14, Mv 8). While it is within a mile of you, you can concentrate to use its senses
+   instead of yours.
+
+   While the familiar is alive, you gain benefits depending on your class.
+   [table XX
+   Cleric & Gain a favor point at dawn each day &
+   Druid & You have an additional level 1 spell slot &
+   Shaman & Your maximum health is increased by 1 &
+   Wizard & Your maximum number of mana points is increased by 1]
+
+   You may only have one familiar at a time. If you already have a familiar when you cast this spell, you may change the form of your familiar.
+
+   When your familiar dies, you suffer 2 points of mana drain, and cannot cast this spell again for four days.
  Summon Animal:
   cost: 4
   duration: minutes
