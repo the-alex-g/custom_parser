@@ -1,0 +1,31 @@
+alignment: NG
+circles:
+- air
+- life
+- moon
+- water
+- ice
+circle name: Circle of Wards
+text: ""
+private circle:
+  Sanctuary:
+    cost: 1
+    duration: minutes
+    text: >
+     This spell targets one friendly creature within 3 fathoms. The target's armor counts as type 6, and they have +4 to Evasion. The spell ends immediately if the target attacks or casts an offensive
+     spell.
+  Warden:
+    cost: 2
+    duration: minutes
+    text: >
+     This spell targets two friendly creatures within 3 fathoms. One of the target is designated as the warden for the other (the guarded creature). Whenever the guarded creature takes damage, after
+     rolling for armor, the damage is reduced by one and the warden takes one unblockable damage (or however much was blocked). When the warden is reduced to one health, they may choose to end the spell
+     immediately.
+     [example Fredrick is the warden for his ally, Ojrd. Ojrd is hit by an attack for two wounds. He rolls his armor, blocking one of the two wounds. Fredrick suffers the other incoming wound, and Ojrd
+     remains unharmed. If Ojrd took 2 light wounds and blocked none, he would still take no damage, and Fredrick would only take the two light wounds.]
+  Guarding Aura:
+    cost: 4
+    duration: rounds
+    text: >
+     This spell affects a sphere with a radius of 3 fathoms. Creatures aligned with Neutral Good (see cleric class description) within the sphere have their armor type increased by 2 (max of 6).
+     Creatures opposed to Neutral Good must succeed on a Det check against your spellcasting modifier in order to enter the affected area.

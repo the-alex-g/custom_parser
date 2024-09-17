@@ -1,0 +1,11 @@
+alignment: CN
+circles: none
+text: >
+ When you become a cleric of [deity name CN], choose 5 of the circles available to a druid as the circles you are allowed to use. You can still cast spells from the Circle of Prayers and Circle of Wilds.
+circle name: Circle of Wilds
+private circle:
+  Elemental Protection:
+    cost: 1
+    duration: rounds
+    text: This spell targets you or a nearby creature. The target gains resistance to acid, cold, fire, and lightning damage.
+  

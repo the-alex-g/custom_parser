@@ -1,0 +1,14 @@
+alignment: CG
+circles:
+- air
+- earth
+- water
+- divination
+- life
+text: ""
+circle name: Circle of Seeking
+private circle:
+  Placeholder:
+    cost: 0
+    duration: none
+    text: placeholder

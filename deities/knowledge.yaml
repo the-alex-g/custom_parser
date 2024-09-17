@@ -1,0 +1,14 @@
+alignment: N
+circles:
+- divination
+- illusion
+- enchantment
+- earth
+- fire
+text: ""
+circle name: Circle of Knowledge
+private circle:
+  Ancient Lore:
+    cost: 2
+    duration: instantaneous
+    text: placeholder

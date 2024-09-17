@@ -1,0 +1,18 @@
+alignment: NE
+circles:
+- darkness
+- divination
+- illusion
+- death
+- air
+circle name: Circle of Lies
+text: ""
+private circle:
+  Suggestion:
+    cost: 2
+    duration: instantaneous
+    text: >
+     This spell targets one creature that can hear and understand you. That creature must succeed on a Cha check against your spellcasting modifier or be forced to follow a short instruction that you
+     give it. The target will not obey commands that are radically different from the target's normal behavior, and will not obey obviously suicidal commands. The target has only hazy memories of doing
+     whatever you told it to.
+     [example You can't order a palace guard to assassinate the king, but you could order one to let you into the king's chamber.]
