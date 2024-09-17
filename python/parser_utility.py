@@ -121,7 +121,7 @@ def get_yaml_from_directory(dirname):
     if os.path.isdir(dirname):
         for item in os.listdir(dirname):
             path = os.path.join(dirname, item)
-            if os.path.isfile(path):
+            if os.path.isfile(path) and path.endswith(".yaml"):
                 yaml_list.append(open_yaml(path))
             elif os.path.isdir(path):
                 for yaml_dir in get_yaml_from_directory(path):

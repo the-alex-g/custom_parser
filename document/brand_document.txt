@@ -309,6 +309,9 @@ Only wizards have access to the spells from the Circle of the Arcanum.
 [section 0 Bard Songs]
 [include themes bard_songs]
 
+[section 0 Deities]
+[include deities deities]
+
 [section 0 Monsters]
 [include monsters monsters]
 [include appendicies f]

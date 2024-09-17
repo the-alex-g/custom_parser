@@ -2,6 +2,7 @@
 
 (setq formatting
       `(("#\\([^<]+?\\)#" . (1 'font-lock-comment-face))
+        (".*:" . 'font-lock-variable-name-face)
 	("\\[[^\s]*\\|\\]" . 'font-lock-function-name-face)
 	("#" . 'font-lock-comment-delimiter-face)
 	("&" . 'font-lock-keyword-face)))

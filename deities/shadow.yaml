@@ -1,0 +1,24 @@
+alignment: LN
+circles:
+- darkness
+- ice
+- illusion
+- earth
+- nullity
+circle name: Circle of Shadows
+text: ""
+private circle:
+  Hide:
+    cost: 2
+    duration: minutes
+    text: You or a nearby creature become invisible. If the target moves more than 1 fathom in a round or makes an attack, the spell ends.
+  Shadow Teleport:
+    cost: 2
+    duration: instantaneous
+    text: You teleport from one area of dim or darker light to another area of dim or darker light that you can see within 30 fathoms.
+  Animate Shadow:
+    cost: 2
+    duration: rounds
+    text: >
+     You pull strands of shadow from around you, forming them into an [monster animate shadow] ready to do your will. The shadow obeys your commands without question, and melts back into nothingness
+     when it dies or the spell ends. There is no limit to the number of shadows you can have under your control at a time.

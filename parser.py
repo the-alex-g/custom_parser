@@ -325,13 +325,37 @@ def create_theme(theme):
     )
 
 
+def create_deity(deity):
+    alignment = deity["alignment"]
+    name = f"[deity name {alignment}]"
+    private_circle_name = deity["circle name"]
+    # format private circle so that create_circle() can understand it
+    private_circle = {"name":private_circle_name, "spells":deity["private circle"]}
+    
+    # make sure prayer circle is in allowed list
+    deity["circles"].append("prayers")
+    # complete circle names
+    circles = []
+    for circle_name in deity["circles"]:
+        circles.append(f"Circle of {circle_name.title()}")
+    # add the deity's private circle name to the list
+    circles.append(private_circle_name)
+
+    return brand.eval_string(f"""[section 1 {name}][text i The [deity title {alignment}]][newline big]
+    {deity["text"]}
+    
+    Clerics of {name} can only cast spells from the following circles: [spell {pp.comma_separate(sorted(circles))}]
+    
+    Only clerics of {name} have access to the {private_circle_name}.{create_circle(private_circle, title=False)}""", {})
+
+
 def create_circle(circle, title=True):
     global spell_data
 
     if title:
         string = f"[section 1 {circle["name"]}]"
     else:
-        string = f"[bold {circle["name"]}][newline big]"
+        string = f"[section 2 {circle["name"]}]"
     spells = pp.sort_dictionary(circle["spells"])
     for spell_name in spells:
         spell = spells[spell_name]
@@ -343,6 +367,19 @@ def create_circle(circle, title=True):
     return brand.eval_string(string, {})
 
 
+def create_deity_block():
+    string = ""
+    # load deities into a list of the form {name:deity}
+    name_dict = {}
+    for deity in pp.get_yaml_from_directory("deities"):
+        # use brand to get deity name
+        name_dict[brand.deity("name", deity["alignment"])] = deity
+    # create alphebetized deity list
+    for name in sorted(name_dict):
+        string += create_deity(name_dict[name])
+    return string
+
+    
 def create_block(source, item_creation_function):
     string = ""
     name_dict = pp.get_dict_by_name(pp.get_yaml_from_directory(source))
@@ -384,5 +421,6 @@ brand.add_include_function("themes", lambda filename: create_block(filename, cre
 brand.add_include_function("monsters", lambda filename: create_block(filename, create_monster))
 brand.add_include_function("appendicies", lambda f: create_appendices())
 brand.add_include_function("circle", lambda filename: create_circle(pp.open_yaml(filename), title=False))
+brand.add_include_function("deities", lambda filename: create_deity_block())
 
 create_doc()

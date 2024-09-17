@@ -1,0 +1,20 @@
+alignment: LG
+circles:
+- fire
+- sun
+- divination
+- air
+- enchantment
+circle name: Circle of Radiance
+text: ""
+private circle:
+  Radiant Might:
+    cost: 4
+    duration: rounds
+    text: All attacks you make roll an additional d4/4 for damage and deal holy fire damage in addition to other types.
+  Solar Armor:
+    cost: 2
+    duration: rounds
+    text: >
+     Your armor is infused with holy power. It [illuminates 3] and is treated as the next highest type. Because you're glowing so brightly, creatures that rely on light to see suffer a -1 accuracy penalty
+     when making melee attacks against you.
