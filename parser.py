@@ -262,8 +262,7 @@ def create_monster(monster):
     health = calculate_health(size_number, health_bonus, armor)
     evasion = calculate_evade(bonus_dict, size, "dodge" in monster)
     
-    string = "\\section*{" + headername + "}\\textit{" + pp.get_key_if_exists(monster, "flavor", "", if_exists=NEWLINE) + "}\\medskip"
-    string += "\\label{" + headername + "}"
+    string = "\\section*{" + headername + "}" + f"[text i {pp.get_key_if_exists(monster, "flavor", "")}][newline med][label <{headername}>]"
     string += f"[text sc {alignment} size {size} {monster["type"]}]"
 
     if "tags" in monster:
@@ -299,7 +298,7 @@ def create_monster(monster):
         string += LINEBREAK + get_monster_spells(monster["spellcasting"])
     
     if "variants" in monster:
-        string += LINEBREAK + f"[bold Variants][newline]\\halfline"
+        string += LINEBREAK + f"[bold Variants][newline][halfline]"
         variant_name_dict = pp.get_dict_by_name(monster["variants"])
         for variant_name in variant_name_dict:
             string += f"[bold {variant_name}]. {variant_name_dict[variant_name]["text"]}[newline]" + LINEBREAK
@@ -331,22 +330,17 @@ def create_deity(deity):
     private_circle_name = deity["circle name"]
     # format private circle so that create_circle() can understand it
     private_circle = {"name":private_circle_name, "spells":deity["private circle"]}
-    
-    # make sure prayer circle is in allowed list
-    deity["circles"].append("prayers")
-    # complete circle names
-    circles = []
-    for circle_name in deity["circles"]:
-        circles.append(f"Circle of {circle_name.title()}")
-    # add the deity's private circle name to the list
-    circles.append(private_circle_name)
+
+    circles = ["Circle of Prayers", private_circle_name]
+    if "circles" in deity:
+        for circle_name in deity["circles"]:
+            circles.append(f"Circle of {circle_name.title()}")
 
     return brand.eval_string(f"""[section 1 {name}][text i The [deity title {alignment}]][newline big]
     {deity["text"]}
     
     Clerics of {name} can only cast spells from the following circles: [spell {pp.comma_separate(sorted(circles))}]
-    
-    Only clerics of {name} have access to the {private_circle_name}.{create_circle(private_circle, title=False)}""", {})
+    {create_circle(private_circle, title=False)}""", {})
 
 
 def create_circle(circle, title=True):
@@ -390,17 +384,17 @@ def create_block(source, item_creation_function):
 
 def create_appendices():
     global appendicies
-    string = PAGEBREAK + "\\unnumberedsection{Appendicies}"
+    string = PAGEBREAK + "[section 0 Appendicies]"
 
     for appendix in sorted(appendicies):
-        string += "\\unnumberedsubsection{" + appendix + "}"
+        string += f"[section 1 {appendix}]"
         for categorizer in sorted(appendicies[appendix]):
             string += "\\subsubsection*{" + categorizer + "}"
             for item in sorted(appendicies[appendix][categorizer]):
-                string += item + "\\hfill\\pageref{" + item + "}" + NEWLINE
-        string += "\\newpage"
+                string += f"{item}[hfill][pageref <{item}>][newline]"
+        string += "[newpage]"
     
-    return string
+    return brand.eval_string(string, {})
 
 
 def create_doc():

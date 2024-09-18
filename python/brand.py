@@ -306,15 +306,31 @@ def newline(*skip_size):
 
 
 def skip(size):
-    return f"\\{size}skip"
+    return f"\\{size}skip "
 
 
+# same as .isdigit, but accounts for negative numbers
 def _isdigit(string):
     if string != "":
-        if string[0] == "-":
+        if string.startswith("-"):
             return string[1:].isdigit()
         return string.isdigit()
     return False
+
+
+# splits string at first space or linebreak, returns [head, rest]
+def _split(string):
+    first_space = string.find(" ")
+    first_newline = string.find("\n")
+    if first_space == -1 and first_newline == -1:
+        return [string, ""]
+    elif first_space == -1:
+        first_break = first_newline
+    elif first_newline == -1:
+        first_break = first_space
+    else:
+        first_break = min(first_newline, first_space)
+    return [string[0:first_break], string[first_break + 1:]]
 
 
 # builds and executes function from bracketed command string
@@ -322,27 +338,24 @@ def _format_and_execute(field, params):
     if field in params:
         return eval_string(str(params[field]), params)
 
-    formatted_field = ""
-    in_function_body = False
+    arg_list = []
     in_string_block = False
     arg_text = ""
-    function_name = ""
+    (function_name, arg_string) = _split(field)
     escaping = False
     # the extra space at the end of field causes the last argument to be processed
-    for char in field + " ":
-        if escaping:
+    for char in arg_string + " ":
+        if escaping: # add the next string, regardless of what it is
             arg_text += char
             escaping = False
-        elif char == "\\":
+        elif char == "\\": # escape next character
             escaping = True
-        elif char == "<":
+        elif char == "<": # entering string
             in_string_block = True
-        elif char == ">":
+        elif char == ">": # exiting string
             in_string_block = False
-        elif char in (" ", "\n")  and not in_string_block:
-            if in_function_body:
-                if formatted_field[-1] != "(":
-                    formatted_field += ", "
+        elif char in (" ", "\n") and not in_string_block: # the argument is finished
+            if arg_text != "": # ignore empty arguments
                 if arg_text in AUTOMATIC_VARIABLES:
                     arg_text = eval_string(str(params[arg_text]), params)
                 elif arg_text in ("t", "T", "true", "True"):
@@ -351,23 +364,23 @@ def _format_and_execute(field, params):
                     arg_text = "False"
                 elif not _isdigit(arg_text):
                     arg_text = f'"{arg_text}"'
-                formatted_field += arg_text
+                arg_list.append(arg_text)
                 arg_text = ""
-            else:
-                formatted_field += "("
-                in_function_body = True
-        else:
-            if in_function_body:
-                arg_text += char
-            else:
-                formatted_field += char
-                function_name += char
+        else: # it's just a character
+            arg_text += char
     if function_name in FUNCTIONS_REQUIRING_EXTRA_PARAMETERS:
         for param_name in FUNCTIONS_REQUIRING_EXTRA_PARAMETERS[function_name]:
-            if formatted_field[-1] != "(":
-                formatted_field += ", "
-            formatted_field += eval_string(str(params[param_name]), params)
-    return eval(formatted_field + ")")
+            arg_list.append(eval_string(str(params[param_name]), params))
+
+    try: # try to run custom function
+        output = eval(f"{function_name}({_separate(arg_list, spacer=", ")})")
+    except NameError: # if the function doesn't exist
+        # the eval is necessary to un-stringify the content
+        if len(arg_list) > 0:
+            output = f"\\{function_name}" + "{" + eval(_separate(arg_list, spacer="}{")) + "}"
+        else:
+            output = f"\\{function_name}"
+    return output
 
 
 # processes a string to extract and execute all bracketed command sequences
@@ -468,7 +481,10 @@ def illuminates(bright, *dim):
 
 
 def section(subs, *content):
-    return f"\\unnumbered{"sub" * subs}section" + "{" + _separate(content) + "}"
+    if subs == 0:
+        return "\\clearpage\\unnumberedsection{" + _separate(content) + "}"
+    else:
+        return f"\\unnumbered{"sub" * subs}section" + "{" + _separate(content) + "}"
 
 
 def example(*content):
@@ -486,3 +502,4 @@ def extra_attacks(first_level, second_level):
 
 def deity(field, alignment):
     return MAJOR_DEITIES[alignment][field]
+

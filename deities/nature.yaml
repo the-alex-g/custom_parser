@@ -1,7 +1,6 @@
 alignment: CN
-circles: none
 text: >
- When you become a cleric of [deity name CN], choose 5 of the circles available to a druid as the circles you are allowed to use. You can still cast spells from the Circle of Prayers and Circle of Wilds.
+ When you become a cleric of [deity name CN], choose 5 of the circles available to a druid as the circles to add to your list of permitted circles.
 circle name: Circle of Wilds
 private circle:
   Elemental Protection:
