@@ -1,3 +1,16 @@
+#
+This world represents Faerie as Tolkien paints it.
+
+Some steps to make that true:
+------------------------------------------
+- Make bards more like Gandalf --- words are Power
+- Create random tables that tap into the wonder of exploration
+    random encounter tables
+    random herb tables (Crown and Skull)
+- Monsters at their best should also be wondrous (the foreword to the KBP Tome
+of Beasts mentions that point)
+#
+
 [section 0 Rules]
 
 [section 1 Stuff]
