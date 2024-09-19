@@ -169,7 +169,7 @@ Damage Taken & Damage Increase &
 1 & 1 &
 2-4 & d3 &
 5-6 & d4 &# Only possible with Con +1 minimum #
-7-8 & 2d3]# Only possible with Con +3 minimum #
+7+ & 2d3]# Only possible with Con +3 minimum #
 [newline big]
 The first time each turn that you kill a creature with a melee attack, you may move up to one fathom and make a second melee
 attack.
@@ -178,9 +178,9 @@ attack.
 
 Clerics are proficient with weapons up to d8, armor up to type 4, and shields.
 
-When you become a cleric, pick a patron deity. Your deity's alignment affects several spells you cast, and determines which spell circles
+When you become a cleric, #break# pick six circles. You can only cast spells from those circles, as well as the Circle of Prayers. You must also pick an alignment for your deity, which must be aligned with your own (see the alignment table below). #pick a patron deity. Your deity's alignment affects several spells you cast, and determines which spell circles
 you have access to. A typical cleric has access to seven spell circles: the circle of prayers, a deity-specific circle, and five other
-circles determined by the deity.
+circles determined by the deity.#
 
 You start with six spell stones. At least three must contain spells from either the circle of prayers or your deity-specific circle.
 
@@ -322,8 +322,8 @@ Only wizards have access to the spells from the Circle of the Arcanum.
 [section 0 Bard Songs]
 [include themes bard_songs]
 
-[section 0 Deities]
-[include deities deities]
+#[section 0 Deities]
+[include deities deities]#
 
 [section 0 Monsters]
 [include monsters monsters]

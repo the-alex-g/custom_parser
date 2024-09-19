@@ -316,12 +316,12 @@ def create_monster(monster):
 
 
 def create_theme(theme):
-    return brand.eval_string(
-        f"""[bold {theme["name"]}][newline]
-        This song affects all {theme["targets"]} within six fathoms that can hear you. {theme["effect"]}[newline]
-        [italics Climax:] {theme["climax"]}[newline big]""",
-        {}
-    )
+    if "effect" in theme:
+        string = f"[text b {theme["name"]}][newline]This song affects all {theme["targets"]} that are within six fathoms and can hear you. {theme["effect"]}[newline]"
+    else:
+        string = f"[text b {theme["name"]}][newline]This song has no ongoing effect.[newline]"
+    string += f"[text i Climax:] {theme["climax"]}[newline big]"
+    return brand.eval_string(string, {"targets":theme["targets"]})
 
 
 def create_deity(deity):
