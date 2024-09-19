@@ -209,12 +209,12 @@ def table(cols, *entries):
 
 # returns a bulleted list of items
 def bulletlist(*items):
-    return NEWLINE + "\\begin{itemize}" + _get_list_body(items) + "\\end{itemize}"
+    return "\\begin{itemize}" + _get_list_body(items) + "\\end{itemize}"
 
 
 # returns a numbered list of items 
 def numberlist(*items):
-    return NEWLINE + "\\begin{enumerate}" + _get_list_body(items) + "\\end{enumerate}"
+    return "\\begin{enumerate}" + _get_list_body(items) + "\\end{enumerate}"
 
 
 # internal function that takes a list and returns it as a list for LaTeX

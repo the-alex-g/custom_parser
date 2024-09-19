@@ -1,0 +1,16 @@
+name: Animate Shadow
+size: 1/2
+type: spirit
+bonuses:
+ dex: 2
+ spd: 2
+ lor: -4
+ ins: -1
+ cha: -4
+attack:
+- 1/rnd
+- "[attack 4] slashing (claws)"
+traits:
+- Light Vulnerability
+resist:
+- non-magic
