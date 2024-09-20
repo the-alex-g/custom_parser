@@ -13,8 +13,11 @@ include_functions = {}
 unquoted_include_functions = {}
 RANGES = {
     "bow":"12/50",
-    "thrown":"5/10",
-    "boulder":"10/20"
+    "thrown":"4/10",
+    "boulder":"10/20",
+    "crossbow":"15/50",
+    "warbow":"25/100",
+    "sling":"10/80",
 }
 WEAPONS = {
     "bow":{
@@ -169,9 +172,15 @@ def bind(*stuff):
 
 
 # returns a table mapping the roll of a die to ampersand-separated entries
-def dicetable(diesize, title, *entries):
-    final_entries = ["1d" + str(diesize), "&", title, "&", 1, "&"]
-    die_index = 1
+def dicetable(dice, title, *entries):
+    if "d" in dice:
+        dienum = int(dice[0:dice.find("d")])
+        diesize = int(dice[dice.find("d") + 1:])
+    else:
+        diesize = dice
+        dienum = 1
+    final_entries = [f"{dienum}d{diesize}", "&", title, "&", dienum, "&"]
+    die_index = dienum
     for item in entries:
         final_entries.append(item)
         if item == "&":
@@ -333,6 +342,16 @@ def _split(string):
     return [string[0:first_break], string[first_break + 1:]]
 
 
+def _get_string_value(string):
+    if string.lower() in ("t", "true"):
+        string = "True"
+    elif string.lower() in ("f", "false"):
+        string = "False"
+    elif not _isdigit(string):
+        string = f'"{string}"'
+    return string
+
+
 # builds and executes function from bracketed command string
 def _format_and_execute(field, params):
     if field in params:
@@ -358,12 +377,8 @@ def _format_and_execute(field, params):
             if arg_text != "": # ignore empty arguments
                 if arg_text in AUTOMATIC_VARIABLES:
                     arg_text = eval_string(str(params[arg_text]), params)
-                elif arg_text in ("t", "T", "true", "True"):
-                    arg_text = "True"
-                elif arg_text in ("f", "F", "false", "False"):
-                    arg_text = "False"
-                elif not _isdigit(arg_text):
-                    arg_text = f'"{arg_text}"'
+                else:
+                    arg_text = _get_string_value(arg_text)
                 arg_list.append(arg_text)
                 arg_text = ""
         else: # it's just a character
@@ -458,8 +473,11 @@ def difficulty(diff):
     return str(_get_difficulty(diff))
 
 
-def range(weapon_type):
-    return "range " + RANGES[weapon_type]
+def range(weapon_type, *num_only):
+    if len(num_only) == 0:
+        return f"range {RANGES[weapon_type]}"
+    else:
+        return str(RANGES[weapon_type])
 
 
 def recharge(value, *config):

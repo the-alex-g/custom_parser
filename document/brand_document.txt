@@ -13,30 +13,6 @@ of Beasts mentions that point)
 
 [section 0 Rules]
 
-[section 1 Stuff]
-
-Your Evasion is equal to your Speed bonus, plus one if your Dex bonus is +2 or higher, or -1 if your Dex bonus is -2 or lower, minus your
-Size bonus.
-
-Your Health is equal to 4 plus your Con bonus.
-
-Your weapon threshold is the size of the weapon die - Str + 1 (minimum of 5 (or the size of the die), maximum is the die size)
-
-While wielding two melee weapons, you have +1 Evd against melee attacks and +1 to accuracy rolls.
-
-If you can make a reasonable argument for knowing how to do something based on your class, occupation, or race, you can get advantage
-on the roll.
-
-Resistance to poison and/or disease grants advantage to checks against poison and/or disease.
-
-Resistance to damage reduces the amount of damage taken by one.
-
-Vulnerability to damage increases the amount of damage taken by one.
-
-Immunity to damage reduces the amount of damage taken to 0.
-
-When dealing damage that has multiple types, use whichever one does the most damage.
-
 [section 1 Resting and Recovery]
 
 When a character gets a full night's rest, they recover 1 light wound or 1 point of attribute drain. If all the character's damage was taken
@@ -46,15 +22,9 @@ he heals 1 wound. For the next nine nights, he heals one light wound, putting hi
 
 [section 1 Character Creation]
 
-Roll 2d3. Repeat eight times. Assign each result to one of your attributes. The maximum value for that
+Roll eight times on the table below. Assign each result to one of your attributes. The maximum value for that
 attribute is the starting value plus 2.
-[table cX
-Result & Bonus &
-2 & -2 &
-3 & -1 &
-4 & +0 &
-5 & +1 &
-6 & +2]
+[dicetable 2d3 Bonus -2 & -1 & +0 & +1 & +2]
 [newline big]
 Choose a race and class.
 
@@ -63,11 +33,125 @@ Pick an occupation; this is what your character did for a living before becoming
 Your character can speak the Common tongue and the language of your race. If your Lor bonus is +2 or higher, you know an additional language, or two languages if your Lor is +4 or higher.
 If your Cha bonus is +3 or higher, you know another language.
 
+If you can make a reasonable argument for knowing how to do something based on your class, occupation, or race, you can get advantage
+on the roll.
+[example Fredrick is a human fighter who grew up on a farm. It would be
+reasonable to give him advantage when identifying quality weapons or
+helping plow a field, but probably not when he's trying to decipher arcane
+runes or build a mechanical servant.]
+
+Advantage should not normally be given to attack or spellcasting rolls because
+of race, class, or occupation.
+
 [section 2 Alternate Options]
 [bulletlist
 Roll 3d3 and remove the lowest value instead of just rolling 2d3. &
 Assign results in the order they're rolled, instead of choosing. Then, you may swap two values. &
 Distribute +3 among your stats. Then, you can reduce stats by 1 to increase a different stat by 1. Only one stat can be at +3, and none can be less than -2.]
+
+[section 1 Calculated Attributes]
+Your Evasion is equal to your Speed bonus, plus one if your Dex bonus is +2 or higher, or -1 if your Dex bonus is -2 or lower, minus your
+Size bonus.
+
+Your Health is equal to 4 plus your Con bonus. Temporary modifiers to Con never
+change your health.
+
+Your speed in fathoms per round (which is equal to feet per second) is based on
+your Speed bonus.
+[table cX
+Spd & Movement &
+-4 & 1 &
+-3 & 1 &
+-2 & 2 &
+-1 & 4 &
+0 & 6 &
++1 & 8 &
++2 & 10 &
++3 & 11 &
++4 & 12]
+
+[section 1 Coinage]
+The following table shows common coinages and their relative values.
+[table ccccc
+& iron (i) & copper (c) & silver (s) & gold (g) &
+i & 1 & 2 & 20 & 100 &
+c & 1/2 & 1 & 10 & 50 &
+s & 1/20 & 1/10 & 1 & 5 &
+g & 1/100 & 1/50 & 1/5 & 1]
+
+You can roll on the following table to randomly determine price changes.
+[dicetable 2d6 Price -5 & -4 & -3 & -2 & -1 & +0 & +1 & +2 & +3 & +4 & +5]
+
+[section 1 Weapons]
+Ultimately, there are only four categories of weapons that you can buy, determined by
+their attack die. Some examples of weapons are shown in the table below, but a weapon's
+type is left open for interpretation. Similarly, the type of damage that a weapon does
+is assumed to be self-evident (swords deal slashing damage, clubs deal bludgeoning, etc.).
+[table cXc
+Die & Examples & Cost &
+d4 & dagger, club, sling & 5c &
+d6 & arming sword, bow, axe, mace & 10c &
+d8 & longsword, warbow, spear & 1s &
+d10 & greatsword, maul, waraxe, crossbow & 2s]
+
+Weapons with a d8 or larger die are two-handed, as are all ranged weapons.
+
+An action must be spent to load a crossbow-type weapon before it can be
+fired again. Crossbow attacks always have a weapon threshold of 5.
+
+Polearm-type weapons have reach, which allows you to attack targets up to 2 fathoms away.
+When attacking nearby targets with a weapon with reach, you have disadvantage on the
+accuracy roll.
+[table lc
+Weapon & Range &
+Bow & [range bow t] &
+Crossbow & [range crossbow t] &
+Sling & [range sling t] &
+Thrown & [range thrown t] &
+Warbow & [range warbow t]]
+
+The weapon threshold is calculated based on your Str bonus and the size of
+the weapon's die, as shown on the following table.
+[table ccccc
+Str & d4 & d6 & d8 & d10 &
+1 or less & 4 & 6 & 8 & 10 &
++2  & 4 & 5 & 7 & 9 &
++3  & 4 & 5 & 6 & 8 &
++4  & 4 & 5 & 5 & 7]
+
+While wielding two melee weapons, you have +1 Evd against melee attacks and +1 to accuracy rolls.
+
+[section 1 Armor]
+[table cccccc
+Type & Die & Name & Dex & Spd & Cost &
+0 & d6/6 & No armor & - & - & - &
+1 & d4/4 & leather & - & - & 3s &
+2 & d6/5 & hide & - & - & 5s &
+3 & d6/4 & brigandine & - & - & 5g &
+4 & d6/3 & chain & - & -1 & 12g &
+5 & d4/2 & scale & - & -2 & 40g &
+6 & d6/2 & plate & -1 & -2 & 80g]
+
+Shields, with evasion bonus against melee and ranged.
+[table cccc
+Name & Melee & Ranged & Cost &
+Buckler & +1 & - & 2s &
+Medium & +1 & +1 & 4s &
+Tower & +1 & +2 & 6s]
+
+Additional armor types, usually used for magical, crude, or masterwork armor. Dex and Spd
+penalties are the same as the base type.
+[table ccc
+Type & Die & Cost &
+1- & d10/9 & 2s &
+1+/2- & d10/8 & 4s &
+2+ & d8/6 & 6s &
+3- & d12/8 & 4g &
+3+ & d12/5 & 6g &
+4- & d8/4 & 10g &
+4+/5- & d10/4 & 20g &
+5+/6- & d10/3 & 60g &
+6+ & d8/2 & 100g]
 
 [section 1 Attacking]
 
@@ -80,21 +164,38 @@ If you rolled a natural 20, or equal to or greater than your critical threshold 
 an Evasion of 12. Fredrick rolls a d20 and adds his Dex for a total of 13, which hits the goblin. He rolls a d8 and gets a 7, then rolls
 again and gets a 5, for a total of two wounds. The goblin only had 1 health, and it falls under his mighty blow.]
 
+[section 2 Damage and Resistance]
+
+Throughout these rules, the terms "wound" and "damage" are used interchangeably.
+3 light wounds is equal to 1 "regular" wound.
+[example If you suffer 1 wound, and then heal 1 light wound, you have a net loss
+of 2 light wounds.]
+
+Resistance to damage reduces the amount of damage taken by one.
+
+Vulnerability to damage increases the amount of damage taken by one.
+
+Immunity to damage reduces the amount of damage taken to 0.
+
+When dealing damage that has multiple types, use whichever one does the most damage.
 [section 1 Defending]
 
-If a monster is attacking a player character, resolve as above. After the attack has been rolled and the number of incoming wounds is
-known, the player rolls their Armor die once for each wound. For each result equal to or greater than the armor's threshold, one wound
-is negated.
-[example One of the goblin's friends attacks Fredrick back, hitting for 1 wound. Fredrick has type 4 armor (d6/4), so rolls a d6 once. If he rolls a 
+Whenever a player takes damage, unless the damage is unblockable, the player rolls
+their Armor die once for each wound. For each result equal to or greater than the
+armor's threshold, one wound is negated. If the damage is measured in light wounds, one
+success on the armor roll blocks three light wounds.
+[example One of the goblin's friends attacks Fredrick back, hitting for 1 wound. Fredrick has type 3 armor (d6/4), so rolls a d6 once. If he rolls a 
 4 or better, the wound is negated.]
 
 [section 1 Light and Sensing]
-[table cX
+[table lX
+    Light Level & Penalties & 
     Bright Light & No penalties &
     Dim Light & +2 Evasion &
     Darkness & Creatures in darkness cannot be seen &
-    Utter Darkness & Creatures in utter darkness cannot be seen &
-    \\hline
+    Utter Darkness & Creatures in utter darkness cannot be seen]
+[table lX
+    Sense & Benefit &
     Blindsight & Can sense surroundings, regardless of ability to see &
     # for creatures that cannot see with eyes, but can still detect their surroundings #
     Darksight & Can see normally, regardless of light level &
@@ -107,6 +208,41 @@ is negated.
     # for things like plants without another way to sense and burrowing monsters #
     Truesight & Can see perfectly regardless of light level, can see invisible creatures and objects, and can immediately identify visual illusions
     # extremely magical in nature #]
+
+[section 1 Attribute Drain]
+
+Some effects cause attribute drain. For each point of attribute drain, reduce
+the bonus for that attribute by one. Attribute drain can be recovered by resting
+(see the "Resting and Recovery" section). Attributes cannot be reduced to less
+than -5.
+
+Special effects apply when your attributes are reduced to -5. Effects cease
+immediately once the attribute has increased.
+[table cX
+Attribute & Effect &
+Str & Too weak to move or speak &
+Dex & Incapable of coordinated movement &
+Con & Death &
+Spd & Paralyzed &
+Lor & Incapable of any thought or action &
+Ins & Completely insane &
+Det & Incapable of decision &
+Cha & Loses all semblance of social grace]
+
+[section 1 Poisons and Diseases]
+
+Only living creatures are affected by poisons or diseases.
+
+Resistance to poison and/or disease grants advantage to checks against poison and/or disease.
+
+[section 1 Movement]
+On your turn, you may move a number of fathoms equal to your movement speed.
+Difficult terrain requires you to spend twice as much movement.
+
+[section 2 Attacks of Opportunity]
+If you begin your turn outside the reach of an enemy with a reach weapon (spear, halberd,
+etc.), and you end your turn near that enemy, that enemy may make a free attack against
+you with their reach weapon.
 
 [section 1 Spellcasting]
 
@@ -281,6 +417,9 @@ Shamans are proficient with weapons up to d8 and armor up to type 3.
 You start with six spell stones, which cannot contain spells from more than four circles.
 
 A shaman's spellcasting ability is Determination.
+
+You can cast spells from any spellstone you have, even if the circle is usually reserved
+for a different class.
 
 When you cast a spell, you must make a Det 14 check. If you fail, you take unblockable light wounds equal to the level of the spell.
 Regardless of success or failure, the spell is cast.

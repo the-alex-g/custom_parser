@@ -3,7 +3,7 @@ spells:
  Bind Water Spirit:
   cost: 4
   duration: minutes
-  text: \\bind{water spirit}{dissolves into a pool of water}
+  text: \bind{water spirit}{dissolves into a pool of water}
  Upwell:
   cost: 1
   duration: minutes
