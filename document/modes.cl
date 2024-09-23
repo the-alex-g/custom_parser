@@ -13,7 +13,7 @@
 
 
 (defvar yaml-formatting '((": \\(>\\)" . (1 'font-lock-keyword-face))
-			  (".*:" . 'font-lock-variable-name-face))
+			  ("^.+?:" . 'font-lock-variable-name-face))
   "")
 
 (defun builder (list1 list2)

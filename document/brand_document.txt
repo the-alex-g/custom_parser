@@ -277,6 +277,8 @@ many units of time the spell lasts.
 [example Althier, a wizard, casts [spell Shield], with a duration of rounds. He rolls 1d4 and adds his Lor bonus, getting a total of
 3. Therefore, his shield spell lasts for three rounds.]
 
+Once you cast a spell from a spellstone, no other creature can use that spellstone for 24 hours.
+
 If the spell directly targets a creature with spell resistance, the cost of the spell is increased by that creature's spell resistance.
 If not directly targeted by a spell, but still affected by one (like being in the radius of a [spell Fireball]), that creature adds its
 spell resistance to any checks required by the spell.
@@ -287,8 +289,7 @@ Bards, berserkers, rogues, and fighters can cast level 1 spells from spellstones
 suffer 2 light wounds. # not quite sure about the 'make a check or take damage' bit #
 
 [text ib Casting Spells:] In order to cast a spell, a non-spellcaster must be able to speak and be holding the appropriate spellstone
-in one hand. Once a spellstone has been used in this way,
-it cannot be used to cast spells again for 24 hours. You cannot cast more than three spells per day in this manner.
+in one hand. You cannot cast more than three spells per day in this manner.
 
 [section 1 Races]
 [table ccX
@@ -357,18 +358,17 @@ way per day.
 
 [text ib Spell Drain:] For each point of spell drain, you lose one favor point.
 
-[text ib Casting Spells:] You must be able to speak in order to cast a spell.
+[text ib Casting Spells:] You must be able to speak and have the proper spellstone in your possession in order to cast a spell.
 
 [text ib Learning Spells:] You can learn a spell from any spellstone, as long as the spell is in one of your allowed circles. You must
-devote at least one day to prayer in order to gain the ability to cast the spell. Doing so [text i permanently] removes all magic from
-the spellstone.
+devote at least one day to prayer in order to gain the ability to cast the spell.
 
 Only clerics have access to the spells from the Circle of Prayers. If your deity is of an evil alignment, spells from the circle of
 prayers deal unholy damage instead of holy damage. If your deity is of a neutral alignment, you can choose which damage type is dealt.
 When the spells the circle of prayers refer to creatures being aligned or opposed to your deity, it refers to the relationship between
-the two alignments as shown on the table below:
+the two alignments as shown on the table below. An alignment is always aligned with itself.
 [table cXX
-Deity & Aligned & Opposed &
+Alignment & Aligned & Opposed &
 LG & CG, NG, LN & CE, NE, LE &
 NG & CG, LG, N & CE, NE, LE &
 CG & NG, LG, CN & CE, NE, LE &
