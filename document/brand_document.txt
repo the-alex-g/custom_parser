@@ -178,6 +178,29 @@ Vulnerability to damage increases the amount of damage taken by one.
 Immunity to damage reduces the amount of damage taken to 0.
 
 When dealing damage that has multiple types, use whichever one does the most damage.
+
+[table lX
+Damage Type & Sources &
+Acid & alchemy &
+Bludgeoning & blunt weapons &
+Cold & extreme cold &
+Fire & fire &
+Holy & clerical magic, spirits &
+Lightning & electrical energy &
+Magic & spells, enchanted weapons &
+Necrotic & blood loss, aging &
+Piercing & pointed weapons &
+Psychic & mind-affecting attacks &
+Slashing & bladed weapons &
+Unholy & clerical magic, spirits, undead]
+
+Note that there is no poison damage type! Poisons and diseases primarily kill through Con
+drain. If you need a poison to cause direct damage, it should probably be unblockable
+necrotic damage.
+
+Bludgeoning, piercing, and slashing are all physical damage types. Any source of damage
+that does not have the magic type is non-magical damage.
+
 [section 1 Defending]
 
 Whenever a player takes damage, unless the damage is unblockable, the player rolls
@@ -210,7 +233,6 @@ success on the armor roll blocks three light wounds.
     # extremely magical in nature #]
 
 [section 1 Attribute Drain]
-
 Some effects cause attribute drain. For each point of attribute drain, reduce
 the bonus for that attribute by one. Attribute drain can be recovered by resting
 (see the "Resting and Recovery" section). Attributes cannot be reduced to less
@@ -234,6 +256,10 @@ Cha & Loses all semblance of social grace]
 Only living creatures are affected by poisons or diseases.
 
 Resistance to poison and/or disease grants advantage to checks against poison and/or disease.
+
+[section 1 Boons]
+You may not have two of the same boon. Boons are lost at the start of each day. Unless
+otherwise stated, you may use a boon at any time.
 
 [section 1 Movement]
 On your turn, you may move a number of fathoms equal to your movement speed.

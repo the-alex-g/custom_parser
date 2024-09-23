@@ -4,7 +4,7 @@ import python.parser_utility as pp
 import python.brand as brand
 from math import floor, ceil
 
-SOURCE_FOLDER = "monsters"
+SOURCE_DOC = "document/brand_document.txt"
 
 ABILITIES = ["str", "con", "dex", "spd", "lor", "ins", "cha", "det"]
 ARMOR_HEALTH_MODS = [6/5, 4/3, 3/2, 2, 3, 4, 6]
@@ -403,7 +403,7 @@ def create_doc():
     latex_file = open("document/document.tex", "w")
     for line in open("document/preamble.tex").readlines():
         latex_file.write(line)
-    latex_file.write(brand.eval_string(open("document/brand_document.txt").read(), {}))
+    latex_file.write(brand.eval_string(open(SOURCE_DOC).read(), {}))
     latex_file.write("\\end{document}")
     latex_file.close()
 
