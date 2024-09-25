@@ -1,0 +1,39 @@
+name: Wyvern
+size: 2
+type: dragon
+alignment: N
+bonuses:
+ str: 3
+ con: 2
+ dex: 2
+ lor: -1
+ spd: 2
+ ins: 1
+armor: 4
+attack:
+- 2/rnd
+- "[attack med] piercing (bite)"
+- "[attack med] piercing (tail barb)"
+resist:
+- fire
+- cold
+vulnerable:
+- lightning
+movement:
+- f
+languages:
+- draconic (wyvern)
+variants:
+- name: Venomtail Wyvern
+  text: >
+   A venomtail wyvern has resistance to poison, and its tail barb attack
+   inflicts wyvern venom.
+   [newline]
+   [quad][text ib Wyvern Venom (poison)]. Once per round for three rounds, the
+   affected creature must make a [check con easy], taking 1 point of Str drain
+   on a success or 2 points of Con drain on a failure.
+- name: Acidblood Wyvern
+  text: >
+   An acidblood wyvern has immunity to acid damage. Whenever a creature hits
+   the wyvern with a melee weapon without reach, that creature must succeed on
+   an [check evd med] or take 1 acid wound.

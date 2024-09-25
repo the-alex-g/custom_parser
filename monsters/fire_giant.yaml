@@ -1,0 +1,23 @@
+name: Fire Giant
+headername: Giant, Fire
+size: 3
+type: giant
+alignment: CN
+bonuses:
+ str: 4
+ con: 3
+ cha: -2
+ det: 3
+armor: plate
+attack:
+- 1/rnd
+- "[attack 10] fire slashing (flaming greatsword)"
+- "[attack 8] bludgeoning (boulder, [range boulder])"
+immune:
+- fire
+vulnerable:
+- cold
+languages:
+- JOTUN (fire)
+- common
+- draconic (fire)

@@ -125,6 +125,8 @@ Str & d4 & d6 & d8 & d10 &
 
 While wielding two melee weapons, you have +1 Evd against melee attacks and +1 to accuracy rolls.
 
+When a weapon is sundered, it is destroyed.
+
 [section 1 Armor]
 [table cccccc
 Type & Die & Name & Dex & Spd & Cost &
@@ -142,6 +144,11 @@ Name & Melee & Ranged & Cost &
 Buckler & +1 & - & 2s &
 Medium & +1 & +1 & 4s &
 Tower & +1 & +2 & 6s]
+
+When a shield is sundered, it is destroyed.
+When armor is sundered, its type is reduced by one. Once an armor has been
+reduced to type 0, it is destroyed. Note that sundered armor retains its
+Dex and Spd penalties, as well as its +/- status.
 
 Additional armor types, usually used for magical, crude, or masterwork armor. Dex and Spd
 penalties are the same as the base type.
@@ -163,7 +170,13 @@ When you make an attack, you must first choose an equipped weapon to attack with
 Roll a d20 and add your Dex bonus (accuracy roll). If the total is equal to or greater than your target's Evd score, the attack hits. Roll your weapon
 die. If you roll equal to or over your weapon threshold, roll the weapon die again. You deal wounds equal to the number of dice rolled.
 
-If you rolled a natural 20, or equal to or greater than your critical threshold (default 21), on your accuracy roll, add a d8/5 die to your damage roll.
+If you rolled a natural 20, or equal to or greater than your critical threshold
+(default 21), on your accuracy roll, you can apply one of the following effects
+to your attack.
+[bulletlist
+Add a d8/5 die for damage &
+Inflict 1 point of attribute drain to Str, Dex, Spd, or Con &
+Sunder the target's armor, shield, or weapon]
 [example Fredrick wants to attack a goblin using his longsword. Fredrick has +2 Strength and +0 Dexterity, and the goblin has
 an Evasion of 12. Fredrick rolls a d20 and adds his Dex for a total of 13, which hits the goblin. He rolls a d8 and gets a 7, then rolls
 again and gets a 5, for a total of two wounds. The goblin only had 1 health, and it falls under his mighty blow.]
@@ -198,19 +211,19 @@ Psychic & mind-affecting attacks &
 Slashing & bladed weapons &
 Unholy & clerical magic, spirits, undead]
 
-Note that there is no poison damage type! Poisons and diseases primarily kill through Con
-drain. If you need a poison to cause direct damage, it should probably be unblockable
-necrotic damage.
+Note that there is no poison damage type! Poisons and diseases primarily kill
+through Con drain. If you need a poison to cause direct damage, it should
+probably be unblockable necrotic damage.
 
-Bludgeoning, piercing, and slashing are all physical damage types. Any source of damage
-that does not have the magic type is non-magical damage.
+Bludgeoning, piercing, and slashing are all physical damage types. Any source
+of damage that does not have the magic type is non-magical damage.
 
 [section 1 Defending]
 
-Whenever a player takes damage, unless the damage is unblockable, the player rolls
-their Armor die once for each wound. For each result equal to or greater than the
-armor's threshold, one wound is negated. If the damage is measured in light wounds, one
-success on the armor roll blocks three light wounds.
+Whenever a player takes damage, unless the damage is unblockable, the player
+rolls their Armor die once for each wound. For each result equal to or greater
+than the armor's threshold, one wound is negated. If the damage is measured in
+light wounds, one success on the armor roll blocks three light wounds.
 [example One of the goblin's friends attacks Fredrick back, hitting for 1 wound. Fredrick has type 3 armor (d6/4), so rolls a d6 once. If he rolls a 
 4 or better, the wound is negated.]
 
@@ -311,6 +324,10 @@ Human & 1 & +1 to two different attributes, learn any racial language]
 Bards are proficient with weapons up to d6 and armor up to type 3.
 
 You start knowing four of the eight basic bardic themes and one additional language of your choice.
+
+# songs are continuous effects, use 1 at a time #
+# themes are like power-ups for songs, use saga points to deploy them #
+# tales are one-time bonuses that often grant boons #
 
 [extra_attacks 2 4]
 

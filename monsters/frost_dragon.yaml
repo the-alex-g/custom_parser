@@ -1,0 +1,37 @@
+name: Frost Dragon
+headername: Dragon, Frost
+alignment: LN
+type: dragon
+size: 4
+armor: scale
+bonuses:
+ str: 4
+ con: 4
+ lor: 3
+ ins: 4
+ cha: 3
+ det: 4
+ spd: 1
+immune:
+- cold
+vulnerable:
+- fire
+attack:
+- 2/rnd
+- "[attack 12] cold piercing (bite)"
+- 2x [attack 10] slashing (claws)
+- "[attack 8] bludgeoning (tail)"
+special:
+ Ice Breath [recharge 5-6 p c]: >
+  All creatures in an 8-fathom cone suffer a d6/5 cold piercing ranged attack.
+movement:
+- f
+languages:
+- DRACONIC (frost)
+senses:
+- darksight
+extra_damage:
+  per:
+  - d6/5
+  act:
+  - d6/5

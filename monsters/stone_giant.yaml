@@ -1,0 +1,26 @@
+name: Stone Giant
+headername: Giant, Stone
+size: 3
+type: giant
+alignment: LN
+bonuses:
+ str: 4
+ con: 4
+ lor: 1
+ ins: 2
+ cha: -1
+ det: 4
+armor: scale
+resist:
+- non-magic physical
+attack:
+- 1/rnd
+- "[attack 10] bludgeoning (warclub)"
+- "[attack 8] bludgeoning (boulder, [range boulder])"
+special:
+  Stone Shaping: Stone giants can shape raw stone with their hands like clay.
+languages:
+- JOTUN (stone)
+- common
+movement:
+- t

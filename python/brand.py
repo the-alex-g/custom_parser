@@ -11,6 +11,12 @@ LINEBREAK = "\\bigskip"
 TABLEWIDTH = 0.9
 include_functions = {}
 unquoted_include_functions = {}
+DICE = {
+    "big":[4, 6, 8, 8, 10, 10, 12, 12],
+    "med":[6, 4, 6, 6, 8, 8, 10, 10],
+    "sm1":[8, 10, 4, 4, 6, 6, 8, 8],
+    "sm2":[8, 10, 10, 12, 6, 6, 8, 8]
+}
 RANGES = {
     "bow":"12/50",
     "thrown":"4/10",
@@ -228,7 +234,7 @@ def numberlist(*items):
 
 # internal function that takes a list and returns it as a list for LaTeX
 def _get_list_body(items):
-    list_body = ""
+    list_body = "\\setlength\\itemsep{0em}"
     entry = ""
     for item in items:
         if item == "&":
@@ -369,6 +375,8 @@ def _format_and_execute(field, params):
             escaping = False
         elif char == "\\": # escape next character
             escaping = True
+        elif char == '"':
+            arg_text += '\\"'
         elif char == "<": # entering string
             in_string_block = True
         elif char == ">": # exiting string
@@ -435,11 +443,15 @@ def eval_string(string, params):
     return updated_string
 
 
+def _clamp(val, mn, mx):
+    return min(mx, max(val, mn))
+    
+
 def attack(diesize, *bonuses):
-    threshold = diesize
-    if bonuses[0] > 1:
-        threshold -= bonuses[0] - 1
-    return f"d{diesize}/{min(diesize, max(threshold, 5))}"
+    if type(diesize) == str:
+        diesize = DICE[diesize][_clamp(bonuses[0], 1, 8) - 1]
+    threshold = _clamp(diesize - bonuses[0] + 1, 5, diesize)
+    return f"d{diesize}/{threshold}"
 
 
 def weapon(weapon_name, *bonuses):
@@ -521,3 +533,6 @@ def extra_attacks(first_level, second_level):
 def deity(field, alignment):
     return MAJOR_DEITIES[alignment][field]
 
+# MOVE THIS TO CORE
+def qmark(*what):
+    return f'"{_separate(what)}"'

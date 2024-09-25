@@ -1,0 +1,43 @@
+name: Sea Dragon
+headername: Dragon, Sea
+size: 4
+type: dragon
+alignment: N
+bonuses:
+ str: 4
+ con: 3
+ dex: 1
+ spd: 2
+ lor: 2
+ ins: 4
+ cha: 4
+ det: 4
+armor: scale
+attack:
+- 2/rnd
+- "[attack 12] piercing (bite)"
+- 2x [attack 10] slashing (claws)
+- "[attack 8] bludgeoning (tail)"
+resist:
+- cold
+- fire
+- lightning
+movement:
+- s=14
+- f
+languages:
+- DRACONIC (sea)
+- COMMON
+senses:
+- truesight
+traits:
+- Amphibious
+special:
+  Boon of Sea Breathing: >
+   The sea dragon can bestow the ability to breathe underwater at will. This
+   ability lasts until the dragon removes it, after one day, or if the
+   recipient is more than a mile away from the dragon.
+  Shapeshift: >
+   Once per day, the sea dragon can change its form to that of any humanoid
+   or animal. Its statistics remain the same, except it has the movement forms
+   and attacks of its new shape.

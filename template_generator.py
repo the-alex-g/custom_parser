@@ -26,7 +26,7 @@ languages:
 
 
 def create_templates():
-    destination = input("Enter the destination folder: " + os.getcwd() + "/")
+    destination = os.getcwd() + "/unfinished/"
     if destination == "":
       destination = os.getcwd()
     template_name = input("Enter a template name: ")

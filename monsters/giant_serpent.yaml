@@ -1,0 +1,21 @@
+name: Giant Serpent
+size: 2
+type: animal
+bonuses:
+ str: 3
+ dex: 3
+ spd: 2
+ lor: -4
+ ins: 1
+ cha: -3
+armor: chain
+attack:
+- 1/rnd
+- "[attack 8] piercing and serpent venom (bite)"
+special:
+  Serpent Venom (poison): >
+   Once per round for ten rounds, the affected creature must succeed on a
+   [check con hard] or suffer 1 point of Con drain.
+   [newline]
+   Different types of serpent may have different venoms. A common variant
+   inflicts Str drain instead of, or as well as, the Con drain.

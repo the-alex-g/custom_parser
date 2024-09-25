@@ -1,8 +1,7 @@
-name: Darkmoon Spirit
-size: 
-type: spirit
-flavor: 
-alignment: 
+name: Waystone Golem
+headername: Golem, Waystone
+size: 2
+type: construct
 bonuses:
  str: 
  con: 

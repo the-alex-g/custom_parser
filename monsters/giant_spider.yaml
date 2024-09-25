@@ -12,10 +12,10 @@ armor: hide
 attack:
 - 1/rnd
 - "[attack 6] piercing and spider venom (bite)"
-- 0 wounds and restrained (escape [difficulty med]) (web, [range thrown], [recharge 5-6])
+- restrained (escape [difficulty med]) (web, [range thrown], [recharge 5-6])
 senses:
 - tremorsense
 special:
  Spider Venom (poison): >
-  Once per round for ten rounds, the affected creature must succeed on a [check con med] or suffer 1 necrotic wound. A creature reduced
+  Once per round for ten rounds, the affected creature must succeed on a [check con med] or suffer 1 unblockable necrotic wound. A creature reduced
   to zero health by this damage is paralyzed, but remains alive.

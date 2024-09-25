@@ -106,7 +106,7 @@ def add_to_appendix(appendix, item_name, categorizer):
 
 
 def modify_health(health, monster):
-    damage_types = ["bludgeoning", "piercing", "slashing"]
+    damage_types = ("bludgeoning", "piercing", "slashing")
     mods = {
         "resist":1/3,
         "immune":1,
@@ -115,11 +115,13 @@ def modify_health(health, monster):
     multiplier = 1
     for mod in mods:
         if mod in monster:
-            if "non-magic" in monster[mod]:
-                multiplier += mods[mod] * 3
-            else:
-                for damage in damage_types:
-                    if damage in monster[mod]:
+            for damage in monster[mod]:
+                if damage == "non-magic":
+                    multiplier += mods[mod] * 3
+                elif damage == "non-magic physical":
+                    multiplier += mods[mod] * 2
+                else:
+                    if damage in damage_types:
                         multiplier += mods[mod]
     return health * max(1/3, multiplier)
 
@@ -276,8 +278,10 @@ def create_monster(monster):
             hardness = HARDNESSES[hardness]
         pp.increment_key(bonus_dict, "det", hardness)
         armor += hardness
+        # constructs use det instead of con to determine health
         health_bonus = bonus_dict["det"]
     elif monster["type"] == "undead":
+        # undead use det instead of con to determine health
         health_bonus = pp.get_key_if_exists(bonus_dict, "det", 0)
     else:
         health_bonus = pp.get_key_if_exists(bonus_dict, "con", 0)
@@ -406,12 +410,23 @@ def create_deity_block():
         string += create_deity(name_dict[name])
     return string
 
+
+def category(item):
+    headername = pp.headername(item)
+    string = "\\section*{" + headername + "}"
+    string += item["text"]
+    return brand.eval_string(string, item["name"]) 
+
     
 def create_block(source, item_creation_function):
     string = ""
     name_dict = pp.get_dict_by_name(pp.get_yaml_from_directory(source))
     for name in name_dict:
-        string += item_creation_function(name_dict[name])
+        item = name_dict[name]
+        if pp.get_key_if_exists(item, "category", False):
+            string += category(item)
+        else:
+            string += item_creation_function(name_dict[name])
     return string
 
 
@@ -450,4 +465,5 @@ brand.add_include_function("appendicies", lambda f: create_appendices())
 brand.add_include_function("circle", lambda filename: create_circle(pp.open_yaml(filename), title=False))
 brand.add_include_function("deities", lambda filename: create_deity_block())
 
-create_doc()
+if __name__ == "__main__":
+    create_doc()

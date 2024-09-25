@@ -1,7 +1,9 @@
 name: Zombie
 size: 1
 type: undead
-flavor: The rotting corpse suddenly lurched, heaved itself upright, and attacked.
+flavor: >
+ [qmark The rotting corpse suddenly lurched, heaved itself upright, and
+ attacked.]
 alignment: ne
 bonuses:
  str: 2
