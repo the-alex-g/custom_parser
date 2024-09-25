@@ -1,0 +1,38 @@
+name: Thorny Stalker
+size: 1
+type: plant
+flavor: >
+ A thorny stalker looks like a roughly quadrupedal mess of vines, each tendril
+ sporting long, razor-sharp thorns. Its most definite feature is its mouth---
+ powerful jaws with vicious, needlelike teeth.
+bonuses:
+ str: 1
+ con: 1
+ spd: 1
+ lor: -4
+ cha: -3
+ det: 1
+armor: 1
+attack:
+- 1/rnd
+- "[attack 4] piercing (bite)"
+resist:
+- bludgeoning
+- cold
+- lightning
+- piercing
+vulnerable:
+- fire
+- slashing
+special:
+  Thorns: >
+   Any creature that touches the thorny stalker takes 1d3 light piercing wounds.
+text: >
+ Thorny stalkers are usually found either singly or in groups of four or five.
+ They hunt in a way very similar to wolves, sometimes chasing their prey across
+ long distances before finally bringing it down. Unlike many predators, thorny
+ stalkers completely ignore animals that are already dead.[newline]
+ When a thorny stalker makes a kill, it leaves a small piece of one if its vines
+ near the corpse. This vine takes root and grows quickly into a new thorny
+ stalker. A mature thorny stalker usually lives for about two weeks before dying
+ and rotting away.

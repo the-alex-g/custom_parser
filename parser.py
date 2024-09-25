@@ -4,14 +4,14 @@ import python.parser_utility as pp
 import python.brand as brand
 from math import floor, ceil
 
-SOURCE_DOC = "document/brand_document.txt"
+SOURCE_DOC = "document/document.brand"
 
 ABILITIES = ["str", "con", "dex", "spd", "lor", "ins", "cha", "det"]
 ARMOR_HEALTH_MODS = [6/5, 4/3, 3/2, 2, 3, 4, 6]
 HARDNESSES = {"leather":1, "wood":2, "stone":3, "bronze":4, "iron":5, "gemstone":6}
 ARMOR_NAMES = {"none":0, "leather":1, "hide":2, "brigandine":3, "chain":4, "scale":5, "plate":6}
 NEWLINE = "\\\\"
-LINEBREAK = "\\bigskip"
+LINEBREAK = "\\bigskip "
 PAGEBREAK = "\n\\clearpage\n"
 DEFAULT_MONSTER_TRAITS = pp.open_yaml("config_yaml/monster_type_traits.yaml")
 SPECIAL_MONSTER_TRAITS = pp.open_yaml("config_yaml/monster_special_traits.yaml")
@@ -72,7 +72,7 @@ def get_size_bonus(size):
     return bonus
 
 
-def calculate_evade(bonuses, size, dodge):
+def calculate_evade(bonuses, size, dodge, shield):
     dex = pp.get_key_if_exists(bonuses, "dex", 0)
     spd = pp.get_key_if_exists(bonuses, "spd", 0)
     evade = 10 + spd - get_size_bonus(size)
@@ -82,7 +82,7 @@ def calculate_evade(bonuses, size, dodge):
         evade += 1
     elif dex < -1:
         evade -= 1
-    return evade
+    return evade + shield
 
 
 def calculate_health(size, bonus, armor):
@@ -147,6 +147,20 @@ def get_level(health, evasion, monster, bonuses):
     return "VIII"
 
 
+def get_damage(string):
+    die = string[string.find("d") + 1:string.find("/")]
+    if die.isdigit():
+        die = int(die)
+        threshold = die + 1 - int(
+            string[string.find("/") + 1:]
+        )
+        damage = 1 + threshold / die
+        damage += 3 * pow(threshold / die, 2)
+    else:
+        damage = 0
+    return damage
+
+
 def calculate_dpr(monster, bonuses):
     attacks = monster["attack"]
     attack_count = attacks[0]
@@ -163,11 +177,18 @@ def calculate_dpr(monster, bonuses):
             attack = attack[3:]
         
         attack = brand.eval_string(attack, bonuses)
-        die = attack[attack.find("d") + 1:attack.find("/")]
-        if die.isdigit():
-            die = int(die)
-            threshold = die - int(attack[attack.find("/") + 1:attack.find(" ")]) + 1
-            damage += (1 + threshold / die + 3 * pow(threshold / die, 2)) * multiplier
+        damage_string = attack[0:attack.find(" ")]
+        if damage_string.isdigit():
+            if "light" in attack:
+                attack_damage = int(damage_string) / 3
+            else:
+                attack_damage = int(damage_string)
+        elif "d" in damage_string:
+            attack_damage = get_damage(damage_string)
+        else:
+            attack_damage = 0
+        if attack_damage > 0:
+            damage += attack_damage * multiplier
         else:
             attacks_skipped += 1
     damage *= attack_count / max(1, len(attacks[1:]) - attacks_skipped)
@@ -175,9 +196,15 @@ def calculate_dpr(monster, bonuses):
     extra_damage = pp.get_key_if_exists(monster, "extra_damage", {})
     actions = 0
     for i in pp.get_key_if_exists(extra_damage, "per", []): # 'persistent'
-        damage += i
+        if type(i) == str:
+            damage += get_damage(i)
+        else:
+            damage += i
     for i in pp.get_key_if_exists(extra_damage, "act", []): # 'action'
-        damage += i
+        if type(i) == str:
+            damage += get_damage(i)
+        else:
+            damage += i
         actions += 1
     damage /= 1 + actions
     return damage
@@ -260,7 +287,10 @@ def create_monster(monster):
     for ability in ABILITIES:
         params[ability] = pp.get_key_if_exists(bonus_dict, ability, 0)
     health = calculate_health(size_number, health_bonus, armor)
-    evasion = calculate_evade(bonus_dict, size, "dodge" in monster)
+    evasion = calculate_evade(
+        bonus_dict, size, "dodge" in monster,
+        pp.get_key_if_exists(monster, "shield", 0)
+    )
     
     string = "\\section*{" + headername + "}" + f"[text i {pp.get_key_if_exists(monster, "flavor", "")}][newline med][label <{headername}>]"
     string += f"[text sc {alignment} size {size} {monster["type"]}]"
@@ -302,6 +332,9 @@ def create_monster(monster):
         variant_name_dict = pp.get_dict_by_name(monster["variants"])
         for variant_name in variant_name_dict:
             string += f"[bold {variant_name}]. {variant_name_dict[variant_name]["text"]}[newline]" + LINEBREAK
+
+    if "text" in monster:
+        string += LINEBREAK + monster["text"]
 
     monster_count += 1
 

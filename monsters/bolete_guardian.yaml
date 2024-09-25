@@ -1,0 +1,35 @@
+name: Bolete Guardian
+flavor: This thick-limbed bolete carries a shield in one hand.
+type: plant
+armor: hide
+size: 1
+alignment: n
+shield: 1
+bonuses:
+ str: 3
+ con: 3
+ det: 1
+attack:
+- 1/rnd
+- "[attack 8] bludgeoning (slam)"
+special:
+  Poison Spores: >
+   Whenever a creature touches the bolete guardian, including when the guardian
+   hits with a slam attack, the guardian may have that creature make a
+   [check con med], suffering 1 point of Str drain on a failure.
+  Spore Cloud (1/day): >
+   All non-fungal creatures within 2 fathoms must make a check against the
+   poison spores.
+senses:
+- tremorsense
+- dimsight
+languages:
+- telepathy
+text: >
+ Bolete guardians are tasked with protecting their grove from attack. Their
+ flesh is much tougher than other bolete's, being closer to the texture of wood
+ than that of fungus.
+resist:
+- cold
+- necrotic
+- non-magic physical

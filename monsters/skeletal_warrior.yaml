@@ -15,3 +15,4 @@ attack:
 armor: 2
 vulnerable:
 - bludgeoning
+shield: 1

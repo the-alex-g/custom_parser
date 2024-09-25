@@ -27,6 +27,13 @@ spirit:
 ooze:
  senses:
  - blindsight
+ resist:
+ - bludgeoning
+ immune:
+ - acid
+ - piercing
+ traits:
+ - Amorphous
 plant:
  immune:
  - psychic

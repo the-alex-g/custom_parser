@@ -1,0 +1,30 @@
+name: Blood Moss
+size: 2
+type: plant
+flavor: >
+ This thick bed of dark red moss covers the dessicated corpses of its last prey.
+bonuses:
+ str: 2
+ con: 1
+ spd: -4
+ lor: -4
+ cha: -4
+ det: 2
+attack:
+- 2/rnd
+- "[attack 4] bludgeoning damage and grappled (tendril)"
+special:
+  Draining Tendrils: >
+   At the start of each of the moss's turns, all creatures grappled by it
+   take 1 necrotic damage. The moss regains health equal to the damage done.
+   [newline]
+   When a creature escapes from the grapple, there is a [percent 50] chance
+   that a patch of moss remains attached to the creature. A creature
+   with a patch of moss attached takes 1 light necrotic wound at the start of
+   each of its turns. The patch of moss can be removed as an action.[newline]
+   The moss can grapple up to four creatures at a time.
+senses:
+- tremorsense
+resist:
+- cold
+- necrotic

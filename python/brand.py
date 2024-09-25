@@ -213,7 +213,7 @@ def table(cols, *entries):
     tablestring += NEWLINE + "\\hline\\end{tabular"
     if "X" in cols:
         tablestring += "x"
-    return tablestring + "}"
+    return tablestring + "}" + NEWLINE + LINEBREAK
 
 
 # returns a bulleted list of items
@@ -296,7 +296,7 @@ def include(include_type, filename, *options):
     
     if "q" in options or quote:
         content = "\\begin{quote}" + content + "\\end{quote}"
-    else:
+    elif "n" in options:
         content = NEWLINE + LINEBREAK + content
     
     return content

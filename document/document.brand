@@ -16,7 +16,12 @@ of Beasts mentions that point)
 [section 1 Resting and Recovery]
 
 When a character gets a full night's rest, they recover 1 light wound or 1 point of attribute drain. If all the character's damage was taken
-since their last rest, they heal 1 wound instead. If the character's Con bonus is +3 or greater, they heal 2 light wounds at a time instead of one.
+since their last rest, they heal 1 wound instead.
+
+If a character is diseased or poisoned, they cannot recover attribute drain by
+resting.
+
+If the character's Con bonus is +3 or greater, they heal 2 light wounds at a time instead of one.
 [example Gorthok the barbarian wakes up at 7 health (his maximum). He has a +2 Con bonus. During the course of an adventuresome day, he takes four wounds. That night,
 he heals 1 wound. For the next nine nights, he heals one light wound, putting him back at his max health.]
 
@@ -25,7 +30,6 @@ he heals 1 wound. For the next nine nights, he heals one light wound, putting hi
 Roll eight times on the table below. Assign each result to one of your attributes. The maximum value for that
 attribute is the starting value plus 2.
 [dicetable 2d3 Bonus -2 & -1 & +0 & +1 & +2]
-[newline big]
 Choose a race and class.
 
 Pick an occupation; this is what your character did for a living before becoming an adventurer (sailor, blacksmith, farmer, shepherd, etc.).

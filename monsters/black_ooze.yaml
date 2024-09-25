@@ -11,13 +11,6 @@ bonuses:
 attack:
 - 2
 - "[attack 4] acid bludgeoning (pseudopod)"
-immune:
-- piercing
-- acid
-resist:
-- bludgeoning
-traits:
-- Amorphous
 special:
  Fission: >
   If the ooze takes 2 or more slashing wounds from a single attack and has at least 2 health left, it splits into two oozes that are

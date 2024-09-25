@@ -1,0 +1,62 @@
+name: Bolete Grove Keeper
+flavor: >
+ Grove keepers are not always humanoid; some take the form of single, giant
+ fungi, and others are actually distributed throughout their grove.
+type: plant
+size: 2
+armor: leather
+alignment: n
+bonuses:
+ str: 2
+ con: 2
+ det: 1
+ ins: 4
+ lor: 3
+attack:
+- 2/rnd
+- "[attack 6] bludgeoning (slam)"
+special:
+  Spores: >
+   Whenever the grove keeper touches another creature, including when the grove
+   keeper hits with a slam attack, the grove keeper may have the creature
+   make a [check con med], suffering from one of the following effects on a
+   failure.
+   [bulletlist
+   Suffer 1 point of Str, Ins, or Con drain &
+   Heal 1d3 light wounds (can only affect a creature once per hour) &
+   Suffer 1d3 light necrotic wounds]
+  Spore Cloud [recharge 6 p]: >
+   All non-fungal creatures within 3 fathoms of the grove keeper must make a
+   Con check against one of the grove keeper's spores.
+senses:
+- tremorsense
+- dimsight
+languages:
+- telepathy
+text: >
+ While in its grove, the grove keeper's tremorsense and telepathy extend to the
+ outskirts of its grove.[newline]
+ Bolete grove keepers can apply a fungal mark to other creatures and objects.
+ This mark shows that the recipient is a friend of the boletes, and will usually
+ be treated kindly by other fungal creatures. The mark lasts for about a week
+ before fading. [newline]
+ Bolete 'telepathy' is actually accomplished by sending message spores back and
+ forth. [newline]
+ The grove keepers carry the memories of the entire grove, from its founding
+ to the present. As such, grove keepers are immensely wise, but are also
+ somewhat distant from the world around them. [newline]
+ There is little distinction between grove and grove keeper. Even if its body is
+ destroyed, the grove keeper's collective memories can live on in the fungi of
+ the grove until the gardeners craft a new body for the grove keeper.
+ Some grove keepers eschew a traditional body altogether, preferring to remain
+ assimilated among the mushrooms of their grove.
+ # Boletes are almost evenly split between neutral good, true neutral, and
+ neutral evil. Good-aligned bolete groves usually keep to themselves, but
+ willingly help anyone who comes into their grove seeking aid.
+ Neutral boletes are strictly isolationist.
+ Evil boletes enjoy killing things and are usually seeking more territory. They
+ attack other bolete groves whenever possible, because subverting an existing
+ grove is generally easier than starting a new one. #
+resist:
+- cold
+- necrotic
