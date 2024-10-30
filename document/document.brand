@@ -282,10 +282,18 @@ otherwise stated, you may use a boon at any time.
 On your turn, you may move a number of fathoms equal to your movement speed.
 Difficult terrain requires you to spend twice as much movement.
 
+On a square grid, every other square you move diagonally costs 2 fathoms of
+movement instead of one.
+
 [section 2 Attacks of Opportunity]
 If you begin your turn outside the reach of an enemy with a reach weapon (spear, halberd,
 etc.), and you end your turn near that enemy, that enemy may make a free attack against
 you with their reach weapon.
+
+If are within reach of an enemy's melee weapon and take an action that would
+logically leave you open to an attack (drinking a potion, casting a spell,
+etc.), that enemy may make a single melee attack against you. Moving away from
+an enemy never provokes an attack of opportunity.
 
 [section 1 Spellcasting]
 
