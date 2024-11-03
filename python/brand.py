@@ -185,15 +185,31 @@ def dicetable(dice, title, *entries):
     else:
         diesize = dice
         dienum = 1
-    final_entries = [f"{dienum}d{diesize}", "&", title, "&", dienum, "&"]
-    die_index = dienum
-    for item in entries:
-        final_entries.append(item)
-        if item == "&":
-            die_index += 1
-            final_entries.append(die_index)
+    if entries[0] == "h":
+        print("horizontal table")
+        final_entries = [f"{dienum}d{diesize}", "&"]
+        x = dienum
+        while x <= dienum * diesize:
+            final_entries.append(x)
             final_entries.append("&")
-    return table("cX", *final_entries)
+            x += 1
+        final_entries.append(title)
+        final_entries.append("&")
+        for item in entries[1:]:
+            final_entries.append(item)
+        return table("l" + "c" * (dienum * (diesize - 1) + 1), *final_entries)
+    else:
+        final_entries = [f"{dienum}d{diesize}", "&", title, "&", dienum, "&"]
+        die_index = dienum
+        for item in entries:
+            final_entries.append(item)
+            if item == "&":
+                die_index += 1
+                final_entries.append(die_index)
+                final_entries.append("&")
+        return table("cX", *final_entries)
+
+        
 
 
 # creates a table based on given columns and ampersand-separated entries
