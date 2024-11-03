@@ -7,7 +7,7 @@ spells:
  Black Tentacles:
   cost: 2
   duration: rounds
-  text: "Pick a point on a surface within 10 fathoms. Inky tentacles erupt from that point. Treat them as a creature (Health 3, Arm 0, Evd 0, Atk 1/rnd: d6 unholy bludgeoning spell attack (reach), immune unholy, vulnerable holy). They attack immediately before your turn."
+  text: "Pick a point on a surface within 10 fathoms. Inky tentacles erupt from that point. Treat them as a creature (Health 3, Arm 0, Evd 0, Atk 1: d6 unholy bludgeoning spell attack (reach), immune unholy, vulnerable holy). They attack immediately before your turn."
  Darkness:
   cost: 1
   duration: minutes

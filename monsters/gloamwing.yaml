@@ -1,5 +1,5 @@
 name: Gloamwing
-size: 1/2
+size: -1
 type: spirit
 flavor: >
  A glowing shape, similar to a huge swallowtail butterfly, glides past. It
@@ -7,11 +7,11 @@ flavor: >
 bonuses:
  dex: 3
  spd: 1
- lor: -4
- ins: 1
+ int: -4
+ per: 1
 attack:
-- 1/rnd
-- 1d3 light holy wounds (radiant touch)
+- 1
+- 1 holy (radiant touch)
 special:
   Cyclic Nature: >
    During the day, the gloamwing's radiant touch attack deals fire damage, and

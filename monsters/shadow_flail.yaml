@@ -1,5 +1,5 @@
 name: Shadow Flail
-size: 1
+size: 0
 type: spirit
 tags:
 - dark
@@ -11,7 +11,7 @@ bonuses:
  spd: 1
  det: 1
 attack:
-- 3/rnd
+- 3
 - "[attack 6 0] unholy slashing (lash)"
 traits:
 - Light Vulnerability

@@ -1,0 +1,449 @@
+[section 1 Attributes]
+
+There are eight core attributes: Str, Dex, Con, Int, Per, Cha, Det, and Spd.
+Each character also has a Size, Evd, Health, and Mv.
+
+The core attributes are measured from -5 to +8, with -5 being completely
+incapacitated in regards to that attribute, and anything over +4 being
+superhuman.
+
+Size is measured from -5 to +4, with -5 being insect-sized, 0 being human-sized,
+and +4 being bigger than a house. Creatures add their Size to their Str.
+
+Evd is equal to Spd - Size, +1 if Dex is greater than +1, or -1 if Dex is less
+than -1.
+
+Health is equal to 2 + Con + Size. NPCs' health is further modified based on
+their armor type:
+[table lccccccc
+Type & 0 & 1 & 2 & 3 & 4 & 5 & 6 &
+Multiplier & 6/5 & 4/3 & 3/2 & 2 & 3 & 4 & 6]
+PCs' health is increased by 2.
+
+Mv is determined by your Spd bonus. If a creature has a Spd greater than +4,
+add Spd - 4 to its Mv.
+[table lccccc
+Spd & -5 & -4 & -3 & -2 & -1 &
+Mv & 0 & 1 & 1 & 2 & 4 &
+Spd & 0 & +1 & +2 & +3 & +4 &
+Mv & 6 & 8 & 10 & 11 & 12]
+
+[section 1 Character Creation]
+
+Roll eight times on the table below. Assign each result to one of your attributes. The maximum value for that
+attribute is the starting value plus 2.
+[dicetable 2d3 Bonus h -2 & -1 & +0 & +1 & +2]
+
+Pick an occupation; this is what your character did for a living before becoming
+an adventurer (sailor, blacksmith, farmer, shepherd, etc.).
+
+Your character can speak the Common tongue and the language of your race. If
+your Int bonus is +2 or higher, you know an additional language, or two
+languages if your Int is +4 or higher.
+
+If your Cha bonus is +3 or higher, you know another language.
+
+If you can make a reasonable argument for knowing how to do something based on
+your occupation, you can get advantage on the roll.
+
+Advantage should not normally be given to attack or spellcasting rolls because
+of occupation.
+
+[section 1 Attribute Drain]
+
+For each point of attribute drain that you suffer, temporarily reduce the bonus
+of that attribute by one. Attribute drain NEVER changes your total health, but
+does change your Mv and Evd.
+
+If one of your attributes is reduced to -5, you suffer from the corresponding
+effect.
+[table cX
+Attribute & Effect &
+Str & Too weak to move or speak &
+Dex & Incapable of coordinated movement &
+Con & Death &
+Spd & Paralyzed &
+Int & Incapable of any thought or action &
+Per & Completely insane &
+Det & Incapable of decision &
+Cha & Loses all semblance of social grace]
+
+[section 1 Making Checks]
+
+To make a check, roll 1d20 and add the relevant attribute bonus. If the result
+is greater than or equal to the target value, you succeed.
+
+Checks can be made with Size and Evd, even though they are not core attributes.
+
+Often, the game will ask you to make checks against other creatures. Such a
+check is notated [qmark Your Attribute vs Their Attribute]. You make a check
+with your attribute, where the target number is 10 + their attribute.
+
+[section 1 Equipment]
+
+The following table shows common coinages and their relative values.
+[table ccccc
+& iron (i) & copper (c) & silver (s) & gold (g) &
+i & 1 & 2 & 20 & 100 &
+c & 1/2 & 1 & 10 & 50 &
+s & 1/20 & 1/10 & 1 & 5 &
+g & 1/100 & 1/50 & 1/5 & 1]
+
+You can roll on the following table to randomly determine price changes.
+[dicetable 2d6 Price -5 & -4 & -3 & -2 & -1 & +0 & +1 & +2 & +3 & +4 & +5]
+Ultimately, there are only four categories of weapons that you can buy,
+determined by their attack die. Some examples of weapons are shown in the table
+below, but a weapon's type is left open for interpretation. Similarly, the type
+of damage that a weapon does is assumed to be self-evident (swords deal
+slashing damage, clubs deal bludgeoning, etc.).
+[table cXc
+Die & Examples & Cost &
+d4 & dagger, club, sling & 5c &
+d6 & arming sword, bow, axe, mace & 1s &
+d8 & longsword, warbow, spear & 15c &
+d10 & greatsword, maul, waraxe, crossbow & 2s]
+
+Weapons with a d8 or larger die are two-handed, as are all ranged weapons.
+
+Crossbow attacks always have a weapon threshold of 5. Crossbow-type weapons need
+to be reloaded before they can be fired again. You can reload a crossbow by
+forgoing either your movement or your action on a turn.
+
+Polearm-type weapons have reach, which allows you to attack targets up to 2
+fathoms away.
+When attacking nearby targets with a weapon with reach, you have disadvantage
+on the accuracy roll.
+
+Ranged weapons have a close range and a far range, notated as [qmark close/far].
+Attacking a creature at far range imposes disadvantage on the accuracy roll
+
+[table lc
+Weapon & Range &
+Bow & [range bow t] &
+Crossbow & [range crossbow t] &
+Sling & [range sling t] &
+Thrown & [range thrown t] &
+Warbow & [range warbow t]]
+
+The weapon threshold is calculated based on your Str bonus and the size of
+the weapon's die, as shown on the following table.
+[table ccccc
+Str & d4 & d6 & d8 & d10 &
+0 or less & 4 & 6 & 8 & 10 &
++1  & 4 & 5 & 7 & 9 &
++2  & 4 & 5 & 6 & 8 &
++3  & 4 & 5 & 5 & 7 &
++4  & 4 & 5 & 5 & 6]
+
+While wielding two melee weapons, you have +1 Evd against melee attacks and +1
+to accuracy rolls.
+
+When a weapon is sundered, it is destroyed.
+
+[section 1 Armor]
+[table cccccc
+Type & Die & Name & Dex & Spd & Cost &
+0 & d6/6 & No armor & - & - & - &
+1 & d4/4 & leather & - & - & 3s &
+2 & d6/5 & hide & - & - & 5s &
+3 & d6/4 & brigandine & - & - & 5g &
+4 & d6/3 & chain & - & -1 & 12g &
+5 & d4/2 & scale & - & -2 & 40g &
+6 & d6/2 & plate & -1 & -2 & 80g]
+
+When armor is sundered, its type is reduced by one. Once an armor has been
+reduced to type 0, it is destroyed. Note that sundered armor retains its
+Dex and Spd penalties, as well as its +/- status.
+
+Shields, with evasion bonus against melee and ranged.
+[table cccc
+Name & Melee & Ranged & Cost &
+Buckler & +1 & - & 2s &
+Targe & +1 & +1 & 4s &
+Tower & +1 & +2 & 6s]
+
+When a shield is sundered, it is destroyed.
+
+Additional armor types, usually used for magical, crude, or masterwork armor.
+Dex and Spd penalties are the same as the base type.
+[table ccc
+Type & Die & Cost &
+1- & d10/9 & 2s &
+1+/2- & d10/8 & 4s &
+2+ & d8/6 & 6s &
+3- & d12/8 & 4g &
+3+ & d12/5 & 6g &
+4- & d8/4 & 10g &
+4+/5- & d10/4 & 20g &
+5+/6- & d10/3 & 60g &
+6+ & d8/2 & 100g]
+
+[section 1 Combat]
+
+To attack, choose a weapon to attack with. If it's a ranged weapon, the target
+must be within range. If it's a melee weapon, the target must be within reach.
+
+Roll Dex vs Evd for accuracy. If you win, you hit the target. If you rolled a
+natural 20, or equal to or greater than your critical threshold (default 21),
+you get a critical hit.
+
+A roll of natural 20 is ALWAYS a hit, and a roll of natural 1 is ALWAYS a
+miss.
+
+Roll your weapon die. If you roll over your attack threshold for that
+die, roll again. You deal a number of damage to the target equal to the number
+of dice you've rolled.
+
+If you got a critical hit, you can either roll an additional d8/5 for damage,
+inflict one point of attribute drain to Str, Dex, Spd, or Con, or sunder the
+target's armor, shield or weapon.
+
+[section 2 Combat Advantages]
+
+[text b Suprise Attacks.] If you attack a creature that doesn't know you're
+there, you get a +8 bonus to hit.
+
+[text b Flanking.] If there is an allied creature engaged with your target that
+is across from you, you get a +4 bonus to hit.
+
+[text b Mobbing.] For each allied creature engaged with your target, you get a
++1 bonus to hit.
+
+Flanking and mobbing bonuses do not stack---just use whichever is higher.
+
+[section 2 Damage Types]
+
+There are twelve basic damage types: acid, bludgeoning, cold, fire, holy,
+lightning, magic, necrotic, piercing, psychic, slashing, and unholy. Every
+attack has at least one damage type.
+
+In addition to these twelve basic damage types, there are two others:
+unblockable damage and physical damage. Unblockable damage bypasses shield
+points and armor. Physical damage is a category that contains bludgeoning,
+piercing, and slashing damage.
+
+In the case of attacks that have more than one damage type, use whichever damage
+type does the most damage to the target.
+
+Vulnerability to damage doubles the amount of damage taken.
+
+Resistance to damage halves the amount of damage taken.
+
+Immunity to damage reduces the amount of damage taken to 0.
+
+[section 2 PC Defense]
+
+When a PC takes damage, they ALWAYS have a chance to defend themselves, unless
+the damage is unblockable.
+
+For each incoming damage, roll your Armor die. If the result is equal to or
+greater than the armor threshold, you block one damage.
+
+[section 2 Shield Points]
+
+Some effects grant shield points. After rolling for armor, you may spend shield
+points to negate an equal amount of damage.
+
+[section 1 Resting and Recovery]
+
+One week of rest provides full recuperation. Healing in any lesser amount of
+time requires magic.
+
+Diseases are not automatically cured by resting.
+
+[section 1 Character Death]
+
+When a player character is reduced to 0 health, they are effectively removed
+from the current adventure. They suffer a permanent -2 penalty to Con, which
+also reduces their health and maximum Con value.
+
+[section 1 Movement]
+
+Every space you move diagonally costs one and a half fathoms of movement.
+Round down when determining the total distance you can move.
+
+Moving through difficult terrain costs twice as many movement points as usual.
+
+[text b A Note on Fathoms.] One fathom is equal to six feet. Six feet is about
+the same as 5 feet, which is the standard D\&D unit of distance. Using fathoms
+instead of increments of 5 feet removes the need to divide all distances by
+5 to determine the distance in inches/hexes/squares, as well as making movement
+speeds a little bit more realistic.
+
+[section 2 Attacks of Opportunity]
+
+If an enemy is wielding a polearm-type weapon with reach, and you move from
+outside that enemy's reach to nearby that enemy in a single movement,
+that enemy can make a free attack against you, without suffering the penalty
+for attacking a nearby target with a reach weapon.
+
+While within reach of an enemy's melee weapon, if you take an action other
+than moving or attacking, that enemy may make a free attack against you.
+
+[section 1 Spellcasting]
+
+In order to cast a spell, you must be holding the appropriate spellstone and
+spend a number of mana points equal to the cost of the spell. If you do not have
+enough mana points, you cannot cast the spell.
+
+[section 2 Mana Drain]
+
+Some effects inflict mana drain. For each point of mana drain, you lose one mana
+point.
+
+[section 1 The Turn]
+
+On your turn, you may move a number of fathoms up to your Mv value and take
+an action, in either order. Possible actions include attacking, casting a spell,
+checking for traps, or anything else the GM determines should take an action.
+
+Instead of taking an action, you may move again, up to half your Mv value.
+
+Things like flipping a switch, drawing a weapon, or opening an unlocked door
+cost 1 fathom of movement. Speaking is generally free.
+
+[section 1 Classes]
+
+[section 2 Bards]
+
+Bards are proficient with weapons up to d6 and armor up to type 3.
+
+A bard's spellcasting modifier is Charisma. You have a pool of 4 mana points.
+
+You start knowing one additional language of your choice.
+
+# songs are continuous effects, use 1 at a time #
+# themes are like power-ups for songs, use saga points to deploy them #
+# tales are one-time bonuses that often grant boons #
+
+[extra_attacks 2 4]
+
+Bards have a number of saga points equal to their Charisma bonus plus the number
+of languages they know.
+
+As an action, you may start any song you know. Whenever you take damage, or take
+an action other than continuing the song, you must succeed on a Cha 12 check or
+the effects of the song end.
+
+As an action, you may end one song currently in effect and spend a saga point
+to activate that song's climax effect.
+
+[section 2 Berserkers]
+
+You are proficient with weapons up to d10 and armor up to type 3.
+
+Your maximum health increases by one.
+
+When you attack with a d10 melee weapon, count your strength as 1 higher and reduce your critical threshold by one.
+
+When you attack with any melee weapon, you roll an additional die based on the amount of damage you have taken.
+[table cc
+Damage Taken & Damage Increase &
+1 & 1 &
+2-4 & d8/8 &
+5-6 & d8/7 & # Only possible with Con +1 minimum #
+7+ & d8/6] # Only possible with Con +3 minimum #
+The first time each turn that you kill a creature with a melee attack, you may move up to one fathom and make a second melee
+attack.
+
+[section 2 Druids]
+
+You are proficient with weapons up to d6 and armor up to type 4. While you
+are wielding a metal weapon or wearing metal armor, you cannot cast spells.
+
+Your spellcasting ability is Perception. You have a pool of 8 mana points.
+
+When you cast a spell in a place of natural beauty, it costs one fewer mana
+points, to a minimum of one mana.
+
+# does this make low-level druids OP? And do I care? #
+# Balance is not one of my greatest design concerns. #
+When you become a druid, choose one of the following options:
+
+[text ib Animal Companion.] You have an animal companion, which can be of any
+type approved by the GM. It has +2 Int, +1 Per, and +1 health. You can
+communicate verbally with this companion.
+
+[text ib Beast Shape.] A number of times per day equal to your Per bonus, you
+can assume the form of any size 2 or smaller animal. You take on that creature's
+Str, Dex, and Spd scores, as well as its evasion, health, armor, and any
+other special abilities (such as the ability to swim, fly, or breathe
+underwater). If you are reduced to zero health while in animal form, you return
+to your regular form with the amount of health you had when you transformed
+minus two.
+
+[section 2 Fighters]
+
+You are proficient with weapons up to d10 and armor up to type 6.
+
+When you become a fighter, choose up to two hand's worth of weapons or shields
+to be your signature armament. While wielding your signature armament, you get
+bonuses based on the type of equipment you're wielding.
+[table XX
+Equipment & Bonus &
+Two-handed melee weapon & critical threshold is reduced by one &
+One-handed melee weapon & +1 Evd against melee attacks &
+Second melee weapon & +1 to accuracy rolls &
+Ranged weapon & Short range is doubled (cannot be more than long range) &
+Shield & +1 Evd]
+[extra_attacks 1 4]
+
+[section 2 Rogues]
+
+You are proficient with weapons up to d8 and armor up to type 4.
+
+A rogue's base Evd score is equal to their Spd plus their Dex, minus
+their Size.
+
+The first time each turn that you make a surprise attack or attack a creature
+that is being flanked, you have a +2 to hit and roll an additional d4/4
+for damage.
+
+[extra_attacks 1 3]
+
+[section 2 Wizards]
+
+You are proficient with weapons up to d6 and armor up to type 2.
+
+Your spellcasting ability is Inte. You have a pool of 16 mana points.
+
+You can cast the following spells without a spellstone:
+
+[text ib Arcane Armor.] You gain one shield point that lasts until the start of
+your next turn.
+
+[text ib Arcane Dart.] Make a 1-damage magic attack with range 10.
+
+[newpage]
+
+[section 1 Direct D\\&D Conversion]
+
+Any attributes over +4 should be reduced to +4, unless something higher is
+reasonable. Any attributes at -5 should be changed to -4.
+
+Int = Int, Per = Wis.
+
+Determination is equal to the average of Con and Cha.
+Speed is equal to +/- 1 for every 5 feet of movement the creature is away from
+30.
+
+Creature size is adjusted as follows:
+[table cX
+D\\&D Size & New Size &
+Tiny & -3 &
+Small & -1 &
+Medium & 0 &
+Large & 1 &
+Huge & 2 &
+Gargantuan & 4]
+
+Convert armor type based on your judgment.
+
+Calculate Evd, Mv, and Health as usual.
+
+Halve the number of attacks per round.
+
+Number of damage dealt = number of dice rolled, or an attack of the type of die
+rolled. Adjust as needed.
+
+[include monsters monsters]

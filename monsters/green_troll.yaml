@@ -3,18 +3,18 @@ headername: Troll, Green
 flavor: >
  This relatively small troll still stands at least a head taller than most men. It has warty, green skin and long, apish arms
  that hold tremendous strength.
-size: 1
+size: 0
 type: giant
 alignment: ne
 bonuses:
  str: 4
  con: 2
- lor: -2
- ins: 1
+ int: -2
+ per: 1
  cha: -1
 attack:
-- 2/rnd
-- 2x [attack 6] bludgeoning (rend)
+- 2
+- 2x [attack 4] bludgeoning (rend)
 - "[attack 6] bludgeoning (boulder, [range boulder])"
 languages:
 - JOTUN

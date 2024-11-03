@@ -1,6 +1,6 @@
 name: Air Elemental
 headername: Elemental, Air
-size: 1
+size: 0
 type: spirit
 tags:
 - air
@@ -8,9 +8,9 @@ bonuses:
  str: 1
  dex: 4
  spd: 4
- lor: -1
+ int: -1
 attack:
-- 2/rnd
+- 2
 - "[attack 4] bludgeoning (slam)"
 special:
  Push: >

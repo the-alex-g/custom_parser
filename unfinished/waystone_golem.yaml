@@ -1,14 +1,14 @@
 name: Waystone Golem
 headername: Golem, Waystone
-size: 2
+size: 1
 type: construct
 bonuses:
  str: 
  con: 
  dex: 
  spd: 
- lor: 
- ins: 
+ int: 
+ per: 
  cha: 
  det: 
 armor: 

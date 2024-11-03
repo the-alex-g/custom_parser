@@ -7,13 +7,13 @@ alignment: ne
 bonuses:
  str: 4
  con: 3
- lor: -1
- ins: -1
+ int: -1
+ per: -1
  cha: -1
-armor: 1
+armor: hide
 attack:
-- 1/rnd
-- "[attack 8] bludgeoning (club)"
+- 1
+- "[attack big] bludgeoning (club)"
 - "[attack 6] bludgeoning (fist)"
 - "[attack 6] bludgeoning (boulder, [range boulder])"
 special:
@@ -22,3 +22,6 @@ special:
 languages:
 - JOTUN
 - common
+extra_damage:
+ per:
+ - 1

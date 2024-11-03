@@ -1,5 +1,5 @@
 name: Shadow Spirit
-size: 1/2
+size: -1
 type: spirit
 tags:
 - dark
@@ -9,12 +9,12 @@ bonuses:
  con: 1
  dex: 2
  spd: 2
- lor: -2
- ins: -1
+ int: -2
+ per: -1
  cha: -2
  det: 1
 attack:
-- 1/rnd
+- 1
 - "[attack 4] unholy slashing (claws)"
 traits:
 - Light Vulnerability

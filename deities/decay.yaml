@@ -33,4 +33,4 @@ private circle:
     text: >
      In order to cast this spell, you must be nearby the corpse of a creature that has died within the last minute, and that you have not used to cast this spell before.
 
-     You heal light wounds equal to your spell modifier + 2 (min 1).
+     You heal damage equal to your spell modifier (min 1).

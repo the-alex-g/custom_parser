@@ -1,14 +1,14 @@
 name: Animate Shadow
-size: 1/2
+size: -1
 type: spirit
 bonuses:
  dex: 2
  spd: 2
- lor: -4
- ins: -1
+ int: -4
+ per: -1
  cha: -4
 attack:
-- 1/rnd
+- 1
 - "[attack 4] slashing (claws)"
 traits:
 - Light Vulnerability

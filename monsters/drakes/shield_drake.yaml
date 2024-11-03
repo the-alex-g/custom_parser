@@ -1,6 +1,6 @@
 name: Shield Drake
 type: dragon
-size: 1
+size: 0
 alignment: ng
 bonuses:
   str: 2
@@ -11,7 +11,7 @@ bonuses:
 languages:
 - DRACONIC
 attack:
-- 1/rnd
+- 1
 - "[attack med] piercing (bite)"
 armor: 6
 special:

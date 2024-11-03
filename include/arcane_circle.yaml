@@ -12,7 +12,7 @@ spells:
  Magic Missile:
   cost: 2
   duration: instant
-  text: You fire a number of darts equal to your spell modifier + 2. Each dart hits a creature within 10 fathoms, dealing 1 light magic wound.
+  text: You fire a number of darts equal to your spell modifier. Each dart hits a creature within 10 fathoms, dealing 1 magic damage.
  Shield:
   cost: 1
   duration: rounds

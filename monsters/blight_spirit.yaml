@@ -1,5 +1,5 @@
 name: Blight Spirit
-size: 1
+size: 0
 type: spirit
 tags:
 - corrupted
@@ -9,7 +9,7 @@ bonuses:
  cha: -1
 armor: 1
 attack:
-- 1/rnd
+- 1
 - "[attack 4] slashing and tree blight (claws)"
 languages:
 - sylvan

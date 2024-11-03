@@ -1,5 +1,5 @@
 name: Kobold
-size: 1/2
+size: -1
 type: humanoid
 alignment: "N"
 bonuses:

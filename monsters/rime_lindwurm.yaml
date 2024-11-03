@@ -7,13 +7,13 @@ bonuses:
  str: 3
  con: 3
  spd: 2
- lor: -1
- ins: 1
+ int: -1
+ per: 1
  cha: 1
  det: 3
 armor: 5
 attack:
-- 2/rnd
+- 2
 - "[attack 10] cold piercing (bite)"
 - "[attack 8] bludgeoning (tail)"
 - "[attack 8] slashing (claws)"
@@ -30,7 +30,7 @@ movement:
 special:
   Frost Breath (recharge 6): >
    All creatures in a 4-fathom cone emanating from the lindwurm take 3 cold
-   wounds, halved by a [check evd med].
+   damage, halved by a [check evd med].
 extra_damage:
   act:
   - 4

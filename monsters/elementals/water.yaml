@@ -1,6 +1,6 @@
 name: Water Elemental
 headername: Elemental, Water
-size: 1
+size: 0
 type: spirit
 tags:
 - water
@@ -11,7 +11,7 @@ bonuses:
  spd: 2
  det: 1
 attack:
-- 1/rnd
+- 1
 - "[attack 6] cold bludgeoning (slam)"
 traits:
 - Amorphous

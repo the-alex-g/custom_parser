@@ -8,13 +8,13 @@ bonuses:
  con: 3
  dex: 1
  spd: 2
- lor: 1
- ins: 1
+ int: 1
+ per: 1
  cha: 2
  det: 3
 armor: plate
 attack:
-- 2/rnd
+- 2
 - "[attack 10] piercing (bite)"
 - "[attack 8] bludgeoning (tail)"
 - "[attack 8] slashing (claws)"

@@ -7,8 +7,8 @@ armor: scale
 bonuses:
  str: 4
  con: 4
- lor: 3
- ins: 4
+ int: 3
+ per: 4
  cha: 3
  det: 4
  spd: 1
@@ -17,7 +17,7 @@ immune:
 vulnerable:
 - fire
 attack:
-- 2/rnd
+- 2
 - "[attack 12] cold piercing (bite)"
 - 2x [attack 10] slashing (claws)
 - "[attack 8] bludgeoning (tail)"

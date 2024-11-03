@@ -1,5 +1,5 @@
 name: Ghost
-size: 1
+size: 0
 type: undead
 flavor: 
 alignment: 
@@ -8,8 +8,8 @@ bonuses:
  con: 
  dex: 
  spd: 
- lor: 
- ins: 
+ int: 
+ per: 
  cha: 
  det: 
 armor: 

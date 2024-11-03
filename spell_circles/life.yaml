@@ -3,7 +3,7 @@ spells:
  Heal:
   cost: 1
   duration: instant
-  text: You or one nearby living creature heals 1 damage and all their light damage. Casting this spell on an undead deals 1 magic damage.
+  text: You or one nearby living creature heals 1 wound. Casting this spell on an undead deals 1 magic damage.
  Restore:
   cost: 4
   duration: instant

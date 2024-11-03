@@ -12,10 +12,10 @@ TABLEWIDTH = 0.9
 include_functions = {}
 unquoted_include_functions = {}
 DICE = {
-    "big":[4, 6, 8, 8, 10, 10, 12, 12],
-    "med":[6, 4, 6, 6, 8, 8, 10, 10],
-    "sm1":[8, 10, 4, 4, 6, 6, 8, 8],
-    "sm2":[8, 10, 10, 12, 6, 6, 8, 8]
+    "big":[4, 6, 8, 8, 10, 10, 12],
+    "med":[6, 4, 6, 6, 8, 8, 10],
+    "sm1":[8, 10, 4, 4, 6, 6, 8],
+    "sm2":[8, 10, 10, 12, 6, 6, 8]
 }
 RANGES = {
     "bow":"12/50",
@@ -448,7 +448,7 @@ def eval_string(string, params):
                 else:
                     field_started = False
                     if nested:
-                        field = eval_string(field, params)
+                        field = eval_string(field, params).replace("\\", NEWLINE + NEWLINE)
                     updated_string += _format_and_execute(field, params)
                     field = ""
                     nested = False
@@ -464,9 +464,11 @@ def _clamp(val, mn, mx):
     
 
 def attack(diesize, *bonuses):
+    bonus = bonuses[0]
     if type(diesize) == str:
-        diesize = DICE[diesize][_clamp(bonuses[0], 1, 8) - 1]
-    threshold = _clamp(diesize - bonuses[0] + 1, 5, diesize)
+        # +7 and up are all the same
+        diesize = DICE[diesize][_clamp(bonus, 0, 6)]
+    threshold = _clamp(diesize - bonus, 5, diesize)
     return f"d{diesize}/{threshold}"
 
 

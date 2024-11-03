@@ -11,7 +11,7 @@ spells:
  Thorn Barrage:
   cost: 1
   duration: instant
-  text: All creatures in a 3-fathom cone, emanating from you, take 1d3 light piercing damage (roll seperately for each creature). Creatures with shields, or those wearing armor type 2 or better, are immune to this effect.
+  text: All creatures in a 3-fathom cone, emanating from you, take 1 piercing damage (roll seperately for each creature). Creatures with shields, or those wearing armor type 2 or better, are immune to this effect.
  Control Plants:
   cost: 2
   duration: rounds

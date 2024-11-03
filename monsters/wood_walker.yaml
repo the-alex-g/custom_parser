@@ -5,12 +5,12 @@ flavor:
 bonuses:
  str: 3
  con: 2
- lor: -3
+ int: -3
  cha: -2
  det: 1
 armor: 3
 attack:
-- 2/rnd
+- 2
 - "[attack 12] bludgeoning (stomp)"
 - 1 piercing (thorn dart, [range bow])
 vulnerable:

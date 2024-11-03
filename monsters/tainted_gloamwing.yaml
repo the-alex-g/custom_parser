@@ -3,7 +3,7 @@ headername: Gloamwing, Tainted
 tags:
 - corrupted
 alignment: NE
-size: 1/2
+size: -1
 type: spirit
 flavor: >
  A batlike shred of shadow flutters through the air, casting a shroud of
@@ -11,11 +11,11 @@ flavor: >
 bonuses:
  dex: 3
  spd: 1
- lor: -4
+ int: -4
  det: 1
 attack:
-- 1/rnd
-- 1d3 light unholy wounds (dark touch)
+- 1
+- 1 unholy (dark touch)
 special:
   Aura of Darkness: >
    The light level is reduced by one in the area near the tainted gloamwing.

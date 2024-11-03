@@ -7,11 +7,11 @@ bonuses:
  str: 2
  con: 1
  spd: -4
- lor: -4
+ int: -4
  cha: -4
  det: 2
 attack:
-- 2/rnd
+- 2
 - "[attack 4] bludgeoning damage and grappled (tendril)"
 special:
   Draining Tendrils: >
@@ -20,7 +20,7 @@ special:
    [newline]
    When a creature escapes from the grapple, there is a [percent 50] chance
    that a patch of moss remains attached to the creature. A creature
-   with a patch of moss attached takes 1 light necrotic wound at the start of
+   with a patch of moss attached takes 1 necrotic damage at the start of
    each of its turns. The patch of moss can be removed as an action.[newline]
    The moss can grapple up to four creatures at a time.
 senses:

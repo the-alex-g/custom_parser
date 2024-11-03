@@ -19,10 +19,10 @@ private circle:
     duration: minutes
     text: >
      This spell targets two friendly creatures within 3 fathoms. One of the target is designated as the warden for the other (the guarded creature). Whenever the guarded creature takes damage, after
-     rolling for armor, the damage is reduced by one and the warden takes one unblockable damage (or however much was blocked). When the warden is reduced to one health, they may choose to end the spell
+     rolling for armor, if not all the damage was blocked, the damage is reduced by one and the warden takes one unblockable damage. When the warden is reduced to one health, they may choose to end the spell
      immediately.
-     [example Fredrick is the warden for his ally, Ojrd. Ojrd is hit by an attack for two wounds. He rolls his armor, blocking one of the two wounds. Fredrick suffers the other incoming wound, and Ojrd
-     remains unharmed. If Ojrd took 2 light wounds and blocked none, he would still take no damage, and Fredrick would only take the two light wounds.]
+     [example Fredrick is the warden for his ally, Ojrd. Ojrd is hit by an attack for two damage. He rolls his armor, blocking one of the two damage. Fredrick suffers the other incoming damage, and Ojrd
+     remains unharmed.]
   Guarding Aura:
     cost: 4
     duration: rounds

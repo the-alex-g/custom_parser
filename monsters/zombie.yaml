@@ -1,5 +1,5 @@
 name: Zombie
-size: 1
+size: 0
 type: undead
 flavor: >
  [qmark The rotting corpse suddenly lurched, heaved itself upright, and
@@ -9,10 +9,10 @@ bonuses:
  str: 2
  dex: -2
  spd: -1
- lor: -4
- ins: -4
+ int: -4
+ per: -4
  cha: -4
  det: 2
 attack:
-- 1/rnd
+- 1
 - "[attack 4] bludgeoning (slam)"

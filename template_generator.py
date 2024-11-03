@@ -10,8 +10,8 @@ bonuses:
  con: 
  dex: 
  spd: 
- lor: 
- ins: 
+ int: 
+ per: 
  cha: 
  det: 
 armor: 

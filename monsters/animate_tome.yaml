@@ -1,5 +1,5 @@
 name: Animate Tome
-size: 1/4
+size: -3
 type: construct
 flavor: >
  [qmark The book leapt off the desk and onto Corjan's face, snapping shut with
@@ -8,13 +8,13 @@ bonuses:
  str: -1
  dex: -1
  spd: -2
- lor: -3
- ins: -4
+ int: -3
+ per: -4
  cha: -4
 hardness: 1
 attack:
-- 1/rnd
-- 1d3 light bludgeoning (bite)
+- 1
+- 1 bludgeoning (bite)
 vulnerable:
 - fire
 resist:

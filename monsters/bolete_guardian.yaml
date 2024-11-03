@@ -2,15 +2,15 @@ name: Bolete Guardian
 flavor: This thick-limbed bolete carries a shield in one hand.
 type: plant
 armor: hide
-size: 1
+size: 0
 alignment: n
-shield: 1
+shield: targe
 bonuses:
  str: 3
  con: 3
  det: 1
 attack:
-- 1/rnd
+- 1
 - "[attack 8] bludgeoning (slam)"
 special:
   Poison Spores: >

@@ -1,5 +1,5 @@
 name: Lunar Spirit
-size: 1
+size: 0
 type: spirit
 tags:
 - moon
@@ -7,11 +7,11 @@ alignment: NG
 bonuses:
  dex: 2
  spd: 2
- ins: 1
+ per: 1
  det: 2
 armor: 1
 attack:
-- 1/rnd
+- 1
 - "[attack 6] cold holy slashing (moonblade)"
 - "[attack 6] cold holy piercing (moonbow, [range bow])"
 special:

@@ -1,12 +1,12 @@
 name: Bear
-size: 2
+size: 1
 type: animal
 bonuses:
  str: 3
  con: 3
  spd: 1
- lor: -4
- ins: 2
+ int: -4
+ per: 2
  cha: -4
  det: 1
 attack:

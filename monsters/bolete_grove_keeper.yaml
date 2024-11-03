@@ -3,17 +3,17 @@ flavor: >
  Grove keepers are not always humanoid; some take the form of single, giant
  fungi, and others are actually distributed throughout their grove.
 type: plant
-size: 2
+size: 1
 armor: leather
 alignment: n
 bonuses:
  str: 2
  con: 2
  det: 1
- ins: 4
- lor: 3
+ per: 4
+ int: 3
 attack:
-- 2/rnd
+- 2
 - "[attack 6] bludgeoning (slam)"
 special:
   Spores: >
@@ -22,9 +22,9 @@ special:
    make a [check con med], suffering from one of the following effects on a
    failure.
    [bulletlist
-   Suffer 1 point of Str, Ins, or Con drain &
-   Heal 1d3 light wounds (can only affect a creature once per hour) &
-   Suffer 1d3 light necrotic wounds]
+   Suffer 1 point of Str, Per, or Con drain &
+   Heal 1 (can only affect a creature once per day) &
+   Suffer 1 necrotic damage]
   Spore Cloud [recharge 6 p]: >
    All non-fungal creatures within 3 fathoms of the grove keeper must make a
    Con check against one of the grove keeper's spores.

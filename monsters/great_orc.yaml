@@ -3,15 +3,15 @@ headername: Orc, Great
 flavor: This orc stands head and shoulders above its fellows.
 type: humanoid
 armor: chain
-size: 1
+size: 0
 alignment: ce
 bonuses:
  str: 2
  con: 2
  det: 1
- lor: -2
+ int: -2
 attack:
-- 1/rnd
+- 1
 - "[weapon waraxe]"
 - "[weapon bow]"
 languages:

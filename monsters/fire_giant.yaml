@@ -10,7 +10,7 @@ bonuses:
  det: 3
 armor: plate
 attack:
-- 1/rnd
+- 1
 - "[attack 10] fire slashing (flaming greatsword)"
 - "[attack 8] bludgeoning (boulder, [range boulder])"
 immune:

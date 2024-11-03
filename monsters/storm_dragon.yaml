@@ -8,13 +8,13 @@ bonuses:
  con: 2
  dex: 2
  spd: 4
- lor: 2
- ins: 3
+ int: 2
+ per: 3
  cha: 1
  det: 2
 armor: scale
 attack:
-- 3/rnd
+- 3
 - "[attack 10] lightning piercing (bite)"
 - 2x [attack 8] slashing (claws)
 - "[attack 8] bludgeoning (tail)"
@@ -26,9 +26,9 @@ languages:
 - DRACONIC (storm)
 special:
   Lightning Breath [recharge 5-6 p c]: >
-   All creatures in a 10-fathom line suffer 1d6 lightning wounds, halved by
+   All creatures in a 10-fathom line suffer 1d6 lightning damage, halved by
    an [check evd hard]. Creatures wearing metal armor suffer an additional
-   lightning wound.
+   lightning damage.
 extra_damage:
   act:
   - 5

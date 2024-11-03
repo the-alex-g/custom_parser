@@ -7,7 +7,7 @@ spells:
  Goodberry:
   cost: 1
   duration: instantaneous
-  text: You create a number of magical berries equal to your spellcasting modifier. Eating one of these berries heals 1 light wound or one point of attribute drain, as well as being enough food for a day. These benefits can be gained only once per creature per day.
+  text: You create a number of magical berries equal to your spellcasting modifier. Eating one of these berries heals 1 damage or one point of attribute drain, as well as being enough food for a day. These benefits can be gained only once per creature per day.
  Farstrider:
   cost: 2
   duration: 24 hours
@@ -19,5 +19,5 @@ spells:
    You summon an animal to serve as a companion. The animal must be of size 2 or less, and its rank must be no more than four. The animal has +1 health. You and the animal can communicate both verbally
    and with a form of limited telepathy with a range of 1 mile. The animal obeys your commands.
 
-   You cannot cast this spell while you have an animal companion. If your animal companion dies, you take 1 unblockable wound and suffer 4 points of spell drain, and you cannot cast this spell again
+   You cannot cast this spell while you have an animal companion. If your animal companion dies, you take 1 unblockable damage and suffer 4 points of spell drain, and you cannot cast this spell again
    for a month.

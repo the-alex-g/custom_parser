@@ -7,12 +7,12 @@ bonuses:
  str: 4
  con: 4
  dex: -1
- ins: 1
+ per: 1
  cha: -2
  det: 4
 armor: scale
 attack:
-- 1/rnd
+- 1
 - "[attack 10] cold slashing (ice axe)"
 - "[attack 8] bludgeoning (boulder, [range boulder])"
 immune:

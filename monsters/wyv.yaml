@@ -1,16 +1,16 @@
 name: Wyv
-size: 1/4
+size: -3
 type: animal
 flavor: These snake-like creatures swim through the air, held aloft by an internal bladder of bouyant gases.
 bonuses:
  str: -4
  dex: 1
  spd: 1
- lor: -4
+ int: -4
  cha: -4
 attack:
-- 1/rnd
-- "1 light wound and wyv venom (bite)"
+- 1
+- "1 light damage and wyv venom (bite)"
 movement:
 - f=30
 special:

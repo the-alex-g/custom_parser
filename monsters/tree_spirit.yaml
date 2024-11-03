@@ -1,14 +1,14 @@
 name: Tree Spirit
-size: 1
+size: 0
 type: spirit
 alignment: "N"
 bonuses:
  con: 1
  dex: 2
- ins: 2
+ per: 2
 armor: 1
 attack:
-- 1/rnd
+- 1
 - "[attack 4] slashing (claws)"
 traits:
 - Tree Stride
@@ -16,10 +16,3 @@ languages:
 - SYLVAN
 vulnerable:
 - fire
-spellcasting:
- type: druid
- spells:
- - Heal
- - Thorn Barrage
- - Control Plants
- - Create Plant Creature - (Awakened Sapling)

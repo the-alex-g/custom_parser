@@ -1,5 +1,5 @@
 name: Shadow Hulk
-size: 2
+size: 1
 type: spirit
 tags:
 - dark
@@ -8,12 +8,12 @@ bonuses:
  str: 4
  con: 2
  dex: -2
- lor: -4
- ins: -2
+ int: -4
+ per: -2
  cha: -4
  det: 2
 attack:
-- 1/rnd
+- 1
 - "[attack 10] unholy bludgeoning (crush)"
 traits:
 - Light Vulnerability

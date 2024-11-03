@@ -3,12 +3,13 @@ spells:
  Bleed:
   cost: 1
   duration: instant
-  text: You take 1 to 3 light wounds, and target a living creature within 6 fathoms. That creature must succeed on a Det check against your spell modifier or take the same amount plus 1 of light magic slashing damage.
+  text: You take 1 unblockable damage and target a living creature within 6 fathoms. That creature must succeed on a Det vs spell
+  modifier check or take 1 magic slashing damage.
  Blood Circle:
   cost: 2
   duration: rounds
-  text: A 2-fathom diameter circle of crimson glyphs appears, centered on you. It moves to remain centered on you. Any living creature that moves across the circle boundary takes 1d3 light magic slashing damage.
+  text: A 2-fathom diameter circle of crimson glyphs appears, centered on you. It moves to remain centered on you. Any living creature that moves across the circle boundary takes 1 magic slashing damage.
  Rage:
   cost: 2
   duration: rounds
-  text: You or one nearby living creature gets +2 Str, -2 Evd, -1 Lor, -1 Cha, and -1 Ins. Additionally, the target's maximum and current health increase by 2. When this spell ends, the target loses the two health. [newline] \example{A shaman casts \textit{Rage} on a goblin with 1 health, increasing its health to 3. The goblin takes 1 wound, and then the spell ends. The two health the goblin was given are lost, bringing it to 0 health.}
+  text: You or one nearby living creature gets +2 Str, -2 Evd, -1 Int, -1 Cha, and -1 Per. Additionally, the target's maximum and current health increase by 2. When this spell ends, the target loses the two health. [newline] \example{A shaman casts \textit{Rage} on a goblin with 1 health, increasing its health to 3. The goblin takes 1 damage, and then the spell ends. The two health the goblin was given are lost, bringing it to 0 health.}

@@ -7,7 +7,7 @@ spells:
  Burning Rain:
   cost: 4
   duration: rounds
-  text: Pick a point you can see. In a cube about 60 fathoms on a side, centered on that point, burning embers rain down. Any creature that starts its turn exposed to the burning rain suffers fire damage equal to its size (creatures smaller than 1 take 1 light fire wound).
+  text: Pick a point you can see. In a cube about 60 fathoms on a side, centered on that point, burning embers rain down. Any creature that starts its turn exposed to the burning rain suffers fire damage equal to its size (creatures smaller than 1 take 1 light fire damage).
  Ember:
   cost: 1
   duration: instant

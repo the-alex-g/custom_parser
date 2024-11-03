@@ -1,5 +1,5 @@
 name: Shadow Slime
-size: 1/2
+size: -1
 type: ooze
 tags:
 - dark
@@ -7,12 +7,12 @@ alignment: ne
 bonuses:
  con: 1
  dex: 4
- lor: -3
- ins: -4
+ int: -3
+ per: -4
  cha: -4
  det: 1
 attack:
-- 1/rnd
+- 1
 - "[attack 4] unholy acid (pseudopod)"
 traits:
 - Light Vulnerability

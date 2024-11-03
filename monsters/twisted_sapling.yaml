@@ -1,14 +1,14 @@
 name: Twisted Sapling
 tags:
 - corrupted
-size: 1
+size: 0
 type: plant
 flavor: Fungus and black slime cover this decaying tree.
 bonuses:
  str: 1
  con: 1
- lor: -4
- ins: -1
+ int: -4
+ per: -1
  cha: -3
 armor: hide
 attack:

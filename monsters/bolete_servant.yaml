@@ -2,13 +2,13 @@ name: Bolete Servant
 flavor: 
 type: plant
 armor: 1
-size: 1
+size: 0
 alignment: n
 bonuses:
  con: 1
  det: 1
 attack:
-- 1/rnd
+- 1
 - "[attack 4] bludgeoning (slam)"
 senses:
 - tremorsense

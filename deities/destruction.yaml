@@ -12,15 +12,15 @@ private circle:
    cost: 4
    duration: instantaneous
    text:
-    One target within 10 fathoms suffers 4 necrotic wounds. Immunity to necrotic damage is treated as resistance for this spell.
+    One target within 10 fathoms suffers 4 necrotic damage. Immunity to necrotic damage is treated as resistance for this spell.
  Acid Bubble:
    cost: 1
    duration: instantaneous
    text: >
-    You conjure a bubble of acidic ichor at a point within 10 fathoms. All creatures near that point suffer light acid wounds equal to your spell modifier + 2, halved with a [check Dex med].
+    You conjure a bubble of acidic ichor at a point within 10 fathoms. All creatures near that point suffer a d12 acid spell attack.
  Aura of Ruin:
    cost: 4
    duration: rounds
    text: >
-    This spell affects all creatures within 4 fathoms that are opposed to Chaotic Evil (see cleric class description). At the start of your turn, you suffer 1 unblockable light unholy wound, and all
-    affected creatures must succeed on a [check Det hard] or suffer 1d3 light unholy damage and 1 point of attribute drain to either Con, Str, or Det (determined randomly).
+    This spell affects all creatures within 4 fathoms that are opposed to Chaotic Evil (see cleric class description). At the start of your turn, you suffer 1 unblockable unholy damage, and all
+    affected creatures must succeed on a Det vs spell modifier check or suffer 1 unholy damage and 1 point of attribute drain to either Con, Str, or Det (determined randomly).

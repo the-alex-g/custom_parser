@@ -6,15 +6,15 @@ alignment: LN
 bonuses:
  str: 4
  con: 4
- lor: 1
- ins: 2
+ int: 1
+ per: 2
  cha: -1
  det: 4
 armor: scale
 resist:
 - non-magic physical
 attack:
-- 1/rnd
+- 1
 - "[attack 10] bludgeoning (warclub)"
 - "[attack 8] bludgeoning (boulder, [range boulder])"
 special:

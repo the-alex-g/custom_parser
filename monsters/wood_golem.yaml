@@ -1,19 +1,19 @@
 name: Wood Golem
 headername: Golem, Wood
-size: 1
+size: 0
 type: construct
 hardness: wood
 bonuses:
  str: 2
  dex: -2
- lor: -4
- ins: -4
+ int: -4
+ per: -4
  cha: -4
 vulnerable:
 - fire
 - magic slashing
 attack:
-- 2/rnd
+- 2
 - "[attack 6] bludgeoning (slam)"
 special:
  Flammable: >

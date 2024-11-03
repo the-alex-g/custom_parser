@@ -6,12 +6,12 @@ bonuses:
  str: 3
  con: 2
  dex: 2
- lor: -1
+ int: -1
  spd: 2
- ins: 1
+ per: 1
 armor: 4
 attack:
-- 2/rnd
+- 2
 - "[attack med] piercing (bite)"
 - "[attack med] piercing (tail barb)"
 resist:
@@ -36,4 +36,4 @@ variants:
   text: >
    An acidblood wyvern has immunity to acid damage. Whenever a creature hits
    the wyvern with a melee weapon without reach, that creature must succeed on
-   an [check evd med] or take 1 acid wound.
+   an [check evd med] or take 1 acid damage.

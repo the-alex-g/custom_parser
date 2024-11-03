@@ -1,16 +1,16 @@
 name: Boar
-size: 1
+size: 0
 type: animal
 bonuses:
  str: 3
  con: 4
  spd: 1
- lor: -4
+ int: -4
  cha: -4
  det: 4
 armor: 1
 attack:
-- 1/rnd
+- 1
 - "[attack 6] slashing (tusks)"
 special:
  Charge: >

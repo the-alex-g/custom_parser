@@ -11,8 +11,8 @@ spells:
  Life Drain:
   cost: 2
   duration: instant
-  text: One living creature within 6 fathoms must succeed on a Det check against your spell modifier or take 1 unholy damage. If the target took any damage, you heal one wound.
+  text: One living creature within 6 fathoms must succeed on a Det check against your spell modifier or take 1 unholy damage. If the target took any damage, you heal one damage.
  Sap Vitality:
   cost: 1
   duration: instant
-  text: One living creature within 6 fathoms must succeed on a Det check against your spell modifier or take 1d3 light unholy damage, 1 Det drain, and 1 Con drain.
+  text: One living creature within 6 fathoms must succeed on a Det check against your spell modifier or take 1 unholy damage, 1 Det drain, and 1 Con drain.

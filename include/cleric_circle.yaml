@@ -16,5 +16,4 @@ spells:
   cost: 4
   duration: rounds
   text: >
-   This spell affects all creatures within 4 fathoms. Creatures aligned with your deity have +1 Evd and heal 1 light wound at the start
-   of each of your turns. Creatures opposed to your deity suffer 1d3 light holy wounds at the start of each of your turns.
+   This spell affects all creatures within 4 fathoms. Creatures aligned with your deity have +1 Evd. Creatures opposed to your deity suffer 1 holy damage at the start of each of your turns.

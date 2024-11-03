@@ -1,14 +1,14 @@
 name: Skeleton
-size: 1
+size: 0
 type: undead
 flavor: Countless pinpricks of blue light emerged from the darkness around us. Each glowing point was the eye of a skeleton.
 alignment: ne
 bonuses:
- lor: -4
- ins: -4
+ int: -4
+ per: -4
  cha: -4
 attack:
-- 1/rnd
+- 1
 - "[attack 4] slashing (scratch)"
 vulnerable:
 - bludgeoning

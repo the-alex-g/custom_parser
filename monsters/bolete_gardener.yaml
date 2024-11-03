@@ -1,16 +1,16 @@
 name: Bolete Gardener
 flavor: These gardeners are surpisingly elegant for a mushroom.
 type: plant
-size: 1
+size: 0
 armor: leather
 alignment: n
 bonuses:
  con: 1
  det: 1
- ins: 2
+ per: 2
  dex: 1
 attack:
-- 1/rnd
+- 1
 - "[attack 4] bludgeoning (slam)"
 special:
   Fungal Symbiote (1/day): >
@@ -20,7 +20,7 @@ special:
    [bulletlist
    Resistance to any one damage type &
    Resistance to poison and disease &
-   Every hour, gain a boon that allows you to heal 1d3 light wounds &
+   Every hour, gain a boon that allows you to heal 1 damage &
    Be able to breathe underwater or in similar airless environments &
    +1 to any attribute &
    Increase your armor type by 1]
@@ -31,7 +31,7 @@ special:
    gardener hits with a slam attack, the gardener may have the creature make
    a [check con med], contracting sporeblight on a failure.
    A creature infected with sporeblight must make a [check Con med] at the end
-   of each day, suffering 1 point of Con and Ins drain on a failure. The disease
+   of each day, suffering 1 point of Con and Per drain on a failure. The disease
    is cured once two successful checks have been made.
 senses:
 - tremorsense

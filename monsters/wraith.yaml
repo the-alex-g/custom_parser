@@ -1,12 +1,12 @@
 name: Wraith
 flavor: A dark figure rises from the tomb, clutching an ancient longsword in one gauntleted hand.
-size: 1
+size: 0
 type: undead
 alignment: ne
 bonuses:
  dex: 1
- lor: 1
- ins: 1
+ int: 1
+ per: 1
  det: 2
  cha: 1
 immune:
@@ -15,7 +15,7 @@ traits:
 - Incorporeal
 - Light Aversion
 attack:
-- 1/rnd
+- 1
 - "[attack 6 [det]] unholy necrotic (drain)"
 - "[weapon longsword]"
 special:

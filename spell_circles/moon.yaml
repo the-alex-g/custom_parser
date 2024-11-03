@@ -8,11 +8,11 @@ spells:
  Moonbeam:
   cost: 1
   duration: instant
-  text: \rangespellattack{4}{cold holy}{10} Instead of dealing damage, you may have this attack heal an amount equal to half the damage it would have done, rounded up.
+  text: \rangespellattack{4}{cold holy}{10} Pertead of dealing damage, you may have this attack heal an amount equal to half the damage it would have done, rounded up.
  Haven:
   cost: 4
   duration: 8 hours
-  text: A dome 5 fathoms in diameter appears, centered on you. The dome, and any creatures in it, are invisible from the outside. From the inside, the dome displays a brilliant night sky. Creatures that sleep under the dome heal one additional wound. This benefit can be gained only once per week.
+  text: A dome 5 fathoms in diameter appears, centered on you. The dome, and any creatures in it, are invisible from the outside. From the inside, the dome displays a brilliant night sky. Creatures that sleep under the dome heal one additional damage. This benefit can be gained only once per week.
  Summon Lunar Spirit:
   cost: 4
   duration: hours

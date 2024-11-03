@@ -1,16 +1,16 @@
 name: Giant Serpent
-size: 2
+size: 1
 type: animal
 bonuses:
  str: 3
  dex: 3
  spd: 2
- lor: -4
- ins: 1
+ int: -4
+ per: 1
  cha: -3
 armor: chain
 attack:
-- 1/rnd
+- 1
 - "[attack 8] piercing and serpent venom (bite)"
 special:
   Serpent Venom (poison): >
