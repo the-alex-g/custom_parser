@@ -15,4 +15,4 @@ attack:
 - "[attack 8] piercing (bite)"
 special:
  Crushing Blows: >
-  Any size 1 or smaller creature that is hit by the bear's claw attack must succeed on a Str check against the bear or be knocked prone.
+  Any size 1 or smaller creature that is hit by the bear's claw attack must succeed on a Str vs Str check or be knocked prone.

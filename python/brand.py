@@ -490,10 +490,12 @@ def check(stat, *bonuses):
 def _get_difficulty(difficulty):
     if type(difficulty) == str:
         if difficulty == "easy":
-            return 10
+            return 6
         elif difficulty == "med":
-            return 14
+            return 10
         elif difficulty == "hard":
+            return 14
+        elif difficulty == "impossible":
             return 18
     else:
         return difficulty

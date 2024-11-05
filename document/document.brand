@@ -297,7 +297,7 @@ an enemy never provokes an attack of opportunity.
 
 [section 1 Spellcasting]
 
-When you cast a spell, unless its duration is instantaneous or permanent, roll 1d4 and add your spellcasting modifier. The result is how
+When you cast a spell, unless its duration is instantaneous or permanent, roll 1d4 and add your spell modifier. The result is how
 many units of time the spell lasts.
 [example Althier, a wizard, casts [spell Shield], with a duration of rounds. He rolls 1d4 and adds his Int bonus, getting a total of
 3. Therefore, his shield spell lasts for three rounds.]
@@ -498,7 +498,7 @@ Wizards have a pool of 16 mana points. When you cast a spell, you must spend a n
 have enough mana points to pay for the spell, you cannot cast it.
 
 As an action, you may make a [check Int med]. If you succeed, you regain 1d3 mana points. If you fail, you take 1d3 unblockable light damage.
-Each day that you get a full night's rest, you regain mana points equal to your spellcasting modifier (minimum of 1).
+Each day that you get a full night's rest, you regain mana points equal to your spell modifier (minimum of 1).
 
 [text ib Spell Drain:] Your maximum number of mana points is reduced by the amount of drain. Each day that you get a full night's rest,
 your maximum number of mana points is increased by one, to a maximum of the value before drain was applied.

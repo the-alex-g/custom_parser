@@ -7,7 +7,7 @@ spells:
   text: >
    This spell either affects all creatures in a 5-fathom-diameter sphere, centered on you, or in a 5-fathom-long
    cone, emanating from you. Affected creatures take 1 holy fire damage and are blinded for a number of rounds equal to your spell
-   modifier. Non-undead can make a Con check against your spell modifier, taking half damage and being blinded for half the time on a success.
+   modifier. Non-undead can make a Con vs spell modifier check, taking half damage and being blinded for half the time on a success.
  Light:
   cost: 1
   duration: hours

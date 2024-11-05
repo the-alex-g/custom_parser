@@ -17,4 +17,4 @@ spells:
   duration: instant
   text: >
    A wave forms around you and flows outward, covering an arc up to 270 degrees wide and extending outward for six fathoms. Any creature
-   in the wave must succeed on a Str check against your spellcasting modifier or take 1 bludgeoning damage and be knocked off their feet.
+   in the wave must succeed on a Str vs spell modifier check or take 1 bludgeoning damage and be knocked off their feet.

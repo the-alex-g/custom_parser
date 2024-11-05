@@ -29,7 +29,7 @@ special:
   Lightning Breath (recharge 6):
    All creatures in a 4-fathom line emanating from the lindwurm take 1d3
    lightning damage, +1 if they are wearing metal armor, halved with a
-   successful [check evd hard].
+   successful [check evd impossible].
 extra_damage:
   act:
   - 3

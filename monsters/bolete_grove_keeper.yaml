@@ -19,7 +19,7 @@ special:
   Spores: >
    Whenever the grove keeper touches another creature, including when the grove
    keeper hits with a slam attack, the grove keeper may have the creature
-   make a [check con med], suffering from one of the following effects on a
+   make a Con vs Det check, suffering from one of the following effects on a
    failure.
    [bulletlist
    Suffer 1 point of Str, Per, or Con drain &

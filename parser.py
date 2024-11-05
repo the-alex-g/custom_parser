@@ -405,22 +405,11 @@ def create_deity_block():
     return string
 
 
-def category(item):
-    headername = pp.headername(item)
-    string = "\\section*{" + headername + "}"
-    string += item["text"]
-    return brand.eval_string(string, item["name"]) 
-
-    
 def create_block(source, item_creation_function):
     string = ""
     name_dict = pp.get_dict_by_name(pp.get_yaml_from_directory(source))
     for name in name_dict:
-        item = name_dict[name]
-        if pp.get_key_if_exists(item, "category", False):
-            string += category(item)
-        else:
-            string += item_creation_function(name_dict[name])
+        string += item_creation_function(name_dict[name])
     return string
 
 

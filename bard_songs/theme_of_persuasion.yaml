@@ -2,5 +2,5 @@ name: Theme of Persuasion
 targets: living creatures
 effect: Three times per round, you may give one affected creature advantage or disadvantage on a Charisma check.
 climax: >
- You may force any number of affected creatures to attempt a Cha check against your Cha. On a failure, that creature cannot attack
+ You may force any number of affected creatures to attempt a Cha vs Cha check. On a failure, that creature cannot attack
  next round.

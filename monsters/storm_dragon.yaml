@@ -27,7 +27,7 @@ languages:
 special:
   Lightning Breath [recharge 5-6 p c]: >
    All creatures in a 10-fathom line suffer 1d6 lightning damage, halved by
-   an [check evd hard]. Creatures wearing metal armor suffer an additional
+   an [check evd impossible]. Creatures wearing metal armor suffer an additional
    lightning damage.
 extra_damage:
   act:

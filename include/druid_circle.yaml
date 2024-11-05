@@ -7,7 +7,7 @@ spells:
  Goodberry:
   cost: 1
   duration: instantaneous
-  text: You create a number of magical berries equal to your spellcasting modifier. Eating one of these berries heals 1 damage or one point of attribute drain, as well as being enough food for a day. These benefits can be gained only once per creature per day.
+  text: You create a number of magical berries equal to your spell modifier. Eating one of these berries heals 1 damage or one point of attribute drain, as well as being enough food for a day. These benefits can be gained only once per creature per day.
  Farstrider:
   cost: 2
   duration: 24 hours

@@ -15,4 +15,4 @@ spells:
  Devouring Void:
   cost: 4
   duration: rounds
-  text: \spelldrain{2 points} Pick a point within 6 fathoms. Any creature that starts its turn near that point must succeed on a Det check against your spell modifier or take unholy damage equal to your spell modifier. If a creature is reduced to zero health this way, roll 1d20 and add the creature's size (rounded down). On a 3 or less, the creature is pulled into the void and gone forever.
+  text: \spelldrain{2 points} Pick a point within 6 fathoms. Any creature that starts its turn near that point must succeed on a Det vs spell modifier check or take unholy damage equal to your spell modifier. If a creature is reduced to zero health this way, roll 1d20 and add the creature's size (rounded down). On a 3 or less, the creature is pulled into the void and gone forever.

@@ -28,4 +28,4 @@ private circle:
     duration: rounds
     text: >
      This spell affects a sphere with a radius of 3 fathoms. Creatures aligned with Neutral Good (see cleric class description) within the sphere have their armor type increased by 2 (max of 6).
-     Creatures opposed to Neutral Good must succeed on a Det check against your spellcasting modifier in order to enter the affected area.
+     Creatures opposed to Neutral Good must succeed on a Det vs spell modifier check in order to enter the affected area.
