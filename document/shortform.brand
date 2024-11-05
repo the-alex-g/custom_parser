@@ -90,8 +90,11 @@ c & 1/2 & 1 & 10 & 50 &
 s & 1/20 & 1/10 & 1 & 5 &
 g & 1/100 & 1/50 & 1/5 & 1]
 
-You can roll on the following table to randomly determine price changes.
-[dicetable 2d6 Price -5 & -4 & -3 & -2 & -1 & +0 & +1 & +2 & +3 & +4 & +5]
+
+To randomize price changes, you can roll 2d6 and subtract 7, adding the result
+to the price. Common sense may dictate that the price difference be in a
+lower-valued coinage.
+
 Ultimately, there are only four categories of weapons that you can buy,
 determined by their attack die. Some examples of weapons are shown in the table
 below, but a weapon's type is left open for interpretation. Similarly, the type
