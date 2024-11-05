@@ -1,6 +1,6 @@
 name: Dire Wolf
 headername: Wolf, Dire
-size: 0
+size: 1
 type: animal
 bonuses:
  str: 2

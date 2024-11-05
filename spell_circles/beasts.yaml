@@ -8,7 +8,7 @@ spells:
  Command Animal:
   cost: 1
   duration: minutes
-  text: This spell affects an animal within 5 fathoms. The target must succeed on a Det check against your spell modifier or come under your control as if you had cast \textit{Summon Animal}. If the animal is already being commanded by another creature, add that creature's Det bonus to the animal's. If you are already controlling any animals when you cast this spell, the animals you already control are set free.
+  text: This spell affects an animal within 5 fathoms. The target must succeed on a [check det <spell modifier>] or come under your control as if you had cast \textit{Summon Animal}. If the animal is already being commanded by another creature, add that creature's Det bonus to the animal's. If you are already controlling any animals when you cast this spell, the animals you already control are set free.
  Familiar:
   cost: 2
   duration: permanent

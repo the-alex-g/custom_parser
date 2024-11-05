@@ -137,36 +137,37 @@ def get_damage(string):
 
 
 def calculate_dpr(monster, bonuses):
-    attacks = monster["attack"]
-    attack_count = attacks[0]
-    attacks_skipped = 0
-    if type(attack_count) == str:
-        attack_count = int(attack_count[0])
     damage = 0
-    for attack in attacks[1:]:
-        multiplier = 1
+    if "attack" in monster:
+        attacks = monster["attack"]
+        attack_count = attacks[0]
+        attacks_skipped = 0
+        if type(attack_count) == str:
+            attack_count = int(attack_count[0])
+        for attack in attacks[1:]:
+            multiplier = 1
 
-        # if the attack is a 2x, 3x, etc.
-        if attack[0].isdigit():
-            multiplier = int(attack[0])
-            attack = attack[3:]
-        
-        attack = brand.eval_string(attack, bonuses)
-        damage_string = attack[0:attack.find(" ")]
-        if damage_string.isdigit():
-            if "light" in attack:
-                attack_damage = int(damage_string) / 3
+            # if the attack is a 2x, 3x, etc.
+            if attack[0].isdigit():
+                multiplier = int(attack[0])
+                attack = attack[3:]
+            
+            attack = brand.eval_string(attack, bonuses)
+            damage_string = attack[0:attack.find(" ")]
+            if damage_string.isdigit():
+                if "light" in attack:
+                    attack_damage = int(damage_string) / 3
+                else:
+                    attack_damage = int(damage_string)
+            elif "d" in damage_string:
+                attack_damage = get_damage(damage_string)
             else:
-                attack_damage = int(damage_string)
-        elif "d" in damage_string:
-            attack_damage = get_damage(damage_string)
-        else:
-            attack_damage = 0
-        if attack_damage > 0:
-            damage += attack_damage * multiplier
-        else:
-            attacks_skipped += 1
-    damage *= attack_count / max(1, len(attacks[1:]) - attacks_skipped)
+                attack_damage = 0
+            if attack_damage > 0:
+                damage += attack_damage * multiplier
+            else:
+                attacks_skipped += 1
+        damage *= attack_count / max(1, len(attacks[1:]) - attacks_skipped)
 
     extra_damage = pp.get_key_if_exists(monster, "extra_damage", {})
     actions = 0

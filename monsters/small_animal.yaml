@@ -1,0 +1,13 @@
+name: Small Animal
+size: -4
+type: animal
+bonuses:
+ dex: 2
+ spd: 1
+ int: -4
+ per: 2
+ cha: -4
+ det: -1
+armor: 0
+text: >
+ Use these stats to represent any small animal (fish, birds, squirrels, etc.). Add additional movement modes as appropriate.

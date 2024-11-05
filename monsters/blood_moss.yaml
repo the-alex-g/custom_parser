@@ -12,7 +12,7 @@ bonuses:
  det: 2
 attack:
 - 2
-- "[attack 4] bludgeoning damage and grappled (tendril)"
+- "2x [attack 4] bludgeoning damage and grappled (tendril)"
 special:
   Draining Tendrils: >
    At the start of each of the moss's turns, all creatures grappled by it
@@ -28,3 +28,6 @@ senses:
 resist:
 - cold
 - necrotic
+extra_damage:
+  per:
+  - 1

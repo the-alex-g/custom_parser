@@ -34,11 +34,11 @@ WEAPONS = {
         "die":4,
         "dtype":"piercing"
     },
-    "longsword":{
+    "bastard sword":{
         "die":8,
         "dtype":"slashing"
     },
-    "shortsword":{
+    "sword":{
         "die":6,
         "dtype":"slashing"
     },

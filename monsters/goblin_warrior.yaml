@@ -11,7 +11,7 @@ bonuses:
  int: -2
 attack:
 - 1
-- "[weapon shortsword]"
+- "[weapon sword]"
 - "[weapon bow]"
 armor: hide
 traits:

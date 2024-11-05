@@ -10,11 +10,11 @@ bonuses:
  cha: -4
 attack:
 - 1
-- "1 light damage and wyv venom (bite)"
+- "1 piercing and wyv venom (bite)"
 movement:
 - f=30
 special:
- Wyv Venom (poison): Immediately when poisoned, the affected creature must succeed on a Con 10 check or suffer 1 point of Con drain.
+ Wyv Venom (poison): Immediately when poisoned, the affected creature must succeed on a [check con con] or suffer 1 point of Con drain.
 variants:
 - name: Wyv Poisonspitter
   text: "A wyv poisonspitter gains the following attack option: wyv venom (spit venom, [range thrown])"

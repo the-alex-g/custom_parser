@@ -1,0 +1,32 @@
+name: Wight
+size: 0
+type: undead
+flavor: 
+alignment: NE
+bonuses:
+ str: 2
+ cha: -1
+ det: 1
+armor: 1
+attack:
+- 1
+- "[attack sm1] slashing (claw)"
+- "[weapon sword]"
+immune:
+- cold
+vulnerable:
+- fire
+languages:
+- ANCIENT
+- common
+variants:
+- name: Barrow-Wight
+  text: >
+   The barrow-wight gains an additional attack option: [attack sm1] cold unholy necrotic (grasp)
+   [newline]
+   Any creature hit by the wight's grasp attack must succeed on a [check det det] or suffer one
+   point of Str drain.
+- name: Draugr
+  text: >
+   Once per day, the wight can increase its size by 2, giving it +2 Str and -2 Evd. The size
+   change lasts for one minute.

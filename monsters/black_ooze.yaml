@@ -3,6 +3,7 @@ size: 0
 type: ooze
 bonuses:
  str: 1
+ con: 2
  dex: 4
  spd: -2
  int: -4
@@ -10,8 +11,8 @@ bonuses:
  cha: -4
 attack:
 - 2
-- "[attack 4] acid bludgeoning (pseudopod)"
+- "2x [attack 4] acid bludgeoning (pseudopod)"
 special:
  Fission: >
-  If the ooze takes 2 or more slashing damage from a single attack and has at least 2 health left, it splits into two oozes that are
+  If the ooze takes slashing damage and has at least 2 health left, it splits into two oozes that are
   half its size. The ooze's health is divided evenly between the two new oozes.

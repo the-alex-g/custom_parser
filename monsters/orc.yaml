@@ -13,7 +13,7 @@ bonuses:
 armor: leather
 attack:
 - 1
-- "[weapon longsword]"
+- "[weapon <bastard sword>]"
 - "[weapon bow]"
 languages:
 - GOBLIN
