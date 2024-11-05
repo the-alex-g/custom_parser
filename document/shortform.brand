@@ -291,6 +291,14 @@ enough mana points, you cannot cast the spell.
 Some effects inflict mana drain. For each point of mana drain, you lose one mana
 point.
 
+[section 2 Summoning]
+
+Spells that allow you to summon creatures require knowledge of a summoning ritual.
+This ritual consists of an incantation and material components worth a number of
+silver coins equal to the creature's rank. These components can be reused.
+
+The ritual takes a number of rounds to perform equal to the rank of the creature.
+
 [section 1 The Turn]
 
 On your turn, you may move a number of fathoms up to your Mv value and take

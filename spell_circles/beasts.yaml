@@ -29,4 +29,4 @@ spells:
  Summon Animal:
   cost: 4
   duration: minutes
-  text: \summon{animal}{6}{runs away}
+  text: \summon{animal}{III}{runs away}
