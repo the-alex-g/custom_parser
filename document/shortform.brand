@@ -138,7 +138,7 @@ Str & d4 & d6 & d8 & d10 &
 While wielding two melee weapons, you have +1 Evd against melee attacks and +1
 to accuracy rolls.
 
-When a weapon is sundered, it is destroyed.
+When a weapon has taken three damage, cannot be used until it is repaired.
 
 [section 1 Armor]
 [table cccccc
@@ -151,18 +151,18 @@ Type & Die & Name & Dex & Spd & Cost &
 5 & d4/2 & scale & - & -2 & 40g &
 6 & d6/2 & plate & -1 & -2 & 80g]
 
-When armor is sundered, its type is reduced by one. Once an armor has been
-reduced to type 0, it is destroyed. Note that sundered armor retains its
-Dex and Spd penalties, as well as its +/- status.
+Armor's type is reduced by the amount of damage it has taken. If an armor is has
+taken three damage or been reduced to type 0, it becomes ineffective until
+repaired. Damaged armor retains its Dex and Spd penalties and its +/- status.
 
 Shields, with evasion bonus against melee and ranged.
 [table cccc
-Name & Melee & Ranged & Cost &
-Buckler & +1 & - & 2s &
-Targe & +1 & +1 & 4s &
-Tower & +1 & +2 & 6s]
+Name & Melee & Ranged & Strength & Cost &
+Buckler & +1 & - & 1 & 2s &
+Targe & +1 & +1 & 2 & 4s &
+Tower & +1 & +2 & 3 & 6s]
 
-When a shield is sundered, it is destroyed.
+A shield can take damage equal to its strength before being destroyed.
 
 Additional armor types, usually used for magical, crude, or masterwork armor.
 Dex and Spd penalties are the same as the base type.
@@ -188,15 +188,15 @@ natural 20, or equal to or greater than your critical threshold (default 21),
 you get a critical hit.
 
 A roll of natural 20 is ALWAYS a hit, and a roll of natural 1 is ALWAYS a
-miss.
+miss. If you roll a natural 1, your weapon takes 1 damage.
 
 Roll your weapon die. If you roll over your attack threshold for that
 die, roll again. You deal a number of damage to the target equal to the number
 of dice you've rolled.
 
-If you got a critical hit, you can either roll an additional d8/5 for damage,
-inflict one point of attribute drain to Str, Dex, Spd, or Con, or sunder the
-target's armor, shield or weapon.
+If you got a critical hit, you can either roll an additional d8/5 for damage;
+inflict one point of attribute drain to Str, Dex, Spd, or Con; or deal 1
+damage to the target's armor, shield, or weapon.
 
 [section 2 Combat Advantages]
 
