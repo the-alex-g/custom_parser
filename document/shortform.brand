@@ -76,8 +76,9 @@ is greater than or equal to the target value, you succeed.
 Checks can be made with Size and Evd, even though they are not core attributes.
 
 Often, the game will ask you to make checks against other creatures. Such a
-check is notated [qmark Your Attribute vs Their Attribute]. You make a check
-with your attribute, where the target number is 10 + their attribute.
+check is notated [qmark the attribute of the creature making the check vs
+the other creature's attribute]. You make a check
+with your attribute, where the target number is 10 + the other creature's attribute.
 
 [section 1 Equipment]
 

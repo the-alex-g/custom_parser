@@ -3,8 +3,7 @@ spells:
  Bleed:
   cost: 1
   duration: instant
-  text: You take 1 unblockable damage and target a living creature within 6 fathoms. That creature must succeed on a Det vs spell
-  modifier check or take 1 magic slashing damage.
+  text: You take 1 unblockable damage and target a living creature within 6 fathoms. That creature must succeed on a [check det <spell modifier>] or take 1 magic slashing damage.
  Blood Circle:
   cost: 2
   duration: rounds

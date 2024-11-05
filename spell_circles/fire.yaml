@@ -15,4 +15,4 @@ spells:
  Fireball:
   cost: 2
   duration: instant
-  text: Pick a point within 10 fathoms. All creatures near that point take 1d3 fire damage, halved with a successful Evasion vs spell modifier check.
+  text: Pick a point within 10 fathoms. All creatures near that point take 1d3 fire damage, halved with a successful [check evd <spell modifier>].

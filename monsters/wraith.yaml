@@ -20,9 +20,9 @@ attack:
 - "[weapon longsword]"
 special:
  Draining Touch: >
-   Whenever the wraith deals damage with a drain attack, it heals one and the target must pass a Det 12 check or suffer 1 Con damage.
+   Whenever the wraith deals damage with a drain attack, it heals one and the target must pass a [check det det] or suffer 1 Con drain.
  Aura of Fear: >
-   Any living creature that starts its turn within 5 fathoms of the wraith must succeed on a Det 12 check or be frightened of the wraith
+   Any living creature that starts its turn within 5 fathoms of the wraith must succeed on a [check det det] or be frightened of the wraith
    until the start of its next turn. A creature that succeeds is immune to this effect for 24 hours.
 languages:
 - ANCIENT

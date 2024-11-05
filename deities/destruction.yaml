@@ -23,4 +23,4 @@ private circle:
    duration: rounds
    text: >
     This spell affects all creatures within 4 fathoms that are opposed to Chaotic Evil (see cleric class description). At the start of your turn, you suffer 1 unblockable unholy damage, and all
-    affected creatures must succeed on a Det vs spell modifier check or suffer 1 unholy damage and 1 point of attribute drain to either Con, Str, or Det (determined randomly).
+    affected creatures must succeed on a [check det <spell modifier>] or suffer 1 unholy damage and 1 point of attribute drain to either Con, Str, or Det (determined randomly).

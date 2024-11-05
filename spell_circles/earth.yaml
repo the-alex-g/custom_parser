@@ -7,7 +7,7 @@ spells:
  Earthquake:
   cost: 4
   duration: instant
-  text: All creatures within 5 fathoms of you must succeed on a Dex vs spell modifier check or fall down. For each creature that failed its saving throw, roll 1d6. On a 6, a crevasse opens under that creature and it falls 1d3 fathoms into the gap. Any structures in the area take 1d6 + your spell modifier bludgeoning damage.
+  text: All creatures within 5 fathoms of you must succeed on a[check dex <spell modifier>] or fall down. For each creature that failed its saving throw, roll 1d6. On a 6, a crevasse opens under that creature and it falls 1d3 fathoms into the gap. Any structures in the area take 1d6 + your spell modifier bludgeoning damage.
  Stone Spikes:
   cost: 2
   duration: instant

@@ -16,7 +16,7 @@ special:
   Poison Spores: >
    Whenever a creature touches the bolete guardian, including when the guardian
    hits with a slam attack, the guardian may have that creature make a
-   Con vs Det check, suffering 1 point of Str drain on a failure.
+   [check con det], suffering 1 point of Str drain on a failure.
   Spore Cloud (1/day): >
    All non-fungal creatures within 2 fathoms must make a check against the
    poison spores.

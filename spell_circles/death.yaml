@@ -3,7 +3,7 @@ spells:
  Command Undead:
   cost: 2
   duration: hours
-  text: This spell affects a number of undead within 5 fathoms equal to twice your spell modifier. Each affected undead must succeed on a Det vs spell modifier check or come under your control as if you had cast [spell Create Undead]. If the undead are already being commanded by another creature, add that creature's Det bonus to the undead's. If you are already controlling undead when you cast this spell, the undead you already control are set free.
+  text: This spell affects a number of undead within 5 fathoms equal to twice your spell modifier. Each affected undead must succeed on a [check det <spell modifier>] or come under your control as if you had cast [spell Create Undead]. If the undead are already being commanded by another creature, add that creature's Det bonus to the undead's. If you are already controlling undead when you cast this spell, the undead you already control are set free.
  Create Undead:
   cost: 4
   duration: hours
@@ -11,8 +11,8 @@ spells:
  Life Drain:
   cost: 2
   duration: instant
-  text: One living creature within 6 fathoms must succeed on a Det vs spell modifier check or take 1 unholy damage. If the target took any damage, you heal one damage.
+  text: One living creature within 6 fathoms must succeed on a [check det <spell modifier>] or take 1 unholy damage. If the target took any damage, you heal one damage.
  Sap Vitality:
   cost: 1
   duration: instant
-  text: One living creature within 6 fathoms must succeed on a Det vs spell modifier check or take 1 unholy damage, 1 Det drain, and 1 Con drain.
+  text: One living creature within 6 fathoms must succeed on a [check det <spell modifier>] or take 1 unholy damage, 1 Det drain, and 1 Con drain.

@@ -11,4 +11,4 @@ spells:
  Turn Undead:
   cost: 4
   duration: instant
-  text: All undead within 4 fathoms must make a Det vs spell modifier check. An undead that fails is destroyed if it has less health than your spell modifier, or forced to flee otherwise. An undead that is forced to flee must spend its next turn moving until it is at least 4 fathoms away from you and do nothing else.
+  text: All undead within 4 fathoms must make a [check det <spell modifier>]. An undead that fails is destroyed if it has less health than your spell modifier, or forced to flee otherwise. An undead that is forced to flee must spend its next turn moving until it is at least 4 fathoms away from you and do nothing else.

@@ -12,7 +12,7 @@ private circle:
     cost: 2
     duration: instantaneous
     text: >
-     This spell targets one creature that can hear and understand you. That creature must succeed on a Cha vs spell modifier check or be forced to follow a short instruction that you
+     This spell targets one creature that can hear and understand you. That creature must succeed on a [check cha <spell modifier>] or be forced to follow a short instruction that you
      give it. The target will not obey commands that are radically different from the target's normal behavior, and will not obey obviously suicidal commands. The target has only hazy memories of doing
      whatever you told it to.
      [example You can't order a palace guard to assassinate the king, but you could order one to let you into the king's chamber.]

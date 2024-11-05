@@ -480,23 +480,22 @@ def weapon(weapon_name, *bonuses):
     return f"{string})"
 
 
-def check(stat, *bonuses):
-    total_difficulty = 0
-    for i in bonuses:
-        total_difficulty += _get_difficulty(i)
-    return stat.title() + " " + str(total_difficulty) + " check"
+def check(stat, bonus):
+    difficulty = _get_difficulty(bonus)
+    if type(difficulty) == str: # assume it's a versus check
+        difficulty = "vs " + difficulty.title()
+    return f"{stat.title()} {difficulty} check"
 
 
 def _get_difficulty(difficulty):
-    if type(difficulty) == str:
-        if difficulty == "easy":
-            return 6
-        elif difficulty == "med":
-            return 10
-        elif difficulty == "hard":
-            return 14
-        elif difficulty == "impossible":
-            return 18
+    if difficulty == "easy":
+        return 6
+    elif difficulty == "med":
+        return 10
+    elif difficulty == "hard":
+        return 14
+    elif difficulty == "impossible":
+        return 18
     else:
         return difficulty
 
