@@ -18,7 +18,7 @@ attack:
 - 2
 - 2x [attack 8] slashing (claws)
 - "[attack 8] unholy piercing and gloomweaver venom (bite)"
-- restrained (escape [difficulty med]) (umbral web, [range boulder], [recharge 5-6])
+- restrained (escape [difficulty med]) (umbral web, [weapon_range boulder], [recharge 5-6])
 special:
   Gloomweaver Venom (poison): >
    Once per round for ten rounds, the affected creature must succeed on a [check con hard] or suffer 1 point of Str and Per drain.

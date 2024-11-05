@@ -476,7 +476,7 @@ def weapon(weapon_name, *bonuses):
     data = WEAPONS[weapon_name]
     string = f"{attack(data["die"], *bonuses)} {data["dtype"]} ({weapon_name}"
     if weapon_name in RANGES:
-        string += f", {range(weapon_name)}"
+        string += f", {weapon_range(weapon_name)}"
     return f"{string})"
 
 
@@ -504,7 +504,7 @@ def difficulty(diff):
     return str(_get_difficulty(diff))
 
 
-def range(weapon_type, *num_only):
+def weapon_range(weapon_type, *num_only):
     if len(num_only) == 0:
         return f"range {RANGES[weapon_type]}"
     else:

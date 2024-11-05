@@ -15,7 +15,7 @@ attack:
 - 1
 - "[attack big] bludgeoning (club)"
 - "[attack 6] bludgeoning (fist)"
-- "[attack 6] bludgeoning (boulder, [range boulder])"
+- "[attack 6] bludgeoning (boulder, [weapon_range boulder])"
 special:
  Charge: >
   If the troll moves at least 4 fathoms toward a target and then hits it with a melee attack, the attack deals one additional damage.

@@ -14,7 +14,7 @@ armor: scale
 attack:
 - 1
 - "[attack 10] cold slashing (ice axe)"
-- "[attack 8] bludgeoning (boulder, [range boulder])"
+- "[attack 8] bludgeoning (boulder, [weapon_range boulder])"
 immune:
 - cold
 vulnerable:

@@ -108,11 +108,11 @@ When attacking nearby targets with a weapon with reach, you have disadvantage on
 accuracy roll.
 [table lc
 Weapon & Range &
-Bow & [range bow t] &
-Crossbow & [range crossbow t] &
-Sling & [range sling t] &
-Thrown & [range thrown t] &
-Warbow & [range warbow t]]
+Bow & [weapon_range bow t] &
+Crossbow & [weapon_range crossbow t] &
+Sling & [weapon_range sling t] &
+Thrown & [weapon_range thrown t] &
+Warbow & [weapon_range warbow t]]
 
 The weapon threshold is calculated based on your Str bonus and the size of
 the weapon's die, as shown on the following table.

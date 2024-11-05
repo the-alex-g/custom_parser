@@ -15,7 +15,7 @@ bonuses:
 attack:
 - 2
 - 2x [attack 4] bludgeoning (rend)
-- "[attack 6] bludgeoning (boulder, [range boulder])"
+- "[attack 6] bludgeoning (boulder, [weapon_range boulder])"
 languages:
 - JOTUN
 - common

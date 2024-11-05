@@ -16,7 +16,7 @@ resist:
 attack:
 - 1
 - "[attack 10] bludgeoning (warclub)"
-- "[attack 8] bludgeoning (boulder, [range boulder])"
+- "[attack 8] bludgeoning (boulder, [weapon_range boulder])"
 special:
   Stone Shaping: Stone giants can shape raw stone with their hands like clay.
 languages:

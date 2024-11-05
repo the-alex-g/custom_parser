@@ -12,7 +12,7 @@ armor: hide
 attack:
 - 1
 - "[attack 6] piercing and spider venom (bite)"
-- restrained (escape [difficulty med]) (web, [range thrown], [recharge 5-6])
+- restrained (escape [difficulty med]) (web, [weapon_range thrown], [recharge 5-6])
 senses:
 - tremorsense
 special:

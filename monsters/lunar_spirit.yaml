@@ -13,7 +13,7 @@ armor: 1
 attack:
 - 1
 - "[attack 6] cold holy slashing (moonblade)"
-- "[attack 6] cold holy piercing (moonbow, [range bow])"
+- "[attack 6] cold holy piercing (moonbow, [weapon_range bow])"
 special:
  Luminence: A lunar spirit [illuminates 0 3].
 languages:

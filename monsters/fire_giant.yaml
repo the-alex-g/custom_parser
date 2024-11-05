@@ -12,7 +12,7 @@ armor: plate
 attack:
 - 1
 - "[attack 10] fire slashing (flaming greatsword)"
-- "[attack 8] bludgeoning (boulder, [range boulder])"
+- "[attack 8] bludgeoning (boulder, [weapon_range boulder])"
 immune:
 - fire
 vulnerable:
