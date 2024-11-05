@@ -16,6 +16,5 @@ attack:
 special:
  Bloodthirst: Once per turn, if the oaken mauler hits with an attack, roll a d6. On a 3 or better, the mauler may make a second attack.
  Summoning: >
-   While you have an oaken mauler under your control, you must make a [check det det] every time you take damage or cast
-   a spell. If you fail, the mauler breaks free from your control and acts independently.
+   The oaken mauler has advantage on checks made to escape control.
 flavor: A glowing green maw acts as this hulk's eyes and mouth.
