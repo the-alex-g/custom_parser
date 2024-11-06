@@ -12,7 +12,11 @@ bonuses:
 attack:
 - 2
 - "2x [attack 4] acid bludgeoning (pseudopod)"
+traits:
+- Amorphous
+- Acidic Body
 special:
- Fission: >
-  If the ooze takes slashing damage and has at least 2 health left, it splits into two oozes that are
-  half its size. The ooze's health is divided evenly between the two new oozes.
+  Fission: >
+   If the ooze takes slashing damage and has at least 2 health left, it splits into two oozes that are
+   half its size. The ooze's health is divided evenly between the two new oozes.
+  Pseudopod: If a creature is hit by the pseudopod and wearing non-metal armor, its armor takes 1 damage.

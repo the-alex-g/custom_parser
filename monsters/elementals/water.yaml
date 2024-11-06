@@ -10,9 +10,10 @@ bonuses:
  dex: 2
  spd: 2
  det: 1
+ int: -1
 attack:
 - 1
-- "[attack 6] cold bludgeoning (slam)"
+- "[attack 6] bludgeoning (slam)"
 traits:
 - Amorphous
 movement:

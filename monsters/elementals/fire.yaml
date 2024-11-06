@@ -7,7 +7,7 @@ tags:
 bonuses:
  dex: 2
  spd: 3
- int: -1
+ int: -2
  det: 1
 attack:
 - 2

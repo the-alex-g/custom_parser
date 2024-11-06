@@ -1,0 +1,28 @@
+name: Ghoul Noble
+size: 0
+type: undead
+alignment: ne
+bonuses:
+ str: 1
+ dex: 3
+ spd: 3
+ cha: 2
+ per: 1
+ det: 1
+armor: leather
+attack:
+- 1
+- "[attack 6] magic slashing (crimson blade)"
+- "[attack 6 0] slashing (claws)"
+- "[attack 8 0] piercing (bite)"
+languages:
+- COMMON
+special:
+  Bite: >
+   Any creature hit by the ghoul's bite attack must succeed on a [check con med] or suffer 1 point of Str drain.
+  Crimson Blade: >
+   Any creature that suffers damage from the ghoul's crimson blade attack must succeed on a [check con med] or
+   suffer 1 unblockable necrotic damage.
+extra_damage:
+  per:
+  - 1

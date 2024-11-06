@@ -9,7 +9,7 @@ bonuses:
  con: 3
  dex: -2
  spd: -1
- int: -2
+ int: -3
  det: 3
 armor: 5
 attack:

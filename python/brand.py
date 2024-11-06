@@ -45,6 +45,10 @@ WEAPONS = {
     "waraxe":{
         "die":10,
         "dtype":"slashing"
+    },
+    "greatsword":{
+        "die":10,
+        "dtype":"slashing"
     }
 }
 MAJOR_DEITIES = {
@@ -555,3 +559,7 @@ def deity(field, alignment):
 # MOVE THIS TO CORE
 def qmark(*what):
     return f'"{_separate(what)}"'
+
+
+def dnd():
+    return "D\\&D"

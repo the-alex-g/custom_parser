@@ -1,0 +1,39 @@
+name: Void Daemon
+headername: Daemon, Void
+size: 3
+type: spirit
+alignment: CE
+bonuses:
+ str: 4
+ con: 3
+ dex: 1
+ spd: 1
+ int: 3
+ per: 2
+ det: 5
+armor: 3
+attack:
+- 1
+- "[attack med] unblockable unholy (destroying touch)"
+special:
+ Consume: >
+  All non-daemons within 6 fathoms of the [name] must succeed on a [check str det] or be pulled
+  2 fathoms toward the daemon.
+ Destroying Touch: >
+  The damage dealt by destroying touch can be reduced by shield points. If the target is wearing
+  armor, the damage is dealt to the armor. Immunity to unholy damage is treated as resistance
+  for this damage. Anything killed or destroyed by this damage is utterly annihiliated.
+ Mouth of the Void: >
+  Any weapon that hits the [name] suffers 1 point of damage. Any creature that touches the daemon,
+  including those pulled into it by its consume ability, are hit by its destroying touch attack.
+spell_resist: 2
+movement:
+- h
+extra_damage:
+ per:
+ - 2
+vulnerable:
+- holy
+immune:
+- unholy
+- non-magic

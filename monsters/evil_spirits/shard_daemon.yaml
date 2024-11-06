@@ -1,0 +1,22 @@
+name: Shard Daemon
+headername: Daemon, Shard
+size: -4
+type: spirit
+alignment: NE
+bonuses:
+ spd: 2
+ int: -4
+ cha: -4
+ dex: 2
+armor: 2
+attack:
+- 1
+- "[attack sm1] unholy (drain)"
+traits:
+- Light Vulnerability
+vulnerable:
+- holy
+immune:
+- unholy
+movement:
+- f

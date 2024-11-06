@@ -155,8 +155,8 @@ def calculate_dpr(monster, bonuses):
             attack = brand.eval_string(attack, bonuses)
             damage_string = attack[0:attack.find(" ")]
             if damage_string.isdigit():
-                if "light" in attack:
-                    attack_damage = int(damage_string) / 3
+                if "unblockable" in attack:
+                    attack_damage = int(damage_string) * 2
                 else:
                     attack_damage = int(damage_string)
             elif "d" in damage_string:
@@ -271,7 +271,7 @@ def create_monster(monster):
         health_bonus = pp.get_key_if_exists(bonus_dict, "con", 0)
     pp.increment_key(bonus_dict, "str", size)
 
-    params = {"name":name.lower()}
+    params = {"name":name.lower(), "size":size}
     for ability in ABILITIES:
         params[ability] = pp.get_key_if_exists(bonus_dict, ability, 0)
     health = calculate_health(size, health_bonus, armor)

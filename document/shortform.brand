@@ -80,6 +80,13 @@ check is notated [qmark the attribute of the creature making the check vs
 the other creature's attribute]. You make a check
 with your attribute, where the target number is 10 + the other creature's attribute.
 
+[section 1 Boons]
+
+Some effects grant boons. You can never have two identical boons at the same time.
+Unless otherwise specified, you can use a boon at any time. Boons are lost after
+24 hours or when they are used. The 'after 24 hours' part can often be abstracted
+to 'at dawn each day'.
+
 [section 1 Equipment]
 
 The following table shows common coinages and their relative values.
@@ -89,7 +96,6 @@ i & 1 & 2 & 20 & 100 &
 c & 1/2 & 1 & 10 & 50 &
 s & 1/20 & 1/10 & 1 & 5 &
 g & 1/100 & 1/50 & 1/5 & 1]
-
 
 To randomize price changes, you can roll 2d6 and subtract 7, adding the result
 to the price. Common sense may dictate that the price difference be in a
@@ -141,6 +147,9 @@ Str & d4 & d6 & d8 & d10 &
 While wielding two melee weapons, you have +1 Evd against melee attacks and +1
 to accuracy rolls.
 
+While wielding a weapon you are not proficient with, treat your Str as 0 when
+calculating weapon thresholds.
+
 When a weapon has taken three damage, cannot be used until it is repaired.
 
 [section 1 Armor]
@@ -157,6 +166,8 @@ Type & Die & Name & Dex & Spd & Cost &
 Armor's type is reduced by the amount of damage it has taken. If an armor is has
 taken three damage or been reduced to type 0, it becomes ineffective until
 repaired. Damaged armor retains its Dex and Spd penalties and its +/- status.
+
+While wearing armor you are not proficient with, you have -1 to Spd and Dex.
 
 Shields, with evasion bonus against melee and ranged.
 [table cccc
@@ -267,8 +278,12 @@ Round down when determining the total distance you can move.
 
 Moving through difficult terrain costs twice as many movement points as usual.
 
+Some effects use the term "nearby". Nearby can mean 1) anything the GM
+determines is nearby, 2) anything within arm's reach, or 3) anything
+within one fathom.
+
 [text b A Note on Fathoms.] One fathom is equal to six feet. Six feet is about
-the same as 5 feet, which is the standard D\&D unit of distance. Using fathoms
+the same as 5 feet, which is the standard [dnd] unit of distance. Using fathoms
 instead of increments of 5 feet removes the need to divide all distances by
 5 to determine the distance in inches/hexes/squares, as well as making movement
 speeds a little bit more realistic.
@@ -305,8 +320,9 @@ The ritual takes a number of rounds to perform equal to the rank of the creature
 [section 1 The Turn]
 
 On your turn, you may move a number of fathoms up to your Mv value and take
-an action, in either order. Possible actions include attacking, casting a spell,
-checking for traps, or anything else the GM determines should take an action.
+an action, in either order. You can even interrupt your move with an action.
+Possible actions include attacking, casting a spell, checking for traps,
+or anything else the GM determines should take an action.
 
 Instead of taking an action, you may move again, up to half your Mv value.
 
@@ -347,7 +363,7 @@ Your maximum health increases by one.
 
 When you attack with a d10 melee weapon, count your strength as 1 higher and reduce your critical threshold by one.
 
-When you attack with any melee weapon, you roll an additional die based on the amount of damage you have taken.
+When you attack with any melee weapon, you deal additional damage based on the amount of damage you have taken.
 [table cc
 Damage Taken & Damage Increase &
 1 & 1 &
@@ -388,7 +404,7 @@ minus two.
 You are proficient with weapons up to d10 and armor up to type 6.
 
 When you become a fighter, choose up to two hand's worth of weapons or shields
-to be your signature armament. While wielding your signature armament, you get
+to be your primary armament. While wielding your primary armament, you get
 bonuses based on the type of equipment you're wielding.
 [table XX
 Equipment & Bonus &
@@ -416,7 +432,7 @@ for damage.
 
 You are proficient with weapons up to d6 and armor up to type 2.
 
-Your spellcasting ability is Inte. You have a pool of 16 mana points.
+Your spellcasting ability is Int. You have a pool of 16 mana points.
 
 You can cast the following spells without a spellstone:
 
@@ -425,9 +441,9 @@ your next turn.
 
 [text ib Arcane Dart.] Make a 1-damage magic attack with range 10.
 
-[newpage]
+#[newpage]
 
-[section 1 Direct D\\&D Conversion]
+[section 1 Direct [dnd] Conversion]
 
 Any attributes over +4 should be reduced to +4, unless something higher is
 reasonable. Any attributes at -5 should be changed to -4.
@@ -455,7 +471,7 @@ Calculate Evd, Mv, and Health as usual.
 Halve the number of attacks per round.
 
 Number of damage dealt = number of dice rolled, or an attack of the type of die
-rolled. Adjust as needed.
+rolled. Adjust as needed.#
 
 [include monsters monsters]
 [include appendicies x]

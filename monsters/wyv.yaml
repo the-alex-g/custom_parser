@@ -14,7 +14,7 @@ attack:
 movement:
 - f=30
 special:
- Wyv Venom (poison): Immediately when poisoned, the affected creature must succeed on a [check con con] or suffer 1 point of Con drain.
+ Wyv Venom (poison): Immediately when poisoned, the affected creature must succeed on a [check con easy] or suffer 1 point of Con drain.
 variants:
 - name: Wyv Poisonspitter
   text: "A wyv poisonspitter gains the following attack option: wyv venom (spit venom, [weapon_range thrown])"

@@ -1,0 +1,17 @@
+name: Awakened Tree
+size: 3
+type: plant
+alignment: LN
+bonuses:
+ str: 3
+ per: 2
+ con: 3
+ det: 4
+armor: 4
+attack:
+- 2
+- "[attack med] slashing (claws)"
+vulnerable:
+- fire
+languages:
+- SYLVAN

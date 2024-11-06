@@ -1,8 +1,7 @@
-name: Shadow Flail
+name: Lasher Daemon
+headername: Daemon, Lasher
 size: 0
 type: spirit
-tags:
-- dark
 alignment: LE
 bonuses:
  str: 2

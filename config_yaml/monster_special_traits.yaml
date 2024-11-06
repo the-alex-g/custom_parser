@@ -3,8 +3,9 @@ Incorporeal: >
  The [name] can move through solid objects at half its usual speed. If the [name] ends its movement inside of a solid object, it takes
  one unblockable damage.
 Light Aversion: The [name] has disadvantage on all rolls while in bright light.
-Light Vulnerability: The [name] suffers 1 unblockable damage for every ten minutes it spends in bright light.
+Light Vulnerability: The [name] suffers 1 unblockable damage for every minute it spends in bright light.
 Stonewalk: The [name] can move through earth and stone as if it were air, leaving no trace of its passage.
 Tree Stride: The [name] can teleport between living trees that are no more than 10 fathoms apart.
 Amphibious: The [name] can breathe air and water.
 Aquatic: The [name] can only breathe underwater.
+Acidic Body: Any creature that touches the [name] takes 1 acid damage. Hitting the [name] with a non-metal weapon deals 1 damage to that weapon.

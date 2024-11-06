@@ -1,0 +1,23 @@
+name: Giant Wasp
+size: -2
+type: animal
+bonuses:
+ dex: 1
+ spd: 2
+ int: -4
+ cha: -4
+armor: 3
+attack:
+- 1
+- "[attack 6 0] piercing and wasp venom (sting)"
+- "[attack 4] slashing (bite)"
+vulnerable:
+- cold
+special:
+  Wasp Venom (poison): >
+   The poisoned creature must succeed on a [check con easy] or suffer 1 unblockable necrotic damage.
+extra_damage:
+  per:
+  - 1
+movement:
+- f

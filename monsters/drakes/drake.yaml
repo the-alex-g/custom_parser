@@ -1,0 +1,16 @@
+name: Drake
+type: dragon
+size: 0
+alignment: "n"
+bonuses:
+  str: 2
+  dex: 1
+  spd: 2
+  det: 1
+  con: 2
+languages:
+- DRACONIC
+attack:
+- 1
+- "[attack med] piercing (bite)"
+armor: 4

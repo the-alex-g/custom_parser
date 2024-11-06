@@ -1,0 +1,33 @@
+name: Earth Eater
+size: 4
+type: monster
+bonuses:
+ str: 4
+ con: 4
+ dex: -4
+ int: -4
+ per: -4
+ cha: -4
+ det: 4
+armor: hide
+attack:
+- 1
+- "[attack big] bludgeoning (consume)"
+movement:
+- t
+special:
+  Consume: >
+   Any size 2 or smaller creature that is hit by the earth eater's consume attack must
+   succeed on a [check evd dex] or be swallowed by the earth eater.
+   Creatures swallowed by the earth eater take 1 acid damage at the
+   start of each of their turns. The earth eater takes 1 additional
+   damage from all attacks originating from inside of it.
+   [newline]
+   Dealing four or more damage to the earth eater from the inside in
+   one round causes it to regurgitate all creatures it has swallowed.
+   [newline]
+   Once the earth eater has been killed, creatures swallowed by it
+   can exit the corpse by using all of their movement.
+extra_damage:
+  per:
+  - 1

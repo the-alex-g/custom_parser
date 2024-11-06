@@ -1,7 +1,8 @@
-name: Waystone Golem
-headername: Golem, Waystone
-size: 1
-type: construct
+name: Giant Frog
+size: 
+type: 
+flavor: 
+alignment: 
 bonuses:
  str: 
  con: 

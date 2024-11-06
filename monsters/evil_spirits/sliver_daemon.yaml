@@ -1,8 +1,7 @@
-name: Shadow Spirit
+name: Sliver Daemon
+headername: Daemon, Sliver
 size: -1
 type: spirit
-tags:
-- dark
 alignment: NE
 bonuses:
  str: 1

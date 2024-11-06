@@ -1,0 +1,22 @@
+name: Grey Ooze
+size: 0
+type: ooze
+bonuses:
+ dex: 4
+ spd: -1
+ int: -4
+ per: -4
+ cha: -4
+attack:
+- 1
+- "[attack med] acid (pseudopod)"
+traits:
+- Amorphous
+- Acidic Body
+special:
+  Pseudopod: If a creature is hit by the pseudopod and wearing non-metal armor, its armor takes 1 damage.
+variants:
+- name: Psychoactive Slime
+  text: >
+   Creatures hit by the psychoactive slime's pseudopod attack must succeed on a
+   Det vs Int check or suffer 1 unblockable psychic damage.

@@ -1,0 +1,19 @@
+name: Adder
+size: -3
+type: animal
+bonuses:
+ str: 1
+ dex: 2
+ int: -4
+ per: 1
+ cha: -4
+ det: 2
+armor: 1
+attack:
+- 1
+- 1 piercing and adder venom (bite)
+special:
+  Adder Venom (poison): >
+   Once per round for five rounds, the affected creature must succeed on a [check con easy] or suffer 1 point of Con drain.
+  Swift Strike: >
+   The adder has +2 to hit with its bite attack.

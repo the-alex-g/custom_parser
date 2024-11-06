@@ -1,7 +1,7 @@
 name: Tree Spirit
 size: 0
 type: spirit
-alignment: "N"
+alignment: N
 bonuses:
  con: 1
  dex: 2
