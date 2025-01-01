@@ -1,7 +1,7 @@
 [section 1 Attributes]
 
-There are eight core attributes: Str, Dex, Con, Int, Per, Cha, Det, and Spd.
-Each character also has a Size, Evd, Health, and Mv.
+There are eight core attributes: Strength, Dexterity, Constitution, Intelligence, Perception, Charisma, Determination, and Speed.
+Each character also has a Size, Evasion, Health, and Move.
 
 The core attributes are measured from -5 to +8, with -5 being completely
 incapacitated in regards to that attribute, and anything over +4 being
@@ -322,6 +322,13 @@ In order to cast a spell, you must be holding the appropriate spellstone and
 spend a number of mana points equal to the cost of the spell. If you do not have
 enough mana points, you cannot cast the spell.
 
+If the spell has a duration in units of time (rounds, minutes, hours, etc.), it lasts for
+a number of units equal to 1d4 + your spell modifier. You can end a spell at any time.
+
+Spells with a duration of 'concentration' last until you spend an action to attack or cast
+another spell. When you take damage, you must succeed on a [check <spellcasting modifier> med]
+or the spell ends. 
+
 [section 2 Mana Drain]
 
 Some effects inflict mana drain. For each point of mana drain, you lose one mana
@@ -353,25 +360,14 @@ cost 1 fathom of movement. Speaking is generally free.
 
 Bards are proficient with weapons up to d6 and armor up to type 3.
 
-A bard's spell modifier is Charisma. You have a pool of 4 mana points.
+A bard's spell modifier is Charisma. You have a pool of mana points equal to your Charisma bonus plus the number of languages you know.
+
+You can cast spells from the circles of Illusions, Life, and Song without penalty. Spells from all other circles cost twice as much
+to cast.
 
 You start knowing one additional language of your choice.
 
-# songs are continuous effects, use 1 at a time #
-# themes are like power-ups for songs, use saga points to deploy them #
-# tales are one-time bonuses that often grant boons #
-
 [extra_attacks 2 4]
-
-Bards have a number of saga points equal to their Charisma bonus plus the number
-of languages they know.
-
-As an action, you may start any song you know. Whenever you take damage, or take
-an action other than continuing the song, you must succeed on a Cha 12 check or
-the effects of the song end.
-
-As an action, you may end one song currently in effect and spend a saga point
-to activate that song's climax effect.
 
 [section 2 Berserkers]
 
@@ -396,10 +392,14 @@ attack.
 You are proficient with weapons up to d6 and armor up to type 4. While you
 are wielding a metal weapon or wearing metal armor, you cannot cast spells.
 
-Your spellcasting ability is Perception. You have a pool of 8 mana points.
+Your spellcasting ability is Perception. # Determination? # You have a pool of 5 + Per mana points.
 
 When you cast a spell in a place of natural beauty, it costs one fewer mana
 points, to a minimum of one mana.
+
+Druids can cast spells from the circles of air, earth, fire, water, ice, growth, life, sun, moon,
+and beasts without penalty. Spells from other circles cost twice as much to cast, and the cost is not
+reduced when casting those spells in a place of natural beauty.
 
 # does this make low-level druids OP? And do I care? #
 # Balance is not one of my greatest design concerns. #
@@ -450,9 +450,12 @@ for damage.
 
 You are proficient with weapons up to d6 and armor up to type 2.
 
-Your spellcasting ability is Int. You have a pool of 16 mana points.
+Your spellcasting ability is Int. You have a pool of 8 + 2 x Int mana points.
 
 You can cast the following spells without a spellstone:
+
+Wizards can cast spells from all circles except life, sun, moon, beasts, and growth without penalty.
+Spells from those circles cost twice as much to cast.
 
 [text ib Arcane Armor.] You gain one shield point that lasts until the start of
 your next turn.
@@ -474,7 +477,7 @@ Speed is equal to +/- 1 for every 5 feet of movement the creature is away from
 
 Creature size is adjusted as follows:
 [table cX
-D\\&D Size & New Size &
+[dnd] Size & New Size &
 Tiny & -3 &
 Small & -1 &
 Medium & 0 &
@@ -491,8 +494,11 @@ Halve the number of attacks per round.
 Number of damage dealt = number of dice rolled, or an attack of the type of die
 rolled. Adjust as needed.#
 
+[section 0 Spells]
+[include spells spell_circles]
+[section 0 Monsters]
 [include monsters monsters]
-[include appendicies x]
+[include appendicies]
 
 [section 1 Creating NPCs]
 
@@ -540,8 +546,8 @@ First, calculate the average value of the creature's attacks. Use the following 
 the damage of an attack by matching die size and threshold. Multiply the average by the number
 of attacks per round.
 [table cccccccccc
-   & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 &
-d4 & 1  & & & & & & & & &
+ & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 &
+d4 & 1 & & & & & & & & &
 d6 & & 1.25 & 1 & & & & & & &
 d8 & & 1.8 & 1.4 & 1.1 & 1 & & & & &
 d10 & & 2.25 & 1.9 & 1.6 & 1.3 & 1.1 & 1 & & &

@@ -1,0 +1,42 @@
+name: Circle of Song
+spells:
+ Song of Power:
+  cost: 2
+  duration: concentration
+  text: >
+   A seperate version of this spell exists for each of the eight core attributes.
+   [newline]
+   All other friendly creatures within 4 + spell modifier fathoms that can hear you get advantage on
+   all checks with the spell's attribute. As an action, you may end this spell and spend a mana point
+   to activate a special effect, determined by which attribute you are affecting.
+   [table cX
+   Str & A number of affected creatures equal to half your spell modifier, rounded up, may
+   make a free melee attack &
+   Dex & All affected creatures get a boon that allows them to get +2 Evasion &
+   Con & All affected creatures heal one damage &
+   Int & All affected creatures regain 1 mana point &
+   Det & All affected creatures get a boon that allows them to get +4 Determination &
+   Spd & All affected creatures may move a number of fathoms equal to your spell modifier &
+   Per & All affected creatures get a boon that allows them to reroll any die &
+   Cha & A number of affected creatures equal to half your spell modifier, rounded up, may
+   not be willingly damaged by sentient enemies until the start of their next turn.]
+ Song of Weakness:
+  cost: 2
+  duration: concentration
+  text: >
+   A seperate version of this spell exists for each of the eight core attributes.
+   [newline]
+   All enemy creatures within 4 + spell modifier fathoms that can hear you get disadvantage on all
+   checks with the spell's attribute. As an action, you may end this spell and spend a mana point
+   to activate a special effect, determined by which attribute you are affecting.
+   [table cX
+   Str & All affected creatures roll a d4/4 for their next attack, unless the attack they are using
+   is worse &
+   Dex & All affected creatures have -2 Evasion until the start of your next turn &
+   Con & All affected creatures with more than one health take one damage &
+   Int & All affected creatures suffer mana drain equal to your spell modifier &
+   Det & All affected creatures have -4 to their next Det check &
+   Spd & All affected creatures move at half speed until the start of your next turn &
+   Per & All affected creatures have disadvantage on all checks until the start of your next turn &
+   Cha & All affected creatures must succeed on a [check cha cha] or be unable to attack until
+   the start of your next turn.]

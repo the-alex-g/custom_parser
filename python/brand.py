@@ -211,9 +211,7 @@ def dicetable(dice, title, *entries):
                 die_index += 1
                 final_entries.append(die_index)
                 final_entries.append("&")
-        return table("cX", *final_entries)
-
-        
+        return table("cX", *final_entries)        
 
 
 # creates a table based on given columns and ampersand-separated entries
@@ -309,20 +307,30 @@ def add_include_function(name, function):
     unquoted_include_functions[name] = function
 
 
-def include(include_type, filename, *options):
+def include(include_type, *args):
     global include_functions, unquoted_include_functions
 
     quote = False
+    newline = False
+    new_args = []
+    for arg in args:
+        if arg == "n":
+            newline = True
+        elif arg == "q":
+            quote = True
+        else:
+            new_args.append(arg)
+    args = new_args
 
     if include_type in include_functions:
-        content = include_functions[include_type](filename)
+        content = include_functions[include_type](*args)
         quote = True
     elif include_type in unquoted_include_functions:
-        content = unquoted_include_functions[include_type](filename)
+        content = unquoted_include_functions[include_type](*args)
     
-    if "q" in options or quote:
+    if quote:
         content = "\\begin{quote}" + content + "\\end{quote}"
-    elif "n" in options:
+    elif newline:
         content = NEWLINE + LINEBREAK + content
     
     return content
@@ -555,6 +563,7 @@ def extra_attacks(first_level, second_level):
 
 def deity(field, alignment):
     return MAJOR_DEITIES[alignment][field]
+
 
 # MOVE THIS TO CORE
 def qmark(*what):

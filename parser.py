@@ -394,6 +394,18 @@ def create_circle(circle, title=True):
     return brand.eval_string(string, {})
 
 
+def create_spell(spell):
+    return brand.eval_string(
+        f"""[bold {spell["name"]} ({spell["cost"]})]
+[newline]
+[italics {spell["circle_name"]}[newline] Duration: {spell["duration"]}]
+[newline]
+{spell["text"]}
+[newline big]""",
+        {}
+    )
+
+
 def create_deity_block():
     string = ""
     # load deities into a list of the form {name:deity}
@@ -446,7 +458,7 @@ def create_doc():
 brand.add_include_function("spells", lambda filename: create_block(filename, create_circle))
 brand.add_include_function("themes", lambda filename: create_block(filename, create_theme))
 brand.add_include_function("monsters", lambda filename: create_block(filename, create_monster))
-brand.add_include_function("appendicies", lambda f: create_appendices())
+brand.add_include_function("appendicies", lambda: create_appendices())
 brand.add_include_function("circle", lambda filename: create_circle(pp.open_yaml(filename), title=False))
 brand.add_include_function("deities", lambda filename: create_deity_block())
 
