@@ -13,11 +13,7 @@ and +4 being bigger than a house. Creatures add their Size to their Str.
 Evd is equal to Spd - Size, +1 if Dex is greater than +1, or -1 if Dex is less
 than -1.
 
-Health is equal to 2 + Con + Size. NPCs' health is further modified based on
-their armor type:
-[table lccccccc
-Type & 0 & 1 & 2 & 3 & 4 & 5 & 6 &
-Multiplier & 6/5 & 4/3 & 3/2 & 2 & 3 & 4 & 6]
+Health is equal to 2 + Con + Size. NPCs' health is further modified based on their armor type.
 PCs' health is increased by 2.
 
 Mv is determined by your Spd bonus. If a creature has a Spd greater than +4,
@@ -271,6 +267,28 @@ When a player character is reduced to 0 health, they are effectively removed
 from the current adventure. They suffer a permanent -2 penalty to Con, which
 also reduces their health and maximum Con value.
 
+[section 1 Light and Sensing]
+[table lX
+    Light Level & Penalties & 
+    Bright Light & No penalties &
+    Dim Light & +2 Evasion &
+    Darkness & Creatures in darkness cannot be seen &
+    Utter Darkness & Creatures in utter darkness cannot be seen]
+[table lX
+    Sense & Benefit &
+    Blindsight & Can sense surroundings, regardless of ability to see &
+    # for creatures that cannot see with eyes, but can still detect their surroundings #
+    Darksight & Can see normally, regardless of light level &
+    # magical in nature #
+    Dimsight & Can see as if the light level were one higher &
+    # natural keen night vision #
+    Sense Living & Can sense living creatures, regardless of ability to see &
+    # for telepaths and powerful undead #
+    Tremorsense & Can sense moving things, regardless of ability to see &
+    # for things like plants without another way to sense and burrowing monsters #
+    Truesight & Can see perfectly regardless of light level, can see invisible creatures and objects, and can immediately identify visual illusions
+    # extremely magical in nature #]
+
 [section 1 Movement]
 
 Every space you move diagonally costs one and a half fathoms of movement.
@@ -361,7 +379,7 @@ You are proficient with weapons up to d10 and armor up to type 3.
 
 Your maximum health increases by one.
 
-When you attack with a d10 melee weapon, count your strength as 1 higher and reduce your critical threshold by one.
+When you attack with a d10 melee weapon, count your strength as 1 higher and reduce your critical threshold by one. #?#
 
 When you attack with any melee weapon, you deal additional damage based on the amount of damage you have taken.
 [table cc
@@ -475,3 +493,72 @@ rolled. Adjust as needed.#
 
 [include monsters monsters]
 [include appendicies x]
+
+[section 1 Creating NPCs]
+
+First, determine the creature's type and size.
+
+Then, determine its base stat bonuses. Add the creature's Size to its Strength.
+
+Determine what armor type the creature has. Constructs' Armor is often equal to their Det bonus.
+
+Calculate the creature's Health and Evasion. Health is equal to 2 + Con + Size, multiplied
+by a number determined by its Armor type.
+[table lccccccc
+Type & 0 & 1 & 2 & 3 & 4 & 5 & 6 &
+Multiplier & 6/5 & 4/3 & 3/2 & 2 & 3 & 4 & 6]
+
+Give the creature appropriate attacks.
+
+Give the creature any appropriate damage resistances/vulnerabilities/immunities. Undead are usually
+immune to necrotic and unholy and vulnerable to holy. Constructs are usually immune to necrotic and
+psychic and resistant to holy and unholy. Oozes are usually immune to acid and piercing and
+resistant to bludgeoning. Plants are usually immune to psychic.
+
+Give the creature any number of special abilities, movement modes, and senses. Undead, Constructs,
+and Spirits usually have darksight. Oozes usually have blindsight and the [text i amorphous] trait.
+Undead and Constructs also always have the [text i lifeless] trait.
+
+By default, flight speed is equal to 6 x (walking speed + Size), rounded up to a multiple of 5, and
+burrowing and tunnelling speeds are equal to half walking speed. All other movement modes default to
+walking speed.
+
+Then, you can calculate the creature's rank. To do so, you will need to modify the creature's health
+and calculate its damage per round (DPR).
+
+To modify health, add together all the relevant modifiers below. Then, multiply the creature's
+health by the result plus 1 (minimum of 1/3).
+[table Xccc
+& resist & immune & vulnerable &
+each physical & 1/3 & 1 & -1/3 &
+non-magic & 1 & 3 & -1 &
+non-magic physical & 2/3 & 2 & -2/3]
+
+Calculate average damage per round by doing the following:
+
+First, calculate the average value of the creature's attacks. Use the following table to find
+the damage of an attack by matching die size and threshold. Multiply the average by the number
+of attacks per round.
+[table cccccccccc
+   & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 &
+d4 & 1  & & & & & & & & &
+d6 & & 1.25 & 1 & & & & & & &
+d8 & & 1.8 & 1.4 & 1.1 & 1 & & & & &
+d10 & & 2.25 & 1.9 & 1.6 & 1.3 & 1.1 & 1 & & &
+d12 & & 2.6 & 2.25 & 1.9 & 1.7 & 1.4 & 1.25 & 1.1 & 1]
+
+Then, average the attack value with the expected damage of all the creature's damage-dealing actions.
+Assume half of the targets, rounded up, fail any checks to avoid damage, and that area-of-effect
+attacks hit two targets.
+Finally, add any damage dealt without the creature needing to take an action.
+
+Multiply the creature's Evasion, DPR, and modified Health. Divide by ten and consult the table below.
+[table cc
+4 or less & I &
+4-10 & II &
+11-15 & III &
+16-25 & IV &
+26-50 & V &
+51-100 & VI &
+101-150 & VII &
+150+ & VIII]

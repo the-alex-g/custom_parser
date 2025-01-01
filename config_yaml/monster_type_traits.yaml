@@ -6,9 +6,8 @@ undead:
  - holy
  senses:
  - darksight
- special:
-  Undead Nature: >
-   The [name] automatically succeeds on all Con checks. If the [possessive [name]] Con bonus is ever needed, use its Det bonus instead.
+ traits:
+ - Lifeless
 construct:
  immune:
  - psychic
@@ -18,9 +17,8 @@ construct:
  - unholy
  senses:
  - darksight
- special:
-  Constructed Nature: >
-   The [name] automatically succeeds on all Con checks. If the [possessive [name]] Con bonus is ever needed, use its Det bonus instead.
+ traits:
+ - Lifeless
 spirit:
  senses:
  - darksight

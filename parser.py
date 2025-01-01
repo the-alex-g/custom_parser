@@ -294,14 +294,15 @@ def create_monster(monster):
     level = get_level(health, evasion, monster, bonus_dict)
     
     string = "\\section*{" + headername + "}" + f"[text i {pp.get_key_if_exists(monster, "flavor", "")}][newline med][label <{headername}>]"
-    string += f"[text sc {alignment} size {size} {monster["type"]}]"
+    string += f"[text sc {alignment} {monster["type"]} ({level})]"
 
     if "tags" in monster:
         string += f" ({pp.comma_separate(sorted(monster["tags"]))})"
 
     string += NEWLINE + get_ability_list(bonus_dict) + NEWLINE
-    string += f"[bold Health] {health}, [bold Arm] {armor}, [bold Evd] {evasion}, [bold Mv] {movement}"
-    string += NEWLINE
+    string += f"[bold Size] {size}, [bold Health] {health}, "
+    string += f"[bold Arm] {armor}, [bold Evd] {evasion}" + NEWLINE
+    string += f"[bold Mv] {movement}" + NEWLINE
 
     for field in ("immune", "resist", "vulnerable"):
         if field in monster:
