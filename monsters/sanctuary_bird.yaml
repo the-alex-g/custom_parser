@@ -1,0 +1,22 @@
+name: Sanctuary Bird
+size: -2
+type: animal
+bonuses:
+ dex: 2
+ spd: 2
+ int: -2
+ per: 3
+ str: 1
+armor: 0
+resist:
+- holy
+- unholy
+movement:
+- f=50
+attack:
+- 1
+- "[attack med] piercing (kick)"
+special:
+ Numbing Song: >
+  All living creatures that are within six fathoms of the bird and can hear it must succeed on a
+  [check det cha] or be unable to move or act on its next turn.

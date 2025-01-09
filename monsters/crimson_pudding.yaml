@@ -1,0 +1,26 @@
+name: Crimson Pudding
+size: 0
+type: ooze
+bonuses:
+ dex: 4
+ spd: -1
+ int: -4
+ per: -4
+ cha: -4
+ det: 1
+ con: 3
+ str: 2
+attack:
+- 2
+- "[attack med] acid fire necrotic (pseudopod)"
+traits:
+- Amorphous
+- Acidic Body
+special:
+  Pseudopod: >
+   If a creature is hit by the pseudopod and wearing non-metal armor, its armor takes 1 damage.
+   If the attack deals any damage to the target, the ooze regains 1 health. If the ooze was already
+   at max health, it splits into two oozes with half health.
+immune:
+- fire
+- necrotic

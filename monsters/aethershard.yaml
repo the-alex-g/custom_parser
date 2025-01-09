@@ -1,0 +1,29 @@
+name: Aethershard
+size: 0
+type: spirit
+flavor: A figure composed of crackling white energy darts across the ground.
+bonuses:
+ str: 1
+ dex: 2
+ spd: 1
+ int: -3
+resist:
+- non-magic physical
+- holy
+- unholy
+immune:
+- psychic
+- necrotic
+- magic
+attacks:
+- 2
+- "[attack sm1] magic slashing (rake)"
+special:
+ Antimagic Vulnerability: >
+  Casting a spell from the sphere of nullity deals unblockable damage to the aethershard equal to
+  the spell's minimum cost.
+ Volatile Nature: >
+  Whenever a creature hits the aethershard with a melee attack, that creature takes 1 magic damage.
+extra_damage:
+ per:
+ - 2

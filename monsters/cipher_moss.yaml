@@ -1,0 +1,50 @@
+name: Cipher Moss
+size: 3
+type: plant
+alignment: N
+flavor: >
+ This thick bed of dark green moss appears no different from any other at first sight, but any
+ creature that touches it is crushed under the weight of a thousand years of memories.
+bonuses:
+ str: 2
+ dex: 1
+ spd: -5
+ con: 3
+ int: 5
+ per: 5
+ det: 4
+languages:
+- telepathy
+vulnerable:
+- fire
+immune:
+- psychic
+resist:
+- physical
+- cold
+attack:
+- 1
+- "[attack sm1] bludgeoning (envelop)"
+special:
+ Absorb Thoughts: >
+  One living creature within 10 fathoms of the moss must succeed on a [check int int], or the
+  moss regains 1 health. If the creature failed by 5 or more, the moss also recovers one point
+  of Int drain.
+ Fragile Intellect: >
+  For each point of damage that the moss suffers, it also suffers 1 point of Int drain.
+ Information Saturation: >
+  The first time each round that a living creature touches the moss with its bare skin, it is
+  subject to the moss' psychic crush ability.
+ Psychic Crush: >
+  One living creature within 10 fathoms of the moss must succeed on a [check int int] or
+  suffer 1 unblockable psychic damage and be unable to take actions on its next turn. If the creature
+  succeeds, it may make a second check. If it succeeds on that check, it gets a +1 bonus to Int that
+  lasts for 2d4 hours. This bonus is not cumulative.
+ Spell Capture: >
+  When a creature casts a spell within 10 fathoms of the moss, the moss can make an Int check
+  with a difficulty of 10 + twice the spell's cost. On a success, the moss captures an imprint
+  of the spell. The moss can then cast this imprint as an action. The moss cannot have two imprinted
+  spells at the same time.
+extra_damage:
+ act:
+ - 2

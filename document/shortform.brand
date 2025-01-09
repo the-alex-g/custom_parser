@@ -13,8 +13,7 @@ and +4 being bigger than a house. Creatures add their Size to their Str.
 Evd is equal to Spd - Size, +1 if Dex is greater than +1, or -1 if Dex is less
 than -1.
 
-Health is equal to 2 + Con + Size. NPCs' health is further modified based on their armor type.
-PCs' health is increased by 2.
+Base health is equal to 2 + Con + Size.
 
 Mv is determined by your Spd bonus. If a creature has a Spd greater than +4,
 add Spd - 4 to its Mv.
@@ -360,6 +359,8 @@ cost 1 fathom of movement. Speaking is generally free.
 
 Bards are proficient with weapons up to d6 and armor up to type 3.
 
+Your maximum health increases by one.
+
 A bard's spell modifier is Charisma. You have a pool of mana points equal to your Charisma bonus plus the number of languages you know.
 
 You can cast spells from the circles of Illusions, Life, and Song without penalty. Spells from all other circles cost twice as much
@@ -373,7 +374,7 @@ You start knowing one additional language of your choice.
 
 You are proficient with weapons up to d10 and armor up to type 3.
 
-Your maximum health increases by one.
+Your maximum health increases by three.
 
 When you attack with a d10 melee weapon, count your strength as 1 higher and reduce your critical threshold by one. #?#
 
@@ -391,6 +392,8 @@ attack.
 
 You are proficient with weapons up to d6 and armor up to type 4. While you
 are wielding a metal weapon or wearing metal armor, you cannot cast spells.
+
+Your maximum health increases by one.
 
 Your spellcasting ability is Perception. # Determination? # You have a pool of 5 + Per mana points.
 
@@ -421,6 +424,8 @@ minus two.
 
 You are proficient with weapons up to d10 and armor up to type 6.
 
+Your maximum health increases by two.
+
 When you become a fighter, choose up to two hand's worth of weapons or shields
 to be your primary armament. While wielding your primary armament, you get
 bonuses based on the type of equipment you're wielding.
@@ -436,6 +441,8 @@ Shield & +1 Evd]
 [section 2 Rogues]
 
 You are proficient with weapons up to d8 and armor up to type 4.
+
+Your maximum health increases by 1.
 
 A rogue's base Evd score is equal to their Spd plus their Dex, minus
 their Size.
@@ -568,3 +575,12 @@ Multiply the creature's Evasion, DPR, and modified Health. Divide by ten and con
 51-100 & VI &
 101-150 & VII &
 150+ & VIII]
+
+#
+INSPIRATIONS
+
+Crown and Skull
+EZD6
+Burning Wheel
+Tolkien
+#

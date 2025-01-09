@@ -1,8 +1,8 @@
 (defvar formatting nil "first element for 'font-lock-defaults'")
 
 (setq formatting
-      `(("#\\([^<]+?\\)#" . (1 'font-lock-comment-face))
-	("<[^<]+?>" . 'font-lock-string-face)
+      `(("#\\(.+?\\)#" . (1 'font-lock-comment-face))
+	("<.+?>" . 'font-lock-string-face)
 	("\\[[^\s]*\\|\\]" . 'font-lock-function-name-face)
 	("#" . 'font-lock-comment-delimiter-face)
 	("&" . 'font-lock-keyword-face)))
