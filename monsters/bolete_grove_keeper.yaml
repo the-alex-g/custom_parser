@@ -25,7 +25,7 @@ special:
    Suffer 1 point of Str, Per, or Con drain &
    Heal 1 (can only affect a creature once per day) &
    Suffer 1 necrotic damage]
-  Spore Cloud [recharge 6 p]: >
+  Spore Cloud [recharge 6 p] @: >
    All non-fungal creatures within 3 fathoms of the grove keeper must make a
    Con check against one of the grove keeper's spores.
 senses:

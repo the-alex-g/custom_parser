@@ -15,7 +15,8 @@ DICE = {
     "big":[4, 6, 8, 8, 10, 10, 12],
     "med":[6, 4, 6, 6, 8, 8, 10],
     "sm1":[8, 10, 4, 4, 6, 6, 8],
-    "sm2":[8, 10, 10, 12, 6, 6, 8]
+    "sm2":[8, 10, 10, 12, 6, 6, 8],
+    "vsm":[10, 12, 12, 12, 4, 4, 6]
 }
 RANGES = {
     "bow":"12/50",
@@ -442,8 +443,17 @@ def eval_string(string, params):
     indentation_level = 0
     nested = False
     in_comment = False
+    escaping = False
     for char in string:
-        if char == "#":
+        if escaping:
+            if field_started:
+                field += char
+            else:
+                updated_string += char
+            escaping = False
+        elif char == "@":
+            escaping = True
+        elif char == "#":
             in_comment = not in_comment
         elif not in_comment:
             if char == "[":

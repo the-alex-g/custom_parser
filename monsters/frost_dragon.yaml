@@ -22,7 +22,7 @@ attack:
 - 2x [attack 10] slashing (claws)
 - "[attack 8] bludgeoning (tail)"
 special:
- Ice Breath [recharge 5-6 p c]: >
+ Ice Breath [recharge 5-6 p c] @: >
   All creatures in an 8-fathom cone suffer a d6/5 cold piercing ranged attack.
 movement:
 - f

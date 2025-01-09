@@ -20,13 +20,11 @@ languages:
 - ANCIENT
 - common
 variants:
-- name: Barrow-Wight
-  text: >
-   The barrow-wight gains an additional attack option: [attack sm1] cold unholy necrotic (grasp)
-   [newline]
-   Any creature hit by the wight's grasp attack must succeed on a [check det det] or suffer one
-   point of Str drain.
-- name: Draugr
-  text: >
-   Once per day, the wight can increase its size by 2, giving it +2 Str and -2 Evd. The size
-   change lasts for one minute.
+ Barrow-Wight: >
+  The barrow-wight gains an additional attack option: [attack sm1] cold unholy necrotic (grasp)
+  [newline]
+  Any creature hit by the wight's grasp attack must succeed on a [check det det] or suffer one
+  point of Str drain.
+ Draugr: >
+  Once per day, the wight can increase its size by 2, giving it +2 Str and -2 Evd. The size
+  change lasts for one minute.

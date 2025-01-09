@@ -292,6 +292,8 @@ def create_monster(monster):
         shield_evd
     )
     level = get_level(health, evasion, monster, bonus_dict)
+
+    print("compiling", name, f"({level})")
     
     string = "\\section*{" + headername + "}" + f"[text i {pp.get_key_if_exists(monster, "flavor", "")}][newline med][label <{headername}>]"
     string += f"[text sc {alignment} {monster["type"]} ({level})]"
@@ -324,16 +326,20 @@ def create_monster(monster):
         ability_name_dict = pp.get_dict_by_name(monster["special"])
         for ability_name in ability_name_dict:
             ability = ability_name_dict[ability_name]
-            string += LINEBREAK + f"[bold {ability_name}]. {ability}[newline]"
+            if ability_name.endswith(" @"):
+                string += LINEBREAK + "\\includegraphics@[scale=0.45@]{actionicon} "
+                string += f"[bold {ability_name[0:-2]}]. {ability}[newline]"
+            else:
+                string += LINEBREAK + f"[bold {ability_name}]. {ability}[newline]"
     
     if "spellcasting" in monster:
         string += LINEBREAK + get_monster_spells(monster["spellcasting"])
     
     if "variants" in monster:
         string += LINEBREAK + f"[bold Variants][newline][halfline]"
-        variant_name_dict = pp.get_dict_by_name(monster["variants"])
-        for variant_name in variant_name_dict:
-            string += f"[bold {variant_name}]. {variant_name_dict[variant_name]["text"]}[newline]" + LINEBREAK
+        for variant_name in monster["variants"]:
+            string += f"[bold {variant_name}]. {monster["variants"][variant_name]}[newline]"
+            string += LINEBREAK
 
     if "text" in monster:
         string += LINEBREAK + monster["text"]
@@ -342,8 +348,6 @@ def create_monster(monster):
 
     add_to_appendix("Monsters by Rating", headername, level)
     add_to_appendix("Monsters by Type", headername, monster["type"].title())
-
-    print("compiled", name, f"({level})")
 
     return brand.eval_string(string, params)
 

@@ -1,0 +1,21 @@
+name: Giant Nautilus
+size: 3
+type: animal
+armor: 6
+bonuses:
+ str: 2
+ dex: 2
+ spd: -1
+ con: 2
+ int: -4
+ cha: -1
+ det: 1
+attack:
+- 3
+- 3x [attack vsm] bludgeoning (tentacle)
+variants:
+ Golden Nautilus: >
+  These nautiluses have a thick coat of golden algae-like slime on their shells. They have +1 Con,
+  -1 Spd, and resistance to cold damage.
+ Sky Nautilus: >
+  These nautiluses have a hover speed equal to their base speed and can breathe both air and water.

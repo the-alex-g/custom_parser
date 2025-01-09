@@ -13,7 +13,7 @@ attack:
 - 1
 - "[attack 4] bludgeoning (slam)"
 special:
-  Fungal Symbiote (1/day): >
+  Fungal Symbiote (1/day) @: >
    The bolete gardener can implant a fungal symbiote into a nearby creature.
    For a number of hours equal to 1d4 + 4 - the target's Con, the target gains
    one of the following benefits:

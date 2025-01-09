@@ -12,6 +12,9 @@ def get_random(array):
 
 def run():
     running = True
+
+    print("default charset is alphabet\nuse - and + to switch between adding and removing\nuse * to group the next two characters")
+    
     while running:
         consonants = []
 

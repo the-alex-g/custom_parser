@@ -25,7 +25,7 @@ special:
   Shadow Stealth: >
    While in darkness, the shadow dragon is invisible. While in dim light, it can only be seen by
    creatures with a special sense. Other shadow dragons can still see invisible shadow dragons.
-  Breath of Darkness [recharge 5-6 p c]: >
+  Breath of Darkness [recharge 5-6 p c] @: >
    The dragon exhales liquid shadow, which coalesces into a sphere 6 fathoms in diameter, centered
    on a point within 8 fathoms of the dragon. This area is utterly dark, and any creature that starts
    its turn in the region suffers d4/4 necrotic damage. If the creature takes any damage, they must

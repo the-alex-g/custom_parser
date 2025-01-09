@@ -16,7 +16,6 @@ traits:
 special:
   Pseudopod: If a creature is hit by the pseudopod and wearing non-metal armor, its armor takes 1 damage.
 variants:
-- name: Psychoactive Slime
-  text: >
-   Creatures hit by the psychoactive slime's pseudopod attack must succeed on a
-   Det vs Int check or suffer 1 unblockable psychic damage.
+ Psychoactive Slime: >
+  Creatures hit by the psychoactive slime's pseudopod attack must succeed on a
+  Det vs Int check or suffer 1 unblockable psychic damage.

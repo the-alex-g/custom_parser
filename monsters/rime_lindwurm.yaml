@@ -28,7 +28,7 @@ vulnerable:
 movement:
 - s
 special:
-  Frost Breath (recharge 6): >
+  Frost Breath (recharge 6) @: >
    All creatures in a 4-fathom cone emanating from the lindwurm take 3 cold
    damage, halved by a [check evd med].
 extra_damage:

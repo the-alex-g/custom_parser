@@ -33,11 +33,11 @@ senses:
 traits:
 - Amphibious
 special:
-  Boon of Sea Breathing: >
+  Boon of Sea Breathing @: >
    The sea dragon can bestow the ability to breathe underwater at will. This
    ability lasts until the dragon removes it, after one day, or if the
    recipient is more than a mile away from the dragon.
-  Shapeshift: >
-   Once per day, the sea dragon can change its form to that of any humanoid
+  Shapeshift (1/day) @: >
+   The sea dragon can change its form to that of any humanoid
    or animal. Its statistics remain the same, except it has the movement forms
    and attacks of its new shape.

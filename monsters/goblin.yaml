@@ -17,10 +17,8 @@ traits:
 languages:
 - GOBLIN
 - common
-movement:
-- c
 variants:
-- name: Plains Goblin
-  text: These goblins live above ground, losing their light aversion trait and their ability to climb.
+ Plains Goblin: >
+  These goblins live above ground, losing their light aversion trait and their ability to climb.
 senses:
 - dimsight

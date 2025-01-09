@@ -24,16 +24,14 @@ movement:
 languages:
 - draconic (wyvern)
 variants:
-- name: Venomtail Wyvern
-  text: >
-   A venomtail wyvern has resistance to poison, and its tail barb attack
-   inflicts wyvern venom.
-   [newline]
-   [quad][text ib Wyvern Venom (poison)]. Once per round for three rounds, the
-   affected creature must make a [check con easy], taking 1 point of Str drain
-   on a success or 2 points of Con drain on a failure.
-- name: Acidblood Wyvern
-  text: >
-   An acidblood wyvern has immunity to acid damage. Whenever a creature hits
-   the wyvern with a melee weapon without reach, that creature must succeed on
-   an [check evd med] or take 1 acid damage.
+ Venomtail Wyvern: >
+  A venomtail wyvern has resistance to poison, and its tail barb attack
+  inflicts wyvern venom.
+  [newline]
+  [quad][text ib Wyvern Venom (poison)]. Once per round for three rounds, the
+  affected creature must make a [check con easy], taking 1 point of Str drain
+  on a success or 2 points of Con drain on a failure.
+ Acidblood Wyvern: >
+  An acidblood wyvern has immunity to acid damage. Whenever a creature hits
+  the wyvern with a melee weapon without reach, that creature must succeed on
+  an [check evd med] or take 1 acid damage.

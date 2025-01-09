@@ -20,7 +20,7 @@ resist:
 senses:
 - dimsight
 special:
-  Explosive Globes (3/day):
+  Explosive Globes (3/day) @:
    The wood walker ejects a cloud of floating spheres that fill the area within
    4 fathoms. For each fathom that a non-plant creature moves within the area,
    they must succeed on a [check dex easy] or take d4/4 fire damage as the

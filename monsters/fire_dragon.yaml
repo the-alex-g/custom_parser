@@ -21,7 +21,7 @@ attack:
 - 2x [attack med] slashing (claws)
 - "[attack sm1] bludgeoning (tail)"
 special:
- Fire Breath [recharge 5-6 p c]: >
+ Fire Breath [recharge 5-6 p c] @: >
   As an action, all creatures in a 8-fathom cone emanating from the dragon take [size] fire damage, halved by an [check evd impossible].
 movement:
 - f

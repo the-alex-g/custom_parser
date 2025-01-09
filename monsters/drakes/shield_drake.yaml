@@ -15,7 +15,7 @@ attack:
 - "[attack med] piercing (bite)"
 armor: 6
 special:
-  Breath Weapon (Recharge 6): >
+  Breath Weapon (Recharge 6) @: >
    The drake exhales a cloud of bubbles in a 5-fathom cone. All creatures in the
    cone must succeed on a [check Evd med] or be hit by a bubble. A creature hit
    by a bubble suffers from one of the following effects, depending on which

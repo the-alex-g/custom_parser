@@ -1,0 +1,23 @@
+name: Crystalline Skeleton
+headername: Skeleton, Crystalline
+size: 0
+type: undead
+alignment: NE
+flavor: This skeleton's bones are encrusted in a layer of crystals.
+armor: 1
+bonuses:
+ str: 1
+ dex: -1
+ spd: -1
+ con: 3
+ int: -3
+ per: -1
+ cha: -2
+ det: 1
+attack:
+- 1
+- "[attack med] bludgeoning (encrusting slam)"
+special:
+ Encrusting Slam: >
+  The target must succeed on a [check con med] or suffer 1 point of Spd drain as small crystals
+  grow from their skin. Removing the Spd drain also removes the crystals.

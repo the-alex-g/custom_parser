@@ -17,8 +17,8 @@ movement:
 - f
 - b
 variants:
-- name: Fire Beetle
-  text: >
-   Fire beetles have glowing glands that shed light (1/2). The glands continue to glow for 1d6 days after the beetle's death.
+ Fire Beetle: >
+  Fire beetles have glowing glands that shed light (1/2). The glands continue to glow for 1d6 days
+  after the beetle's death.
 senses:
 - dimsight

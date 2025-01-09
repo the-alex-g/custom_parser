@@ -16,7 +16,7 @@ attack:
 - 1
 - "[attack med] unblockable unholy (destroying touch)"
 special:
- Consume: >
+ Consume @: >
   All non-daemons within 6 fathoms of the [name] must succeed on a [check str det] or be pulled
   2 fathoms toward the daemon.
  Destroying Touch: >
