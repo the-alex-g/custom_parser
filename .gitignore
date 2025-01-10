@@ -2,3 +2,4 @@ document.tex
 __pycache__
 *~
 secret_stuff/
+spell_utility.py
