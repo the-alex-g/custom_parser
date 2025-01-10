@@ -1,7 +1,9 @@
 name: Skeleton
 size: 0
 type: undead
-flavor: Countless pinpricks of blue light emerged from the darkness around us. Each glowing point was the eye of a skeleton.
+flavor: >
+ [qmark Countless pinpricks of blue light emerged from the darkness around us.
+ Each glowing point was the eye of a skeleton.]
 alignment: ne
 bonuses:
  int: -4
@@ -12,3 +14,5 @@ attack:
 - "[attack 4] slashing (scratch)"
 vulnerable:
 - bludgeoning
+resist:
+- piercing

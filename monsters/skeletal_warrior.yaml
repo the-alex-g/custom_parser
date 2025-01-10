@@ -15,4 +15,6 @@ attack:
 armor: 2
 vulnerable:
 - bludgeoning
+resist:
+- piercing
 shield: targe
