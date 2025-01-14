@@ -1,0 +1,10 @@
+name: Circle of the Arcanum
+spells:
+ Arcane Armor:
+  cost: 1
+  duration: rounds
+  text: You gain one shield point that lasts until the spell ends.
+ Arcane Dart:
+  cost: 1
+  duration: instant
+  text: Make a 1-damage magic attack with range 10.

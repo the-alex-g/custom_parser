@@ -1,0 +1,27 @@
+name: Moss Salamander
+type: plant
+size: 1
+armor: 1
+str: 3
+con: 1
+int: -4
+per: 1
+det: 1
+vulnerable:
+- fire
+resist:
+- cold
+- lightning
+senses:
+- tremorsense
+attack:
+- 2
+- 2x [attack sm1] slashing (claw)
+- "[attack med] piercing (bite)"
+special:
+ Moss Circle (1/day) @: >
+  A circle of moss 4 fathoms in diameter appears, centered on the salamander.
+  When a creature ends its turn inside the circle, the salamander may either
+  give that creature 1 shield point that lasts until the end of its next turn,
+  or force it to succeed on a [check con per] or take 1 necrotic damage. Disease
+  immunity and resistance apply.

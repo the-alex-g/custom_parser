@@ -1,0 +1,15 @@
+name: Ashen Raider
+type: monster
+size: 0
+bonuses:
+ str: 1
+ con: 1
+ int: -3
+ per: -2
+ cha: -4
+armor: leather
+attack:
+- 1
+- "[weapon <bastard sword>]"
+traits:
+- Dark Origins

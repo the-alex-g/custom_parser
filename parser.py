@@ -186,7 +186,7 @@ def calculate_dpr(monster, bonuses):
     return damage
 
 
-def get_monster_spells(spellcasting):
+def get_monster_spells(spellcasting, bonuses):
     circles = {}
     spells = spellcasting["spells"]
     for spell in spells:
@@ -198,8 +198,17 @@ def get_monster_spells(spellcasting):
             circle = spell_data[spell]["circle"]
             spell += f" ({spell_data[spell]["cost"]})"
         pp.append_to_key(circles, circle, spell)
-    
-    string = f"[bold Spells ({spellcasting["type"].title()})][newline]"
+
+    if "type" in spellcasting:
+        spell_type = spellcasting["type"]
+        if spell_type == "wizard":
+            ability = "int"
+            mana = 8 + 2 * pp.get_key_if_exists(bonuses, "mana", 0)
+        mana += pp.get_key_if_exists(spellcasting, "mana", 0)
+    else:
+        ability = spellcasting["ability"].title()
+        mana = spellcasting["mana"]
+    string = f"[bold Spells ({ability}, {mana} mp)][newline]"
     for circle in sorted(circles):
         string += f"[bold {circle}] [italics {pp.comma_separate(sorted(circles[circle]))}][newline]"
     return string
@@ -220,6 +229,17 @@ def get_movement(spd, modes, size):
     return string
 
 
+def get_bonus_dict(monster):
+    if "bonuses" in monster:
+        bonus_dict = pp.get_key_if_exists(monster, "bonuses", {})
+    else:
+        bonus_dict = {}
+        for ability in ABILITIES:
+            if ability in monster:
+                bonus_dict[ability] = monster[ability]
+    return bonus_dict
+
+
 def create_monster(monster):
     global monster_count
 
@@ -237,7 +257,7 @@ def create_monster(monster):
     headername = pp.headername(monster)
     size = monster["size"]
     alignment = pp.get_key_if_exists(monster, "alignment", "").upper()
-    bonus_dict = pp.get_key_if_exists(monster, "bonuses", {})
+    bonus_dict = get_bonus_dict(monster)
     health_bonus = 0
     movement = get_movement(pp.get_key_if_exists(bonus_dict, "spd", 0), pp.get_key_if_exists(monster, "movement", []), size)
 
@@ -296,7 +316,7 @@ def create_monster(monster):
     print("compiling", name, f"({level})")
     
     string = "\\section*{" + headername + "}" + f"[text i {pp.get_key_if_exists(monster, "flavor", "")}][newline med][label <{headername}>]"
-    string += f"[text sc {alignment} {monster["type"]} ({level})]"
+    string += f"[text sc {monster["type"]} ({level})]"
 
     if "tags" in monster:
         string += f" ({pp.comma_separate(sorted(monster["tags"]))})"
@@ -333,7 +353,7 @@ def create_monster(monster):
                 string += LINEBREAK + f"[bold {ability_name}]. {ability}[newline]"
     
     if "spellcasting" in monster:
-        string += LINEBREAK + get_monster_spells(monster["spellcasting"])
+        string += LINEBREAK + get_monster_spells(monster["spellcasting"], bonus_dict)
     
     if "variants" in monster:
         string += LINEBREAK + f"[bold Variants][newline][halfline]"
@@ -380,9 +400,15 @@ def create_deity(deity):
     {create_circle(private_circle, title=False)}""", {})
 
 
-def create_circle(circle, title=True):
+def load_spell_data():
     global spell_data
+    raw_data = pp.get_yaml_from_directory("spell_circles")
+    for circle in raw_data:
+        for spell_name in circle["spells"]:
+            spell_data[spell_name] = {"circle":circle["name"], "cost":circle["spells"][spell_name]["cost"]}
 
+
+def create_circle(circle, title=True):
     if title:
         string = f"[section 1 {circle["name"]}]"
     else:
@@ -390,8 +416,6 @@ def create_circle(circle, title=True):
     spells = pp.sort_dictionary(circle["spells"])
     for spell_name in spells:
         spell = spells[spell_name]
-
-        spell_data[spell_name] = {"circle":circle["name"], "cost":spell["cost"]}
 
         string += f"""[bold {spell_name} ({spell["cost"]})][newline][italics Duration: {spell["duration"]}]
 [newline]{spell["text"]}[newline big]"""
@@ -448,6 +472,8 @@ def create_appendices():
 
 def create_doc():
     global monster_count
+
+    load_spell_data()
 
     latex_file = open("document/document.tex", "w")
     for line in open("document/preamble.tex").readlines():

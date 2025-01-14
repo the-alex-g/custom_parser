@@ -459,17 +459,13 @@ You are proficient with weapons up to d6 and armor up to type 2.
 
 Your spellcasting ability is Int. You have a pool of 8 + 2 x Int mana points.
 
-You can cast the following spells without a spellstone:
-
 Wizards can cast spells from all circles except life, sun, moon, beasts, and growth without penalty.
 Spells from those circles cost twice as much to cast.
 
-[text ib Arcane Armor.] You gain one shield point that lasts until the start of
-your next turn.
-
-[text ib Arcane Dart.] Make a 1-damage magic attack with range 10.
-
-#[newpage]
+# FIXME something special about Arcane Armor and Arcane Dart from the Circle of Arcanum #
+# whether it's free casting, or casting without a spellstone, or both, or nothing, etc. #
+#
+[newpage]
 
 [section 1 Direct [dnd] Conversion]
 

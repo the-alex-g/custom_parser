@@ -12,3 +12,6 @@ Tree Stride: The [name] can teleport between living trees that are no more than 
 Amphibious: The [name] can breathe air and water.
 Aquatic: The [name] can only breathe underwater.
 Acidic Body: Any creature that touches the [name] takes 1 acid damage. Hitting the [name] with a non-metal weapon deals 1 damage to that weapon.
+Dark Origins: >
+ Any effect that applies to undead or constructs has a [percent 50] chance of
+ affecting the [name].

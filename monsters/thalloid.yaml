@@ -1,0 +1,17 @@
+type: plant
+name: Thalloid
+size: -3
+armor: 1
+dex: 1
+int: -4
+cha: -2
+vulnerable:
+- fire
+movement:
+- b
+attack:
+- 1
+- 1 slashing (kick)
+senses:
+- tremorsense
+- dimsight

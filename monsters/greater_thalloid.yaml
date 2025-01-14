@@ -1,0 +1,20 @@
+name: Greater Thalloid
+headername: Thalloid, Greater
+size: -1
+armor: 2
+movement:
+- b
+str: 1
+con: 1
+int: -4
+cha: -2
+det: 1
+vulnerable:
+- fire
+attack:
+- 1
+- "[attack med] bludgeoning (stomp)"
+senses:
+- tremorsense
+- dimsight
+type: plant
