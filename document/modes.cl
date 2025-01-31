@@ -5,7 +5,7 @@
 	("<.+?>" . 'font-lock-string-face)
 	("\\[[^\s]*\\|\\]" . 'font-lock-function-name-face)
 	("#" . 'font-lock-comment-delimiter-face)
-	("&" . 'font-lock-keyword-face)))
+	("&[^\s\n]*" . 'font-lock-keyword-face)))
 
 (define-derived-mode brand-mode fundamental-mode "brand"
   "major mode for editing brand language code."

@@ -13,3 +13,19 @@ attack:
 - "[weapon <bastard sword>]"
 traits:
 - Dark Origins
+flavor: >
+ A humanoid creature with brown-red skin charges at you, brandishing a large
+ sword. Its features are soft, like they had been sculpted out of clay, but its
+ black eyes gleam with hatred.
+text: >
+ Ashen raiders are evil minions created by reciting an incantation over a mixture
+ of blood, ash, and mud. The blood must come from the ritual sacrifice of a
+ sentient creature, with a single sacrifice supplying enough blood to create
+ at more than 20 ashen raiders. The blood of more powerful creatures can be
+ used to make more powerful minions.
+ [newline]
+ Ashen raiders can understand and obey simple commands from their creator, but their essential nature
+ is one of hatred. Left to their own devices, a group of ashen raiders will destroy
+ everything within reach, including each other.
+ [newline]
+ When an ashen raider dies, its body collapses into viscous mud.

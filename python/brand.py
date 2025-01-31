@@ -221,24 +221,46 @@ def table(cols, *entries):
     if "X" in cols:
         tablestring += "x}{" + f"{TABLEWIDTH}\\columnwidth"
     tablestring += "}{|"
+    colcount = 0
     for char in cols:
-        tablestring += char + "|"
+        if char == "|":
+            tablestring += char
+        else:
+            colcount += 1
+            tablestring += char + "|"
     tablestring += "}\\hline "
     line_count = 0
     for item in entries:
-        if item == "&":
-            line_count += 1
-            if line_count < len(cols):
-                tablestring += "&"
+        if type(item) == str and item.startswith("&"):
+            count = 0
+            if item == "&":
+                count = 1
             else:
-                tablestring += NEWLINE + "[2pt]\\hline "
-                line_count = 0
+                count = int(item[1:])
+            for x in range(0, count):
+                line_count += 1
+                if line_count < colcount:
+                    tablestring += "&"
+                else:
+                    tablestring += NEWLINE + "[2pt]\\hline "
+                    line_count = 0
+        elif item == "@":
+            line_count = 0
         else:
              tablestring += str(item) + " "
     tablestring += NEWLINE + "\\hline\\end{tabular"
     if "X" in cols:
         tablestring += "x"
     return tablestring + "}" + NEWLINE + LINEBREAK
+
+
+def titulartable(cols, title, *entries):
+    return table(
+        cols,
+        " &\\multicolumn{" + str(len(cols) - 1) + "}{|c|}{" + title + "}" + NEWLINE + "\\hline ",
+        "@",
+        *entries
+    )
 
 
 # returns a bulleted list of items

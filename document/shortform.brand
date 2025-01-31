@@ -503,6 +503,33 @@ rolled. Adjust as needed.#
 [include monsters monsters]
 [include appendicies]
 
+[section 1 NPC Armor]
+
+The following table shows the amount of damage that passes through the target's defense based on
+the target's armor type and the given amount of armor penetration.
+[titulartable ccccccc <Armor Type>
+Piercing  & 0 or 1 & 2 & 3 & 4 & 5 & 6 &
+1 & 0 & 0 & 1 & 1 & 1 & 2 &
+2 & 0 & 0 & 1 & 2 & 2 & 3 &
+3 & 0 & 1 & 1 & 2 & 3 & 4 &
+4 & 0 & 1 & 1 & 2 & 3 & 5]
+
+The next table shows the amount by which a target's defense is reduced when its armor is dealt
+damage.
+[titulartable cccccccc <Armor Type>
+Base Health  & 0 & 1 & 2 & 3 & 4 & 5 & 6 &
+1 & 0 & 0 & 1 & 0 & 1 & 1 & 2 & 
+2 & 0 & 1 & 0 & 1 & 2 & 2 & 4 & 
+3 & 0 & 1 & 0 & 2 & 3 & 3 & 6 & 
+4 & 0 & 1 & 1 & 2 & 4 & 4 & 8 & 
+5 & 0 & 2 & 1 & 2 & 5 & 5 & 10 & 
+6 & 0 & 2 & 1 & 3 & 6 & 6 & 12 & 
+7 & 0 & 2 & 1 & 4 & 7 & 7 & 14 & 
+8 & 0 & 3 & 1 & 4 & 8 & 8 & 16 & 
+9 & 0 & 3 & 2 & 4 & 9 & 9 & 18 & 
+10 & 0 & 3 & 2 & 5 & 10 & 10 & 20]
+
+
 [section 1 Creating NPCs]
 
 First, determine the creature's type and size.
@@ -529,7 +556,7 @@ and Spirits usually have darksight. Oozes usually have blindsight and the [text 
 Undead and Constructs also always have the [text i lifeless] trait.
 
 By default, flight speed is equal to 6 x (walking speed + Size), rounded up to a multiple of 5, and
-burrowing and tunnelling speeds are equal to half walking speed. All other movement modes default to
+burrowing and tunneling speeds are equal to half walking speed. All other movement modes default to
 walking speed.
 
 Then, you can calculate the creature's rank. To do so, you will need to modify the creature's health
@@ -548,13 +575,13 @@ Calculate average damage per round by doing the following:
 First, calculate the average value of the creature's attacks. Use the following table to find
 the damage of an attack by matching die size and threshold. Multiply the average by the number
 of attacks per round.
-[table cccccccccc
- & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 &
-d4 & 1 & & & & & & & & &
-d6 & & 1.25 & 1 & & & & & & &
-d8 & & 1.8 & 1.4 & 1.1 & 1 & & & & &
-d10 & & 2.25 & 1.9 & 1.6 & 1.3 & 1.1 & 1 & & &
-d12 & & 2.6 & 2.25 & 1.9 & 1.7 & 1.4 & 1.25 & 1.1 & 1]
+[titulartable cccccccccc <Threshold>
+Die & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 &
+d4 & 1 &9
+d6 &2 1.25 & 1 &7
+d8 &2 1.8 & 1.4 & 1.1 & 1 &5
+d10 &2 2.25 & 1.9 & 1.6 & 1.3 & 1.1 & 1 &3
+d12 &2 2.6 & 2.25 & 1.9 & 1.7 & 1.4 & 1.25 & 1.1 & 1]
 
 Then, average the attack value with the expected damage of all the creature's damage-dealing actions.
 Assume half of the targets, rounded up, fail any checks to avoid damage, and that area-of-effect
@@ -572,11 +599,30 @@ Multiply the creature's Evasion, DPR, and modified Health. Divide by ten and con
 101-150 & VII &
 150+ & VIII]
 
+
 #
 INSPIRATIONS
 
+ROLE-PLAYING GAMES
 Crown and Skull
 EZD6
 Burning Wheel
-Tolkien
+Dungeons and Dragons
+Pathfinder
+Dungeon Crawl Classics
+
+TOLKIEN'S WORKS
+
+The Lord of the Rings
+The Silmarillion
+The Smith of Wooton Major
+The Hobbit
+Unfinished Tales
+On Fairy-Stories
+
+OTHER BOOKS
+
+Inheritance Cycle
+Napoleon of Notting Hill
+Wingfeather Saga
 #

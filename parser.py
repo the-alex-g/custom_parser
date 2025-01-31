@@ -59,9 +59,11 @@ def calculate_evade(bonuses, size, dodge, shield):
         evade -= 1
     return evade + shield
 
+def get_base_health(size, bonus):
+    return BASE_HEALTH + bonus + size
 
-def calculate_health(size, bonus, armor):
-    health = (BASE_HEALTH + bonus + size) * ARMOR_HEALTH_MODS[armor]
+def calculate_health(base, armor):
+    health = base * ARMOR_HEALTH_MODS[armor]
     return max(1, floor(health))
 
 
@@ -294,7 +296,8 @@ def create_monster(monster):
     params = {"name":name.lower(), "size":size}
     for ability in ABILITIES:
         params[ability] = pp.get_key_if_exists(bonus_dict, ability, 0)
-    health = calculate_health(size, health_bonus, armor)
+    base_health = get_base_health(size, health_bonus)
+    health = calculate_health(base_health, armor)
     shield = pp.get_key_if_exists(monster, "shield", "").lower()
     shield_evd = 0
     if shield in SHIELD_EVD:
@@ -315,15 +318,25 @@ def create_monster(monster):
 
     print("compiling", name, f"({level})")
     
-    string = "\\section*{" + headername + "}" + f"[text i {pp.get_key_if_exists(monster, "flavor", "")}][newline med][label <{headername}>]"
-    string += f"[text sc {monster["type"]} ({level})]"
+    string = "\\section*{" + headername + "}"
+    if "flavor" in monster:
+        string += f"[text i {pp.get_key_if_exists(monster, "flavor", "")}][newline med]"
+    string += f"[label <{headername}>][text sc {monster["type"]} ({level})]"
 
     if "tags" in monster:
         string += f" ({pp.comma_separate(sorted(monster["tags"]))})"
 
     string += NEWLINE + get_ability_list(bonus_dict) + NEWLINE
-    string += f"[bold Size] {size}, [bold Health] {health}, "
-    string += f"[bold Arm] {armor}, [bold Evd] {evasion}" + NEWLINE
+    string += f"[bold Size] {size}, [bold Health] "
+    if armor == 0:
+        string += f"{health}, "
+    elif base_health <= 0:
+        string += f"{health}, "
+    else:
+        string += f"{base_health}/{health - base_health}, "
+    if armor > 0:
+        string += f"[bold Arm] {armor}, "
+    string += f"[bold Evd] {evasion}" + NEWLINE
     string += f"[bold Mv] {movement}" + NEWLINE
 
     for field in ("immune", "resist", "vulnerable"):
