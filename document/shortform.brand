@@ -404,8 +404,8 @@ Druids can cast spells from the circles of air, earth, fire, water, ice, growth,
 and beasts without penalty. Spells from other circles cost twice as much to cast, and the cost is not
 reduced when casting those spells in a place of natural beauty.
 
-# does this make low-level druids OP? And do I care? #
-# Balance is not one of my greatest design concerns. #
+# does this make low-level druids OP? And do I care?
+Balance is not one of my greatest design concerns. #
 When you become a druid, choose one of the following options:
 
 [text ib Animal Companion.] You have an animal companion, which can be of any
@@ -462,8 +462,9 @@ Your spellcasting ability is Int. You have a pool of 8 + 2 x Int mana points.
 Wizards can cast spells from all circles except life, sun, moon, beasts, and growth without penalty.
 Spells from those circles cost twice as much to cast.
 
-# FIXME something special about Arcane Armor and Arcane Dart from the Circle of Arcanum #
-# whether it's free casting, or casting without a spellstone, or both, or nothing, etc. #
+# FIXME something special about Arcane Armor and Arcane Dart from the Circle of
+Arcanum
+whether it's free casting, or casting without a spellstone, or both, or nothing, etc. #
 #
 [newpage]
 
