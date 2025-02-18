@@ -68,7 +68,7 @@ def calculate_health(base, armor):
 
 
 def get_monster_array_field(name, monster):
-    return f"[bold {name}] {pp.comma_separate(sorted(monster[name.lower()]))}[newline]"
+    return f"[bold {name}] {pp.comma_separate(sorted(monster[name.lower()]))} "
 
 
 def add_to_appendix(appendix, item_name, categorizer):
@@ -217,17 +217,18 @@ def get_monster_spells(spellcasting, bonuses):
 
 
 def get_movement(spd, modes, size):
+    names = {"b":"burrow", "t":"tunnel", "s":"swim", "f":"fly", "h":"hover"}
     base = max(1, 6 + spd * 2)
     string = str(base)
     for mode in sorted(modes):
         if "=" in mode:
-            string += f", {mode[0]} {mode[mode.find("=") + 1:]}"
+            string += f", {names[mode[0]]} {mode[mode.find("=") + 1:]}"
         elif mode == "f":
-            string += f", f {5 * ceil(1.2 * (base + size))}" # equals 6 * (base + size), rounded up to a multiple of 5
+            string += f", {names[mode]} {5 * ceil(1.2 * (base + size))}" # equals 6 * (base + size), rounded up to a multiple of 5
         elif mode in "bt":
-            string += f", {mode} {ceil(0.5 * base)}"
+            string += f", {names[mode]} {ceil(0.5 * base)}"
         else:
-            string += f", {mode} {base}"
+            string += f", {names[mode]} {base}"
     return string
 
 
@@ -316,54 +317,55 @@ def create_monster(monster):
     )
     level = get_level(health, evasion, monster, bonus_dict)
 
-    print("compiling", name, f"({level})")
+    print(f"compiling {name} ({level})")
     
     string = "\\section*{" + headername + "}"
     if "flavor" in monster:
         string += f"[text i {pp.get_key_if_exists(monster, "flavor", "")}][newline med]"
-    string += f"[label <{headername}>][text sc {monster["type"]} ({level})]"
+    string += f"[label <{headername}>][text sc {monster["type"]}]"
 
     if "tags" in monster:
         string += f" ({pp.comma_separate(sorted(monster["tags"]))})"
 
     string += NEWLINE + get_ability_list(bonus_dict) + NEWLINE
-    string += f"[bold Size] {size}, [bold Health] "
+    string += f"[bold Size] {size} [bold Health] "
     if armor == 0:
-        string += f"{health}, "
+        string += f"{health} "
     elif base_health <= 0:
-        string += f"{health}, "
+        string += f"{health} "
     else:
-        string += f"{base_health}/{health - base_health}, "
+        string += f"{base_health}/{health - base_health} "
     if armor > 0:
-        string += f"[bold Arm] {armor}, "
-    string += f"[bold Evd] {evasion}" + NEWLINE
-    string += f"[bold Mv] {movement}" + NEWLINE
+        string += f"[bold Arm] {armor} "
+    string += f"[bold Evd] {evasion} "
+    string += f"[bold Mv] {movement} "
 
     for field in ("immune", "resist", "vulnerable"):
         if field in monster:
             string += get_monster_array_field(field.title(), monster)
-
-    if "spell resist" in monster:
-        string += f"[bold Spell Resist] {monster["spell resist"]}[newline]"
-    
-    if "attack" in monster:
-        string += f"[bold Attack] {monster["attack"][0]}/round[newline][quad] {pp.separate(monster["attack"][1:], spacer="[newline] [quad] ")}[newline]"
 
     if "languages" in monster:
         string += get_monster_array_field("Languages", monster)
     
     if "senses" in monster:
         string += get_monster_array_field("Senses", monster)
+
+    if "spell resist" in monster:
+        string += f"[bold Spell Resist] {monster["spell resist"]}"
+    
+    if "attack" in monster:
+        string += f"[newline][bold Attack] {monster["attack"][0]}/round[newline][quad] {pp.separate(monster["attack"][1:], spacer="[newline] [quad] ")}"
     
     if "special" in monster:
         ability_name_dict = pp.get_dict_by_name(monster["special"])
         for ability_name in ability_name_dict:
             ability = ability_name_dict[ability_name]
+            string += NEWLINE
             if ability_name.endswith(" @"):
                 string += LINEBREAK + "\\includegraphics@[scale=0.45@]{actionicon} "
-                string += f"[bold {ability_name[0:-2]}]. {ability}[newline]"
+                string += f"[bold {ability_name[0:-2]}]. {ability}"
             else:
-                string += LINEBREAK + f"[bold {ability_name}]. {ability}[newline]"
+                string += LINEBREAK + f"[bold {ability_name}]. {ability}"
     
     if "spellcasting" in monster:
         string += LINEBREAK + get_monster_spells(monster["spellcasting"], bonus_dict)
@@ -379,7 +381,7 @@ def create_monster(monster):
 
     monster_count += 1
 
-    add_to_appendix("Monsters by Rating", headername, level)
+    #add_to_appendix("Monsters by Rating", headername, level)
     add_to_appendix("Monsters by Type", headername, monster["type"].title())
 
     return brand.eval_string(string, params)

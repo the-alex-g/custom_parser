@@ -28,3 +28,5 @@ special:
    [newline]
    [quad][text bi Cavitation Bubbles.] The creature takes 2 bludgeoning damage
    as the bubble explodes.
+movement:
+- f

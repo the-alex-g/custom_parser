@@ -1,0 +1,16 @@
+name: Foofish
+type: animal
+size: 2
+str: 4
+dex: -1
+spd: 2
+con: 2
+armor: 3
+attack:
+- 1
+- "[attack big] slashing (bite, +2 acc)"
+special:
+ Bite: >
+  If the [possessive [name]] bite attack hits, the target's armor takes one damage.
+ Frontal Armor: >
+  Attacks to the [possessive [name]] rear section penetrate 2 armor.
