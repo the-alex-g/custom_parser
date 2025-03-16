@@ -404,7 +404,7 @@ def create_monster(monster):
             string += LINEBREAK
 
     if "text" in monster:
-        string += LINEBREAK + monster["text"]
+        string += NEWLINE + LINEBREAK + monster["text"]
 
     monster_count += 1
 
@@ -460,7 +460,7 @@ def create_spells(spells):
 [italics Duration: {spell["duration"]}]
 [newline]
 {spell["text"]}
-[newline big]"""
+[bigskip]"""
     return brand.eval_string(string, {})
 
 
