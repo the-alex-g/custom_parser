@@ -2,13 +2,18 @@ import yaml
 import os
 from math import floor
 
+_nameless_dict_tracker = 0
 
 # returns headername field if it exists, or name field if it doesn't
 def headername(dictionary):
+    global _nameless_dict_tracker
     if "headername" in dictionary:
         return dictionary["headername"]
-    else:
+    elif "name" in dictionary:
         return dictionary["name"]
+    else:
+        _nameless_dict_tracker += 1
+        return _nameless_dict_tracker - 1
 
 
 # returns shortname field if it exists, or lowercased name field if it doesn't

@@ -499,7 +499,7 @@ Number of damage dealt = number of dice rolled, or an attack of the type of die
 rolled. Adjust as needed.#
 
 [section 0 Spells]
-[include spells spell_circles]
+[include spells spells]
 [section 0 Monsters]
 [include monsters monsters]
 [include appendicies]

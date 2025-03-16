@@ -1,0 +1,87 @@
+Invisibility:
+ duration: minutes
+ rank: 3
+ text: You are invisible for the duration of the spell.
+Silence:
+ duration: minutes
+ rank: 1
+ text: >
+  The area within SD fathoms of where this spell was cast is completely silent.
+Darkness:
+ duration: minutes
+ rank: 1
+ text: >
+  The area within SD fathoms of where this spell was cast is utterly dark. Only
+  magical light can penetrate this darkness.
+Dispel Magic:
+ duration: instant
+ rank: special
+ text: >
+  This spell targets one ongoing spell effect within three fathoms. The rank of
+  this spell is equal to the casting strength of the target spell. If this spell
+  succeeds, the target spell effect ends immediately.
+Disguise Self:
+ duration: hours
+ rank: 1
+ text: >
+  You cloak yourself in an illusion. You can make yourself appear as any sort
+  of humanoid, as long as your illusory dimensions remain within about a foot
+  of your actual size. The illusion fails to hold up to physical inspection, and
+  other creatures that succeed on a Per spell check can determine that the
+  disguise is an illusion.
+Black Tentacles:
+ duration: rounds
+ rank: 2
+ text: >
+  Select a point within eight fathoms. At the start of your turn, you may make
+  a magic shadow spell attack against any number of creatures within two fathoms
+  of that point.
+Arcane Meteor:
+ duration: instant
+ rank: 4
+ text: >
+  Roll spell damage four times and target a point within one furlong. Everything
+  within two fathoms of that point suffers magic fire bludgeoning damage equal
+  to the amount rolled. A successful Evd spell check halves the damage.
+Flight:
+ duration: rounds
+ rank: 2
+ text: >
+  For the duration of the spell, you gain a flying speed equal to your land
+  speed times overflow plus half your SD.
+Teleport:
+ duration: instant
+ rank: 3
+ text: >
+  Roll your spell die and add overflow. Compare the result to the table below.
+  You can teleport to any point you can see or have been before, as long as it
+  is within the indicated distance.
+  [table lccccc
+  Roll & 1-3 & 4-5 & 6-7 & 8-9 & 10+ &
+  Distance & One furlong & Half a mile & One mile & Four miles & No limit]
+Magic Missile:
+ class: lesser offensive
+ duration: instant
+ rank: 1
+ text: >
+  Roll spell damage. You fire that many glowing darts, each one dealing one
+  magic damage to a target within 12 fathoms of you.
+Acid Spheres:
+ class: lesser offensive
+ duration: instant
+ rank: 1
+ text: >
+  Roll spell damage and divide by two, rounding up. You fire that many spheres
+  of acid, each one directed at a target within 8 fathoms of you. For each
+  sphere, the target must succeed at an Evd spell check or suffer one acid
+  damage and another acid damage at the end of its next turn. Either the target
+  or another creature can spend an action to scrape off the acid, preventing
+  the second round of damage.
+Burning Motes:
+ class: lesser offensive
+ duration: instant
+ rank: 1
+ text: >
+  Roll spell damage at +1d. You fire that many flaming darts, each one directed
+  at a target within 10 fathoms of you. For each dart, the target must succeed
+  at an Evd spell check or suffer one piercing fire damage.

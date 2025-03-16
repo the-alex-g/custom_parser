@@ -29,22 +29,30 @@ appendicies = {}
 spell_data = {}
 
 
-def get_ability_list(bonuses):
-    bonuses = bonuses.copy()
-    string = ""
-    for ability in bonuses.copy():
-        if bonuses[ability] == 0:
-            del bonuses[ability]
-    i = 0
-    for ability in ABILITIES:
-        if ability in bonuses:
-            if string != "" and i != 4:
-                string += ", "
-            string += f"[bold {ability.title()}] [format_bonus {bonuses[ability]}]"
-            i += 1
-            if i == 4 and len(bonuses) > 4:
-                string += NEWLINE
-    return string
+def get_ability_list(bonuses, base):
+    return f"[format_bonus {base}] to all rolls"
+#    bonuses = bonuses.copy()
+#    string = ""
+#    for ability in bonuses.copy():
+#        if abs(bonuses[ability] - base) < 3 or bonuses[ability] == -4:
+#            del bonuses[ability]
+#    if len(bonuses) == 0:
+#        if base != 0:
+#            string = f"[format_bonus {base}] to all rolls"
+#    else:
+#        i = 0
+#        updated_abilities = ABILITIES
+#        updated_abilities.append("rest")
+#        bonuses["rest"] = base
+#        for ability in updated_abilities:
+#            if ability in bonuses:
+#                if i == 4:
+#                    string += NEWLINE
+#                elif string != "":
+#                    string += ", "
+#                    string += f"[bold {ability.title()}] [format_bonus {bonuses[ability]}]"
+#                    i += 1
+#    return string
 
 
 def calculate_evade(bonuses, size, dodge, shield):
@@ -189,6 +197,8 @@ def calculate_dpr(monster, bonuses):
 
 
 def get_monster_spells(spellcasting, bonuses):
+    return ""
+    
     circles = {}
     spells = spellcasting["spells"]
     for spell in spells:
@@ -316,8 +326,22 @@ def create_monster(monster):
         shield_evd
     )
     level = get_level(health, evasion, monster, bonus_dict)
+    base = 0
+    foo = 0
+    for ability in ABILITIES:
+        if params[ability] > -4:
+            base += params[ability]
+            foo += 1
+    base /= foo
+    base += round(size / 2)
+    base = round(base)
 
-    print(f"compiling {name} ({level})")
+    bar = 0
+    for ability in ABILITIES:
+        if params[ability] == base or params[ability] == -4:
+            bar += 1
+
+    print(f"compiling {name} ({level}, {base}, {bar})")
     
     string = "\\section*{" + headername + "}"
     if "flavor" in monster:
@@ -327,7 +351,10 @@ def create_monster(monster):
     if "tags" in monster:
         string += f" ({pp.comma_separate(sorted(monster["tags"]))})"
 
-    string += NEWLINE + get_ability_list(bonus_dict) + NEWLINE
+    string += NEWLINE
+    ability_string = get_ability_list(bonus_dict, base)
+    if ability_string != "":
+        string += get_ability_list(bonus_dict, base) + NEWLINE
     string += f"[bold Size] {size} [bold Health] "
     if armor == 0:
         string += f"{health} "
@@ -417,36 +444,24 @@ def create_deity(deity):
 
 def load_spell_data():
     global spell_data
-    raw_data = pp.get_yaml_from_directory("spell_circles")
-    for circle in raw_data:
-        for spell_name in circle["spells"]:
-            spell_data[spell_name] = {"circle":circle["name"], "cost":circle["spells"][spell_name]["cost"]}
+    raw_data = pp.get_yaml_from_directory("spells")
+    for file_data in raw_data:
+        for spell_name in file_data:
+            spell_data[spell_name] = file_data[spell_name]["rank"]
 
-
-def create_circle(circle, title=True):
-    if title:
-        string = f"[section 1 {circle["name"]}]"
-    else:
-        string = f"[section 2 {circle["name"]}]"
-    spells = pp.sort_dictionary(circle["spells"])
-    for spell_name in spells:
+        
+def create_spells(spells):
+    string = ""
+    
+    for spell_name in sorted(spells):
         spell = spells[spell_name]
-
-        string += f"""[bold {spell_name} ({spell["cost"]})][newline][italics Duration: {spell["duration"]}]
-[newline]{spell["text"]}[newline big]"""
-    return brand.eval_string(string, {})
-
-
-def create_spell(spell):
-    return brand.eval_string(
-        f"""[bold {spell["name"]} ({spell["cost"]})]
+        string += f"""[bold {spell_name} ({spell["rank"]})]
 [newline]
-[italics {spell["circle_name"]}[newline] Duration: {spell["duration"]}]
+[italics Duration: {spell["duration"]}]
 [newline]
 {spell["text"]}
-[newline big]""",
-        {}
-    )
+[newline big]"""
+    return brand.eval_string(string, {})
 
 
 def create_deity_block():
@@ -500,7 +515,7 @@ def create_doc():
     print(monster_count, "monsters total")
 
 
-brand.add_include_function("spells", lambda filename: create_block(filename, create_circle))
+brand.add_include_function("spells", lambda filename: create_block(filename, create_spells))
 brand.add_include_function("themes", lambda filename: create_block(filename, create_theme))
 brand.add_include_function("monsters", lambda filename: create_block(filename, create_monster))
 brand.add_include_function("appendicies", lambda: create_appendices())
