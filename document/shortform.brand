@@ -317,21 +317,18 @@ than moving or attacking, that enemy may make a free attack against you.
 
 [section 1 Spellcasting]
 
-In order to cast a spell, you must be holding the appropriate spellstone and
-spend a number of mana points equal to the cost of the spell. If you do not have
-enough mana points, you cannot cast the spell.
+Exact spellcasting rules differ by class. Some general points about spellcasting
+are listed here.
+
+[section 2 Duration]
 
 If the spell has a duration in units of time (rounds, minutes, hours, etc.), it lasts for
-a number of units equal to 1d4 + your spell modifier. You can end a spell at any time.
+a number of units equal to 1d4 + your spell modifier. You can choose to end a spell
+at any time.
 
 Spells with a duration of 'concentration' last until you spend an action to attack or cast
 another spell. When you take damage, you must succeed on a [check <spellcasting modifier> med]
 or the spell ends. 
-
-[section 2 Mana Drain]
-
-Some effects inflict mana drain. For each point of mana drain, you lose one mana
-point.
 
 [section 2 Summoning]
 
@@ -457,16 +454,44 @@ for damage.
 
 You are proficient with weapons up to d6 and armor up to type 2.
 
-Your spellcasting ability is Int. You have a pool of 8 + 2 x Int mana points.
+[section 3 Spellcasting]
 
-Wizards can cast spells from all circles except life, sun, moon, beasts, and growth without penalty.
-Spells from those circles cost twice as much to cast.
+Wizards cast spells by channeling arcane energy through intense concentration. Each spell has a
+particular set of ritual gestures and incantations that must be performed exactly in order for the
+spell to succeed. The instructions for casting a spell can be written down, taking up $50 * 2^r$
+pages, where $r$ is the rank of the spell.
 
-# FIXME something special about Arcane Armor and Arcane Dart from the Circle of
-Arcanum
-whether it's free casting, or casting without a spellstone, or both, or nothing, etc. #
-#
-[newpage]
+In order to learn to cast a new spell, you must study the spell for five days per
+hundred pages of instruction. After that time, you can cast the spell as normal.
+
+In order to cast a spell, you must choose a die from a d4 to d12 to be your spell die. Roll the spell
+die and add your Int. If you did not roll a one and the total is at least the size of the die, mark
+one success and roll again. Repeat until you roll a one or under the die size. If the number of
+successes is equal to or greater than the spell's rank, you successfully cast the spell. You may
+suffer 1 point of Int drain to add one success to the roll.
+
+If you fail the spellcasting roll, roll the spell die on the spell failure table below.
+
+If you see "SD" in a spell description, it refers to the size of the spell die. When instructed to
+roll spell damage, roll damage as if for a weapon attack with your spell die and a threshold of 5
+(or 4, for a d4).
+
+[table cX
+Roll & Failure Effect &
+1 & Suffer 1 Int drain &
+2 & Become vulnerable to a random damage type for one hour &
+3 & Stunned and unable to act next turn &
+4 & Cannot cast the spell for 1 day &
+5 & Be confused for one round &
+6 & Suffer 1d3 Int drain &
+7 & You cast a random different spell you know using the same spell die, but at a random target. &
+8 & Open an arcane rift &
+9 & 1d3 living creatures within 3 fathoms suffer 1 magic damage &
+10 & You cannot cast any spells for one day &
+11 & You fall unconscious for 1d4 minutes &
+12 & You suffer enough Int drain to reduce your Int to -4]
+
+#[newpage]
 
 [section 1 Direct [dnd] Conversion]
 
@@ -576,7 +601,7 @@ Calculate average damage per round by doing the following:
 First, calculate the average value of the creature's attacks. Use the following table to find
 the damage of an attack by matching die size and threshold. Multiply the average by the number
 of attacks per round.
-[titulartable cccccccccc <Threshold>
+[titulartable cccccccccc Threshold
 Die & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 &
 d4 & 1 &9
 d6 &2 1.25 & 1 &7
@@ -611,6 +636,7 @@ Burning Wheel
 Dungeons and Dragons
 Pathfinder
 Dungeon Crawl Classics
+Knave
 
 TOLKIEN'S WORKS
 

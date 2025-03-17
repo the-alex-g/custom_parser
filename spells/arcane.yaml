@@ -82,6 +82,7 @@ Burning Motes:
  duration: instant
  rank: 1
  text: >
-  Roll spell damage at +1d. You fire that many flaming darts, each one directed
+  Roll spell damage using a die one size higher than your spell die.
+  You fire that many flaming darts, each one directed
   at a target within 10 fathoms of you. For each dart, the target must succeed
   at an Evd spell check or suffer one piercing fire damage.

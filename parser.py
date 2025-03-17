@@ -29,30 +29,31 @@ appendicies = {}
 spell_data = {}
 
 
-def get_ability_list(bonuses, base):
-    return f"[format_bonus {base}] to all rolls"
-#    bonuses = bonuses.copy()
-#    string = ""
-#    for ability in bonuses.copy():
-#        if abs(bonuses[ability] - base) < 3 or bonuses[ability] == -4:
-#            del bonuses[ability]
-#    if len(bonuses) == 0:
-#        if base != 0:
-#            string = f"[format_bonus {base}] to all rolls"
-#    else:
-#        i = 0
-#        updated_abilities = ABILITIES
-#        updated_abilities.append("rest")
-#        bonuses["rest"] = base
-#        for ability in updated_abilities:
-#            if ability in bonuses:
-#                if i == 4:
-#                    string += NEWLINE
-#                elif string != "":
-#                    string += ", "
-#                    string += f"[bold {ability.title()}] [format_bonus {bonuses[ability]}]"
-#                    i += 1
-#    return string
+def get_ability_list(bonuses):
+    string = ""
+    foo = {}
+    bar = {}
+    
+    for value in bonuses.values():
+        if value > -4:
+            pp.increment_key(foo, value, 1)
+
+    for value in foo:
+        bar[foo[value]] = value
+
+    base = bar[sorted(bar)[len(bar) - 1]]
+
+    i = 0
+    bonuses["rest"] = base
+    for ability in bonuses:
+        if bonuses[ability] != base or ability == "rest":
+            if i == 4:
+                string += NEWLINE
+            elif string != "":
+                string += ", "
+            string += f"[bold {ability.title()}] [format_bonus {bonuses[ability]}]"
+            i += 1
+    return string
 
 
 def calculate_evade(bonuses, size, dodge, shield):
@@ -326,22 +327,8 @@ def create_monster(monster):
         shield_evd
     )
     level = get_level(health, evasion, monster, bonus_dict)
-    base = 0
-    foo = 0
-    for ability in ABILITIES:
-        if params[ability] > -4:
-            base += params[ability]
-            foo += 1
-    base /= foo
-    base += round(size / 2)
-    base = round(base)
 
-    bar = 0
-    for ability in ABILITIES:
-        if params[ability] == base or params[ability] == -4:
-            bar += 1
-
-    print(f"compiling {name} ({level}, {base}, {bar})")
+    print(f"compiling {name} ({level})")
     
     string = "\\section*{" + headername + "}"
     if "flavor" in monster:
@@ -352,9 +339,9 @@ def create_monster(monster):
         string += f" ({pp.comma_separate(sorted(monster["tags"]))})"
 
     string += NEWLINE
-    ability_string = get_ability_list(bonus_dict, base)
+    ability_string = get_ability_list(bonus_dict)
     if ability_string != "":
-        string += get_ability_list(bonus_dict, base) + NEWLINE
+        string += ability_string + NEWLINE
     string += f"[bold Size] {size} [bold Health] "
     if armor == 0:
         string += f"{health} "
