@@ -454,11 +454,9 @@ for damage.
 
 You are proficient with weapons up to d6 and armor up to type 2.
 
-[section 3 Spellcasting]
-
 Wizards cast spells by channeling arcane energy through intense concentration. Each spell has a
 particular set of ritual gestures and incantations that must be performed exactly in order for the
-spell to succeed. The instructions for casting a spell can be written down, taking up $50 * 2^r$
+spell to succeed. The instructions for casting a spell can be written down, taking up $25 * 2^r$
 pages, where $r$ is the rank of the spell.
 
 In order to learn to cast a new spell, you must study the spell for five days per

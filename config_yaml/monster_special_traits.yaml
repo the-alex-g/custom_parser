@@ -3,8 +3,11 @@ Incorporeal: >
  The [name] can move through solid objects at half its usual speed. If the [name] ends its movement
  inside of a solid object, it takes  one unblockable damage.
 Lifeless: >
- The [name] automatically succeeds on all Con checks. If the [possessive [name]] Con bonus is ever
- needed, use its Det bonus instead.
+ The [name] automatically succeeds on all Con checks.
+Mindless: >
+ The [name] automatically fails all Int, Per, and Cha checks.
+Bestial: >
+ The [name] automatically fails all Int checks.
 Light Aversion: The [name] has disadvantage on all rolls while in bright light.
 Light Vulnerability: The [name] suffers 1 unblockable damage for every minute it spends in bright light.
 Stonewalk: The [name] can move through earth and stone as if it were air, leaving no trace of its passage.

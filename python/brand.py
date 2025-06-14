@@ -7,7 +7,7 @@ import os
 FUNCTIONS_REQUIRING_EXTRA_PARAMETERS = {"attack":["str"], "weapon":["str"]}
 AUTOMATIC_VARIABLES = []
 NEWLINE = "\\\\"
-LINEBREAK = "\\bigskip"
+LINEBREAK = NEWLINE #"\\bigskip"
 TABLEWIDTH = 0.9
 include_functions = {}
 unquoted_include_functions = {}
@@ -18,6 +18,7 @@ DICE = {
     "sm2":[8, 10, 10, 12, 6, 6, 8],
     "vsm":[10, 12, 12, 12, 4, 4, 6]
 }
+SHADES = {"I":4, "G":3, "B":5}
 RANGES = {
     "bow":"12/50",
     "thrown":"4/10",
@@ -217,7 +218,7 @@ def dicetable(dice, title, *entries):
 
 # creates a table based on given columns and ampersand-separated entries
 def table(cols, *entries):
-    tablestring = NEWLINE + "\\bigskip\\begin{tabular"
+    tablestring = NEWLINE + LINEBREAK + "\\begin{tabular"
     if "X" in cols:
         tablestring += "x}{" + f"{TABLEWIDTH}\\columnwidth"
     tablestring += "}{|"
@@ -372,7 +373,7 @@ def newline(*skip_size):
 
 
 def skip(size):
-    return f"\\{size}skip "
+    return NEWLINE #f"\\{size}skip "
 
 
 # same as .isdigit, but accounts for negative numbers
@@ -508,12 +509,20 @@ def _clamp(val, mn, mx):
     
 
 def attack(diesize, *bonuses):
-    bonus = bonuses[0]
+    shade_char = ""
+    shade = 5
+    if type(bonuses[0]) == str:
+        shade = SHADES[bonuses[0].upper()]
+        if shade != 5:
+            shade_char = bonuses[0].upper()
+        bonus = bonuses[1]
+    else:
+        bonus = bonuses[0]
     if type(diesize) == str:
         # +7 and up are all the same
         diesize = DICE[diesize][_clamp(bonus, 0, 6)]
-    threshold = _clamp(diesize - bonus, 5, diesize)
-    return f"d{diesize}/{threshold}"
+    threshold = _clamp(diesize - bonus, shade, diesize)
+    return f"{shade_char}d{diesize}/{threshold}"
 
 
 def weapon(weapon_name, *bonuses):

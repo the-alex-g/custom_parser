@@ -18,11 +18,17 @@ SHIELD_EXTRA_BONUS = {
     "tower":("Tower Shield", "The [name] has +1 Evd against ranged attacks.")
 }
 NEWLINE = "\\\\"
-LINEBREAK = "\\bigskip "
+LINEBREAK = NEWLINE # "\\bigskip "
 PAGEBREAK = "\n\\clearpage\n"
 DEFAULT_MONSTER_TRAITS = pp.open_yaml("config_yaml/monster_type_traits.yaml")
 SPECIAL_MONSTER_TRAITS = pp.open_yaml("config_yaml/monster_special_traits.yaml")
 BASE_HEALTH = 2
+MONSTER_TYPE_DICE = {
+    "":{"str":6, "dex":6, "con":6, "spd":6, "int":6, "per":6, "det":6, "cha":6},
+    "ooze":{"str":6, "dex":12, "con":6, "spd":4, "int":4, "per":4, "det":6, "cha":4},
+    "plant":{"str":8, "dex":6, "con":8, "spd":6, "int":8, "per":8, "det":10, "cha":6},
+    "animal":{"str":8, "dex":8, "con":8, "spd":8, "int":6, "per":10, "det":6, "cha":6},
+}
 
 monster_count = 0
 appendicies = {}
@@ -43,30 +49,35 @@ def get_ability_list(bonuses):
 
     base = bar[sorted(bar)[len(bar) - 1]]
 
+    for ability in ABILITIES:
+        if ability in bonuses:
+            if abs(bonuses[ability] - base) <= 1 or bonuses[ability] <= -4:
+                del(bonuses[ability])
+
     i = 0
-    bonuses["rest"] = base
+    if len(bonuses) == 0:
+        bonuses["all stats"] = base
+    else:
+        bonuses["all others"] = base
     for ability in bonuses:
-        if bonuses[ability] != base or ability == "rest":
-            if i == 4:
-                string += NEWLINE
-            elif string != "":
-                string += ", "
-            string += f"[bold {ability.title()}] [format_bonus {bonuses[ability]}]"
-            i += 1
+        if i == 4:
+            string += NEWLINE
+        elif string != "":
+            string += ", "
+        string += f"[bold {ability.title()}] [format_bonus {bonuses[ability]}]"
+        i += 1
     return string
 
 
-def calculate_evade(bonuses, size, dodge, shield):
+def calculate_evade(bonuses, dice, size, dodge, shield):
     dex = pp.get_key_if_exists(bonuses, "dex", 0)
     spd = pp.get_key_if_exists(bonuses, "spd", 0)
-    evade = 10 + spd - size
-    if dodge:
-        evade += dex
-    elif dex > 1:
-        evade += 1
-    elif dex < -1:
-        evade -= 1
-    return evade + shield
+    dex_die = dice["dex"]
+    spd_die = dice["spd"]
+    evade = dex + spd_die
+    if dodge and spd + dex_die > evade:
+        evade = spd + dex_die
+    return evade + shield - size
 
 def get_base_health(size, bonus):
     return BASE_HEALTH + bonus + size
@@ -254,6 +265,26 @@ def get_bonus_dict(monster):
     return bonus_dict
 
 
+def get_monster_dice(size, type):
+    if type in MONSTER_TYPE_DICE:
+        dice = MONSTER_TYPE_DICE[type]
+    else:
+        dice = MONSTER_TYPE_DICE[""]
+
+    if size > 1:
+        if dice["str"] < 12:
+            dice["str"] += 2
+        if dice["dex"] > 4:
+            dice["dex"] -= 2
+    elif size < -1:
+        if dice["str"] > 4:
+            dice["str"] -= 2
+        if dice["dex"] < 12:
+            dice["dex"] += 2
+
+    return dice
+
+
 def create_monster(monster):
     global monster_count
 
@@ -274,6 +305,8 @@ def create_monster(monster):
     bonus_dict = get_bonus_dict(monster)
     health_bonus = 0
     movement = get_movement(pp.get_key_if_exists(bonus_dict, "spd", 0), pp.get_key_if_exists(monster, "movement", []), size)
+
+    dice = get_monster_dice(size, monster["type"])
 
     armor = pp.get_key_if_exists(monster, "armor", 0)
     if type(armor) == str:
@@ -323,7 +356,7 @@ def create_monster(monster):
                 shield_bonus[0]:shield_bonus[1]
             }
     evasion = calculate_evade(
-        bonus_dict, size, "dodge" in monster,
+        bonus_dict, dice, size, "dodge" in monster,
         shield_evd
     )
     level = get_level(health, evasion, monster, bonus_dict)

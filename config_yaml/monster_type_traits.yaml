@@ -8,6 +8,7 @@ undead:
  - darksight
  traits:
  - Lifeless
+ - Mindless
 construct:
  immune:
  - psychic
@@ -19,6 +20,7 @@ construct:
  - darksight
  traits:
  - Lifeless
+ - Mindless
 spirit:
  senses:
  - darksight
@@ -32,6 +34,12 @@ ooze:
  - piercing
  traits:
  - Amorphous
+ - Mindless
 plant:
  immune:
  - psychic
+ traits:
+ - Bestial
+animal:
+ traits:
+ - Bestial
