@@ -2,6 +2,7 @@ import yaml
 import os
 import python.parser_utility as pp
 import python.brand as brand
+import python.level_calculation as level_calculator
 from math import floor, ceil
 
 SOURCE_DOC = "document/shortform.brand"
@@ -74,13 +75,16 @@ def calculate_evade(bonuses, dice, size, dodge, shield):
     spd = pp.get_key_if_exists(bonuses, "spd", 0)
     dex_die = dice["dex"]
     spd_die = dice["spd"]
-    evade = dex + spd_die
-    if dodge and spd + dex_die > evade:
-        evade = spd + dex_die
+    evade = dex + floor(spd_die / 2)
+    spd_base_evd = spd + floor(dex_die / 2)
+    if dodge and spd_base_evd > evade:
+        evade = spd_base_evd
     return evade + shield - size
+
 
 def get_base_health(size, bonus):
     return BASE_HEALTH + bonus + size
+
 
 def calculate_health(base, armor):
     health = base * ARMOR_HEALTH_MODS[armor]
@@ -98,114 +102,6 @@ def add_to_appendix(appendix, item_name, categorizer):
         pp.append_to_key(appendicies[appendix], categorizer, item_name)
     else:
         appendicies[appendix] = {categorizer:[item_name]}
-
-
-def modify_health(health, monster):
-    damage_types = ("bludgeoning", "piercing", "slashing")
-    mods = {
-        "resist":1/3,
-        "immune":1,
-        "vulnerable":-1/3
-    }
-    multiplier = 1
-    for mod in mods:
-        if mod in monster:
-            for damage in monster[mod]:
-                if damage == "non-magic":
-                    multiplier += mods[mod] * 3
-                elif damage == "non-magic physical":
-                    multiplier += mods[mod] * 2
-                else:
-                    if damage in damage_types:
-                        multiplier += mods[mod]
-    return health * max(1/3, multiplier)
-
-
-def get_level(health, evasion, monster, bonuses):
-    number = round(
-        modify_health(health, monster) *
-        (evasion / 10) *
-        calculate_dpr(monster, bonuses)
-    )
-    if number <= 3:
-        return "I"
-    elif number <= 10:
-        return "II"
-    elif number <= 15:
-        return "III"
-    elif number <= 25:
-        return "IV"
-    elif number <= 50:
-        return "V"
-    elif number <= 100:
-        return "VI"
-    elif number <= 150:
-        return "VII"
-    return "VIII"
-
-
-def get_damage(string):
-    die = string[string.find("d") + 1:string.find("/")]
-    if die.isdigit():
-        die = int(die)
-        threshold = die - int(
-            string[string.find("/") + 1:]
-        )
-        damage = 1 + threshold / die
-        damage += 3 * pow(threshold / die, 2)
-    else:
-        damage = 0
-    return damage
-
-
-def calculate_dpr(monster, bonuses):
-    damage = 0
-    if "attack" in monster:
-        attacks = monster["attack"]
-        attack_count = attacks[0]
-        attacks_skipped = 0
-        if type(attack_count) == str:
-            attack_count = int(attack_count[0])
-        for attack in attacks[1:]:
-            multiplier = 1
-
-            # if the attack is a 2x, 3x, etc.
-            if attack[0].isdigit():
-                multiplier = int(attack[0])
-                attack = attack[3:]
-            
-            attack = brand.eval_string(attack, bonuses)
-            damage_string = attack[0:attack.find(" ")]
-            if damage_string.isdigit():
-                if "unblockable" in attack:
-                    attack_damage = int(damage_string) * 2
-                else:
-                    attack_damage = int(damage_string)
-            elif "d" in damage_string:
-                attack_damage = get_damage(damage_string)
-            else:
-                attack_damage = 0
-            if attack_damage > 0:
-                damage += attack_damage * multiplier
-            else:
-                attacks_skipped += 1
-        damage *= attack_count / max(1, len(attacks[1:]) - attacks_skipped)
-
-    extra_damage = pp.get_key_if_exists(monster, "extra_damage", {})
-    actions = 0
-    for i in pp.get_key_if_exists(extra_damage, "per", []): # 'persistent'
-        if type(i) == str:
-            damage += get_damage(i)
-        else:
-            damage += i
-    for i in pp.get_key_if_exists(extra_damage, "act", []): # 'action'
-        if type(i) == str:
-            damage += get_damage(i)
-        else:
-            damage += i
-        actions += 1
-    damage /= 1 + actions
-    return damage
 
 
 def get_monster_spells(spellcasting, bonuses):
@@ -359,7 +255,7 @@ def create_monster(monster):
         bonus_dict, dice, size, "dodge" in monster,
         shield_evd
     )
-    level = get_level(health, evasion, monster, bonus_dict)
+    level = level_calculator.get_level(health, evasion, monster, bonus_dict)
 
     print(f"compiling {name} ({level})")
     
@@ -375,13 +271,13 @@ def create_monster(monster):
     ability_string = get_ability_list(bonus_dict)
     if ability_string != "":
         string += ability_string + NEWLINE
-    string += f"[bold Size] {size} [bold Health] "
-    if armor == 0:
-        string += f"{health} "
-    elif base_health <= 0:
-        string += f"{health} "
-    else:
-        string += f"{base_health}/{health - base_health} "
+    string += f"[bold Size] {size} [bold Health] {health} "
+    #if armor == 0:
+    #    string += f"{health} "
+    #elif base_health <= 0:
+    #    string += f"{health} "
+    #else:
+    #    string += f"{base_health}/{health - base_health} "
     if armor > 0:
         string += f"[bold Arm] {armor} "
     string += f"[bold Evd] {evasion} "
