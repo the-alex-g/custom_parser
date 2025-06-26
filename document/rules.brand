@@ -397,17 +397,11 @@ You start knowing one additional language of your choice.
 
 You are proficient with weapons up to d10 and armor up to type 3.
 
-Your maximum health increases by three.
+When you attack with any melee weapon, you deal additional damage equal to half the amount of
+damage that you have taken, rounded down.
+[example A berserker with 5 health has taken 3 damage. This berserker will deal an additional 1
+damage with all melee attacks.]
 
-When you attack with a d10 melee weapon, count your strength as 1 higher and reduce your critical threshold by one. #?#
-
-When you attack with any melee weapon, you deal additional damage based on the amount of damage you have taken.
-[table cc
-Damage Taken & Damage Increase &
-1 & 1 &
-2-4 & d8/8 &
-5-6 & d8/7 & # Only possible with Con +1 minimum #
-7+ & d8/6] # Only possible with Con +3 minimum #
 The first time each turn that you kill a creature with a melee attack, you may move up to one fathom and make a second melee
 attack.
 
@@ -416,9 +410,7 @@ attack.
 You are proficient with weapons up to d6 and armor up to type 4. While you
 are wielding a metal weapon or wearing metal armor, you cannot cast spells.
 
-Your maximum health increases by one.
-
-Your spellcasting ability is Perception. # Determination? # You have a pool of 5 + Per mana points.
+Your spellcasting ability is  Determination. You have a pool of 5 + Per mana points.
 
 When you cast a spell in a place of natural beauty, it costs one fewer mana
 points, to a minimum of one mana.
@@ -447,8 +439,6 @@ minus two.
 
 You are proficient with weapons up to d10 and armor up to type 6.
 
-Your maximum health increases by two.
-
 When you become a fighter, choose up to two hand's worth of weapons or shields
 to be your primary armament. While wielding your primary armament, you get
 bonuses based on the type of equipment you're wielding.
@@ -461,18 +451,25 @@ Ranged weapon & Short range is doubled (cannot be more than long range) &
 Shield & +1 Evd]
 [extra_attacks 1 4]
 
+[section 2 Rangers]
+
+You are proficient with weapons up to d8, all ranged weapons, and armor up to type 4.
+
+You may use your Per bonus instead of your Dex bonus when rolling to hit.
+
+# FIXME add some other stuff too #
+
+[extra_attacks 1 4]
+
 [section 2 Rogues]
 
 You are proficient with weapons up to d8 and armor up to type 4.
 
-Your maximum health increases by 1.
-
-A rogue's base Evd score is equal to their Spd plus their Dex, minus
-their Size.
-
 The first time each turn that you make a surprise attack or attack a creature
 that is being flanked, you have a +2 to hit and roll an additional d4/4
 for damage.
+
+Your critical hits roll a d12/5 for additional damage.
 
 [extra_attacks 1 3]
 
@@ -670,6 +667,7 @@ INSPIRATIONS
 ROLE-PLAYING GAMES
 Crown and Skull
 EZD6
+ICRPG
 Burning Wheel
 Dungeons and Dragons
 Pathfinder
