@@ -1,15 +1,15 @@
 Invisibility:
  duration: minutes
- rank: 3
+ rank: 4
  text: You are invisible for the duration of the spell.
 Silence:
  duration: minutes
- rank: 1
+ rank: 0
  text: >
   The area within SD fathoms of where this spell was cast is completely silent.
 Darkness:
  duration: minutes
- rank: 1
+ rank: 0
  text: >
   The area within SD fathoms of where this spell was cast is utterly dark. Only
   magical light can penetrate this darkness.
@@ -17,17 +17,17 @@ Dispel Magic:
  duration: instant
  rank: special
  text: >
-  This spell targets one ongoing spell effect within three fathoms. The rank of
-  this spell is equal to the casting strength of the target spell. If this spell
+  This spell targets one ongoing spell effect within three fathoms. The target number for casting
+  this spell is equal to the casting target for the targeted spell. If this spell
   succeeds, the target spell effect ends immediately.
 Disguise Self:
  duration: hours
- rank: 1
+ rank: 0
  text: >
   You cloak yourself in an illusion. You can make yourself appear as any sort
   of humanoid, as long as your illusory dimensions remain within about a foot
   of your actual size. The illusion fails to hold up to physical inspection, and
-  other creatures that succeed on a Per spell check can determine that the
+  other creatures that succeed on a Per check against SD can determine that the
   disguise is an illusion.
 Black Tentacles:
  duration: rounds
@@ -38,11 +38,11 @@ Black Tentacles:
   of that point.
 Arcane Meteor:
  duration: instant
- rank: 4
+ rank: 8
  text: >
-  Roll spell damage four times and target a point within one furlong. Everything
-  within two fathoms of that point suffers magic fire bludgeoning damage equal
-  to the amount rolled. A successful Evd spell check halves the damage.
+  Target a point within one furlong. Everything within two fathoms of that point suffers
+  magic fire bludgeoning damage equal to spell damage times four. A successful Evd check
+  against SD halves the damage.
 Flight:
  duration: rounds
  rank: 2
@@ -51,25 +51,24 @@ Flight:
   speed times overflow plus half your SD.
 Teleport:
  duration: instant
- rank: 3
+ rank: 4
  text: >
-  Roll your spell die and add overflow. Compare the result to the table below.
   You can teleport to any point you can see or have been before, as long as it
-  is within the indicated distance.
+  is within the maximum distance listed below.
   [table lccccc
-  Roll & 1-3 & 4-5 & 6-7 & 8-9 & 10+ &
+  Spell Die & d4 & d6 & d8 & d10 & d12 &
   Distance & One furlong & Half a mile & One mile & Four miles & No limit]
 Magic Missile:
  class: lesser offensive
  duration: instant
- rank: 1
+ rank: 0
  text: >
   Roll spell damage. You fire that many glowing darts, each one dealing one
   magic damage to a target within 12 fathoms of you.
 Acid Spheres:
  class: lesser offensive
  duration: instant
- rank: 1
+ rank: 0
  text: >
   Roll spell damage and divide by two, rounding up. You fire that many spheres
   of acid, each one directed at a target within 8 fathoms of you. For each
@@ -80,9 +79,86 @@ Acid Spheres:
 Burning Motes:
  class: lesser offensive
  duration: instant
- rank: 1
+ rank: 0
  text: >
-  Roll spell damage using a die one size higher than your spell die.
+  Roll spell damage using a die one size higher than your spell die (max d12. If your spell die was
+  a d12, add one to the result).
   You fire that many flaming darts, each one directed
   at a target within 10 fathoms of you. For each dart, the target must succeed
-  at an Evd spell check or suffer one piercing fire damage.
+  at an Evd check against SD or suffer one piercing fire damage.
+Frozen Volley:
+ duration: instant
+ rank: 2
+ text: >
+  All creatures in a cone SD fathoms long, emanating from you, take 1 cold piercing damage.
+Arcane Armor:
+ duration: minutes
+ rank: 0
+ text: >
+  Your armor becomes SD/5 until the spell ends.
+Shield:
+ duration: instant
+ rank: 0
+ text: >
+  Roll spell damage. You or a nearby creature gain half that many shield points, to a minimum of
+  one.
+Greater Shield:
+ duration: instant
+ rank: 4
+ text: >
+  You or a nearby creature gain SD shield points.
+Lesser Shield:
+ duration: rounds
+ rank: 0
+ text: >
+  You or a nearby creature gain one shield point.
+Illusion:
+ duration: minutes
+ rank: 0
+ text: >
+  foo
+Barrier:
+ duration: minutes
+ rank: 2
+ text: >
+  A glowing barrier of magical energy springs into existence within 5 fathoms. Nothing can pass
+  through this barrier, which is an object with SD health. The barrier is SD fathoms
+  wide and two fathoms tall.
+Arcane Familiar:
+ duration: permanent
+ rank: ??
+ text: >
+  foo
+Binding:
+ duration: rounds
+ rank: 4
+ text: >
+  Arcane bonds entrap a target within 6 fathoms. The entrapped creature cannot move, attack,
+  or cast spells. The bonds require SD successes on Dex or Int checks to escape.
+Confusion:
+ duration: rounds
+ rank: 0
+ text: >
+  One targeted creature within 12 fathoms must succeed on a Cha check against SD or be confused until
+  the spell ends. A new check is allowed at the end of each of the target's turns to end the
+  confusion. When the target takes damage, they are also allowed to repeat the check.
+  A confused character is somewhat oblivious to their surroundings and incapable of coherent speech.
+Light:
+ duration: hours
+ rank: 0
+ text: >
+  A glowing orb appears and hovers within one fathom of the caster. It sheds bright light for
+  up to SD / 2 fathoms and dim light for twice as far. The caster can vary the luminance at will,
+  but the light will always shed dim light for at least one fathom.
+Flame Lance:
+ duration: instant
+ rank: 2
+ text: >
+  You fire a narrow beam of burning energy in a straight line SD fathoms long. Any creature in
+  that line must succeed on a Evd spell check or suffer spell damage (roll once for all targets).
+Fireball:
+ duration: instant
+ rank: 4
+ text: >
+  Pick a point within 12 fathoms. All creatures within SD / 2 fathoms of that point suffer spell
+  damage (roll once for all targets), halved with a successful Evd spell check.

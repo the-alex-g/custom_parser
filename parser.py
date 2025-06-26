@@ -380,8 +380,10 @@ def create_spells(spells):
     
     for spell_name in sorted(spells):
         spell = spells[spell_name]
-        string += f"""[bold {spell_name} ({spell["rank"]})]
-[newline]
+        string += f"[bold {spell_name} "
+        if spell["rank"] != 0:
+            string += f"({spell["rank"]})"
+    string += f"""][newline]
 [italics Duration: {spell["duration"]}]
 [newline]
 {spell["text"]}

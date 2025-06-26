@@ -3,17 +3,10 @@
 There are eight core attributes: Strength, Dexterity, Constitution, Intelligence, Perception, Charisma, Determination, and Speed.
 Each character also has a Size, Evasion, Health, and Move.
 
-The core attributes are measured from -5 to +8, with -5 being completely
-incapacitated in regards to that attribute, and anything over +4 being
-superhuman.
+Each attribute has a bonus and a die associated with it.
 
 Size is measured from -5 to +4, with -5 being insect-sized, 0 being human-sized,
 and +4 being bigger than a house. Creatures add their Size to their Str.
-
-Evd is equal to Spd - Size, +1 if Dex is greater than +1, or -1 if Dex is less
-than -1.
-
-Base health is equal to 2 + Con + Size.
 
 Mv is determined by your Spd bonus. If a creature has a Spd greater than +4,
 add Spd - 4 to its Mv.
@@ -25,9 +18,46 @@ Mv & 6 & 8 & 10 & 11 & 12]
 
 [section 1 Character Creation]
 
-Roll eight times on the table below. Assign each result to one of your attributes. The maximum value for that
-attribute is the starting value plus 2.
-[dicetable 2d3 Bonus h -2 & -1 & +0 & +1 & +2]
+Pick a race for your character. Each race has a unique set of starting stat bonuses.
+
+[titulartable cccc Race
+Stat & Dwarf & Gnome & Human &
+Str & +2 & +0 & +1 &
+Dex & +2 & +2 & +1 &
+Con & +2 & +0 & +1 &
+Spd & +0 & +1 & +1 &
+Int & +1 & +2 & +1 &
+Per & +1 & +2 & +1 &
+Det & +2 & +1 & +1 &
+Cha & +0 & +1 & +1 &
+... & +0 & +1 & +2]
+
+Once you have picked a race, you must distribute the amount listed under [qmark ...]
+between any number of your other stats. Then, you must subtract one from one of your stats.
+
+Pick a class from the list below and increase the indicated stat bonus by one.
+
+[table Xc
+Class & Stat &
+Bard & Cha &
+Berserker & Con &
+Druid & Det &
+Ranger & Per &
+Rogue & Dex &
+Warrior & Str &
+Wizard & Int]
+Consult the table below to determine which die is associated with each stat.
+
+[table cccccc
+Bonus & 0 & 1 & 2 & 3-4 & 5+ &
+Die & d4 & d6 & d8 & d10 & d12]
+Your starting health is equal to 3 + your Con bonus. Re-calculate your health only when receiving a
+permanent modifier to Con.
+
+Your Evasion is equal to your Spd die, divided by two, plus your Dex bonus. Recalculate whenever your
+Dex bonus changes, even temporarily.
+
+If you need to make an Evd check, use your Evasion score minus six as the bonus.
 
 Pick an occupation; this is what your character did for a living before becoming
 an adventurer (sailor, blacksmith, farmer, shepherd, etc.).
@@ -38,19 +68,13 @@ languages if your Int is +4 or higher.
 
 If your Cha bonus is +3 or higher, you know another language.
 
-If you can make a reasonable argument for knowing how to do something based on
-your occupation, you can get advantage on the roll.
-
-Advantage should not normally be given to attack or spellcasting rolls because
-of occupation.
-
 [section 1 Attribute Drain]
 
 For each point of attribute drain that you suffer, temporarily reduce the bonus
 of that attribute by one. Attribute drain NEVER changes your total health, but
 does change your Mv and Evd.
 
-If one of your attributes is reduced to -5, you suffer from the corresponding
+If one of your attributes is reduced to -4, you suffer from the corresponding
 effect.
 [table cX
 Attribute & Effect &
@@ -65,15 +89,16 @@ Cha & Loses all semblance of social grace]
 
 [section 1 Making Checks]
 
-To make a check, roll 1d20 and add the relevant attribute bonus. If the result
-is greater than or equal to the target value, you succeed.
+To make a check, roll 1d12 and add the relevant attribute bonus. If the result
+is greater than or equal to the target value, you succeed. If you roll a 1, the check fails,
+regardless of any bonuses. If you roll a 12, the check succeeds, regardless of any other factors.
 
 Checks can be made with Size and Evd, even though they are not core attributes.
 
 Often, the game will ask you to make checks against other creatures. Such a
 check is notated [qmark the attribute of the creature making the check vs
 the other creature's attribute]. You make a check
-with your attribute, where the target number is 10 + the other creature's attribute.
+with your attribute, where the target number is 6 + the other creature's attribute.
 
 [section 1 Boons]
 
@@ -145,7 +170,7 @@ to accuracy rolls.
 While wielding a weapon you are not proficient with, treat your Str as 0 when
 calculating weapon thresholds.
 
-When a weapon has taken three damage, cannot be used until it is repaired.
+When a weapon has taken three damage, it cannot be used until it is repaired.
 
 [section 1 Armor]
 [table cccccc
@@ -193,10 +218,10 @@ To attack, choose a weapon to attack with. If it's a ranged weapon, the target
 must be within range. If it's a melee weapon, the target must be within reach.
 
 Roll Dex vs Evd for accuracy. If you win, you hit the target. If you rolled a
-natural 20, or equal to or greater than your critical threshold (default 21),
+natural 12, or equal to or greater than your critical threshold (default 14),
 you get a critical hit.
 
-A roll of natural 20 is ALWAYS a hit, and a roll of natural 1 is ALWAYS a
+A roll of natural 12 is ALWAYS a hit, and a roll of natural 1 is ALWAYS a
 miss. If you roll a natural 1, your weapon takes 1 damage.
 
 Roll your weapon die. If you roll over your attack threshold for that
@@ -463,12 +488,12 @@ pages, where $r$ is the rank of the spell.
 In order to learn to cast a new spell, you must study the spell for five days per
 hundred pages of instruction. After that time, you can cast the spell as normal.
 
-In order to cast a spell, you must choose a die from a d4 to d12 to be your spell die. Make a check
-using the spell die and your Int bonus. If your successes are at least equal to the rank of the
-spell, you cast the spell. Otherwise, you must choose one of the following options:
+In order to cast a spell, pick a die, d4-d12. Roll Int. If the total is equal to or higher than the
+maximum value of the chosen die plus the spell's difficulty, the spell is cast
+successfully. Otherwise, you must select one of the options below:
 
 [bulletlist
-If you are only one success short, suffer 1 point of Int drain to add one success. &
+Suffer any amount of Int drain to add twice that amount to your roll. &
 If you have at least one success, you may attempt to extend the casting. You must maintain
 concentration until your next turn, and then
 spend your entire turn continuing to cast the spell using the same spell die. Add the successes
@@ -477,10 +502,15 @@ or do anything other than casting the spell, roll for spell failure and add the 
 obtained. &
 Accept your losses and roll for spell failure.]
 
-If you see "SD" in a spell description, it refers to the size of the spell die. "Overflow" refers to
-the number of extra successes obtained. When instructed to roll spell damage, roll damage as if for
-a weapon attack with your spell die and a threshold of 5 (or 4, for a d4). Add overflow to the amount
-of damage.
+A spell with a duration lasts for a number of the listed time unit equal to the
+roll of the spell die.
+
+If instructed to roll spell damage, roll the spell die with a target of 5.
+
+If the spell is a direct attack, use the original Int check used to cast the spell as the to-hit
+value. Otherwise, make an Int check to hit.
+
+A "spell check" is making a check with a target of SD.
 
 To roll for spell failure, roll your spell die and consult the table below.
 
