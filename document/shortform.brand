@@ -262,9 +262,10 @@ Diseases are not automatically cured by resting.
 
 [section 1 Character Death]
 
-When a player character is reduced to 0 health, they are effectively removed
-from the current adventure. They suffer a permanent -2 penalty to Con, which
-also reduces their health and maximum Con value.
+When a player character is reduced to 0 health, they fall unconscious until they regain at least
+one health. For each damage taken that would bring them below zero health, their Con bonus is instead
+permanently reduced by one (with appropriate reductions to health). A character reduced to -4 Con
+is irrevocably dead.
 
 [section 1 Light and Sensing]
 [table lX
@@ -462,20 +463,29 @@ pages, where $r$ is the rank of the spell.
 In order to learn to cast a new spell, you must study the spell for five days per
 hundred pages of instruction. After that time, you can cast the spell as normal.
 
-In order to cast a spell, you must choose a die from a d4 to d12 to be your spell die. Roll the spell
-die and add your Int. If you did not roll a one and the total is at least the size of the die, mark
-one success and roll again. Repeat until you roll a one or under the die size. If the number of
-successes is equal to or greater than the spell's rank, you successfully cast the spell. You may
-suffer 1 point of Int drain to add one success to the roll.
+In order to cast a spell, you must choose a die from a d4 to d12 to be your spell die. Make a check
+using the spell die and your Int bonus. If your successes are at least equal to the rank of the
+spell, you cast the spell. Otherwise, you must choose one of the following options:
 
-If you fail the spellcasting roll, roll the spell die on the spell failure table below.
+[bulletlist
+If you are only one success short, suffer 1 point of Int drain to add one success. &
+If you have at least one success, you may attempt to extend the casting. You must maintain
+concentration until your next turn, and then
+spend your entire turn continuing to cast the spell using the same spell die. Add the successes
+of the new roll to the successes from your previous turns. If you do not maintain concentration
+or do anything other than casting the spell, roll for spell failure and add the number of successes
+obtained. &
+Accept your losses and roll for spell failure.]
 
-If you see "SD" in a spell description, it refers to the size of the spell die. When instructed to
-roll spell damage, roll damage as if for a weapon attack with your spell die and a threshold of 5
-(or 4, for a d4).
+If you see "SD" in a spell description, it refers to the size of the spell die. "Overflow" refers to
+the number of extra successes obtained. When instructed to roll spell damage, roll damage as if for
+a weapon attack with your spell die and a threshold of 5 (or 4, for a d4). Add overflow to the amount
+of damage.
+
+To roll for spell failure, roll your spell die and consult the table below.
 
 [table cX
-Roll & Failure Effect &
+[bold Roll] & [bold Failure Effect] &
 1 & Suffer 1 Int drain &
 2 & Become vulnerable to a random damage type for one hour &
 3 & Stunned and unable to act next turn &
