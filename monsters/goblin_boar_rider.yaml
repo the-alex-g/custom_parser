@@ -1,0 +1,16 @@
+name: Goblin Boar Rider
+size: -1
+type: humanoid
+dice: goblin
+bonuses:
+ dex: 2
+ str: 1
+ con: 1
+attack:
+- 1
+- "[attack 6] piercing (spear)"
+special:
+ Boar Infusion: >
+  The [name] carries three injections of a powerful herbal solution. This solution heals 1 damage
+  and inflicts a -1 penalty to all stats for 1d4 minutes. Boars and related animals ignore the stat
+  penalty.

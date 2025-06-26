@@ -1,0 +1,9 @@
+name: Goblin
+size: -1
+type: humanoid
+dice: goblin
+bonuses:
+ dex: 2
+attack:
+- 1
+- "[attack 4] piercing (knife)"

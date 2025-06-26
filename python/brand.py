@@ -613,3 +613,6 @@ def qmark(*what):
 
 def dnd():
     return "D\\&D"
+
+def effort(amount, ability):
+    return f"{amount} {ability.capitalize()} effort"

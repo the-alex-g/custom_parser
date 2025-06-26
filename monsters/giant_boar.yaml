@@ -1,0 +1,27 @@
+name: Giant Boar
+headername: Boar, Giant
+dice: boar
+size: 2
+type: animal
+bonuses:
+ str: 3
+ con: 4
+ spd: 1
+ int: -4
+ cha: -4
+ det: 5
+armor: 1
+attack:
+- 1
+- "[attack 8] slashing (tusks)"
+special:
+ Charge: >
+  If the boar moves at least 6 fathoms towards its target, and then hits with a tusk attack,
+  the attack is instead [attack 10], and the target must succeed on a [check str str] or be
+  knocked prone.
+ Trample: >
+  When executing a charge, the boar can move through the spaces of any creatures smaller than it.
+  Those creatures must succeed on a [check evd spd] or suffer an [attack 8] bludgeoning attack.
+extra_damage:
+ per:
+ - 2

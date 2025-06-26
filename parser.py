@@ -29,6 +29,10 @@ MONSTER_TYPE_DICE = {
     "ooze":{"str":6, "dex":12, "con":6, "spd":4, "int":4, "per":4, "det":6, "cha":4},
     "plant":{"str":8, "dex":6, "con":8, "spd":6, "int":8, "per":8, "det":10, "cha":6},
     "animal":{"str":8, "dex":8, "con":8, "spd":8, "int":6, "per":10, "det":6, "cha":6},
+
+    "goblin":{"str":4, "dex":10, "con":4, "spd":8, "int":6, "per":8, "det":4, "cha":6},
+    "boar":{"str":8, "dex":6, "con":10, "spd":8, "per":6, "det":10, "cha":4, "int":4},
+    "spider":{"str":8, "dex":8, "con":8, "spd":6, "per":8, "det":6, "cha":8, "int":4},
 }
 
 monster_count = 0
@@ -40,6 +44,10 @@ def get_ability_list(bonuses):
     string = ""
     foo = {}
     bar = {}
+
+    for ability in ABILITIES:
+        if not ability in bonuses:
+            bonuses[ability] = 0
     
     for value in bonuses.values():
         if value > -4:
@@ -56,10 +64,11 @@ def get_ability_list(bonuses):
                 del(bonuses[ability])
 
     i = 0
-    if len(bonuses) == 0:
-        bonuses["all stats"] = base
-    else:
-        bonuses["all others"] = base
+    if base != 0:
+        if len(bonuses) == 0:
+            bonuses["all stats"] = base
+        else:
+            bonuses["all others"] = base
     for ability in bonuses:
         if i == 4:
             string += NEWLINE
@@ -202,7 +211,7 @@ def create_monster(monster):
     health_bonus = 0
     movement = get_movement(pp.get_key_if_exists(bonus_dict, "spd", 0), pp.get_key_if_exists(monster, "movement", []), size)
 
-    dice = get_monster_dice(size, monster["type"])
+    dice = get_monster_dice(size, pp.get_key_if_exists(monster, "dice", monster["type"]))
 
     armor = pp.get_key_if_exists(monster, "armor", 0)
     if type(armor) == str:
@@ -254,7 +263,7 @@ def create_monster(monster):
     evasion = calculate_evade(
         bonus_dict, dice, size, "dodge" in monster,
         shield_evd
-    )
+    ) + pp.get_key_if_exists(monster, "evd_bonus", 0)
     level = level_calculator.get_level(health, evasion, monster, bonus_dict)
 
     print(f"compiling {name} ({level})")
