@@ -55,9 +55,13 @@ Teleport:
  text: >
   You can teleport to any point you can see or have been before, as long as it
   is within the maximum distance listed below.
-  [table lccccc
-  Spell Die & d4 & d6 & d8 & d10 & d12 &
-  Distance & One furlong & Half a mile & One mile & Four miles & No limit]
+  [table cc
+  Spell Die & Distance &
+  d4 & One furlong &
+  d6 & Half a mile &
+  d8 & One mile &
+  d10 & Four miles &
+  d12 & No limit]
 Magic Missile:
  class: lesser offensive
  duration: instant

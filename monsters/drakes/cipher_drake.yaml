@@ -23,3 +23,5 @@ special:
 extra_damage:
  per:
  - 2
+movement:
+- f

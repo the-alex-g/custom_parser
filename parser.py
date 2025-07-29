@@ -5,7 +5,7 @@ import python.brand as brand
 import python.level_calculation as level_calculator
 from math import floor, ceil
 
-SOURCE_DOC = "document/shortform.brand"
+SOURCE_DOC = "document/rules.brand"
 
 ABILITIES = ["str", "con", "dex", "spd", "int", "per", "cha", "det"]
 ARMOR_HEALTH_MODS = [6/5, 4/3, 3/2, 2, 3, 4, 6]
@@ -148,14 +148,16 @@ def get_movement(spd, modes, size):
     base = max(1, 6 + spd * 2)
     string = str(base)
     for mode in sorted(modes):
+        name = pp.get_key_if_exists(names, mode, mode)
         if "=" in mode:
-            string += f", {names[mode[0]]} {mode[mode.find("=") + 1:]}"
+            name = mode[0:mode.find("=")]
+            string += f", {name} {mode[mode.find("=") + 1:]}"
         elif mode == "f":
-            string += f", {names[mode]} {5 * ceil(1.2 * (base + size))}" # equals 6 * (base + size), rounded up to a multiple of 5
+            string += f", {name} {5 * ceil(1.2 * (base + size))}" # equals 6 * (base + size), rounded up to a multiple of 5
         elif mode in "bt":
-            string += f", {names[mode]} {ceil(0.5 * base)}"
+            string += f", {name} {ceil(0.5 * base)}"
         else:
-            string += f", {names[mode]} {base}"
+            string += f", {name} {base}"
     return string
 
 
@@ -377,13 +379,12 @@ def load_spell_data():
         
 def create_spells(spells):
     string = ""
-    
     for spell_name in sorted(spells):
         spell = spells[spell_name]
         string += f"[bold {spell_name} "
         if spell["rank"] != 0:
             string += f"({spell["rank"]})"
-    string += f"""][newline]
+        string += f"""][newline]
 [italics Duration: {spell["duration"]}]
 [newline]
 {spell["text"]}

@@ -213,7 +213,7 @@ def dicetable(dice, title, *entries):
                 die_index += 1
                 final_entries.append(die_index)
                 final_entries.append("&")
-        return table("cX", *final_entries)        
+        return table("cX", *final_entries)
 
 
 # creates a table based on given columns and ampersand-separated entries
@@ -616,3 +616,6 @@ def dnd():
 
 def effort(amount, ability):
     return f"{amount} {ability.capitalize()} effort"
+
+def keyword(*text):
+    return f"{_separate(text).upper()}"

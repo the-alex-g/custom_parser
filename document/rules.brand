@@ -190,7 +190,7 @@ repaired. Damaged armor retains its Dex and Spd penalties and its +/- status.
 While wearing armor you are not proficient with, you have -1 to Spd and Dex.
 
 Shields, with evasion bonus against melee and ranged.
-[table cccc
+[table ccccc
 Name & Melee & Ranged & Strength & Cost &
 Buckler & +1 & - & 1 & 2s &
 Targe & +1 & +1 & 2 & 4s &
@@ -382,12 +382,18 @@ cost 1 fathom of movement. Speaking is generally free.
 
 Bards are proficient with weapons up to d6 and armor up to type 3.
 
-Your maximum health increases by one.
+You have a number of saga points equal to your Cha + the number of languages that you know.
 
-A bard's spell modifier is Charisma. You have a pool of mana points equal to your Charisma bonus plus the number of languages you know.
+You may spend one saga point as part of a performance to give any creatures that can
+understand you and that listen for at least five minutes a +1 to any one attribute for one hour.
 
-You can cast spells from the circles of Illusions, Life, and Song without penalty. Spells from all other circles cost twice as much
-to cast.
+You may spend one saga point to begin a performance that fascinates any number of creatures that can hear and understand you. A successful [check cha cha] prevents fascination; a hostile creature only fails on a roll of 1. While fascinated, the creature pays no attention to anything except your performance. The fascination lasts until you end your performance, another creature takes an action to shake
+a fascinated creature out of your spell, or if the fascinated creature is attacked.
+
+You may also spend one saga point at any time to give a creature that can hear and understand
+you a +1 or -1 to any roll.
+
+# FIXME # There might also be special bardic magic that you can learn. This is still under development.
 
 You start knowing one additional language of your choice.
 
@@ -410,14 +416,11 @@ attack.
 You are proficient with weapons up to d6 and armor up to type 4. While you
 are wielding a metal weapon or wearing metal armor, you cannot cast spells.
 
-Your spellcasting ability is  Determination. You have a pool of 5 + Per mana points.
-
-When you cast a spell in a place of natural beauty, it costs one fewer mana
-points, to a minimum of one mana.
-
-Druids can cast spells from the circles of air, earth, fire, water, ice, growth, life, sun, moon,
-and beasts without penalty. Spells from other circles cost twice as much to cast, and the cost is not
-reduced when casting those spells in a place of natural beauty.
+Your spellcasting ability is  Determination.
+#
+FIXME: add spellcasting rules
+#
+Unfortunately,spellcasting rules are still a work in progress.
 
 # does this make low-level druids OP? And do I care?
 Balance is not one of my greatest design concerns. #
@@ -427,7 +430,7 @@ When you become a druid, choose one of the following options:
 type approved by the GM. It has +2 Int, +1 Per, and +1 health. You can
 communicate verbally with this companion.
 
-[text ib Beast Shape.] A number of times per day equal to your Per bonus, you
+[text ib Beast Shape.] A number of times per day equal to your Det bonus, you
 can assume the form of any size 2 or smaller animal. You take on that creature's
 Str, Dex, and Spd scores, as well as its evasion, health, armor, and any
 other special abilities (such as the ability to swim, fly, or breathe
@@ -457,7 +460,7 @@ You are proficient with weapons up to d8, all ranged weapons, and armor up to ty
 
 You may use your Per bonus instead of your Dex bonus when rolling to hit.
 
-# FIXME add some other stuff too #
+When you make a surprise attack, you roll an additional d8/5 for damage.
 
 [extra_attacks 1 4]
 
@@ -479,7 +482,7 @@ You are proficient with weapons up to d6 and armor up to type 2.
 
 Wizards cast spells by channeling arcane energy through intense concentration. Each spell has a
 particular set of ritual gestures and incantations that must be performed exactly in order for the
-spell to succeed. The instructions for casting a spell can be written down, taking up $25 * 2^r$
+spell to succeed. The instructions for casting a spell can be written down, taking up $10 * 2^r$
 pages, where $r$ is the rank of the spell.
 
 In order to learn to cast a new spell, you must study the spell for five days per
