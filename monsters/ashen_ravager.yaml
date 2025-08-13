@@ -1,15 +1,16 @@
-name: Ashen Ravager
-type: monster
-str: 2
-con: 2
-int: -3
-det: 1
-per: -2
-cha: -4
+armor: 4
 attack:
 - 1
-- "[weapon waraxe]"
+- '[weapon waraxe]'
+cha: -4
+con: 2
+det: 1
+flag_reformated: true
+int: -3
+name: Ashen Ravager
+per: -2
+size: 2
+str: 2
 traits:
 - Dark Origins
-armor: 4
-size: 0
+type: monster

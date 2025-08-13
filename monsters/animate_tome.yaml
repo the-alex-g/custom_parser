@@ -1,26 +1,28 @@
-name: Animate Tome
-size: -3
-type: construct
-flavor: >
- [qmark The book leapt off the desk and onto Corjan's face, snapping shut with
- the force of a bear-trap...]
-bonuses:
- str: -1
- dex: -1
- spd: -2
- int: -3
- per: -4
- cha: -4
-hardness: 1
 attack:
 - 1
 - 1 bludgeoning (bite)
-vulnerable:
-- fire
+bonuses:
+  cha: -4
+  dex: -1
+  int: -3
+  per: -4
+  spd: -2
+  str: -1
+flag_reformated: true
+flavor: '[qmark The book leapt off the desk and onto Corjan''s face, snapping shut
+  with the force of a bear-trap...]
+
+  '
+hardness: 1
+movement:
+- f=8
+name: Animate Tome
 resist:
 - cold
 senses:
 - tremorsense
 - n/darksight
-movement:
-- f=8
+size: 0
+type: construct
+vulnerable:
+- fire

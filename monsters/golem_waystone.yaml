@@ -1,0 +1,18 @@
+attack:
+- 1
+- '[attack big] bludgeoning (slam)'
+bonuses:
+  cha: -4
+  int: -4
+  per: -4
+  str: 3
+flag_reformated: true
+hardness: stone
+headername: Golem, Waystone
+name: Waystone Golem
+size: 2
+special:
+  Stabilizing Presence: All creatures within 10 fathoms of the golem can ignore difficult
+    terrain.
+spell resist: 3
+type: construct

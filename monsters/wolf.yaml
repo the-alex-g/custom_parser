@@ -1,16 +1,18 @@
-name: Wolf
-size: 0
-type: animal
-flavor: Wolves will often track prey at a distance for miles before closing for the kill.
-bonuses:
- str: 1
- con: 1
- dex: 1
- spd: 2
- int: -4
- per: 1
- cha: -4
- det: 1
 attack:
 - 1
-- "[attack 6] slashing (bite)"
+- '[attack 6] slashing (bite)'
+bonuses:
+  cha: -4
+  con: 1
+  det: 1
+  dex: 1
+  int: -4
+  per: 1
+  spd: 2
+  str: 1
+flag_reformated: true
+flavor: Wolves will often track prey at a distance for miles before closing for the
+  kill.
+name: Wolf
+size: 2
+type: animal

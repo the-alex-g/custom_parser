@@ -1,18 +1,19 @@
-name: Tree Spirit
-size: 0
-type: spirit
 alignment: N
-bonuses:
- con: 1
- dex: 2
- per: 2
 armor: 1
 attack:
 - 1
-- "[attack 4] slashing (claws)"
-traits:
-- Tree Stride
+- '[attack 4] slashing (claws)'
+bonuses:
+  con: 1
+  dex: 2
+  per: 2
+flag_reformated: true
 languages:
 - SYLVAN
+name: Tree Spirit
+size: 2
+traits:
+- Tree Stride
+type: spirit
 vulnerable:
 - fire

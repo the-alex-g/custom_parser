@@ -1,25 +1,27 @@
-name: Skeleton Knight
-size: 0
-type: undead
 alignment: ne
-bonuses:
- str: 3
- int: -1
- cha: -2
- det: 2
 armor: scale
-real_armor: True
 attack:
 - 1
-- "[weapon <bastard sword>]"
-vulnerable:
-- bludgeoning
-resist:
-- piercing
+- '[weapon <bastard sword>]'
+bonuses:
+  cha: -2
+  det: 2
+  int: -1
+  str: 3
+flag_reformated: true
 languages:
 - ANCIENT
 - common
+name: Skeleton Knight
+real_armor: true
+resist:
+- piercing
+size: 2
 special:
-  Skill at Arms: >
-   The skeleton knight's bastard sword attacks have the critical threshold
-   reduced by one.
+  Skill at Arms: 'The skeleton knight''s bastard sword attacks have the critical threshold
+    reduced by one.
+
+    '
+type: undead
+vulnerable:
+- bludgeoning

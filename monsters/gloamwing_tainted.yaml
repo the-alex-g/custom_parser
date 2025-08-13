@@ -1,0 +1,33 @@
+alignment: NE
+attack:
+- 1
+- 1 unholy (dark touch)
+bonuses:
+  det: 1
+  dex: 3
+  int: -4
+  spd: 1
+flag_reformated: true
+flavor: 'A batlike shred of shadow flutters through the air, casting a shroud of darkness
+  around it.
+
+  '
+headername: Gloamwing, Tainted
+immune:
+- unholy
+movement:
+- f=10
+name: Tainted Gloamwing
+resist:
+- non-magic
+size: 1
+special:
+  Aura of Darkness: 'The light level is reduced by one in the area near the tainted
+    gloamwing.
+
+    '
+tags:
+- corrupted
+type: spirit
+vulnerable:
+- holy

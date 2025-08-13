@@ -1,0 +1,37 @@
+alignment: CN
+armor: scale
+attack:
+- 2
+- '[attack big I] fire piercing (bite)'
+- 2x [attack med] slashing (claws)
+- '[attack sm1] bludgeoning (tail)'
+bonuses:
+  cha: 3
+  con: 4
+  det: 4
+  dex: -1
+  int: 3
+  per: 3
+  spd: 1
+  str: 4
+extra_damage:
+  act:
+  - 6
+flag_reformated: true
+headername: Dragon, Fire
+immune:
+- fire
+languages:
+- DRACONIC (fire)
+movement:
+- f
+name: Fire Dragon
+senses:
+- darksight
+size: 4
+special:
+  Fire Breath [recharge 5-6 p c] @: 'As an action, all creatures in a 8-fathom cone
+    emanating from the dragon take [size] fire damage, halved by an [check evd impossible].
+
+    '
+type: dragon

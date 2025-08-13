@@ -1,30 +1,31 @@
-name: Thalloid Herbkeeper
-type: plant
-size: -3
 armor: 1
-movement:
-- b
-int: -4
-per: 1
-cha: -2
-vulnerable:
-- fire
-senses:
-- tremorsense
-- dimsight
 attack:
 - 1
 - 1 slashing (kick)
-- "[attack sm1] acid bludgeoning (sticky tendril, [recharge 6])"
-- "[attack sm1] bludgeoning lightning (exploding berry, [weapon_range thrown], [recharge 6])"
+- '[attack sm1] acid bludgeoning (sticky tendril, [recharge 6])'
+- '[attack sm1] bludgeoning lightning (exploding berry, [weapon_range thrown], [recharge
+  6])'
+cha: -2
+flag_reformated: true
+int: -4
+movement:
+- b
+name: Thalloid Herbkeeper
+per: 1
+senses:
+- tremorsense
+- dimsight
+size: 0
 special:
- Exploding Berry: >
-  When a creature is hit by the thalloid's exploding berry attack, all creatures nearby the target
-  must succeed on a [check dex easy] or take 1 bludgeoning lightning damage.
- Herbal Tincture @: >
-  The herbkeeper applies one of the following effects to a nearby creature. Each affect can be used
-  once per day.
-  [bulletlist
-  The target gains resistance 1 to one damage type for one minute &
-  The target heals one &
-  The target must succeed on a [check con med] or suffer 1 point of Con drain (poison)]
+  Exploding Berry: 'When a creature is hit by the thalloid''s exploding berry attack,
+    all creatures nearby the target must succeed on a [check dex easy] or take 1 bludgeoning
+    lightning damage.
+
+    '
+  Herbal Tincture @: The herbkeeper applies one of the following effects to a nearby
+    creature. Each affect can be used once per day. [bulletlist The target gains resistance
+    1 to one damage type for one minute & The target heals one & The target must succeed
+    on a [check con med] or suffer 1 point of Con drain (poison)]
+type: plant
+vulnerable:
+- fire

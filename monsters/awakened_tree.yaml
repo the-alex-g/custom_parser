@@ -1,17 +1,18 @@
-name: Awakened Tree
-size: 3
-type: plant
 alignment: LN
-bonuses:
- str: 3
- per: 2
- con: 3
- det: 4
 armor: 4
 attack:
 - 2
-- "[attack med] slashing (claws)"
-vulnerable:
-- fire
+- '[attack med] slashing (claws)'
+bonuses:
+  con: 3
+  det: 4
+  per: 2
+  str: 3
+flag_reformated: true
 languages:
 - SYLVAN
+name: Awakened Tree
+size: 4
+type: plant
+vulnerable:
+- fire

@@ -1,23 +1,23 @@
-name: Moon Fish
-size: -2
-type: spirit
+attack:
+- 1
+- '[attack vsm] piercing (bite)'
+- '[attack sm1] cold holy (moonbeam, [weapon_range thrown])'
 bonuses:
- dex: 2
- spd: 1
- con: 1
- int: -4
- per: 1
- cha: -2
- det: 1
+  cha: -2
+  con: 1
+  det: 1
+  dex: 2
+  int: -4
+  per: 1
+  spd: 1
+flag_reformated: true
+immune:
+- holy
+name: Moon Fish
 resist:
 - cold
 - fire
-immune:
-- holy
-attack:
-- 1
-- "[attack vsm] piercing (bite)"
-- "[attack sm1] cold holy (moonbeam, [weapon_range thrown])"
-text: >
- Eating a serving of moon fish heals one or restores one mana point. This benefit can only be gained
- once per day.
+size: 1
+text: Eating a serving of moon fish heals one or restores one mana point. This benefit
+  can only be gained once per day.
+type: spirit

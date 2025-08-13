@@ -1,20 +1,21 @@
-name: Kobold
-size: -1
-type: humanoid
-alignment: "N"
-bonuses:
- dex: 1
- spd: 1
- cha: -1
- det: -1
+alignment: N
 armor: hide
 attack:
 - 1
-- "[weapon dagger]"
-- "[weapon bow]"
-- "[attack 4] slashing (bite)"
+- '[weapon dagger]'
+- '[weapon bow]'
+- '[attack 4] slashing (bite)'
+bonuses:
+  cha: -1
+  det: -1
+  dex: 1
+  spd: 1
+flag_reformated: true
 languages:
 - common
 - DRACONIC
+name: Kobold
 senses:
 - dimsight
+size: 1
+type: humanoid

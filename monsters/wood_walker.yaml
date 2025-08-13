@@ -1,37 +1,35 @@
-name: Wood Walker
-size: 3
-type: plant
-flavor: 
-bonuses:
- str: 3
- con: 2
- int: -3
- cha: -2
- det: 1
 armor: 3
 attack:
 - 2
-- "[attack 12] bludgeoning (stomp)"
+- '[attack 12] bludgeoning (stomp)'
 - 1 piercing (thorn dart, [weapon_range bow])
-vulnerable:
-- fire
+bonuses:
+  cha: -2
+  con: 2
+  det: 1
+  int: -3
+  str: 3
+extra_damage:
+  act:
+  - d4/4
+  per:
+  - 1
+  - d4/4
+  - d4/4
+flag_reformated: true
+flavor: null
+name: Wood Walker
 resist:
 - cold
 senses:
 - dimsight
+size: 4
 special:
-  Explosive Globes (3/day) @:
-   The wood walker ejects a cloud of floating spheres that fill the area within
-   4 fathoms. For each fathom that a non-plant creature moves within the area,
-   they must succeed on a [check dex easy] or take d4/4 fire damage as the
-   spheres explode.
-   [newline]
-   The spheres become ineffective after they have been set off 1d3 + 1 times, or
-   after 1d3 + 1 minutes.
-extra_damage:
- per:
- - 1
- - d4/4
- - d4/4
- act:
- - d4/4
+  Explosive Globes (3/day) @: The wood walker ejects a cloud of floating spheres that
+    fill the area within 4 fathoms. For each fathom that a non-plant creature moves
+    within the area, they must succeed on a [check dex easy] or take d4/4 fire damage
+    as the spheres explode. [newline] The spheres become ineffective after they have
+    been set off 1d3 + 1 times, or after 1d3 + 1 minutes.
+type: plant
+vulnerable:
+- fire

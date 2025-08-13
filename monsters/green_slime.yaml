@@ -1,20 +1,24 @@
-name: Green Slime
-size: 0
-type: ooze
-bonuses:
- dex: 4
- spd: -1
- int: -4
- per: -4
- cha: -4
 attack:
 - 2
-- "[attack sm2] acid (pseudopod)"
+- '[attack sm2] acid (pseudopod)'
+bonuses:
+  cha: -4
+  dex: 4
+  int: -4
+  per: -4
+  spd: -1
+extra_damage:
+  per:
+  - 1
+flag_reformated: true
+name: Green Slime
+size: 2
+special:
+  Pseudopod: If a creature is hit by the pseudopod and wearing non-metal armor, its
+    armor takes 1 damage. Otherwise, some of the ooze's acid sticks to the creature.
+    At the end of the creature's next turn, unless the acid is somehow removed before
+    then, that creature takes 1 acid damage.
 traits:
 - Amorphous
 - Acidic Body
-special:
- Pseudopod: If a creature is hit by the pseudopod and wearing non-metal armor, its armor takes 1 damage. Otherwise, some of the ooze's acid sticks to the creature. At the end of the creature's next turn, unless the acid is somehow removed before then, that creature takes 1 acid damage.
-extra_damage:
- per:
- - 1
+type: ooze

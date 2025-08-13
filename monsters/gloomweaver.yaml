@@ -1,45 +1,50 @@
-name: Gloomweaver
-size: 3
-type: monster
-tags:
-- dark
 alignment: le
-bonuses:
- str: 3
- con: 2
- dex: 3
- spd: 1
- int: 1
- per: 1
- cha: 2
- det: 3
 armor: 4
 attack:
 - 2
 - 2x [attack 8] slashing (claws)
-- "[attack 8] unholy piercing and gloomweaver venom (bite)"
-- restrained (escape [difficulty med]) (umbral web, [weapon_range boulder], [recharge 5-6])
-special:
-  Gloomweaver Venom (poison): >
-   Once per round for ten rounds, the affected creature must succeed on a [check con hard] or suffer 1 point of Str and Per drain.
-  Claws: >
-   If a creature is hit twice in one round with the gloomweaver's claw attack,
-   its armor or shield takes one damage.
-  Umbral Web: >
-   When a creature starts its turn restrained by the gloomweaver's umbral web,
-   it takes 1 unholy necrotic damage.
-languages:
-- umbral
+- '[attack 8] unholy piercing and gloomweaver venom (bite)'
+- restrained (escape [difficulty med]) (umbral web, [weapon_range boulder], [recharge
+  5-6])
+bonuses:
+  cha: 2
+  con: 2
+  det: 3
+  dex: 3
+  int: 1
+  per: 1
+  spd: 1
+  str: 3
+extra_damage:
+  per:
+  - 1
+flag_reformated: true
 immune:
 - unholy
+languages:
+- umbral
+name: Gloomweaver
 resist:
 - necrotic
 - psychic
 - cold
+size: 4
+special:
+  Claws: 'If a creature is hit twice in one round with the gloomweaver''s claw attack,
+    its armor or shield takes one damage.
+
+    '
+  Gloomweaver Venom (poison): 'Once per round for ten rounds, the affected creature
+    must succeed on a [check con hard] or suffer 1 point of Str and Per drain.
+
+    '
+  Umbral Web: 'When a creature starts its turn restrained by the gloomweaver''s umbral
+    web, it takes 1 unholy necrotic damage.
+
+    '
+tags:
+- dark
+type: monster
 vulnerable:
 - holy
 - fire
-extra_damage:
-  per:
-  - 1
-# A combination Ungoliant/Bebilith. #

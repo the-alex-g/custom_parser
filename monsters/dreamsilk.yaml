@@ -1,21 +1,22 @@
-name: Dreamsilk
-size: -3
-type: construct
 bonuses:
- cha: 2
- dex: 2
- str: -2
- spd: -2
- per: -4
- con: -2
- int: -4
- det: -2
+  cha: 2
+  con: -2
+  det: -2
+  dex: 2
+  int: -4
+  per: -4
+  spd: -2
+  str: -2
+flag_reformated: true
+name: Dreamsilk
+size: 0
 special:
- Slippery: The dreamsilk takes one less damage from non-magical attacks.
- Attach @: >
-  The dreamsilk makes a melee attack. If the attack hits, it attaches itself to its target's head.
-  For the first 1d4 minutes while attached, the target has -2 to Dex and Per as it suffers from
-  dreamlike hallucinations. For up to one hour afterwards, the target gains a +1 bonus to Cha
-  and Int. Removing the dreamsilk requires [effort 4 dex]. Only one dreamsilk may attach to a
-  creature at a time.
- 
+  Attach @: 'The dreamsilk makes a melee attack. If the attack hits, it attaches itself
+    to its target''s head. For the first 1d4 minutes while attached, the target has
+    -2 to Dex and Per as it suffers from dreamlike hallucinations. For up to one hour
+    afterwards, the target gains a +1 bonus to Cha and Int. Removing the dreamsilk
+    requires [effort 4 dex]. Only one dreamsilk may attach to a creature at a time.
+
+    '
+  Slippery: The dreamsilk takes one less damage from non-magical attacks.
+type: construct

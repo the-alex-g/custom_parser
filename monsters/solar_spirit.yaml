@@ -1,31 +1,35 @@
-name: Solar Spirit
-size: 0
-type: spirit
-tags:
-- sun
 alignment: LG
-bonuses:
- str: 2
- con: 1
- dex: 2
- spd: 2
- det: 2
 armor: chain
 attack:
 - 1
-- "[attack 8] holy fire slashing (sunblade)"
-languages:
-- common
+- '[attack 8] holy fire slashing (sunblade)'
+bonuses:
+  con: 1
+  det: 2
+  dex: 2
+  spd: 2
+  str: 2
+flag_reformated: true
 immune:
 - fire
 - holy
-vulnerable:
-- unholy
-special:
- Corruption: >
-  If a solar spirit is slain by unholy damage, there is a [percent 5] chance that it reanimates as a [monster tarnished spirit] with
-  1d3 + 1 health remaining.
- Radiance: >
-  A solar spirit [illuminates 2].
+languages:
+- common
 movement:
 - f
+name: Solar Spirit
+size: 2
+special:
+  Corruption: 'If a solar spirit is slain by unholy damage, there is a [percent 5]
+    chance that it reanimates as a [monster tarnished spirit] with 1d3 + 1 health
+    remaining.
+
+    '
+  Radiance: 'A solar spirit [illuminates 2].
+
+    '
+tags:
+- sun
+type: spirit
+vulnerable:
+- unholy

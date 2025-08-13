@@ -1,0 +1,28 @@
+alignment: N
+armor: scale
+attack:
+- 1
+- '[attack 10] cold slashing (ice axe)'
+- '[attack 8] bludgeoning (boulder, [weapon_range boulder])'
+bonuses:
+  cha: -2
+  con: 4
+  det: 4
+  dex: -1
+  per: 1
+  str: 4
+flag_reformated: true
+headername: Giant, Frost
+immune:
+- cold
+languages:
+- JOTUN (frost)
+- common
+- draconic (frost)
+name: Frost Giant
+size: 4
+special:
+  Ice Dwellers: Frost giants never receive penalties for travelling in icy terrain.
+type: giant
+vulnerable:
+- fire

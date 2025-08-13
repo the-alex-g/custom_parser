@@ -1,0 +1,21 @@
+alignment: n
+armor: 4
+attack:
+- 1
+- '[attack med] piercing (bite)'
+con: 2
+det: 1
+dex: 1
+flag_reformated: true
+headername: Drake, Common
+languages:
+- DRACONIC
+movement:
+- f
+name: Common Drake
+senses:
+- dimsight
+size: 2
+spd: 2
+str: 2
+type: dragon

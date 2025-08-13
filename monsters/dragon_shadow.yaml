@@ -1,0 +1,50 @@
+alignment: N
+armor: scale
+attack:
+- 2
+- '[attack big] necrotic piercing (bite)'
+- 2x [attack med] slashing (claws)
+bonuses:
+  cha: 4
+  con: 3
+  det: 4
+  int: 4
+  per: 4
+  spd: 2
+  str: 3
+extra_damage:
+  per:
+  - d4/4
+  - d4/4
+flag_reformated: true
+headername: Dragon, Shadow
+languages:
+- DRACONIC (shadow)
+- UMBRAL
+movement:
+- f
+name: Shadow Dragon
+resist:
+- unholy
+- necrotic
+senses:
+- darksight
+size: 4
+special:
+  Breath of Darkness [recharge 5-6 p c] @: 'The dragon exhales liquid shadow, which
+    coalesces into a sphere 6 fathoms in diameter, centered on a point within 8 fathoms
+    of the dragon. This area is utterly dark, and any creature that starts its turn
+    in the region suffers d4/4 necrotic damage. If the creature takes any damage,
+    they must also succeed on a [check det det] or suffer 1 point of Con drain. The
+    sphere of darkness dissipates after 1d4 + 2 rounds, or when the dragon uses this
+    ability again.
+
+    '
+  Shadow Stealth: 'While in darkness, the shadow dragon is invisible. While in dim
+    light, it can only be seen by creatures with a special sense. Other shadow dragons
+    can still see invisible shadow dragons.
+
+    '
+type: dragon
+vulnerable:
+- holy

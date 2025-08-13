@@ -1,20 +1,23 @@
-name: Ghoul
-size: 0
-type: undead
 alignment: ne
-bonuses:
- str: 1
- dex: 3
- spd: 3
- cha: 1
 armor: leather
 attack:
 - 1
-- "[weapon sword]"
-- "[attack 6 0] slashing (claws)"
-- "[attack 8 0] piercing (bite)"
+- '[weapon sword]'
+- '[attack 6 0] slashing (claws)'
+- '[attack 8 0] piercing (bite)'
+bonuses:
+  cha: 1
+  dex: 3
+  spd: 3
+  str: 1
+flag_reformated: true
 languages:
 - COMMON
+name: Ghoul
+size: 2
 special:
-  Bite: >
-   Any creature hit by the ghoul's bite attack must succeed on a [check con med] or suffer 1 point of Str drain.
+  Bite: 'Any creature hit by the ghoul''s bite attack must succeed on a [check con
+    med] or suffer 1 point of Str drain.
+
+    '
+type: undead

@@ -1,26 +1,28 @@
-name: Tubeflower Stone
-size: -2
-type: plant
-bonuses:
- spd: -2
- dex: -1
- int: -4
- cha: -4
+armor: 2
 attack:
 - 1
-- "[attack 10 5] acid (squirt, range 1/3)"
+- '[attack 10 5] acid (squirt, range 1/3)'
+bonuses:
+  cha: -4
+  dex: -1
+  int: -4
+  spd: -2
+flag_reformated: true
+movement:
+- h
+name: Tubeflower Stone
 resist:
 - acid
-armor: 2
+senses:
+- tremorsense
+size: 1
+special:
+  Squirt: 'For each damage from this attack that is blocked by armor made from natural
+    materials, that armor takes one damage.
+
+    '
+type: plant
 vulnerable:
 - slashing
 - fire
 - piercing
-special:
- Squirt: >
-  For each damage from this attack that is blocked by armor made from natural materials, that armor
-  takes one damage.
-movement:
-- h
-senses:
-- tremorsense

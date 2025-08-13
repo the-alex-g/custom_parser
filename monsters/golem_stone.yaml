@@ -1,0 +1,18 @@
+attack:
+- 2
+- '[attack 6] bludgeoning (slam)'
+bonuses:
+  cha: -4
+  dex: -2
+  int: -4
+  per: -4
+  str: 3
+flag_reformated: true
+flavor: Slabs of crudely carved stone are held together by the same magic that animates
+  them.
+hardness: stone
+headername: Golem, Stone
+name: Stone Golem
+size: 2
+spell resist: 2
+type: construct

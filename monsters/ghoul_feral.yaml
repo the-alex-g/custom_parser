@@ -1,0 +1,22 @@
+alignment: ce
+armor: 0
+attack:
+- 2
+- 2x [attack 6 0] slashing (claws)
+- '[attack 8 0] piercing (bite)'
+bonuses:
+  cha: -3
+  dex: 3
+  int: -2
+  spd: 3
+  str: 1
+flag_reformated: true
+headername: Ghoul, Feral
+name: Feral Ghoul
+size: 2
+special:
+  Bite: 'Any creature hit by the ghoul''s bite attack must succeed on a [check con
+    med] or suffer 1 point of Str drain.
+
+    '
+type: undead

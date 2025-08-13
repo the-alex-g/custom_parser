@@ -1,0 +1,31 @@
+alignment: ng
+armor: 6
+attack:
+- 1
+- '[attack med] piercing (bite)'
+bonuses:
+  con: 2
+  det: 2
+  dex: 1
+  spd: 1
+  str: 2
+flag_reformated: true
+headername: Drake, Shield
+languages:
+- DRACONIC
+movement:
+- f
+name: Shield Drake
+size: 2
+special:
+  Breath Weapon (Recharge 6) @: 'The drake exhales a cloud of bubbles in a 5-fathom
+    cone. All creatures in the cone must succeed on a [check Evd med] or be hit by
+    a bubble. A creature hit by a bubble suffers from one of the following effects,
+    depending on which type of breath weapon the drake used: [newline] [quad][text
+    bi Shield Globes.] The creature is encased in a translucent sphere. Nothing can
+    pass through the sphere except for fresh air. The sphere is an object with 6 health,
+    and vanishes when destroyed or after one minute. [newline] [quad][text bi Cavitation
+    Bubbles.] The creature takes 2 bludgeoning damage as the bubble explodes.
+
+    '
+type: dragon

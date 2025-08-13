@@ -1,26 +1,32 @@
-name: Waste Wanderer
-type: construct
-size: 2
-int: -4
-per: -4
 cha: -4
 dex: -4
+extra_damage:
+  per:
+  - 2
+flag_reformated: true
+int: -4
+name: Waste Wanderer
+per: -4
 resist:
 - piercing
+size: 3
 special:
- Trample: >
-  The [name] can move into the space of any size 0 or smaller creature. These
-  creatures must succeed on a [check evd spd] or suffer 1 bludgeoning damage.
-  The creature is then pushed to the nearest empty space.
- Restricted Movement: >
-  The [name] can rotate no more than 45 degrees during its movement. It
-  cannot climb, jump, swim, cross obstacles more than one fathom tall, or cross
-  chasms more than one fathom wide. However, it can travel backwards just as
-  well as forwards.
- Wind Powered: >
-  In strong winds, the [name] gets a +2 Spd bonus.
- Hollow Construction: >
-  The [name] has resistance to damage from explosions and similar effects.
-extra_damage:
- per:
- - 2
+  Hollow Construction: 'The [name] has resistance to damage from explosions and similar
+    effects.
+
+    '
+  Restricted Movement: 'The [name] can rotate no more than 45 degrees during its movement.
+    It cannot climb, jump, swim, cross obstacles more than one fathom tall, or cross
+    chasms more than one fathom wide. However, it can travel backwards just as well
+    as forwards.
+
+    '
+  Trample: 'The [name] can move into the space of any size 0 or smaller creature.
+    These creatures must succeed on a [check evd spd] or suffer 1 bludgeoning damage.
+    The creature is then pushed to the nearest empty space.
+
+    '
+  Wind Powered: 'In strong winds, the [name] gets a +2 Spd bonus.
+
+    '
+type: construct

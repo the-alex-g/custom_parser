@@ -1,18 +1,19 @@
-name: Bear
-size: 1
-type: animal
-bonuses:
- str: 3
- con: 3
- spd: 1
- int: -4
- per: 2
- cha: -4
- det: 1
 attack:
 - 1
-- "[attack 8] slashing (claws)"
-- "[attack 8] piercing (bite)"
+- '[attack 8] slashing (claws)'
+- '[attack 8] piercing (bite)'
+bonuses:
+  cha: -4
+  con: 3
+  det: 1
+  int: -4
+  per: 2
+  spd: 1
+  str: 3
+flag_reformated: true
+name: Bear
+size: 2
 special:
- Crushing Blows: >
-  Any size 1 or smaller creature that is hit by the bear's claw attack must succeed on a [check str str] or be knocked prone.
+  Crushing Blows: Any size 1 or smaller creature that is hit by the bear's claw attack
+    must succeed on a [check str str] or be knocked prone.
+type: animal

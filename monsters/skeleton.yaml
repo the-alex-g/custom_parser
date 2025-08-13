@@ -1,18 +1,20 @@
-name: Skeleton
-size: 0
-type: undead
-flavor: >
- [qmark Countless pinpricks of blue light emerged from the darkness around us.
- Each glowing point was the eye of a skeleton.]
 alignment: ne
-bonuses:
- int: -4
- per: -4
- cha: -4
 attack:
 - 1
-- "[attack 4] slashing (scratch)"
-vulnerable:
-- bludgeoning
+- '[attack 4] slashing (scratch)'
+bonuses:
+  cha: -4
+  int: -4
+  per: -4
+flag_reformated: true
+flavor: '[qmark Countless pinpricks of blue light emerged from the darkness around
+  us. Each glowing point was the eye of a skeleton.]
+
+  '
+name: Skeleton
 resist:
 - piercing
+size: 2
+type: undead
+vulnerable:
+- bludgeoning

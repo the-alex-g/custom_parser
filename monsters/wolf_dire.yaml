@@ -1,0 +1,16 @@
+attack:
+- 1
+- '[attack 8] slashing (bite)'
+bonuses:
+  cha: -4
+  con: 2
+  det: 1
+  int: -4
+  per: 1
+  spd: 1
+  str: 2
+flag_reformated: true
+headername: Wolf, Dire
+name: Dire Wolf
+size: 2
+type: animal

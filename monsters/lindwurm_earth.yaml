@@ -1,0 +1,35 @@
+alignment: CE
+armor: 5
+attack:
+- 2
+- '[attack 8] lightning piercing (bite)'
+- '[attack 6] bludgeoning (tail)'
+- '[attack 6] slashing (claws)'
+bonuses:
+  cha: 1
+  con: 3
+  det: 2
+  dex: 1
+  int: -1
+  spd: 2
+  str: 3
+extra_damage:
+  act:
+  - 3
+flag_reformated: true
+headername: Lindwurm, Earth
+languages:
+- DRACONIC
+- jotun (stone)
+- common
+movement:
+- b
+name: Earth Lindwurm
+resist:
+- lightning
+size: 3
+special:
+  Lightning Breath (recharge 6) @: All creatures in a 4-fathom line emanating from
+    the lindwurm take 1d3 lightning damage, +1 if they are wearing metal armor, halved
+    with a successful [check evd impossible].
+type: dragon

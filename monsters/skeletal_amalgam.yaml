@@ -1,29 +1,32 @@
-name: Skeletal Amalgam
-size: 1
-type: undead 
 alignment: ne
-bonuses:
- str: 2
- dex: 1
- spd: 1
- det: 2
- int: -4
- per: -4
- cha: -4
 attack:
 - 3
 - 3x [attack med] slashing (bone claw)
-vulnerable:
-- bludgeoning
+bonuses:
+  cha: -4
+  det: 2
+  dex: 1
+  int: -4
+  per: -4
+  spd: 1
+  str: 2
+extra_damage:
+  per:
+  - -1
+flag_reformated: true
+name: Skeletal Amalgam
 resist:
 - piercing
+size: 2
 special:
- Fragile Construction: >
-  For every two damage that the amalgam has suffered, its Spd is reduced by 1
-  and it makes one fewer attacks per turn.
- Aggregate Nature: >
-  The amalgam can fit into spaces only large enough for a size 0 creature
-  without difficulty.
-extra_damage:
- per:
- - -1
+  Aggregate Nature: 'The amalgam can fit into spaces only large enough for a size
+    0 creature without difficulty.
+
+    '
+  Fragile Construction: 'For every two damage that the amalgam has suffered, its Spd
+    is reduced by 1 and it makes one fewer attacks per turn.
+
+    '
+type: undead
+vulnerable:
+- bludgeoning

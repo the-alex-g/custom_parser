@@ -1,0 +1,21 @@
+armor: 2
+attack:
+- 1
+- '[attack med] bludgeoning (stomp)'
+cha: -2
+con: 1
+det: 1
+flag_reformated: true
+headername: Thalloid, Greater
+int: -4
+movement:
+- b
+name: Greater Thalloid
+senses:
+- tremorsense
+- dimsight
+size: 1
+str: 1
+type: plant
+vulnerable:
+- fire

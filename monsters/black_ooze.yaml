@@ -1,22 +1,26 @@
-name: Black Ooze
-size: 0
-type: ooze
-bonuses:
- str: 1
- con: 2
- dex: 4
- spd: -2
- int: -4
- per: -4
- cha: -4
 attack:
 - 2
-- "2x [attack 4] acid bludgeoning (pseudopod)"
+- 2x [attack 4] acid bludgeoning (pseudopod)
+bonuses:
+  cha: -4
+  con: 2
+  dex: 4
+  int: -4
+  per: -4
+  spd: -2
+  str: 1
+flag_reformated: true
+name: Black Ooze
+size: 2
+special:
+  Fission: 'If the ooze takes slashing damage and has at least 2 health left, it splits
+    into two oozes that are half its size. The ooze''s health is divided evenly between
+    the two new oozes.
+
+    '
+  Pseudopod: If a creature is hit by the pseudopod and wearing non-metal armor, its
+    armor takes 1 damage.
 traits:
 - Amorphous
 - Acidic Body
-special:
-  Fission: >
-   If the ooze takes slashing damage and has at least 2 health left, it splits into two oozes that are
-   half its size. The ooze's health is divided evenly between the two new oozes.
-  Pseudopod: If a creature is hit by the pseudopod and wearing non-metal armor, its armor takes 1 damage.
+type: ooze

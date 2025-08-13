@@ -1,0 +1,23 @@
+attack:
+- 2
+- '[attack 6] bludgeoning (slam)'
+- '[attack 8] slashing (sword)'
+bonuses:
+  cha: -4
+  det: 1
+  dex: -1
+  int: -4
+  per: -4
+  str: 4
+flag_reformated: true
+flavor: A monolithic golem, like a giant suit of armor covered in glowing runes, stomped
+  toward us.
+hardness: iron
+headername: Golem, Iron
+name: Iron Golem
+resist:
+- cold
+- fire
+size: 2
+spell resist: 3
+type: construct

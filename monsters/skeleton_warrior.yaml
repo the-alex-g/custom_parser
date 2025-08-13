@@ -1,0 +1,22 @@
+alignment: ne
+armor: 2
+attack:
+- 1
+- '[attack 6] slashing (ancient shortsword)'
+bonuses:
+  cha: -4
+  det: 1
+  int: -4
+  per: -4
+  str: 1
+flag_reformated: true
+flavor: The reanimated skeletons of former soldiers often retain some of their skill
+  at arms.
+name: Skeleton Warrior
+resist:
+- piercing
+shield: targe
+size: 2
+type: undead
+vulnerable:
+- bludgeoning

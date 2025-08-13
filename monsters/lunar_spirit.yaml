@@ -1,23 +1,24 @@
-name: Lunar Spirit
-size: 0
-type: spirit
-tags:
-- moon
 alignment: NG
-bonuses:
- dex: 2
- spd: 2
- per: 1
- det: 2
 armor: 1
 attack:
 - 1
-- "[attack 6] cold holy slashing (moonblade)"
-- "[attack 6] cold holy piercing (moonbow, [weapon_range bow])"
-special:
- Luminence: A lunar spirit [illuminates 0 3].
-languages:
-- common
+- '[attack 6] cold holy slashing (moonblade)'
+- '[attack 6] cold holy piercing (moonbow, [weapon_range bow])'
+bonuses:
+  det: 2
+  dex: 2
+  per: 1
+  spd: 2
+flag_reformated: true
 immune:
 - cold
 - holy
+languages:
+- common
+name: Lunar Spirit
+size: 2
+special:
+  Luminence: A lunar spirit [illuminates 0 3].
+tags:
+- moon
+type: spirit

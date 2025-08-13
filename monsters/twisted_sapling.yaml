@@ -1,21 +1,22 @@
-name: Twisted Sapling
-tags:
-- corrupted
-size: 0
-type: plant
-flavor: Fungus and black slime cover this decaying tree.
-bonuses:
- str: 1
- con: 1
- int: -4
- per: -1
- cha: -3
 armor: hide
 attack:
 - 1
-- "[attack 4] slashing (claws)"
-vulnerable:
-- fire
+- '[attack 4] slashing (claws)'
+bonuses:
+  cha: -3
+  con: 1
+  int: -4
+  per: -1
+  str: 1
+flag_reformated: true
+flavor: Fungus and black slime cover this decaying tree.
+name: Twisted Sapling
 resist:
 - necrotic
 - unholy
+size: 2
+tags:
+- corrupted
+type: plant
+vulnerable:
+- fire

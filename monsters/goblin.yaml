@@ -1,9 +1,10 @@
-name: Goblin
-size: -1
-type: humanoid
-dice: goblin
-bonuses:
- dex: 2
 attack:
 - 1
-- "[attack 4] piercing (knife)"
+- '[attack 4] piercing (knife)'
+bonuses:
+  dex: 2
+dice: goblin
+flag_reformated: true
+name: Goblin
+size: 1
+type: humanoid

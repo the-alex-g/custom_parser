@@ -1,16 +1,17 @@
-name: Animate Shadow
-size: -1
-type: spirit
-bonuses:
- dex: 2
- spd: 2
- int: -4
- per: -1
- cha: -4
 attack:
 - 1
-- "[attack 4] slashing (claws)"
-traits:
-- Light Vulnerability
+- '[attack 4] slashing (claws)'
+bonuses:
+  cha: -4
+  dex: 2
+  int: -4
+  per: -1
+  spd: 2
+flag_reformated: true
+name: Animate Shadow
 resist:
 - non-magic
+size: 1
+traits:
+- Light Vulnerability
+type: spirit

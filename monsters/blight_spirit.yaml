@@ -1,24 +1,28 @@
-name: Blight Spirit
-size: 0
-type: spirit
-tags:
-- corrupted
 alignment: NE
-bonuses:
- con: 1
- cha: -1
 armor: 1
 attack:
 - 1
-- "[attack 4] slashing and tree blight (claws)"
+- '[attack 4] slashing and tree blight (claws)'
+bonuses:
+  cha: -1
+  con: 1
+flag_reformated: true
 languages:
 - sylvan
 - umbral
+name: Blight Spirit
 resist:
 - necrotic
 - unholy
+size: 2
 special:
- Tree Blight (disease): >
-  Once per day while diseased, the affected creature must succeed on a Con 10 check or suffer 1 point of Con drain. The disease is cured
-  once three successful checks have been made.
- Rotwalk @: The [name] can teleport between dead or diseased trees that are no more than 10 fathoms apart.
+  Rotwalk @: The [name] can teleport between dead or diseased trees that are no more
+    than 10 fathoms apart.
+  Tree Blight (disease): 'Once per day while diseased, the affected creature must
+    succeed on a Con 10 check or suffer 1 point of Con drain. The disease is cured
+    once three successful checks have been made.
+
+    '
+tags:
+- corrupted
+type: spirit

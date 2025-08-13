@@ -1,20 +1,23 @@
-name: Oaken Mauler
-size: 1
-type: plant
 alignment: CN
-bonuses:
- str: 2
- con: 2
- int: -4
- per: -1
- cha: -4
- det: 1
 armor: 2
 attack:
 - 1
-- "[attack 8] bludgeoning (smash)"
-special:
- Bloodthirst: Once per turn, if the oaken mauler hits with an attack, roll a d6. On a 3 or better, the mauler may make a second attack.
- Summoning: >
-   The oaken mauler has advantage on checks made to escape control.
+- '[attack 8] bludgeoning (smash)'
+bonuses:
+  cha: -4
+  con: 2
+  det: 1
+  int: -4
+  per: -1
+  str: 2
+flag_reformated: true
 flavor: A glowing green maw acts as this hulk's eyes and mouth.
+name: Oaken Mauler
+size: 2
+special:
+  Bloodthirst: Once per turn, if the oaken mauler hits with an attack, roll a d6.
+    On a 3 or better, the mauler may make a second attack.
+  Summoning: 'The oaken mauler has advantage on checks made to escape control.
+
+    '
+type: plant

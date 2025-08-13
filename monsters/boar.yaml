@@ -1,22 +1,25 @@
-name: Boar
-size: 0
-type: animal
-dice: boar
-bonuses:
- str: 3
- con: 4
- spd: 1
- int: -4
- cha: -4
- det: 4
 armor: 1
 attack:
 - 1
-- "[attack 6] slashing (tusks)"
-special:
- Charge: >
-  If the boar moves at least 6 fathoms towards its target, and then hits with a tusk attack, the attack is instead [attack 8], and the
-  target must succeed on a [check str str] or be knocked prone.
+- '[attack 6] slashing (tusks)'
+bonuses:
+  cha: -4
+  con: 4
+  det: 4
+  int: -4
+  spd: 1
+  str: 3
+dice: boar
 extra_damage:
- per:
- - 0.33
+  per:
+  - 0.33
+flag_reformated: true
+name: Boar
+size: 2
+special:
+  Charge: 'If the boar moves at least 6 fathoms towards its target, and then hits
+    with a tusk attack, the attack is instead [attack 8], and the target must succeed
+    on a [check str str] or be knocked prone.
+
+    '
+type: animal

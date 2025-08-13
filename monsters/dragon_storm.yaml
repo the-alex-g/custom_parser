@@ -1,0 +1,39 @@
+alignment: CN
+armor: scale
+attack:
+- 3
+- '[attack 10] lightning piercing (bite)'
+- 2x [attack 8] slashing (claws)
+- '[attack 8] bludgeoning (tail)'
+bonuses:
+  cha: 1
+  con: 2
+  det: 2
+  dex: 2
+  int: 2
+  per: 3
+  spd: 4
+  str: 4
+extra_damage:
+  act:
+  - 5
+flag_reformated: true
+headername: Dragon, Storm
+immune:
+- lightning
+languages:
+- DRACONIC (storm)
+movement:
+- s
+- f
+name: Storm Dragon
+senses:
+- darksight
+size: 4
+special:
+  Lightning Breath [recharge 5-6 p c] @: 'All creatures in a 10-fathom line suffer
+    1d6 lightning damage, halved by an [check evd impossible]. Creatures wearing metal
+    armor suffer an additional lightning damage.
+
+    '
+type: dragon

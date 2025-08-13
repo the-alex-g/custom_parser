@@ -1,30 +1,34 @@
-name: Gloamwing
-size: -1
-type: spirit
-flavor: >
- A glowing shape, similar to a huge swallowtail butterfly, glides past. It
- seems to swim through the air on glimmering wings.
-bonuses:
- dex: 3
- spd: 1
- int: -4
- per: 1
 attack:
 - 1
 - 1 holy (radiant touch)
-special:
-  Cyclic Nature: >
-   During the day, the gloamwing's radiant touch attack deals fire damage, and
-   it has immunity to fire damage. During nighttime, the gloamwing's radiant
-   touch attack deals cold damage, and it has immunity to cold damage.
-  Glow: >
-   A gloamwing [illuminates 2]. This light is golden during the day, and silver
-   at night.
-resist:
-- non-magic
+bonuses:
+  dex: 3
+  int: -4
+  per: 1
+  spd: 1
+flag_reformated: true
+flavor: 'A glowing shape, similar to a huge swallowtail butterfly, glides past. It
+  seems to swim through the air on glimmering wings.
+
+  '
 immune:
 - holy
-vulnerable:
-- unholy
 movement:
 - f=10
+name: Gloamwing
+resist:
+- non-magic
+size: 1
+special:
+  Cyclic Nature: 'During the day, the gloamwing''s radiant touch attack deals fire
+    damage, and it has immunity to fire damage. During nighttime, the gloamwing''s
+    radiant touch attack deals cold damage, and it has immunity to cold damage.
+
+    '
+  Glow: 'A gloamwing [illuminates 2]. This light is golden during the day, and silver
+    at night.
+
+    '
+type: spirit
+vulnerable:
+- unholy

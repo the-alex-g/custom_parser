@@ -1,34 +1,39 @@
-name: Crystal Spider
-size: -2
-type: monster
+attacks:
+- 1
+- '[attack med] slashing and crystallizing sickness (bite)'
+- restrained (escape [difficulty med]) (crystalline web, [weapon_range thrown], [recharge
+  5-6]
 bonuses:
- dex: 2
- con: 2
- int: -4
- cha: -2
- det: 1
- str: 1
+  cha: -2
+  con: 2
+  det: 1
+  dex: 2
+  int: -4
+  str: 1
+flag_reformated: true
+name: Crystal Spider
 resist:
 - cold
 - fire
-attacks:
-- 1
-- "[attack med] slashing and crystallizing sickness (bite)"
-- restrained (escape [difficulty med]) (crystalline web, [weapon_range thrown], [recharge 5-6]
 senses:
 - tremorsense
 - darksight
+size: 1
 special:
- Crystallizing Sickness (disease): >
-  Every 24 hours, the diseased creature must succeed on a [check con 12] or suffer 1 point of Dex and
-  Spd drain. The diseased creature's armor type is equal to half the total amount of Dex drain
-  inflicted, unless the creature is wearing heavier armor already. If a creature's Spd or Dex bonus
-  is reduced to -5, the creature is turned into solid crystal, mostly quartz, until the disease is
-  cured. A fully crystallized creature no longer makes checks against the disease. The disease
-  is cured after two consecutive successful checks.
- Crystalline Web: >
-  Whenever a creature makes a Str or Dex check to escape the crystalline webbing, that creature
-  suffers 1 slashing damage from the sharp crystal.
- Bite: >
-  If a creature takes damage from the bite attack and is already suffering from crystallizing
-  sickness, that creature must immediately make a check against the disease.
+  Bite: If a creature takes damage from the bite attack and is already suffering from
+    crystallizing sickness, that creature must immediately make a check against the
+    disease.
+  Crystalline Web: 'Whenever a creature makes a Str or Dex check to escape the crystalline
+    webbing, that creature suffers 1 slashing damage from the sharp crystal.
+
+    '
+  Crystallizing Sickness (disease): 'Every 24 hours, the diseased creature must succeed
+    on a [check con 12] or suffer 1 point of Dex and Spd drain. The diseased creature''s
+    armor type is equal to half the total amount of Dex drain inflicted, unless the
+    creature is wearing heavier armor already. If a creature''s Spd or Dex bonus is
+    reduced to -5, the creature is turned into solid crystal, mostly quartz, until
+    the disease is cured. A fully crystallized creature no longer makes checks against
+    the disease. The disease is cured after two consecutive successful checks.
+
+    '
+type: monster

@@ -1,0 +1,38 @@
+alignment: ce
+armor: 5
+attack:
+- 2
+- '[attack 10] cold piercing (bite)'
+- '[attack 8] bludgeoning (tail)'
+- '[attack 8] slashing (claws)'
+bonuses:
+  cha: 1
+  con: 3
+  det: 3
+  int: -1
+  per: 1
+  spd: 2
+  str: 3
+extra_damage:
+  act:
+  - 4
+flag_reformated: true
+headername: Lindwurm, Rime
+immune:
+- cold
+languages:
+- DRACONIC
+- jotun
+- common
+movement:
+- s
+name: Rime Lindwurm
+size: 4
+special:
+  Frost Breath (recharge 6) @: 'All creatures in a 4-fathom cone emanating from the
+    lindwurm take 3 cold damage, halved by a [check evd med].
+
+    '
+type: dragon
+vulnerable:
+- fire

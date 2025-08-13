@@ -1,23 +1,23 @@
-name: Bolete Servant
-flavor: 
-type: plant
-armor: 1
-size: 0
 alignment: n
-bonuses:
- con: 1
- det: 1
+armor: 1
 attack:
 - 1
-- "[attack 4] bludgeoning (slam)"
-senses:
-- tremorsense
-- dimsight
+- '[attack 4] bludgeoning (slam)'
+bonuses:
+  con: 1
+  det: 1
+flag_reformated: true
+flavor: null
 languages:
 - telepathy
+name: Bolete Servant
 resist:
 - cold
 - necrotic
-text: >
- Bolete servants assist the gardeners in tending the fungus. In times of strife,
- they also help the guardians defend their home.
+senses:
+- tremorsense
+- dimsight
+size: 2
+text: Bolete servants assist the gardeners in tending the fungus. In times of strife,
+  they also help the guardians defend their home.
+type: plant

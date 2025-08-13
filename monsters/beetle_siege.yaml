@@ -1,0 +1,24 @@
+armor: 4
+attack:
+- 1
+- '[attack med] slashing (bite)'
+bonuses:
+  cha: -4
+  con: 2
+  dex: -3
+  int: -4
+  spd: -1
+  str: 3
+flag_reformated: true
+headername: Beetle, Siege
+movement:
+- b
+name: Siege Beetle
+senses:
+- dimsight
+size: 3
+text: 'Underground civilizations use trained siege beetles as weapons of war or to
+  help excavate tunnels.
+
+  '
+type: animal

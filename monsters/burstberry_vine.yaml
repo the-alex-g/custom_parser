@@ -1,29 +1,34 @@
-name: Burstberry Vine
-size: -1
-type: plant
-flavor: >
- [qmark The burstberry vine can be identified, from a safe distance of course, by its
- distinctive vibrant, cyan berries.] --- [text i A Guide to Hazardous Flora]
-bonuses:
- dex: 3
- spd: -4
- int: -5
- per: -3
- cha: -3
 attack:
 - 1
-- "[attack sm1] bludgeoning lightning (exploding berries, [weapon_range thrown])"
+- '[attack sm1] bludgeoning lightning (exploding berries, [weapon_range thrown])'
+bonuses:
+  cha: -3
+  dex: 3
+  int: -5
+  per: -3
+  spd: -4
+flag_reformated: true
+flavor: '[qmark The burstberry vine can be identified, from a safe distance of course,
+  by its distinctive vibrant, cyan berries.] --- [text i A Guide to Hazardous Flora]
+
+  '
+name: Burstberry Vine
 resist:
 - bludgeoning
 - piercing
 - lightning
+size: 1
+special:
+  Exploding Berries: 'When a creature is hit by the vine''s exploding berries attack,
+    all creatures nearby the target must succeed on a [check dex easy] or take 1 bludgeoning
+    lightning damage.
+
+    '
+  Lightning Absorption: 'The first exploding berries attack that the vine makes after
+    taking lightning damage deals an additional damage.
+
+    '
+type: plant
 vulnerable:
 - fire
 - slashing
-special:
- Lightning Absorption: >
-  The first exploding berries attack that the vine makes after taking lightning damage deals
-  an additional damage.
- Exploding Berries: >
-  When a creature is hit by the vine's exploding berries attack, all creatures nearby the target
-  must succeed on a [check dex easy] or take 1 bludgeoning lightning damage.

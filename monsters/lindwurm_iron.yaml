@@ -1,0 +1,28 @@
+alignment: CE
+armor: plate
+attack:
+- 2
+- '[attack 10] piercing (bite)'
+- '[attack 8] bludgeoning (tail)'
+- '[attack 8] slashing (claws)'
+bonuses:
+  cha: 2
+  con: 3
+  det: 3
+  dex: 1
+  int: 1
+  per: 1
+  spd: 2
+  str: 3
+flag_reformated: true
+headername: Lindwurm, Iron
+languages:
+- DRACONIC
+- JOTUN
+- common
+name: Iron Lindwurm
+resist:
+- fire
+- cold
+size: 4
+type: dragon

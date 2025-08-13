@@ -1,14 +1,15 @@
-name: Giant Rat
-size: -3
-type: animal
-bonuses:
- con: 1
- dex: 2
- spd: 2
- int: -4
- cha: -4
 attack:
 - 1
-- "[attack 4] piercing (bite)"
+- '[attack 4] piercing (bite)'
+bonuses:
+  cha: -4
+  con: 1
+  dex: 2
+  int: -4
+  spd: 2
+flag_reformated: true
+name: Giant Rat
 senses:
 - dimsight
+size: 0
+type: animal

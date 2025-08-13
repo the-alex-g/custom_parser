@@ -1,23 +1,23 @@
-name: Thought Eater
-type: spirit
-size: -1
 armor: 2
-dex: 2
+attack:
+- 1
+- '[attack med] psychic slashing (claw)'
 con: 2
 det: 1
-resist:
-- cold
-- fire
+dex: 2
+flag_reformated: true
 immune:
 - acid
 - psychic
+name: Thought Eater
+resist:
+- cold
+- fire
 senses:
 - sense living
-attack:
-- 1
-- "[attack med] psychic slashing (claw)"
+size: 1
 special:
- Memory Drain (1/day): >
-  One humanoid within 5 fathoms must succeed on a [check int det] or suffer 1 point of Int drain.
-  This drain cannot be recovered (except with magic) until either 1 week has passed or the [name]
-  has been killed.
+  Memory Drain (1/day): One humanoid within 5 fathoms must succeed on a [check int
+    det] or suffer 1 point of Int drain. This drain cannot be recovered (except with
+    magic) until either 1 week has passed or the [name] has been killed.
+type: spirit

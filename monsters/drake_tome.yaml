@@ -1,0 +1,38 @@
+alignment: LG
+armor: 4
+attack:
+- 1
+- '[attack med] piercing (bite)'
+- '[attack sm1] slashing and poison ink (claws)'
+con: 1
+det: 1
+dex: 2
+flag_reformated: true
+headername: Drake, Tome
+int: 2
+languages:
+- COMMON
+- DRACONIC (glyph)
+movement:
+- f
+name: Tome Drake
+per: 1
+senses:
+- dimsight
+size: 1
+special:
+  Poison Ink (poison): 'This poison is only applied if the drake expends one use of
+    its runemark ability. The poisoned creature must succeed on a [check con med]
+    or suffer from one of the following effects, which last for one minute. [bulletlist
+    The creature falls asleep and cannot be woken. & The creature is blind. & At the
+    start of each of its turns, the creature must succeed on a [check con easy] or
+    suffer 1 point of Con drain, to a maximum of 3. & The creature is vulnerable 1
+    to fire.]
+
+    '
+  Runemark (3/day) @: The drake grants one of the following benefits to a nearby creature.
+    The benefit lasts for one hour. One creature cannot have multiple runemarks at
+    the same time. [bulletlist +2 Evasion & The affected creature gains a shield point
+    every 10 minutes & resist 1 to one damage type & +1 to accuracy rolls]
+str: 1
+type: dragon

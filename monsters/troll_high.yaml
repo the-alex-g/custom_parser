@@ -1,0 +1,30 @@
+alignment: ne
+armor: hide
+attack:
+- 1
+- '[attack big] bludgeoning (club)'
+- '[attack 6] bludgeoning (fist)'
+- '[attack 6] bludgeoning (boulder, [weapon_range boulder])'
+bonuses:
+  cha: -1
+  con: 3
+  int: -1
+  per: -1
+  str: 4
+extra_damage:
+  per:
+  - 1
+flag_reformated: true
+flavor: This troll stands tall, covered in thick, scaly skin.
+headername: Troll, High
+languages:
+- JOTUN
+- common
+name: High Troll
+size: 3
+special:
+  Charge: 'If the troll moves at least 4 fathoms toward a target and then hits it
+    with a melee attack, the attack deals one additional damage.
+
+    '
+type: giant

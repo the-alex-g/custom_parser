@@ -1,0 +1,24 @@
+attack:
+- 1
+- '[attack med] bludgeoning (smash)'
+cha: -4
+dex: -2
+flag_reformated: true
+hardness: 1
+headername: Golem, Field
+int: -4
+name: Field Golem
+per: -3
+size: 2
+spd: -1
+str: 2
+text: A field golem can be created through a ritual of low magic. First, certain herbs
+  worth at least 1 gc must be found or purchased. These herbs must be crushed and
+  mixed with soil in a clay pot. Then a potato must be planted in this pot. When the
+  potato is fully grown, in about 9 (2d4 + 4) weeks, it will be bright yellow and
+  about the size of a fist. When planted in the ground, a field golem forms around
+  the potato over the course of 2 (1d4) rounds and rises from the ground under the
+  control of whoever planted it. Any field golems previously animated by that person
+  fall apart. The golem remains animated for 4 (1d4 + 2) weeks, after which it crumbles
+  back to earth.
+type: construct

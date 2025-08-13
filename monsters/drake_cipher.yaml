@@ -1,0 +1,29 @@
+armor: 3
+attack:
+- 1
+- '[attack vsm] magic piercing (bite)'
+con: 1
+det: 1
+dex: 3
+extra_damage:
+  per:
+  - 2
+flag_reformated: true
+headername: Drake, Cipher
+languages:
+- COMMON
+- DRACONIC (thorn, glyph)
+movement:
+- f
+name: Cipher Drake
+per: 1
+senses:
+- dimsight
+size: 0
+special:
+  Glyph Nimbus (1/day) @: 'For the next minute, any creature that touches the drake
+    or hits it with a melee attack takes 1 slashing damage, and the drake can deal
+    1 slashing damage to a nearby creature at the start of each of its turns.
+
+    '
+type: dragon

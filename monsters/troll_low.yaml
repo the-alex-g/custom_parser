@@ -1,0 +1,22 @@
+alignment: ne
+attack:
+- 1
+- '[attack 8] bludgeoning (club)'
+- '[attack 6] bludgeoning (fist)'
+- '[attack 6] bludgeoning (boulder, [weapon_range boulder])'
+bonuses:
+  cha: -1
+  con: 1
+  int: -2
+  per: -1
+  str: 3
+flag_reformated: true
+flavor: The rough features of this brutish monster look as though they were chiseled
+  from stone.
+headername: Troll, Low
+languages:
+- jotun
+- common
+name: Low Troll
+size: 2
+type: giant

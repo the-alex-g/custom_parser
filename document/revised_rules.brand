@@ -1,0 +1,319 @@
+[section 1 What's In A Character]
+
+A character's general aptitudes are described by eight core attributes.
+[bulletlist
+Strength (Str), raw physical might &
+Dexterity (Dex), agility and precision &
+Constitution (Con), resistance to physical harm &
+Speed (Spd), swiftness &
+Intelligence (Int), erudition and reasoning &
+Perception (Per), quickness of eye &
+Determination (Det), resistance to mental attacks and coercion &
+Charisma (Cha), force of personality]
+
+Each attribute has an associated bonus.
+
+In addition to these attributes, each character has up to eight [keyword skills] and eight
+[keyword banes]. These are specific tasks that your character is particlarly good (or not-so-good)
+at.
+
+[section 1 Character Creation]
+
+Pick a race for your character. Each race has a unique set of starting stat bonuses.
+
+[titulartable cccc Race
+Stat & Dwarf & Gnome & Human &
+Str & +2 & +0 & +1 &
+Dex & +2 & +2 & +1 &
+Con & +2 & +0 & +1 &
+Spd & +0 & +1 & +1 &
+Int & +1 & +2 & +1 &
+Per & +1 & +2 & +1 &
+Det & +2 & +1 & +1 &
+Cha & +0 & +1 & +1 &
+... & +0 & +1 & +2]
+
+Once you have picked a race, you must distribute the amount listed under [qmark ...]
+between any number of your other stats. Then, you must subtract one from one of your stats.
+
+Pick a class from the list below and increase the indicated stat bonus by one.
+
+[table Xc
+Class & Stat &
+Bard & Cha &
+Berserker & Con &
+Druid & Det &
+Ranger & Per &
+Rogue & Dex &
+Warrior & Str &
+Wizard & Int]
+
+Your starting health is equal to 3 + your Con bonus. Re-calculate your health only when receiving a
+permanent modifier to Con.
+
+Your Evasion is equal to your Spd die, divided by two, plus your Dex bonus. Recalculate whenever your
+Dex bonus changes, even temporarily.
+
+If you need to make an Evd check, use your Evasion score minus six as the bonus.
+
+Your character can speak the Common tongue and the language of your race. If
+your Int bonus is +2 or higher, you know an additional language, or two
+languages if your Int is +4 or higher.
+
+If your Cha bonus is +3 or higher, you know another language.
+
+Pick three [keyword skills] and two [keyword banes] for your character.
+
+[section 1 Making Checks]
+
+Roll 1d12 and add the relevant attribute bonus. If the result is greater than or equal to the target
+number, you succeed. Otherwise, you fail. A roll of natural 1 is always a failure, and a roll
+of natural 12 is always a success.
+
+If you have a [keyword skill] that can be applied to the current check, you gain advantage.
+Similarly, if you have a [keyword bane] that would cause you difficulty with the current check, you
+have disadvantage.
+
+Advantage and disadvantage mean to roll two dice and use the higher or lower value, respectively.
+
+If you are called upon to make a check against another creature, both parties roll the check and the
+highest total wins.
+
+[section 1 Coinage]
+
+The following table shows common coinages and their relative values.
+[table ccccc
+& iron (i) & copper (c) & silver (s) & gold (g) &
+i & 1 & 2 & 20 & 100 &
+c & 1/2 & 1 & 10 & 50 &
+s & 1/20 & 1/10 & 1 & 5 &
+g & 1/100 & 1/50 & 1/5 & 1]
+
+To randomize price changes, you can roll 2d6 and subtract 7, adding the result
+to the price. Common sense may dictate that the price difference be in a
+lower-valued coinage.
+
+[section 1 Weapons]
+
+Ultimately, there are only four categories of weapons that you can buy,
+determined by their attack die. Some examples of weapons are shown in the table
+below, but a weapon's type is left open for interpretation. Similarly, the type
+of damage that a weapon does is assumed to be self-evident (swords deal
+slashing damage, clubs deal bludgeoning, etc.).
+[table cXc
+Die & Examples & Cost &
+d4 & dagger, club, sling & 5c &
+d6 & arming sword, bow, axe, mace & 1s &
+d8 & longsword, warbow, spear & 15c &
+d10 & greatsword, maul, waraxe, crossbow & 2s]
+
+Weapons with a d8 or larger die are two-handed, as are all ranged weapons.
+
+Crossbow attacks always have a weapon threshold of 5. Crossbow-type weapons need
+to be reloaded before they can be fired again. You can reload a crossbow by
+forgoing either your movement or your action on a turn.
+
+Polearm-type weapons have reach, which allows you to attack targets up to 2
+fathoms away.
+When attacking nearby targets with a weapon with reach, you have disadvantage
+on the accuracy roll.
+
+Ranged weapons have a close range and a far range, notated as [qmark close/far].
+Attacking a creature at far range imposes disadvantage on the accuracy roll
+[table lc
+Weapon & Range &
+Bow & [weapon_range bow t] &
+Crossbow & [weapon_range crossbow t] &
+Sling & [weapon_range sling t] &
+Thrown & [weapon_range thrown t] &
+Warbow & [weapon_range warbow t]]
+
+The weapon threshold is calculated based on your Str bonus and the size of
+the weapon's die, as shown on the following table.
+[table ccccc
+Str & d4 & d6 & d8 & d10 &
+0 or less & 4 & 6 & 8 & 10 &
++1  & 4 & 5 & 7 & 9 &
++2  & 4 & 5 & 6 & 8 &
++3  & 4 & 5 & 5 & 7 &
++4  & 4 & 5 & 5 & 6]
+
+While wielding two melee weapons, you have +1 Evd against melee attacks and +1
+to accuracy rolls.
+
+While wielding a weapon you are not proficient with, treat your Str as 0 when
+calculating weapon thresholds.
+
+When a weapon has taken three damage, it cannot be used until it is repaired.
+
+[section 1 Armor]
+[table cccccc
+Type & Die & Name & Dex & Spd & Cost &
+0 & d6/6 & No armor & - & - & - &
+1 & d4/4 & leather & - & - & 3s &
+2 & d6/5 & hide & - & - & 5s &
+3 & d6/4 & brigandine & - & - & 5g &
+4 & d6/3 & chain & - & -1 & 12g &
+5 & d4/2 & scale & - & -2 & 40g &
+6 & d6/2 & plate & -1 & -2 & 80g]
+
+Armor's type is reduced by the amount of damage it has taken. If an armor is has
+taken three damage or been reduced to type 0, it becomes ineffective until
+repaired. Damaged armor retains its Dex and Spd penalties and its +/- status.
+
+While wearing armor you are not proficient with, you have -1 to Spd and Dex.
+
+Shields, with evasion bonus against melee and ranged.
+[table cccc
+Name & Melee & Ranged & Strength & Cost &
+Buckler & +1 & - & 1 & 2s &
+Targe & +1 & +1 & 2 & 4s &
+Tower & +1 & +2 & 3 & 6s]
+
+A shield can take damage equal to its strength before being destroyed.
+
+Additional armor types, usually used for magical, crude, or masterwork armor.
+Dex and Spd penalties are the same as the base type.
+[table ccc
+Type & Die & Cost &
+1- & d10/9 & 2s &
+1+/2- & d10/8 & 4s &
+2+ & d8/6 & 6s &
+3- & d12/8 & 4g &
+3+ & d12/5 & 6g &
+4- & d8/4 & 10g &
+4+/5- & d10/4 & 20g &
+5+/6- & d10/3 & 60g &
+6+ & d8/2 & 100g]
+
+[section 1 Combat]
+
+To attack, choose a weapon to attack with. If it's a ranged weapon, the target
+must be within range. If it's a melee weapon, the target must be within reach.
+
+Roll Dex vs Evd for accuracy. If you win, you hit the target. If you rolled a
+natural 12, or equal to or greater than your critical threshold (default 14),
+you get a critical hit.
+
+A roll of natural 12 is ALWAYS a hit, and a roll of natural 1 is ALWAYS a
+miss. If you roll a natural 1, your weapon takes 1 damage.
+
+Roll your weapon die. If you roll over your attack threshold for that
+die, roll again. You deal a number of damage to the target equal to the number
+of dice you've rolled.
+
+If you got a critical hit, you can either roll an additional d8/5 for damage;
+inflict one point of attribute drain to Str, Dex, Spd, or Con; or deal 1
+damage to the target's armor, shield, or weapon.
+
+[section 2 Combat Advantages]
+
+[text b Suprise Attacks.] If you attack a creature that doesn't know you're
+there, you get a +8 bonus to hit.
+
+[text b Flanking.] If there is an allied creature engaged with your target that
+is across from you, you get a +4 bonus to hit.
+
+[text b Mobbing.] For each allied creature engaged with your target, you get a
++1 bonus to hit.
+
+Flanking and mobbing bonuses do not stack---just use whichever is higher.
+
+[section 2 Damage Types]
+
+There are twelve basic damage types: acid, bludgeoning, cold, fire, holy,
+lightning, magic, necrotic, piercing, psychic, slashing, and unholy. Every
+attack has at least one damage type.
+
+In addition to these twelve basic damage types, there are two others:
+unblockable damage and physical damage. Unblockable damage bypasses shield
+points and armor. Physical damage is a category that contains bludgeoning,
+piercing, and slashing damage.
+
+In the case of attacks that have more than one damage type, use whichever damage
+type does the most damage to the target.
+
+Vulnerability to damage doubles the amount of damage taken.
+
+Resistance to damage halves the amount of damage taken.
+
+Immunity to damage reduces the amount of damage taken to 0.
+
+[section 2 PC Defense]
+
+When a PC takes damage, they ALWAYS have a chance to defend themselves, unless
+the damage is unblockable.
+
+For each incoming damage, roll your Armor die. If the result is equal to or
+greater than the armor threshold, you block one damage.
+
+[section 2 Shield Points]
+
+Some effects grant shield points. After rolling for armor, you may spend shield
+points to negate an equal amount of damage.
+
+[section 1 Resting and Recovery]
+
+Once per day, characters can spend 10 minutes to take a breather and regain 1 health OR remove one
+point of attribute drain.
+
+One week of rest provides full recuperation. Healing in any lesser amount of
+time requires magic.
+
+Diseases are not automatically cured by resting.
+
+[section 1 Character Death]
+
+When a player character is reduced to 0 health, they fall unconscious until they regain at least
+one health. For each damage taken that would bring them below zero health, their Con bonus is instead
+permanently reduced by one (with appropriate reductions to health). A character reduced to -4 Con
+is irrevocably dead.
+
+[section 1 Light and Sensing]
+[table lX
+    Light Level & Penalties & 
+    Bright Light & No penalties &
+    Dim Light & +2 Evasion &
+    Darkness & Creatures in darkness cannot be seen &
+    Utter Darkness & Creatures in utter darkness cannot be seen]
+[table lX
+    Sense & Benefit &
+    Blindsight & Can sense surroundings, regardless of ability to see &
+    # for creatures that cannot see with eyes, but can still detect their surroundings #
+    Darksight & Can see normally, regardless of light level &
+    # magical in nature #
+    Dimsight & Can see as if the light level were one higher &
+    # natural keen night vision #
+    Sense Living & Can sense living creatures, regardless of ability to see &
+    # for telepaths and powerful undead #
+    Tremorsense & Can sense moving things, regardless of ability to see &
+    # for things like plants without another way to sense and burrowing monsters #
+    Truesight & Can see perfectly regardless of light level, can see invisible creatures and objects, and can immediately identify visual illusions
+    # extremely magical in nature #]
+
+[section 1 Movement]
+
+Every space you move diagonally costs one and a half fathoms of movement.
+Round down when determining the total distance you can move.
+
+Moving through difficult terrain costs twice as many movement points as usual.
+
+Some effects use the term "nearby". Nearby can mean 1) anything the GM
+determines is nearby, 2) anything within arm's reach, or 3) anything
+within one fathom.
+
+[text b A Note on Fathoms.] One fathom is equal to six feet. Six feet is about
+the same as 5 feet, which is the standard [dnd] unit of distance. Using fathoms
+instead of increments of 5 feet removes the need to divide all distances by
+5 to determine the distance in inches/hexes/squares, as well as making movement
+speeds a little bit more realistic.
+
+[section 2 Attacks of Opportunity]
+
+If an enemy is wielding a polearm-type weapon with reach, and you move from
+outside that enemy's reach to nearby that enemy in a single movement,
+that enemy can make a free attack against you, without suffering the penalty
+for attacking a nearby target with a reach weapon.
+
+While within reach of an enemy's melee weapon, if you take an action other
+than moving or attacking, that enemy may make a free attack against you.

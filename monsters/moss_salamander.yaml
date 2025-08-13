@@ -1,38 +1,41 @@
-name: Moss Salamander
-type: plant
-size: 1
 armor: 1
-str: 3
+attack:
+- 2
+- 2x [attack sm1] slashing (claw)
+- '[attack med] piercing (bite)'
 con: 1
-int: -4
-per: 1
 det: 1
-vulnerable:
-- fire
+flag_reformated: true
+flavor: A large, six-legged lizardish creature suddenly rises from the forest floor.
+  You hadn't noticed it before because it appears to be made of thick moss, blending
+  in perfectly with the other vegetation.
+int: -4
+name: Moss Salamander
+per: 1
 resist:
 - cold
 - lightning
 senses:
 - tremorsense
-attack:
-- 2
-- 2x [attack sm1] slashing (claw)
-- "[attack med] piercing (bite)"
+size: 2
 special:
- Moss Circle (1/day) @: >
-  A circle of moss 4 fathoms in diameter appears, centered on the salamander.
-  When a creature ends its turn inside the circle, the salamander may either
-  give that creature 1 shield point that lasts until the end of its next turn,
-  or force it to succeed on a [check con per] or take 1 necrotic damage. Disease
-  immunity and resistance apply.
-text: >
- Elves, dryads, and other forest dwellers sometimes keep moss salamanders as pets. They are loyal to
- their master and valued for their ability to generate healing moss. This moss can be harvested and
- used as a poultice to heal injuries.
+  Moss Circle (1/day) @: 'A circle of moss 4 fathoms in diameter appears, centered
+    on the salamander. When a creature ends its turn inside the circle, the salamander
+    may either give that creature 1 shield point that lasts until the end of its next
+    turn, or force it to succeed on a [check con per] or take 1 necrotic damage. Disease
+    immunity and resistance apply.
 
- In the wild, moss salamanders dwell in family groups of three to six members. Young moss salamanders
- are carefully tended by their parents, and reach adulthood after about three years.
-flavor: >
- A large, six-legged lizardish creature suddenly rises from the forest floor. You hadn't
- noticed it before because it appears to be made of thick moss, blending in perfectly with the
- other vegetation.
+    '
+str: 3
+text: 'Elves, dryads, and other forest dwellers sometimes keep moss salamanders as
+  pets. They are loyal to their master and valued for their ability to generate healing
+  moss. This moss can be harvested and used as a poultice to heal injuries.
+
+  In the wild, moss salamanders dwell in family groups of three to six members. Young
+  moss salamanders are carefully tended by their parents, and reach adulthood after
+  about three years.
+
+  '
+type: plant
+vulnerable:
+- fire

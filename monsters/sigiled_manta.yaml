@@ -1,25 +1,26 @@
-name: Sigiled Manta
-type: animal
-size: 1
-flavor: This manta's hide is covered in arcane glyphs.
-str: 3
-dex: 1
-con: 1
-int: -3
-per: 1
-det: 1
-spd: 2
 attack:
 - 1
-- "[attack vsm] piercing (tail barb)"
+- '[attack vsm] piercing (tail barb)'
+con: 1
+det: 1
+dex: 1
+extra_damage:
+  act:
+  - 1
+flag_reformated: true
+flavor: This manta's hide is covered in arcane glyphs.
+int: -3
+name: Sigiled Manta
+per: 1
+size: 2
+spd: 2
 spell resist: 1
 spellcasting:
- mana: 3
- ability: per
- spells:
- - Heal
- - Arcane Armor
- - Arcane Dart
-extra_damage:
- act:
- - 1
+  ability: per
+  mana: 3
+  spells:
+  - Heal
+  - Arcane Armor
+  - Arcane Dart
+str: 3
+type: animal

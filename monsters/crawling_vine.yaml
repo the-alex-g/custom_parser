@@ -1,27 +1,31 @@
-name: Crawling Vine
-size: -1
-type: plant
-bonuses:
- str: 1
- spd: -4
- int: -4
- per: -1
- cha: -4
- det: 1
 attack:
 - 1
-- "0 damage (grasp)"
-senses:
-- tremorsense
+- 0 damage (grasp)
+bonuses:
+  cha: -4
+  det: 1
+  int: -4
+  per: -1
+  spd: -4
+  str: 1
+extra_damage:
+  per:
+  - 0.66
+flag_reformated: true
 immune:
 - piercing
 - bludgeoning
+name: Crawling Vine
+senses:
+- tremorsense
+size: 1
+special:
+  Grasping Tendrils: 'A creature hit by the vine''s grasp attack is grappled by the
+    vine. At the start of each of the vine''s turns, all creatures it is grappling
+    take 1 light necrotic damage. The vine can grapple up to three creatures at a
+    time.
+
+    '
+type: plant
 vulnerable:
 - fire
-special:
- Grasping Tendrils: >
-  A creature hit by the vine's grasp attack is grappled by the vine. At the start of each of the vine's turns, all creatures it is
-  grappling take 1 light necrotic damage. The vine can grapple up to three creatures at a time.
-extra_damage:
- per:
- - 0.66

@@ -1,14 +1,15 @@
-name: Awakened Sapling
-size: 0
-type: plant
-flavor: A slender tree with distinct arms and legs.
-bonuses:
- str: 1
- int: -4
- cha: -1
 armor: hide
 attack:
 - 1
-- "[attack 4] slashing (claws)"
+- '[attack 4] slashing (claws)'
+bonuses:
+  cha: -1
+  int: -4
+  str: 1
+flag_reformated: true
+flavor: A slender tree with distinct arms and legs.
+name: Awakened Sapling
+size: 2
+type: plant
 vulnerable:
 - fire

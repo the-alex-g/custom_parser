@@ -1,20 +1,22 @@
-name: Spectre
-size: 0
-type: undead
 alignment: ce
-bonuses:
- str: -1
- dex: 2
- spd: 1
- int: -2
 attack:
 - 1
-- "[attack med] unholy necrotic (drain)"
-special:
-  Draining Touch: >
-   Whenever the spectre deals damage with a drain attack, the target must
-   succeed on a [check det easy] or suffer 1 point of Con drain.
+- '[attack med] unholy necrotic (drain)'
+bonuses:
+  dex: 2
+  int: -2
+  spd: 1
+  str: -1
+flag_reformated: true
 immune:
 - non-magic
+name: Spectre
+size: 2
+special:
+  Draining Touch: 'Whenever the spectre deals damage with a drain attack, the target
+    must succeed on a [check det easy] or suffer 1 point of Con drain.
+
+    '
 traits:
 - Incorporeal
+type: undead

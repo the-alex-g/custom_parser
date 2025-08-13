@@ -1,35 +1,39 @@
-name: Bolete Guardian
-flavor: This thick-limbed bolete carries a shield in one hand.
-type: plant
-armor: hide
-size: 0
 alignment: n
-shield: targe
-bonuses:
- str: 3
- con: 3
- det: 1
+armor: hide
 attack:
 - 1
-- "[attack 8] bludgeoning (slam)"
-special:
-  Poison Spores: >
-   Whenever a creature touches the bolete guardian, including when the guardian
-   hits with a slam attack, the guardian may have that creature make a
-   [check con det], suffering 1 point of Str drain on a failure.
-  Spore Cloud (1/day) @: >
-   All non-fungal creatures within 2 fathoms must make a check against the
-   poison spores.
-senses:
-- tremorsense
-- dimsight
+- '[attack 8] bludgeoning (slam)'
+bonuses:
+  con: 3
+  det: 1
+  str: 3
+flag_reformated: true
+flavor: This thick-limbed bolete carries a shield in one hand.
 languages:
 - telepathy
-text: >
- Bolete guardians are tasked with protecting their grove from attack. Their
- flesh is much tougher than other bolete's, being closer to the texture of wood
- than that of fungus.
+name: Bolete Guardian
 resist:
 - cold
 - necrotic
 - non-magic physical
+senses:
+- tremorsense
+- dimsight
+shield: targe
+size: 2
+special:
+  Poison Spores: 'Whenever a creature touches the bolete guardian, including when
+    the guardian hits with a slam attack, the guardian may have that creature make
+    a [check con det], suffering 1 point of Str drain on a failure.
+
+    '
+  Spore Cloud (1/day) @: 'All non-fungal creatures within 2 fathoms must make a check
+    against the poison spores.
+
+    '
+text: 'Bolete guardians are tasked with protecting their grove from attack. Their
+  flesh is much tougher than other bolete''s, being closer to the texture of wood
+  than that of fungus.
+
+  '
+type: plant

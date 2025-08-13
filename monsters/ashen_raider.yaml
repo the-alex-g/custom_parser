@@ -1,31 +1,30 @@
-name: Ashen Raider
-type: monster
-size: 0
-bonuses:
- str: 1
- con: 1
- int: -3
- per: -2
- cha: -4
 armor: leather
 attack:
 - 1
-- "[weapon <bastard sword>]"
+- '[weapon <bastard sword>]'
+bonuses:
+  cha: -4
+  con: 1
+  int: -3
+  per: -2
+  str: 1
+flag_reformated: true
+flavor: 'A humanoid creature with brown-red skin charges at you, brandishing a large
+  sword. Its features are soft, like they had been sculpted out of clay, but its black
+  eyes gleam with hatred.
+
+  '
+name: Ashen Raider
+size: 2
+text: Ashen raiders are evil minions created by reciting an incantation over a mixture
+  of blood, ash, and mud. The blood must come from the ritual sacrifice of a sentient
+  creature, with a single sacrifice supplying enough blood to create at more than
+  20 ashen raiders. The blood of more powerful creatures can be used to make more
+  powerful minions. [newline] Ashen raiders can understand and obey simple commands
+  from their creator, but their essential nature is one of hatred. Left to their own
+  devices, a group of ashen raiders will destroy everything within reach, including
+  each other. [newline] When an ashen raider dies, its body collapses into viscous
+  mud.
 traits:
 - Dark Origins
-flavor: >
- A humanoid creature with brown-red skin charges at you, brandishing a large
- sword. Its features are soft, like they had been sculpted out of clay, but its
- black eyes gleam with hatred.
-text: >
- Ashen raiders are evil minions created by reciting an incantation over a mixture
- of blood, ash, and mud. The blood must come from the ritual sacrifice of a
- sentient creature, with a single sacrifice supplying enough blood to create
- at more than 20 ashen raiders. The blood of more powerful creatures can be
- used to make more powerful minions.
- [newline]
- Ashen raiders can understand and obey simple commands from their creator, but their essential nature
- is one of hatred. Left to their own devices, a group of ashen raiders will destroy
- everything within reach, including each other.
- [newline]
- When an ashen raider dies, its body collapses into viscous mud.
+type: monster

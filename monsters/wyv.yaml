@@ -1,21 +1,23 @@
-name: Wyv
-size: -3
-type: animal
-flavor: These snake-like creatures swim through the air, held aloft by an internal bladder of bouyant gases.
-bonuses:
- str: -4
- dex: 1
- spd: 1
- int: -4
- cha: -4
 attack:
 - 1
-- "1 piercing and wyv venom (bite)"
+- 1 piercing and wyv venom (bite)
+bonuses:
+  cha: -4
+  dex: 1
+  int: -4
+  spd: 1
+  str: -4
+flag_reformated: true
+flavor: These snake-like creatures swim through the air, held aloft by an internal
+  bladder of bouyant gases.
 movement:
 - f=30
+name: Wyv
+size: 0
 special:
- Wyv Venom (poison): Immediately when poisoned, the affected creature must succeed on a [check con easy] or suffer 1 point of Con drain.
+  Wyv Venom (poison): Immediately when poisoned, the affected creature must succeed
+    on a [check con easy] or suffer 1 point of Con drain.
+type: animal
 variants:
- Wyv Poisonspitter: >
-  A wyv poisonspitter gains the following attack option: wyv venom (spit venom,
-  [weapon_range thrown])
+  Wyv Poisonspitter: 'A wyv poisonspitter gains the following attack option: wyv venom
+    (spit venom, [weapon_range thrown])'
