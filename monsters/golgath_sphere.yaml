@@ -1,0 +1,23 @@
+name: Golgath Sphere
+type: aberration
+size: 1
+resist:
+- non-magic piercing and bludgeoning
+vulnerable:
+- magic slashing
+- lightning
+bonuses:
+  con: 2
+movement:
+- :w
+- h
+attack:
+- 1
+- '[attack med] magic necrotic piercing (shadow needle, [weapon_range thrown])'
+special:
+  Shadow Needle: Any living creature that suffers damage from this attack gets -1 to all rolls until the end of their next turn.
+senses:
+- blindsight
+armor: hide
+flavor: A disturbing lumpy sphere about two feet in diameter hovers directly ahead, pulsating slightly. The orb seems to be sloughing inky black needles that shatter noiselessly as they hit the floor.
+text: The [name] is an incomprehensible creature composed entirely of rubbery flesh. They are extremely rare in nature, but can be summoned to serve as a reliable guardian for a location, item, or even person. A summoned [name] serves with complete obedience for exactly 40 years, after which it vanishes back to wherever it came from. [newline] Summoning a [name] as a guardian requires the following additional ritual. Three foot-long obsidian needles (average cost 1g each) must be acquired. Two must be used to sacrifice a white squirrel, and the third is used to draw a dram of blood from the caster (dealing one wound). The blood of the sacrifice and the caster is spread on the area, item, or person the summoned [name] will protect. The summoning spell must be cast immediately afterward. As the [name] appears, the needles, squirrel, and blood are subsumed into its rubbery mass.

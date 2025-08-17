@@ -18,3 +18,4 @@ Acidic Body: Any creature that touches the [name] takes 1 acid damage. Hitting t
 Dark Origins: >
  Any effect that applies to undead or constructs has a [percent 50] chance of
  affecting the [name].
+Echolocation: The [name] cannot use its blindsight while deafened.

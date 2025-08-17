@@ -146,18 +146,26 @@ def get_monster_spells(spellcasting, bonuses):
 def get_movement(spd, modes, size):
     names = {"b":"burrow", "t":"tunnel", "s":"swim", "f":"fly", "h":"hover"}
     base = max(1, 6 + spd * 2)
-    string = str(base)
+    first = True
+    if not ":w" in modes:
+        string = str(base) + ", "
+    else:
+        string = ""
+        modes.remove(":w")
     for mode in sorted(modes):
+        if not first:
+            string += ", "
+        first = False
         name = pp.get_key_if_exists(names, mode, mode)
         if "=" in mode:
             name = mode[0:mode.find("=")]
-            string += f", {name} {mode[mode.find("=") + 1:]}"
+            string += f"{name} {mode[mode.find("=") + 1:]}"
         elif mode == "f":
-            string += f", {name} {5 * ceil(1.2 * (base + size))}" # equals 6 * (base + size), rounded up to a multiple of 5
+            string += f"{name} {5 * ceil(1.2 * (base + size))}" # equals 6 * (base + size), rounded up to a multiple of 5
         elif mode in "bt":
-            string += f", {name} {ceil(0.5 * base)}"
+            string += f"{name} {ceil(0.5 * base)}"
         else:
-            string += f", {name} {base}"
+            string += f"{name} {base}"
     return string
 
 
@@ -195,7 +203,7 @@ def get_monster_dice(size, type):
 def create_monster(monster):
     global monster_count
 
-    if monster["type"] in DEFAULT_MONSTER_TRAITS:
+    if monster["type"] in DEFAULT_MONSTER_TRAITS and pp.get_key_if_exists(monster, "include_type_traits", True):
         monster = pp.combine_dictionaries(monster, DEFAULT_MONSTER_TRAITS[monster["type"]], {})
 
     name = monster["name"]

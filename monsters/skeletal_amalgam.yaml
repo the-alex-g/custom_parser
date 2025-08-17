@@ -14,7 +14,7 @@ extra_damage:
   per:
   - -1
 flag_reformated: true
-name: Skeletal Amalgam
+name: Skeletal Aggregate
 resist:
 - piercing
 size: 2

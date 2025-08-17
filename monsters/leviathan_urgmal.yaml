@@ -1,0 +1,35 @@
+name: Urgmal Leviathan
+shortname: leviathan
+headername: Leviathan, Urgmal
+movement:
+- s
+- :w
+languages:
+- URGMAL
+bonuses:
+  cha: 4
+  con: 4
+  det: 2
+  int: 2
+  per: 2
+  spd: 1
+  str: 3
+size: 4
+armor: hide
+attack:
+- 1
+- '[attack med] bludgeoning (tail strike)'
+senses:
+- blindsight
+traits:
+- Echolocation
+type: animal
+include_type_traits: false
+special:
+  Alien Keening [recharge 6 p c] @: >
+   All creatures that can hear the [name] must succeed at a [check cha cha] or suffer psychic damage
+   equal to their Cha bonus. This damage cannot reduce a creature to below one health.
+extra_damage:
+  act:
+  - 4
+  

@@ -1,0 +1,27 @@
+name: Ordthar Leviathan
+shortname: leviathan
+headername: Leviathan, Ordthar
+movement:
+- s
+- :w
+bonuses:
+  cha: 1
+  con: 4
+  det: 3
+  per: 3
+  str: 4
+  spd: 3
+type: animal
+size: 4
+armor: brigandine
+attack:
+- 1
+- '[attack big] piercing (bite)'
+senses:
+- blindsight
+special:
+  Stunning Burst [recharge 5-6 p c] @: >
+   All creatures in a 10-fathom cone must succeed at a [check cha con] or suffer d10/5 bludgeoning
+   damage and be unable to act on their next turn.
+traits:
+- Echolocation
