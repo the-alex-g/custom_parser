@@ -247,14 +247,13 @@ Flanking and mobbing bonuses do not stack---just use whichever is higher.
 
 [section 2 Damage Types]
 
-There are twelve basic damage types: acid, bludgeoning, cold, fire, holy,
-lightning, magic, necrotic, piercing, psychic, slashing, and unholy. Every
-attack has at least one damage type.
+There is a total of twelve damage types: acid, bludgeoning, cold, fire, holy, lightning, magic, necrotic, piercing, psychic, slashing, and unholy. Every attack has at least one damage type.
 
-In addition to these twelve basic damage types, there are two others:
-unblockable damage and physical damage. Unblockable damage bypasses shield
-points and armor. Physical damage is a category that contains bludgeoning,
-piercing, and slashing damage.
+Piercing, slashing, and bludgeoning damage all count as physical damage.
+
+Armor is, unless otherwise specified, effective against physical, cold, fire, and acid damage. Whenever a creature suffers damage from an attack with at least one of these damage types, it can roll armor to reduce the damage (see below).
+
+If an equipped armor reduces the damage of an acid attack, the armor takes 1 damage. Some acids may specify what types of material they affect. If a particular acid does not affect the type of material a blocking armor is made of, the armor may remain unharmed.
 
 In the case of attacks that have more than one damage type, use whichever damage
 type does the most damage to the target.
@@ -266,9 +265,6 @@ Resistance to damage halves the amount of damage taken.
 Immunity to damage reduces the amount of damage taken to 0.
 
 [section 2 PC Defense]
-
-When a PC takes damage, they ALWAYS have a chance to defend themselves, unless
-the damage is unblockable.
 
 For each incoming damage, roll your Armor die. If the result is equal to or
 greater than the armor threshold, you block one damage.
