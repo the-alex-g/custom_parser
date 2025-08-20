@@ -68,6 +68,10 @@ languages if your Int is +4 or higher.
 
 If your Cha bonus is +3 or higher, you know another language.
 
+[section 1 Luck]
+
+Sometimes, you may be asked to see if you are Lucky or not. To see if you're Lucky, roll 1d6. If the result is a 5 or 6, you are Lucky.
+
 [section 1 Attribute Drain]
 
 For each point of attribute drain that you suffer, temporarily reduce the bonus
@@ -222,7 +226,7 @@ natural 12, or equal to or greater than your critical threshold (default 14),
 you get a critical hit.
 
 A roll of natural 12 is ALWAYS a hit, and a roll of natural 1 is ALWAYS a
-miss. If you roll a natural 1, your weapon takes 1 damage.
+miss. If you roll a natural 1 and you're not Lucky, your weapon takes 1 damage.
 
 Roll your weapon die. If you roll over your attack threshold for that
 die, roll again. You deal a number of damage to the target equal to the number
