@@ -9,7 +9,8 @@ bonuses:
   det: 1
   str: 2
 flag_reformated: true
-flavor: null
+resist:
+- non-magic physical
 immune:
 - cold
 languages:

@@ -9,6 +9,7 @@ SOURCE_DOC = "document/rules.brand"
 
 ABILITIES = ["str", "con", "dex", "spd", "int", "per", "cha", "det"]
 ARMOR_HEALTH_MODS = [6/5, 4/3, 3/2, 2, 3, 4, 6]
+ARMOR_DIE_STRINGS = {0:"d6/6", 1:"d8/7", 2:"d6/5", 3:"d6/4", 4:"d6/3", 5:"d8/3", 6:"d6/2", "1-":"d10/9", "1+":"d10/8", "2-":"d10/8", "2+":"d8/6", "3-":"d12/8", "3+":"d12/5", "4-":"d8/4", "4+":"d10/4", "5-":"d10/4", "5+":"d10/3", "6-":"d10/3", "6+":"d8/2"}
 HARDNESSES = {"leather":1, "wood":2, "stone":3, "bronze":4, "iron":5, "gemstone":6}
 ARMOR_NAMES = {"none":0, "leather":1, "hide":2, "brigandine":3, "chain":4, "scale":5, "plate":6}
 ARMOR_SPD_PENALTY = {4:-1, 5:-2, 6:-2}
@@ -82,13 +83,15 @@ def get_ability_list(bonuses):
 def calculate_evade(bonuses, dice, size, dodge, shield):
     dex = pp.get_key_if_exists(bonuses, "dex", 0)
     spd = pp.get_key_if_exists(bonuses, "spd", 0)
-    dex_die = dice["dex"]
-    spd_die = dice["spd"]
-    evade = dex + floor(spd_die / 2)
-    spd_base_evd = spd + floor(dex_die / 2)
-    if dodge and spd_base_evd > evade:
-        evade = spd_base_evd
-    return evade + shield - size
+
+    return max(1, 4 + spd + dex + shield - size)
+#    dex_die = dice["dex"]
+#    spd_die = dice["spd"]
+#    evade = dex + floor(spd_die / 2)
+#    spd_base_evd = spd + floor(dex_die / 2)
+#    if dodge and spd_base_evd > evade:
+#        evade = spd_base_evd
+#    return evade + shield - size
 
 
 def get_base_health(size, bonus):
@@ -96,7 +99,7 @@ def get_base_health(size, bonus):
 
 
 def calculate_health(base, armor):
-    health = base * ARMOR_HEALTH_MODS[armor]
+    health = base# * ARMOR_HEALTH_MODS[armor]
     return max(1, floor(health))
 
 
@@ -251,7 +254,7 @@ def create_monster(monster):
         health_bonus = pp.get_key_if_exists(bonus_dict, "det", 0)
     else:
         health_bonus = pp.get_key_if_exists(bonus_dict, "con", 0)
-    pp.increment_key(bonus_dict, "str", size)
+    pp.increment_key(bonus_dict, "str", size - 2)
 
     params = {"name":name.lower(), "size":size}
     for ability in ABILITIES:
@@ -298,7 +301,7 @@ def create_monster(monster):
     #else:
     #    string += f"{base_health}/{health - base_health} "
     if armor > 0:
-        string += f"[bold Arm] {armor} "
+        string += f"[bold Arm] {ARMOR_DIE_STRINGS[armor]} "
     string += f"[bold Evd] {evasion} "
     string += f"[bold Mv] {movement} "
 

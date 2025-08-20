@@ -5,7 +5,6 @@ attack:
 - '[attack 6] slashing (ancient shortsword)'
 bonuses:
   cha: -4
-  det: 1
   int: -4
   per: -4
   str: 1

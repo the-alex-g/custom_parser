@@ -4,6 +4,7 @@ attack:
 - '[attack 4] slashing (scratch)'
 bonuses:
   cha: -4
+  det: -1
   int: -4
   per: -4
 flag_reformated: true
