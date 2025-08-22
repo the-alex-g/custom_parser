@@ -30,7 +30,8 @@ Int & +1 & +2 & +1 &
 Per & +1 & +2 & +1 &
 Det & +2 & +1 & +1 &
 Cha & +0 & +1 & +1 &
-... & +0 & +1 & +2]
+... & +0 & +1 & +2 &
+Size & 1 & 1 & 2]
 
 Once you have picked a race, you must distribute the amount listed under [qmark ...]
 between any number of your other stats. Then, you must subtract one from one of your stats.
@@ -46,16 +47,16 @@ Ranger & Per &
 Rogue & Dex &
 Warrior & Str &
 Wizard & Int]
-Consult the table below to determine which die is associated with each stat.
+#Consult the table below to determine which die is associated with each stat.
 
 [table cccccc
 Bonus & 0 & 1 & 2 & 3-4 & 5+ &
-Die & d4 & d6 & d8 & d10 & d12]
+Die & d4 & d6 & d8 & d10 & d12]#
 Your starting health is equal to 3 + your Con bonus. Re-calculate your health only when receiving a
 permanent modifier to Con.
 
-Your Evasion is equal to your Spd die, divided by two, plus your Dex bonus. Recalculate whenever your
-Dex bonus changes, even temporarily.
+Your Evasion is equal to 4 + Spd + Dex - Size. Recalculate whenever your
+Spd, Dex, or Size changes, even temporarily.
 
 If you need to make an Evd check, use your Evasion score minus six as the bonus.
 
@@ -75,7 +76,7 @@ Sometimes, you may be asked to see if you are Lucky or not. To see if you're Luc
 [section 1 Attribute Drain]
 
 For each point of attribute drain that you suffer, temporarily reduce the bonus
-of that attribute by one. Attribute drain NEVER changes your total health, but
+of that attribute by one. Attribute drain never changes your total health, but
 does change your Mv and Evd.
 
 If one of your attributes is reduced to -4, you suffer from the corresponding
@@ -101,8 +102,7 @@ Checks can be made with Size and Evd, even though they are not core attributes.
 
 Often, the game will ask you to make checks against other creatures. Such a
 check is notated [qmark the attribute of the creature making the check vs
-the other creature's attribute]. You make a check
-with your attribute, where the target number is 6 + the other creature's attribute.
+the other creature's attribute]. You make a check with your attribute and the opposing creature makes a check with their attribute. Whoever has the higher total wins. On a tie, the player wins.
 
 [section 1 Boons]
 
@@ -120,10 +120,30 @@ i & 1 & 2 & 20 & 100 &
 c & 1/2 & 1 & 10 & 50 &
 s & 1/20 & 1/10 & 1 & 5 &
 g & 1/100 & 1/50 & 1/5 & 1]
-
+This table shows the cost by weight of coinage.
+[table ccc
+coin & [pound]/lb & price/lb &
+i & 10 & 5c &
+c & 20 & 2s &
+s & 30 & 6g &
+g & 50 & 50g]
+This table shows the size of coinage. For context, a copper is about the size of two quarters stacked on top of each other, a silver is roughly one quarter, and a gold is approximately two stacked dimes. Another common variety of silver coin is 1/6 of an inch thick and 3/4 of an inch in diameter, making it the size of three stacked pennies.
+[table lcccc
+coin & i & c & s & g &
+diameter (in) & 1.5 & 1 & 1 & 2/3 &
+thickness (in) & 1/4 & 1/6 & 1/10 & 1/12]
+This table has information about ingots of metal. An ingot is equal to 400 coins.
+[table cccc
+material & price & weight & size (in) &
+iron & 4g & 40 lbs & 9x5x3 &
+copper & 8g & 20 lbs & 7x3x3 &
+silver & 80g & 15 lbs & 5x4x2 &
+gold & 400g & 8 lbs & 4x3x1]
 To randomize price changes, you can roll 2d6 and subtract 7, adding the result
 to the price. Common sense may dictate that the price difference be in a
 lower-valued coinage.
+
+[section 2 Weapons]
 
 Ultimately, there are only four categories of weapons that you can buy,
 determined by their attack die. Some examples of weapons are shown in the table
@@ -174,9 +194,9 @@ to accuracy rolls.
 While wielding a weapon you are not proficient with, treat your Str as 0 when
 calculating weapon thresholds.
 
-When a weapon has taken three damage, it cannot be used until it is repaired.
+When a weapon has taken two damage, it shatters.
 
-[section 1 Armor]
+[section 2 Armor]
 [table cccccc
 Type & Die & Name & Dex & Spd & Cost &
 0 & d6/6 & No armor & - & - & - &
@@ -194,13 +214,13 @@ repaired. Damaged armor retains its Dex and Spd penalties and its +/- status.
 While wearing armor you are not proficient with, you have -1 to Spd and Dex.
 
 Shields, with evasion bonus against melee and ranged.
-[table ccccc
-Name & Melee & Ranged & Strength & Cost &
-Buckler & +1 & - & 1 & 2s &
-Targe & +1 & +1 & 2 & 4s &
-Tower & +1 & +2 & 3 & 6s]
+[table cccc
+Name & Melee & Ranged & Cost &
+Buckler & +1 & - & 2s &
+Targe & +1 & +1 & 4s &
+Tower & +1 & +2 & 6s]
 
-A shield can take damage equal to its strength before being destroyed.
+A shield can take 2 damage before being destroyed.
 
 Additional armor types, usually used for magical, crude, or masterwork armor.
 Dex and Spd penalties are the same as the base type.
@@ -229,17 +249,28 @@ A roll of natural 12 is ALWAYS a hit, and a roll of natural 1 is ALWAYS a
 miss. If you roll a natural 1 and you're not Lucky, your weapon takes 1 damage.
 
 Roll your weapon die. If you roll over your attack threshold for that
-die, roll again. You deal a number of damage to the target equal to the number
-of dice you've rolled.
+die, roll again. You deal a number of damage to the target equal to 1 + the number of
+re-rolls you've made.
 
-If you got a critical hit, you can either roll an additional d8/5 for damage;
+[example Sir Fredrick attacks with a d8/6 longsword. He hits, rolls a 4 on the d8, and deals 1 damage because he didn't re-roll the die. He hits again and rolls a 6 on the d8. Rolling again, he gets a 3. This attack deals 2 damage: 1 + 1 re-roll.]
+
+[example Vargr the Rogue jumps out of an alley and stabs a passing nobleman with his dagger. He rolls a d4/4 for the dagger and a d4/4 for the rogue sneak attack bonus. He gets a 4 and a 2. Re-rolling the 4, he gets a 1. This attack deals 2 damage, because he made one re-roll.]
+
+If you got a critical hit, you can either deal an additional 1 + d8/5 damage;
 inflict one point of attribute drain to Str, Dex, Spd, or Con; or deal 1
 damage to the target's armor, shield, or weapon.
+
+[section 2 Combat Maneuvers]
+
+If you want to do something special with your attack---push the wight back into
+its coffin, shoot the troll's eye out, or break the goblin's kneecaps---you can
+take disadvantage (possibly multiple disadvantages, at the GM's discretion) on the
+attack roll to pull off your maneuver if the attack hits.
 
 [section 2 Combat Advantages]
 
 [text b Suprise Attacks.] If you attack a creature that doesn't know you're
-there, you get a +8 bonus to hit.
+there, you get a +6 bonus to hit.
 
 [text b Flanking.] If there is an allied creature engaged with your target that
 is across from you, you get a +4 bonus to hit.
@@ -403,10 +434,7 @@ You start knowing one additional language of your choice.
 
 You are proficient with weapons up to d10 and armor up to type 3.
 
-When you attack with any melee weapon, you deal additional damage equal to half the amount of
-damage that you have taken, rounded down.
-[example A berserker with 5 health has taken 3 damage. This berserker will deal an additional 1
-damage with all melee attacks.]
+When you attack with any melee weapon, you deal an additional d12/X damage, where X is 12 minus the amount of damage you've taken, to a minimum of one.
 
 The first time each turn that you kill a creature with a melee attack, you may move up to one fathom and make a second melee
 attack.
@@ -468,8 +496,7 @@ When you make a surprise attack, you roll an additional d8/5 for damage.
 
 You are proficient with weapons up to d8 and armor up to type 4.
 
-The first time each turn that you make a surprise attack or attack a creature
-that is being flanked, you have a +2 to hit and roll an additional d4/4
+The first time each turn that you attack a creature that is surprised, flanked, or otherwise off-guard, you have advantage to hit and roll an additional d4/4
 for damage.
 
 Your critical hits roll a d12/5 for additional damage.
