@@ -1,0 +1,19 @@
+name: Greater Arcanadaemon
+size: 3
+type: daemon
+bonuses:
+  str: 4
+  int: 3
+  per: 2
+  spd: 2
+senses:
+- truesight
+languages:
+- ARKANETH
+resist:
+- magic
+- physical
+- psychic
+attack:
+- 3/2
+- '[attack big] magic slashing (talons)'

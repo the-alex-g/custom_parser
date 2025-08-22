@@ -205,7 +205,8 @@ Type & Die & Name & Dex & Spd & Cost &
 3 & d6/4 & brigandine & - & - & 5g &
 4 & d6/3 & chain & - & -1 & 12g &
 5 & d4/2 & scale & - & -2 & 40g &
-6 & d6/2 & plate & -1 & -2 & 80g]
+6 & d6/2 & plate & -1 & -2 & 80g &
+7 & d10/2 & magic only & - & - & -]
 
 Armor's type is reduced by the amount of damage it has taken. If an armor is has
 taken three damage or been reduced to type 0, it becomes ineffective until

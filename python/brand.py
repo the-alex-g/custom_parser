@@ -51,7 +51,11 @@ WEAPONS = {
     "greatsword":{
         "die":10,
         "dtype":"slashing"
-    }
+    },
+    "sling":{
+        "die":4,
+        "dtype":"piercing"
+    },
 }
 MAJOR_DEITIES = {
     "LG":{

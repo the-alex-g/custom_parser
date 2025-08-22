@@ -138,7 +138,6 @@ def get_dict_by_name(data):
     if type(data) == list:
         name_dict = {}
         for item in data:
-            print(item)
             name_dict[headername(item)] = item
         return sort_dictionary(name_dict)
     elif type(data) == dict:

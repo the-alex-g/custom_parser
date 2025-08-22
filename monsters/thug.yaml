@@ -1,0 +1,15 @@
+name: Thug
+size: 2
+type: humanoid
+armor: leather
+attack:
+- 1
+- '[attack 4] (weapon)'
+- '[weapon sling]'
+languages:
+- COMMON
+bonuses:
+  det: -1
+  str: 2
+special:
+  Weapon: Thugs can wield any d4 weapon. You can randomly determine the damage type by rolling 1d6; 1-2 is bludgeoning, 3-4 is piercing, and 5-6 is slashing.

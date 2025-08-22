@@ -1,0 +1,15 @@
+name: Captain
+size: 2
+type: humanoid
+armor: leather
+attack:
+- 1
+- '[weapon sword]'
+shield: targe
+languages:
+- COMMON
+bonuses:
+  str: 2
+  cha: 2
+  con: 1
+  per: 1
