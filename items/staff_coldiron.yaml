@@ -1,0 +1,11 @@
+name: Coldiron Staff
+type: weapon
+die: d6
+material: coldiron
+attunement: wizard
+text: >
+ The owner of this staff gets +1 to cast and -1 on spell failure rolls for spells that summon
+ daemons. [newline] Once per day, the owner of the staff can spend an action to speak a command word
+ and fire a hail of coldiron shards in a 4-fathom cone. Any creatures in the cone suffer piercing
+ damage equal to the wielder's Int, halved with a successful [check Evd 8]. These darts are treated
+ as a coldiron weapon.

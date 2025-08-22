@@ -1,0 +1,23 @@
+metal:
+  weapon:
+    coldiron: Weapons made of coldiron ignore daemons' physical resistance. They also have a -1 penalty to hit, due to the additional weight, but deal an extra d10/9 damage on a hit. A coldiron weapon can take 3 damage before breaking.
+    meteorstone: Weapons made of meteorstone have a -1 penalty to hit but deal an extra d6/5 damage on a hit.
+    silver: Silvered weapons ignore undead creatures' physical resistance.
+    bronze: Bronze weapons can take only 1 damage before breaking, and the wielder's strength is counted as one less when calculating weapon thresholds.
+    steel: Steel weapons can take 3 damage before breaking, and the weapon threshold can be reduced to 4 if the wielder has appropriate strength.
+    mithril: Mithril weapons take one less damage from all sources and penetrate 1 armor.
+    bonesteel: Bonesteel weapons do half damage to undead and deal necrotic damage in addition to other types.
+    shadowsteel: Shadowsteel weapons have advantage to hit in dim light or darkness.
+    blood iron: Blood iron weapons have +1 to hit wounded creatures and deal an additional d4/4 damage on a hit, but give attacks against the wielder advantage.
+    iron: Iron is the baseline weapon material.
+  armor:
+    coldiron: Coldiron armor is +-quality, ignores the first damage dealt to it, and gives an extra -1 Spd and Dex. Coldiron armor is effective against magic damage.
+    meteorstone: Meteorstone armor can only take 2 damage before being destroyed, but is effective against lightning and magic damage.
+    silver: Silver armor is effective against necrotic damage from undead attacks.
+    bronze: Bronze armor is destroyed after taking only 2 damage and gives an extra -1 Spd and Dex.
+    steel: Steel armor ignores the first damage dealt to it.
+    mithril: Mithril armor never gives Spd or Dex penalties and gives protection as one type higher. The armor takes one less damage from all sources.
+    bonesteel: Bonesteel armor counts as one type less against attacks from undead and is effective against necrotic damage from non-undead creatures.
+    shadowsteel: Shadowsteel armor gives attacks against you disadvantage while in dim light or darkness.
+    iron: Iron is the baseline armor material.
+    blood iron: Blood iron armor gives attacks against you advantage, and you do not suffer the critically wounded penalty.
