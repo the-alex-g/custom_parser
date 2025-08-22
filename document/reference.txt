@@ -1,0 +1,39 @@
+	ATTACK DAMAGE					DEFENDING
+Weapon thresholds based on Strength:	For each incoming damage, roll your Armor
+   |_+0_|_+1_|_+2_|+3_|+4_|+5_|+6_|+7_|	die. If the result is equal to or greater
+d4 |__4_|__4_|__4_|_4_|_4_|_4_|_4_|_4_|	than the listed threshold, block that
+d6 |__6_|__5_|__5_|_5_|_5_|_5_|_5_|_5_|	damage. Armor only blocks physical, cold,
+d8 |__8_|__7_|__6_|_5_|_5_|_5_|_5_|_5_|	fire, and acid damage. Blocking acid
+d10|_10_|__9_|__8_|_7_|_6_|_5_|_5_|_5_|	damages armor.
+d12|_12_|_11_|_10_|_9_|_8_|_7_|_6_|_5_|			CRITICAL HITS				     
+					If you roll a natural 12 on your attack
+Roll your damage dice. If any dice are	roll, or the total was greater than or
+over their threshold, roll them again.	equal to 14, choose one of the following:	     
+Repeat until all dice are under the	* deal 1 + d8/5 extra damage		     
+listed threshold. Deal damage equal to	* inflict Str, Dex, Spd, or Con drain	     
+1 + the number of re-rolls you made.	* damage one armor or weapon
+
+    	COINAGE	       	  	       		     	LUCK
+1g = 5s = 50c = 100i			To see if you are lucky, roll 1d6. If you
+1s = 10c = 20i				roll 5 or 6, you are lucky.
+1c = 2i
+
+	EQUIPMENT DAMAGE				ARMOR
+If a weapon takes 2 damage, it is	|Type|_Die|___Name___|Dex|Spd|Cost|
+destroyed.  	    	       		|__0_|d6/6|_no armor_|___|___|____|
+If you roll a natural 1 on a to-	|__1_|d8/7|__leather_|___|___|_3s_|
+hit roll, your weapon is damaged	|__2_|d6/5|___hide___|___|___|_5s_|
+unless you're Lucky.  	 		|__3_|d6/4|brigandine|___|___|_5g_|
+When armor is damaged, reduce its	|__4_|d6/3|___chain__|___|_-1|_12g|
+effective type by one. Armor that	|__5_|d8/3|___scale__|___|_-2|_40g|
+is damaged 3 times or reduced to	|__6_|d6/2|___plate__|_-1|_-2|_80g|
+type 0 is destroyed.
+
+       SHIELDS						RESTING
+|__Name_|Melee|Ranged|Cost|		Take a 10-minute break and eat food to
+|buckler|__+1_|______|_2s_|		regain either 1 health or 1 point of
+|_targe_|__+1_|__+2__|_4s_|		attribute drain. Only once per day.
+|_tower_|__+1_|__+2__|_6s_|
+
+Shields can take 2 damage before
+being destroyed.
