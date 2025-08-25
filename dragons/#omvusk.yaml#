@@ -1,0 +1,7 @@
+titles:
+- Breath of Storms
+mode: =
+abilities:
+  Lightning Breath [recharge 5-6 c p] @: The dragon exhales a 10-fathom-long line of crackling electricity. Any creatures struck by the lightning take 1d4 lightning damage, plus an additional 1d4 if they are wearing metal armor or carrying other large metal objects, such as greatswords. Roll separately for each target.
+  Wings of Storm: Lightning plays at the edges of this dragon's wings. The first time each turn that the dragon flies within 6 fathoms of a creature, unless that creature is Lucky, it takes 1 lightning damage.
+  Storm's Caress [recharge 6 c p] @: The dragon may fly up to its flying speed and regains [percent 25] of its total health.

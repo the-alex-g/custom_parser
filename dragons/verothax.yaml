@@ -1,0 +1,8 @@
+titles:
+- the Undying
+- Bone-Hoarder
+constants: [percent 95] of the children of Verothax are once-living dragons who were either enslaved by the Bone-Hoarder or who willingly accepted his gift of undeath. Such dragons are undead, with the usual traits of undead creatures.
+abilities:
+  Icy Death [recharge 5-6 c p] @: The dragon exhales a 6-fathom cone of frigid blue fire. Any creature caught in the cone suffers 3 cold unholy necrotic damage, or half as much with a successful [check Evd hard], and must succeed on a [check Con Det] or suffer 1 Spd drain. Any creature slain by this damage rots extremely fast, being reduced to bare bones within 1d4 rounds. Unless a slain creature is Lucky, it reanimates as a skeleton under the dragon's control after decomposing.
+  Shades of the Dead: The spirits of those it has slain surround the dragon. Any living creature that starts its turn within 3 fathoms of the dragon must succeed on a [check Det Det] or suffer 1 unholy damage.
+  Howl of the Damned [recharge 6 c p] @: The dragon unleashes a horrific wail. All living creatures within 20 fathoms of the dragon suffer 3 unholy damage, 1 Str drain, 1 Con drain, 1 Det drain, and are afraid of the dragon. A successful [check Det hard] negates two of the damage, one type of drain, and the fear. Creatures that cannot hear or that have plugged their ears have advantage on the check. Once a creature has been affected by the howl once, it has advantage on all checks against it for one day.

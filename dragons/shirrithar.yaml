@@ -1,0 +1,7 @@
+titles:
+- the Endless Shadow
+constants: Almost all children of Shirrithar have jet-black scales and resistance to non-magic physical damage.
+abilities:
+  Breath of Shadows [recharge 5-6 p c] @: Inky blackness seeps from the dragon's maw. A cloud of impenetrable darkness forms in a 10-fathom cube which must contain the dragon. Only the dragon can see in the darkness, and no light, magical or mundane, can illumine it. The cloud of shadow lasts for 10 minutes or until the dragon uses this action again.
+  Shadow Step @: The dragon teleports from one area of dim light or darkness to another area of dim light or darkness within 20 fathoms.
+  Wrath of the Darkness [recharge 5-6 p c] @: Tendrils of darkness form and attack creatures in a 10-fathom-diameter circle centered on a point the dragon can see within 10 fathoms. Creatures in the affected area suffer d8/5 psychic bludgeoning damage and must succeed on a [check Evd hard] or be restrained (escape difficulty 12). A creature that starts its turn restrained suffers d8/5 psychic bludgeoning damage. Any creatures that are still restrained when the dragon uses this ability again are released.
