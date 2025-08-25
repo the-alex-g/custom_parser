@@ -14,7 +14,7 @@ bonuses:
 armor: 3
 attack:
 - 1
-- "[attack med] unblockable unholy (destroying touch)"
+- "[attack med] unholy (destroying touch)"
 special:
  Consume @: >
   All non-daemons within 6 fathoms of the [name] must succeed on a [check str det] or be pulled

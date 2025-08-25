@@ -22,14 +22,14 @@ Pick a race for your character. Each race has a unique set of starting stat bonu
 
 [titulartable cccc Race
 Stat & Dwarf & Gnome & Human &
-Str & +2 & +0 & +1 &
-Dex & +2 & +2 & +1 &
-Con & +2 & +0 & +1 &
-Spd & +0 & +1 & +1 &
-Int & +1 & +2 & +1 &
-Per & +1 & +2 & +1 &
-Det & +2 & +1 & +1 &
-Cha & +0 & +1 & +1 &
+Str & +1 & -1 & +0 &
+Dex & +1 & +1 & +0 &
+Con & +1 & -1 & +0 &
+Spd & -1 & +0 & +0 &
+Int & +0 & +1 & +0 &
+Per & +0 & +1 & +0 &
+Det & +1 & +0 & +0 &
+Cha & -1 & +0 & +0 &
 ... & +0 & +1 & +2 &
 Size & 1 & 1 & 2]
 
@@ -52,13 +52,11 @@ Wizard & Int]
 [table cccccc
 Bonus & 0 & 1 & 2 & 3-4 & 5+ &
 Die & d4 & d6 & d8 & d10 & d12]#
-Your starting health is equal to 3 + your Con bonus. Re-calculate your health only when receiving a
+Your starting health is equal to 4 + your Con bonus. Re-calculate your health only when receiving a
 permanent modifier to Con.
 
-Your Evasion is equal to 4 + Spd + Dex - Size. Recalculate whenever your
+Your Evasion bonus is equal to 2 + Spd - Size. If your Dex is greater than 1, add one to your Evd. If your Dex is less than -1, subtract one from your Evd. Recalculate whenever your
 Spd, Dex, or Size changes, even temporarily.
-
-If you need to make an Evd check, use your Evasion score minus six as the bonus.
 
 Pick an occupation; this is what your character did for a living before becoming
 an adventurer (sailor, blacksmith, farmer, shepherd, etc.).
@@ -242,7 +240,7 @@ Type & Die & Cost &
 To attack, choose a weapon to attack with. If it's a ranged weapon, the target
 must be within range. If it's a melee weapon, the target must be within reach.
 
-Roll Dex vs Evd for accuracy. If you win, you hit the target. If you rolled a
+Roll 1d12 and add Dex for accuracy. If the total is greater than or equal to four plus the target's Evd, you hit the target. If you rolled a
 natural 12, or equal to or greater than your critical threshold (default 14),
 you get a critical hit.
 
@@ -501,6 +499,8 @@ The first time each turn that you attack a creature that is surprised, flanked, 
 for damage.
 
 Your critical hits roll a d12/5 for additional damage.
+
+When calculating evasion, you may use the formula 2 - Size + Dex, plus 1 if Spd is greater than 1, or -1 if Spd is less than -1.
 
 [extra_attacks 1 3]
 

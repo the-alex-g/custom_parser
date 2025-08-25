@@ -1,0 +1,14 @@
+name: Shining Slime
+type: ooze
+bonuses:
+  dex: 4
+  spd: -1
+  str: 2
+size: 2
+attack:
+- 1
+- '[attack med] acid and mesmerization (pseudopod)'
+special:
+  Mesmerization: A living creature affected by this ability must succeed at a [check det con] or be unable to move or act on their next turn. Another creature can spend an action to shake a mesmerized creature awake.
+  Gleaming Lights: The slime [illuminates 1]. It can dim or supress this glow at any time. Any creature that looks at the slime while it is glowing is mesmerized, but only once per creature per day.
+text: See Dungeon Denizens Crystal Slime, DCC RPG.

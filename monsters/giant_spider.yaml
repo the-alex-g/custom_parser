@@ -2,7 +2,7 @@ armor: hide
 attack:
 - 1
 - '[attack 6] piercing and spider venom (bite)'
-- restrained (escape [difficulty med]) (web, [weapon_range thrown], [recharge 5-6])
+- 0 and restrained (escape [difficulty med]) (web, [weapon_range thrown], [recharge 5-6])
 bonuses:
   cha: -4
   det: 2
@@ -17,6 +17,6 @@ senses:
 size: 2
 special:
   Spider Venom (poison): Once per round for ten rounds, the affected creature must
-    succeed on a [check con med] or suffer 1 unblockable necrotic damage. A creature
+    succeed on a [check con med] or suffer 1 necrotic damage. A creature
     reduced to zero health by this damage is paralyzed, but remains alive.
 type: animal

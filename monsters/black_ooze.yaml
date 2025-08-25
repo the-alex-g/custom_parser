@@ -15,11 +15,7 @@ size: 2
 special:
   Fission: 'If the ooze takes slashing damage and has at least 2 health left, it splits
     into two oozes that are half its size. The ooze''s health is divided evenly between
-    the two new oozes.
-
-    '
-  Pseudopod: If a creature is hit by the pseudopod and wearing non-metal armor, its
-    armor takes 1 damage.
+    the two new oozes.'
 traits:
 - Amorphous
 - Acidic Body

@@ -80,18 +80,25 @@ def get_ability_list(bonuses):
     return string
 
 
+def _modify(base, value):
+    if value > 1:
+        base += 1
+    elif value < -1:
+        base -= 1
+    return base
+
+
 def calculate_evade(bonuses, dice, size, dodge, shield):
     dex = pp.get_key_if_exists(bonuses, "dex", 0)
     spd = pp.get_key_if_exists(bonuses, "spd", 0)
-
-    return max(1, 4 + spd + dex + shield - size)
-#    dex_die = dice["dex"]
-#    spd_die = dice["spd"]
-#    evade = dex + floor(spd_die / 2)
-#    spd_base_evd = spd + floor(dex_die / 2)
-#    if dodge and spd_base_evd > evade:
-#        evade = spd_base_evd
-#    return evade + shield - size
+    evade = 2 - size + shield
+    spd_base = _modify(spd, dex)
+    if dodge:
+        dex_base = _modify(dex, spd)
+        evade += max(dex_base, spd_base)
+    else:
+        evade += spd_base
+    return evade
 
 
 def get_base_health(size, bonus):
@@ -202,9 +209,11 @@ def get_monster_dice(size, type):
 
     return dice
 
+total_evasion = 0
 
 def create_monster(monster):
     global monster_count
+    global total_evasion
 
     if monster["type"] in DEFAULT_MONSTER_TRAITS and pp.get_key_if_exists(monster, "include_type_traits", True):
         monster = pp.combine_dictionaries(monster, DEFAULT_MONSTER_TRAITS[monster["type"]], {})
@@ -277,6 +286,7 @@ def create_monster(monster):
         bonus_dict, dice, size, "dodge" in monster,
         shield_evd
     ) + pp.get_key_if_exists(monster, "evd_bonus", 0)
+    total_evasion += evasion
     level = level_calculator.get_level(health, evasion, monster, bonus_dict)
 
     print(f"compiling {name} ({level})")
@@ -284,42 +294,47 @@ def create_monster(monster):
     string = "\\section*{" + headername + "}"
     if "flavor" in monster:
         string += f"[text i {pp.get_key_if_exists(monster, "flavor", "")}][newline med]"
-    string += f"[label <{headername}>][text sc {monster["type"]}]"
+    string += f"[label <{headername}>][text sc size {monster["size"]} {monster["type"]}]"
 
     if "tags" in monster:
         string += f" ({pp.comma_separate(sorted(monster["tags"]))})"
 
     string += NEWLINE
-    ability_string = get_ability_list(bonus_dict)
-    if ability_string != "":
-        string += ability_string + NEWLINE
-    string += f"[bold Size] {size} [bold Health] {health} "
-    #if armor == 0:
-    #    string += f"{health} "
-    #elif base_health <= 0:
-    #    string += f"{health} "
-    #else:
-    #    string += f"{base_health}/{health - base_health} "
-    if armor > 0:
-        string += f"[bold Arm] {ARMOR_DIE_STRINGS[armor]} "
-    string += f"[bold Evd] {evasion} "
-    string += f"[bold Mv] {movement} "
+
+    string_abilities = {}
+    max_bonus_length = 0
+    for ability in ABILITIES:
+        string_abilities[ability] = brand.format_bonus(pp.get_key_if_exists(bonus_dict, ability, 0))
+        max_bonus_length = max(max_bonus_length, len(string_abilities[ability]))
+    add = lambda ability: f"[text b {ability.title()}]: {" " * (max_bonus_length - len(string_abilities[ability]))}{string_abilities[ability]} "
+    string += f"""{add("str")}{add("per")} [text b Armor]: {ARMOR_DIE_STRINGS[armor]}[newline]
+    {add("dex")}{add("det")} [text b Evasion]: [format_bonus {evasion}]/{max(1, evasion + 4)}[newline]
+    {add("con")}{add("int")} [text b Health]: {health + pp.get_key_if_exists(monster, "health", 0)}[newline]
+    {add("spd")}{add("cha")} [text b Attacks]: {pp.get_key_if_exists(monster, "attack", [0])[0]}[newline]"""
+    #ability_string = get_ability_list(bonus_dict)
+    #if ability_string != "":
+    #    string += ability_string + NEWLINE
+    #string += f"[bold Size] {size} [bold Health] {health} "
+    #if armor > 0:
+    #    string += f"[bold Arm] {ARMOR_DIE_STRINGS[armor]} "
+    #string += f"[bold Evd] {evasion} "
+    #string += f"[bold Mv] {movement} "
 
     for field in ("immune", "resist", "vulnerable"):
         if field in monster:
-            string += get_monster_array_field(field.title(), monster)
+            string += get_monster_array_field(field.title(), monster) + NEWLINE
 
     if "languages" in monster:
-        string += get_monster_array_field("Languages", monster)
+        string += get_monster_array_field("Languages", monster) + NEWLINE
     
     if "senses" in monster:
-        string += get_monster_array_field("Senses", monster)
+        string += get_monster_array_field("Senses", monster) + NEWLINE
 
     if "spell resist" in monster:
-        string += f"[bold Spell Resist] {monster["spell resist"]}"
+        string += f"[bold Spell Resist] {monster["spell resist"]}" + NEWLINE
     
     if "attack" in monster:
-        string += f"[newline][bold Attack] {monster["attack"][0]}/round[newline][quad] {pp.separate(monster["attack"][1:], spacer="[newline] [quad] ")}"
+        string += f"[bold Attacks] {pp.separate(monster["attack"][1:], spacer=", ")}"
     
     if "special" in monster:
         ability_name_dict = pp.get_dict_by_name(monster["special"])
@@ -336,13 +351,15 @@ def create_monster(monster):
         string += LINEBREAK + get_monster_spells(monster["spellcasting"], bonus_dict)
     
     if "variants" in monster:
-        string += LINEBREAK + f"[bold Variants][newline][halfline]"
+        string += NEWLINE + LINEBREAK + f"[bold Variants][newline][halfline]"
         for variant_name in monster["variants"]:
             string += f"[bold {variant_name}]. {monster["variants"][variant_name]}[newline]"
             string += LINEBREAK
 
     if "text" in monster:
-        string += NEWLINE + LINEBREAK + monster["text"]
+        if not "variants" in monster:
+            string += NEWLINE + LINEBREAK
+        string += monster["text"]
 
     monster_count += 1
 

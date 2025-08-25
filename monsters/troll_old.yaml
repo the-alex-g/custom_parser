@@ -1,0 +1,24 @@
+name: Fell Troll
+attack:
+- 1
+bonuses:
+  cha: -1
+  con: 3
+  int: -1
+  per: -1
+  str: 4
+headername: Troll, Fell
+size: 3
+languages:
+- GOBLIN
+- common
+armor: brigandine
+special:
+  Dark Blood: Any creature that deals piercing or slashing damage to the troll must succeed on a [check evd con] or suffer 1 acid damage. This acid affects organic matter, stone, and metal, but not other fell trolls. Unless the weapon's wielder is Lucky with a +1 bonus, the weapon also takes one damage.
+type: giant
+alignment: ne
+attack:
+- 1
+- '[attack big] bludgeoning (club)'
+- '[attack 6] bludgeoning (fist)'
+- '[attack 6] bludgeoning (boulder, [weapon_range boulder])'

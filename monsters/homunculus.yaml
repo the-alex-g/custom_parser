@@ -1,0 +1,21 @@
+name: Homunculus
+size: 0
+type: daemon
+armor: leather
+bonuses:
+  str: -1
+  per: 1
+  spd: 1
+  dex: 1
+senses:
+- truesight
+languages:
+- telepathy (owner only)
+- ARKANETH
+resist:
+- psychic
+attack:
+- 1
+- '[attack sm1] bludgeoning (punch)'
+movement:
+- f

@@ -13,11 +13,6 @@ resist:
 senses:
 - tremorsense
 size: 0
-special:
-  Squirt: 'For each damage from this attack that is blocked by armor made from natural
-    materials, that armor takes one damage.
-
-    '
 type: plant
 vulnerable:
 - slashing

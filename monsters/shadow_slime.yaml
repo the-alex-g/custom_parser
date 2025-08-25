@@ -21,3 +21,5 @@ traits:
 type: ooze
 vulnerable:
 - holy
+text: >
+ The [possessive [name]] acid only affects living creatures.

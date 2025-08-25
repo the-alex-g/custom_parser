@@ -18,9 +18,7 @@ name: Giant Wasp
 size: 1
 special:
   Wasp Venom (poison): 'The poisoned creature must succeed on a [check con easy] or
-    suffer 1 unblockable necrotic damage.
-
-    '
+    suffer 1 necrotic damage.'
 type: animal
 vulnerable:
 - cold

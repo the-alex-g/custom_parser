@@ -43,7 +43,7 @@ special:
 
     '
   Psychic Crush @: 'One living creature within 10 fathoms of the moss must succeed
-    on a [check int int] or suffer 1 unblockable psychic damage and be unable to take
+    on a [check int int] or suffer 1 psychic damage and be unable to take
     actions on its next turn. If the creature succeeds, it may make a second check.
     If it succeeds on that check, it gets a +1 bonus to Int that lasts for 2d4 hours.
     This bonus is not cumulative.

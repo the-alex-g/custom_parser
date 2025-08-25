@@ -14,10 +14,7 @@ flag_reformated: true
 name: Green Slime
 size: 2
 special:
-  Pseudopod: If a creature is hit by the pseudopod and wearing non-metal armor, its
-    armor takes 1 damage. Otherwise, some of the ooze's acid sticks to the creature.
-    At the end of the creature's next turn, unless the acid is somehow removed before
-    then, that creature takes 1 acid damage.
+  Pseudopod: Unless a creature hit by this attack is Lucky, some of the ooze's acid sticks to the creature. At the end of the creature's next turn, unless the acid is somehow removed before then, that creature takes 1 acid damage.
 traits:
 - Amorphous
 - Acidic Body

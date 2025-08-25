@@ -17,12 +17,9 @@ immune:
 name: Crimson Pudding
 size: 2
 special:
-  Pseudopod: 'If a creature is hit by the pseudopod and wearing non-metal armor, its
-    armor takes 1 damage. If the attack deals any damage to the target, the ooze regains
+  Pseudopod: 'If the attack deals any damage to the target, the ooze regains
     1 health. If the ooze was already at max health, it splits into two oozes with
-    half health.
-
-    '
+    half health.'
 traits:
 - Amorphous
 - Acidic Body

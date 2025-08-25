@@ -28,15 +28,11 @@ size: 1
 special:
   Bramble Mind: 'Any creature that communicates telepathically with the drake, deals
     psychic damage to it, or otherwise interacts psychically, must succeed on a [check
-    int det] or take 1 unblockable piercing psychic damage.
-
-    '
+    int det] or take 1 piercing psychic damage.'
   Thorn Shower [recharge 5-6 c p] @: 'All creatures in a 10-foot cone must make a
     [check evd med], taking 2 piercing damage on a failure, or 1 on a success. Creatures
     with armor type 3 or higher, or those carrying shields, have advantage on the
-    check.
-
-    '
+    check.'
 str: 2
 type: dragon
 vulnerable:
