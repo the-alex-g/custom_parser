@@ -10,9 +10,7 @@ bonuses:
 resist:
 - necrotic
 senses:
-- blindsight
-traits:
-- Echolocation
+- echolocation
 movement:
 - :w
 - s

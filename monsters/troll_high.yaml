@@ -24,6 +24,8 @@ name: High Troll
 size: 3
 special:
   Charge: If the troll moves at least 4 fathoms toward a target and then hits it with a melee attack, the attack deals one additional damage.
+
 variants:
-  Fell Troll: A fell troll has immunity to acid damage and the following ability: Any creature that deals piercing or slashing damage to the troll must succeed on a [check evd con] or suffer 1 acid damage. This acid affects organic matter, stone, and metal. Unless the weapon's wielder is Lucky with a +1 bonus, the weapon also takes one damage.
+  Fell Troll: "A fell troll has immunity to acid damage and the following ability: Any creature that deals piercing or slashing damage to the troll must succeed on a [check evd con] or suffer 1 acid damage. This acid affects organic matter, stone, and metal. Unless the weapon's wielder is Lucky with a +1 bonus, the weapon also takes one damage."
+
 type: giant

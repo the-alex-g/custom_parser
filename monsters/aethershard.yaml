@@ -22,6 +22,5 @@ resist:
 - unholy
 size: 2
 special:
-  Antimagic Vulnerability: FIXME
-  Volatile Nature: Whenever a creature hits the aethershard with a melee attack, that creature takes 1 magic damage.
+  Volatile Nature: Whenever a creature hits the aethershard with a melee attack, that creature takes 1 magic damage. # FIXME: this creature should also have antimagic vulnerability #
 type: spirit

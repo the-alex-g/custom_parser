@@ -1,3 +1,7 @@
+[section 1 Who Are You?]
+
+The person orchestrating the game is the [dm]. You are World Master, Lore Keeper, Knower of Secrets. You are the Darkness and the Light, smiting down with one hand and lifting up with the other, speaking Doom while offering the weapons to defy it. You are the grandfather of all that is. You love the teeming horrors in the darkness as much as the heroes that rise bright against them. You love the glorious clash and fall of either side against the other, knowing that death is never the end. Always new monsters and new heroes will rise from the ashes, and when they do, you will be there to guide them down the path through darkness and light to Doom and Glory, Life and Knowledge, the Wisdom of an ancient tale.
+
 [section 1 Attributes]
 
 There are eight core attributes: Strength, Dexterity, Constitution, Intelligence, Perception, Charisma, Determination, and Speed.
@@ -263,7 +267,7 @@ damage to the target's armor, shield, or weapon.
 
 If you want to do something special with your attack---push the wight back into
 its coffin, shoot the troll's eye out, or break the goblin's kneecaps---you can
-take disadvantage (possibly multiple disadvantages, at the GM's discretion) on the
+take disadvantage (possibly multiple disadvantages, at the [possessive [dm]] discretion) on the
 attack roll to pull off your maneuver if the attack hits.
 
 [section 2 Combat Advantages]
@@ -310,16 +314,20 @@ points to negate an equal amount of damage.
 
 [section 1 Resting and Recovery]
 
-One week of rest provides full recuperation. Healing in any lesser amount of
-time requires magic.
+Once per day, a character can take a short rest. A short rest requires 10 minutes of inactivity in a
+safe location. After the rest, each character that succeeds on a [check con med] recovers 1 point of
+ability drain OR 1 health. If the characters ate a small meal during the rest, they get advantage
+on the check. Other camp comforts, as determined by the [dm], also provide advantage.
 
-Diseases are not automatically cured by resting.
+Examples of camp comforts include shelter from the rain, a burning torch in a dark, dank tomb, or a crackling fire on a cold night.
+
+For every full night's rest and meal that the characters get, they recover 1 health and 1 point of ability drain.
 
 [section 1 Character Death]
 
 When a player character is reduced to 0 health, they fall unconscious until they regain at least
 one health. For each damage taken that would bring them below zero health, their Con bonus is instead
-permanently reduced by one (with appropriate reductions to health). A character reduced to -4 Con
+permanently reduced by one (with appropriate reductions to max health). A character reduced to -4 Con
 is irrevocably dead.
 
 [section 1 Light and Sensing]
@@ -337,6 +345,8 @@ is irrevocably dead.
     # magical in nature #
     Dimsight & Can see as if the light level were one higher &
     # natural keen night vision #
+    Echolocation & Can sense surroundings as long as the creature can hear &
+    # echolocation #
     Sense Living & Can sense living creatures, regardless of ability to see &
     # for telepaths and powerful undead #
     Tremorsense & Can sense moving things, regardless of ability to see &
@@ -351,7 +361,7 @@ Round down when determining the total distance you can move.
 
 Moving through difficult terrain costs twice as many movement points as usual.
 
-Some effects use the term "nearby". Nearby can mean 1) anything the GM
+Some effects use the term "nearby". Nearby can mean 1) anything the [dm]
 determines is nearby, 2) anything within arm's reach, or 3) anything
 within one fathom.
 
@@ -399,7 +409,7 @@ The ritual takes a number of rounds to perform equal to the rank of the creature
 On your turn, you may move a number of fathoms up to your Mv value and take
 an action, in either order. You can even interrupt your move with an action.
 Possible actions include attacking, casting a spell, checking for traps,
-or anything else the GM determines should take an action.
+or anything else the [dm] determines should take an action.
 
 Instead of taking an action, you may move again, up to half your Mv value.
 
@@ -454,7 +464,7 @@ Balance is not one of my greatest design concerns. #
 When you become a druid, choose one of the following options:
 
 [text ib Animal Companion.] You have an animal companion, which can be of any
-type approved by the GM. It has +2 Int, +1 Per, and +1 health. You can
+type approved by the [dm]. It has +2 Int, +1 Per, and +1 health. You can
 communicate verbally with this companion.
 
 [text ib Beast Shape.] A number of times per day equal to your Det bonus, you

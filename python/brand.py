@@ -623,4 +623,8 @@ def keyword(*text):
     return f"{_separate(text).upper()}"
 
 def pound():
-    return "\\#"
+    return "\\# "
+
+def dm():
+    # World Master, Lore Keeper, Knower of Secrets
+    return "T\\ae vir"

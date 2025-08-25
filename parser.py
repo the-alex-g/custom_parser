@@ -9,7 +9,7 @@ SOURCE_DOC = "document/rules.brand"
 
 ABILITIES = ["str", "con", "dex", "spd", "int", "per", "cha", "det"]
 ARMOR_HEALTH_MODS = [6/5, 4/3, 3/2, 2, 3, 4, 6]
-ARMOR_DIE_STRINGS = {0:"d6/6", 1:"d8/7", 2:"d6/5", 3:"d6/4", 4:"d6/3", 5:"d8/3", 6:"d6/2", "1-":"d10/9", "1+":"d10/8", "2-":"d10/8", "2+":"d8/6", "3-":"d12/8", "3+":"d12/5", "4-":"d8/4", "4+":"d10/4", "5-":"d10/4", "5+":"d10/3", "6-":"d10/3", "6+":"d8/2"}
+ARMOR_DIE_STRINGS = {0:"d6/6", 1:"d8/7", 2:"d6/5", 3:"d6/4", 4:"d6/3", 5:"d8/3", 6:"d6/2", "1-":"d10/9", "1+":"d10/8", "2-":"d10/8", "2+":"d8/6", "3-":"d12/8", "3+":"d12/5", "4-":"d8/4", "4+":"d10/4", "5-":"d10/4", "5+":"d10/3", "6-":"d10/3", "6+":"d8/2", "7":"d10/2"}
 HARDNESSES = {"leather":1, "wood":2, "stone":3, "bronze":4, "iron":5, "gemstone":6}
 ARMOR_NAMES = {"none":0, "leather":1, "hide":2, "brigandine":3, "chain":4, "scale":5, "plate":6}
 ARMOR_SPD_PENALTY = {4:-1, 5:-2, 6:-2}
@@ -288,8 +288,6 @@ def create_monster(monster):
     ) + pp.get_key_if_exists(monster, "evd_bonus", 0)
     total_evasion += evasion
     level = level_calculator.get_level(health, evasion, monster, bonus_dict)
-
-    print(f"compiling {name} ({level})")
     
     string = "\\section*{" + headername + "}"
     if "flavor" in monster:
